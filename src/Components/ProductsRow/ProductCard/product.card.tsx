@@ -36,7 +36,8 @@ function ProductCard(props: ProductCardProps) {
                 <FontAwesomeIcon 
                     icon={faHeart} 
                     onClick={AddProductToWishlist} 
-                    style={{color: heartColor, transition:'all 500ms'}}/>
+                    style={{color: heartColor, transition:'all 500ms'}}
+                />
             </div>
             <Link key={props.productUrl} to={`/products/${props.productUrl}`} className="product-link"> 
                 <img alt={props.imgAlt} src={props.imgLink}/>
