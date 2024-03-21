@@ -1,0 +1,31 @@
+.Main {
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+    color: #FFFFFF;
+
+    position: absolute;
+    text-align: center;
+}
+
+.selectionText {
+    margin-top: 75px;
+    font-weight: 600;
+    font-size: 120%;
+}
+
+.contentBox {
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    height: 100%;
+
+    border: 1px solid #FFFFFF;
+}
+
+.continent {
+    display: inline;
+    margin: 0px 9% 0px 9%;
+}
