@@ -5,10 +5,52 @@ function LanguagePage() {
     <div className="Main">
         <div className='selectionText'>Select Location & Language</div>
         <div className='contentBox'>
-            <div className='continent'>AMERICAS</div>
-            <div className='continent'>EUROPE</div>
-            <div className='continent'>ASIA PACIFIC</div>
-            <div className='continent'>AFRICA</div>
+            <h1 className='continent'>AMERICAS
+              <ul>
+                <li>Brazil</li>
+                <li>Canada</li>
+                <li>United States</li>
+                <li>Mexico</li>
+              </ul>
+            </h1>
+            <h1 className='continent'>EUROPE
+              <ul>
+                <li>Belguim</li>
+                <li>Czech Republic</li>
+                <li>Denmark</li>
+                <li>Germany</li>
+                <li>Spain</li>
+                <li>Finland</li>
+                <li>France</li>
+                <li>Great Britain</li>
+                <li>Croatia</li>
+                <li>Ireland</li>
+                <li>Italy</li>
+                <li>Luxemburg</li>
+                <li>Hungary</li>
+                <li>Netherlands</li>
+                <li>Austria</li>
+                <li>Poland</li>
+                <li>Portugal</li>
+                <li>Serbia</li>
+                <li>Turkey</li>
+              </ul>
+            </h1>
+            <h1 className='continent'>ASIA PACIFIC
+              <ul>
+                <li>Australia</li>
+                <li>China</li>
+                <li>India</li>
+                <li>Indonesia</li>
+                <li>Korea</li>
+                <li>Philippines</li>
+              </ul>
+            </h1>
+            <h1 className='continent'>AFRICA
+              <ul>
+                <li>South Africa</li>
+              </ul>
+            </h1>
         </div>
     </div>
   );

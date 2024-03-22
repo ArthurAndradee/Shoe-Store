@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .Main {
     height: 100%;
     width: 100%;
@@ -21,11 +23,32 @@
     margin-right: 10%;
 
     height: 100%;
-
-    border: 1px solid #FFFFFF;
 }
 
 .continent {
-    display: inline;
-    margin: 0px 9% 0px 9%;
+    display:inline-table;
+
+    width: 150px;
+
+    margin: 0px 3% 0px 3%;
+
+    color: black;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
+
+ul {
+    margin-left: 2.5%;
+}
+
+li {
+    list-style: none;
+    color: #FFFFFF;
+
+    font-size: 10px;
+    font-weight: 300;
+
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: 0;
+ }
