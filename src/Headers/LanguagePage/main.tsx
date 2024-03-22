@@ -19,14 +19,14 @@ function LanguagePage() {
                 <li>Czech Republic</li>
                 <li>Denmark</li>
                 <li>Germany</li>
-                <li>Spain</li>
+                <li>España | Spain</li>
                 <li>Finland</li>
                 <li>France</li>
                 <li>Great Britain</li>
-                <li>Croatia</li>
+                <li>Hrvatska</li>
                 <li>Ireland</li>
                 <li>Italy</li>
-                <li>Luxemburg</li>
+                <li>Luxembourg</li>
                 <li>Hungary</li>
                 <li>Netherlands</li>
                 <li>Austria</li>

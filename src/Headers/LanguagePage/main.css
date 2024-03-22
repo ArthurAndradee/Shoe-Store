@@ -33,12 +33,14 @@
     margin: 0px 3% 0px 3%;
 
     color: black;
+    letter-spacing: 1px;
 
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
 }
 
 ul {
+    letter-spacing: 0px;
     margin-left: 2.5%;
 }
 
@@ -46,9 +48,17 @@ li {
     list-style: none;
     color: #FFFFFF;
 
-    font-size: 10px;
+    margin-top: 10px;
+
+    font-size: 15px;
     font-weight: 300;
 
     -webkit-text-stroke-width: 0;
     -webkit-text-stroke-color: 0;
+ }
+
+ li:hover {
+    color: #8e8e8e;
+    cursor: pointer;
+    text-decoration: underline;
  }
