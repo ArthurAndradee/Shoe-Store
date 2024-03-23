@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Please install Font Awesome in order to run icons
+## Please install Font Awesome and React Slick in order to run app
 
 In terminal, run:
 
