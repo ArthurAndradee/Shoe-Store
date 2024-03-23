@@ -1,5 +1,5 @@
 import './App.css';
-import MainHeader from './Headers/WelcomePage/app';
+import MainHeader from './Headers/MainHeader/app';
 
 function App() {
   return (
