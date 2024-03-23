@@ -53,14 +53,13 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
 
 .logoBox {
     height: 55px;
-    width: 10%;
-
-    margin-left: 1%;
+    width: 113px;
 }
 
 .logoBox img {
     height: 27px;
     width: 27px;
+
 
     margin-bottom: 10px;
 }

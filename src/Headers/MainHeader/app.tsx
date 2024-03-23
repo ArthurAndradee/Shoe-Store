@@ -33,8 +33,10 @@ function MainHeader() {
 
       <nav>
           <div className='logoBox'>
+       
               <div className='shopTitle'>SHOESHOP</div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />
+            
           </div>
           <div className='navTitleBox'>
               <div className='navTitle'>Feminino</div>
