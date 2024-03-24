@@ -1,12 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
-import './app.css';
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import './app.css';
 
 
 function MainHeader() {
@@ -33,11 +32,10 @@ function MainHeader() {
 
       <nav>
           <div className='logoBox'>
-       
               <div className='shopTitle'>SHOESHOP</div>
-              <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />
-            
+              <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
+
           <div className='navTitleBox'>
               <div className='navTitle'>Feminino</div>
               <div className='navTitle'>Masculino</div>
@@ -45,15 +43,18 @@ function MainHeader() {
               <div className='navTitle'>Edição Limitada</div>
               <div className='navTitle'>Promoção</div>
           </div>
+
           <div className='userOptions'>
               <div>Entrar</div>
               <div><FontAwesomeIcon icon={faHeart} /></div>
               <div><FontAwesomeIcon icon={faCartShopping} /></div>
           </div>
+
           <div className='searchBar'>
               <p>Buscar</p>
               <div><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
           </div>
+          
       </nav> 
 
     </div>

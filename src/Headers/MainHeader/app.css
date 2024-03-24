@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
 
 .app {
-
     display: flex;
     flex-direction: column;
 }
@@ -67,6 +66,7 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
 .shopTitle {
     width: 1100px;
 
+    margin-left: 10px;
     margin-bottom: 10px;
 
     font-size: 20px;

@@ -1,0 +1,55 @@
+.ads-container {
+
+}
+
+.adBox {
+    width: 100%;
+    height: 480px;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.adBox div {
+    height: 100%;
+}
+
+#ad-1 {
+    width: 587px;
+    border: 1px solid red;
+}
+
+#ad-2 {
+    width: 408px;
+    border: 1px solid blue;
+}
+
+#ad-3 {
+    width: 371px;
+    border: 1px solid green;
+}
+
+#ad-4 {
+    margin: 10px 0 0 0;
+
+    width: 633px;
+    border: 1px solid orangered;
+}
+
+#ad-5 {
+    width: 355px;
+    border: 1px solid yellow;
+}
+
+#ad-6 {
+    width: 378px;
+    border: 1px solid purple;
+}
+
+@media only screen and (min-width: 1366px) {
+    main {
+      width: 1366px;
+      margin: auto;
+    }
+}
