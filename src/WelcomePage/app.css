@@ -2,7 +2,7 @@
 
 }
 
-.adBox {
+.adBox, .adBox-2 {
     width: 100%;
     height: 480px;
     border: 1px solid black;
@@ -11,8 +11,14 @@
     flex-direction: row;
 }
 
-.adBox div {
+.adBox-2 {
+    margin-top: 10px;
+}
+
+img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 #ad-1 {
@@ -22,17 +28,13 @@
 
 #ad-2 {
     width: 408px;
-    border: 1px solid blue;
 }
 
 #ad-3 {
     width: 371px;
-    border: 1px solid green;
 }
 
 #ad-4 {
-    margin: 10px 0 0 0;
-
     width: 633px;
     border: 1px solid orangered;
 }
