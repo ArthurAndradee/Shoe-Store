@@ -8,7 +8,6 @@ function WelcomePage() {
             <main>
 
                 <div className="ads-container">
-
                     <section className='adBox'>
                         <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
@@ -28,7 +27,22 @@ function WelcomePage() {
                         <div className="background-img" id="ad-5"></div>
                         <div className="background-img" id="ad-6"></div>
                     </section>
+                </div>
 
+                <div className="products-row-container">
+                    <h1 className="products-row-title">LANÇAMENTOS</h1>
+                    <span className="products-row-all">-Ver todos</span>
+                    <div className="products">
+                        <div className="left-arrow arrow"></div>
+                        <div className="product">
+                            <div className="heart-icon"></div>
+                            <div className="product-background-img"></div>
+                            <p className="product-name"></p>
+                            <span className="product-price"></span>
+                            <span className="product-variations"></span>
+                        </div>
+                        <div className="right-arrow arrow"></div>
+                    </div>
                 </div>
 
             </main>
