@@ -9,7 +9,7 @@ function WelcomePage() {
 
                 <div className="ads-container">
 
-                    <div className='adBox'>
+                    <section className='adBox'>
                         <div className="background-img" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
                             <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa <br /> colaboração.</p>
@@ -17,7 +17,7 @@ function WelcomePage() {
                         </div>
                         <div className="background-img" id="ad-2"></div>
                         <div className="background-img" id="ad-3"></div>
-                    </div>
+                    </section>
                     
                     {/* <div className='adBox-2'>
                         <div id="ad-4"></div>
