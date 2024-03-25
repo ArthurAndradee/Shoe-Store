@@ -22,7 +22,7 @@
 #ad-1 {
     width: 580px;
     
-    background-image: url(https://i.imgur.com/qjiG1Yz.png);
+    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('https://i.imgur.com/qjiG1Yz.png');
 }
 
 .ad-title {
@@ -56,7 +56,7 @@
     background-color: #000000;
 }
 
-#ad-1 * {
+.background-text * {
     margin: auto;
     text-align: center;
 }
@@ -68,7 +68,7 @@
 }
 
 #ad-3 {
-    width: 371px;
+    width: 381px;
     
     background-image: url(https://i.imgur.com/Xl7pf3g.png);
 }
@@ -78,18 +78,18 @@
 }
 
 #ad-4 {
-    width: 633px;
-    border: 1px solid orangered;
+    width: 650px;
+    background-image: url(https://i.imgur.com/uUEoZrB.png);
 }
 
 #ad-5 {
-    width: 355px;
-    border: 1px solid yellow;
+    width: 544px;
+    background-image: url(https://s2.ezgif.com/tmp/ezgif-2-b01bb5f6b0.gif);
 }
 
 #ad-6 {
-    width: 378px;
-    border: 1px solid purple;
+    width: 361px;
+    background-image: url(https://s2.ezgif.com/tmp/ezgif-2-e12456f2a9.gif);
 }
 
 @media only screen and (min-width: 1366px) {
