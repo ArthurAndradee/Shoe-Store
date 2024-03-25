@@ -2,9 +2,17 @@
 
 @media only screen and (min-width: 1366px) {
     main {
-      width: 1366px;
-      margin: auto;
+        width: 1366px;
+        margin: auto;
     }
+}
+
+/*
+----------------MAIN ADS styling---------------- 
+*/
+
+.body {
+    overflow-y: hidden;
 }
 
 .ads-container {
@@ -26,11 +34,6 @@
     display: inline-block;
 }
 
-#ad-1 {
-    width: 580px;
-    
-    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('https://i.imgur.com/qjiG1Yz.png');
-}
 
 .ad-title {
     padding-top: 150px;
@@ -39,26 +42,26 @@
 .ad-description {
     padding-top: 36px;
     padding-bottom: 15px;
-
+    
     font-size: 15px;
 }
 
 .ad-buyButton {
     height: 30px;
     width: 165px;
-
+    
     padding-top: 2%;
     border: 2px solid #000000;
-
+    
     font-weight: 700;
     text-align: center;
-
+    
     background-color: transparent;
 }
 
 .ad-buyButton:hover {
     cursor: pointer;
-
+    
     color: #FFFFFF;
     background-color: #000000;
 }
@@ -66,6 +69,12 @@
 .background-text * {
     margin: auto;
     text-align: center;
+}
+
+#ad-1 {
+    width: 580px;
+    
+    background: linear-gradient( rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01) ), url('https://i.imgur.com/qjiG1Yz.png');
 }
 
 #ad-2 {
@@ -100,8 +109,25 @@
 }
 
 /* 
-
-----------------Above is MAIN ADS styling----------------
-----------------Below is PRODUCTS ROW styling--------------------- 
-
+----------------PRODUCTS ROW styling--------------------- 
 */
+
+.products-row-container {
+    border: 1px solid black;
+}
+
+.products-row-title {
+    margin: 32px 0 30px 40px;
+    font-size: 44px;
+}
+
+.products-row-all {
+    margin-left: 40px;
+}
+
+.products {
+    height: 480px;
+    width: 100%;
+
+    border: 1px solid black;
+}

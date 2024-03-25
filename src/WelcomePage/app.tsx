@@ -1,9 +1,22 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import MainHeader from "../Headers/MainHeader/app"
 import "./app.css"
+import ProductCard from "../ProductCard/app";
+
 
 function WelcomePage() {
+    var sliderSettings = {
+        infinite: true,
+        speed: 200,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
+
     return (
-        <div>
+        <div className="body">
             <MainHeader />
             <main>
 
@@ -30,18 +43,14 @@ function WelcomePage() {
                 </div>
 
                 <div className="products-row-container">
-                    <h1 className="products-row-title">LANÇAMENTOS</h1>
-                    <span className="products-row-all">-Ver todos</span>
+                    <h1 className="products-row-title">LANÇAMENTOS:</h1>
+                    <span className="products-row-all">→ Ver todos</span>
                     <div className="products">
-                        <div className="left-arrow arrow"></div>
-                        <div className="product">
-                            <div className="heart-icon"></div>
-                            <div className="product-background-img"></div>
-                            <p className="product-name"></p>
-                            <span className="product-price"></span>
-                            <span className="product-variations"></span>
-                        </div>
-                        <div className="right-arrow arrow"></div>
+                        <Slider {...sliderSettings} className='slider'>
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                        </Slider>
                     </div>
                 </div>
 
