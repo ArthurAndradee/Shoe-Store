@@ -54,6 +54,8 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
 .logoBox {
     height: 55px;
     width: 113px;
+
+    cursor: pointer;
 }
 
 .logoBox img {
@@ -101,11 +103,21 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     font-size: 12px;
 }
 
+.userOptions div {
+  cursor: pointer;
+}
+
+.userOptions > div:first-child:hover {
+  text-decoration: underline;
+}
+
 .searchBar {
     width: 170px;
     height: 60px;
 
     margin-bottom: 13px;
+
+    cursor: pointer;
 
     font-size: 13px;
 

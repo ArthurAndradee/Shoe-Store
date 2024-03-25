@@ -10,20 +10,20 @@ function WelcomePage() {
                 <div className="ads-container">
 
                     <div className='adBox'>
-                        <div id="ad-1"></div>
-                        <div id="ad-2">
-                            <img  src="https://images-prod.dazeddigital.com/640/azure/dazed-prod/1360/7/1367251.jpg" alt="Shop shoe" />
+                        <div className="background-img" id="ad-1">
+                            <h2 className="ad-title">Converse X Martine Ali</h2>
+                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa <br /> colaboração.</p>
+                            <div className="ad-buyButton">COMPRE AGORA</div>
                         </div>
-                        <div id="ad-3">
-                            <img src="https://www.ocarafashion.com/wp-content/uploads/2024/03/2197762698.jpg" alt="goth shoes" />
-                        </div>
+                        <div className="background-img" id="ad-2"></div>
+                        <div className="background-img" id="ad-3"></div>
                     </div>
                     
-                    <div className='adBox-2'>
+                    {/* <div className='adBox-2'>
                         <div id="ad-4"></div>
                         <div id="ad-5"></div>
                         <div id="ad-6"></div>
-                    </div>
+                    </div> */}
 
                 </div>
 
