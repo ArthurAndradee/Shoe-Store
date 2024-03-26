@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import ProductCard from '../../ProductCard/app';
+import ProductCard from '../ProductCard/app';
 import './app.css'
 
 function ProductsRow() {

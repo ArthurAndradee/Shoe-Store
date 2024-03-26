@@ -1,18 +1,11 @@
 import MainHeader from "../Headers/MainHeader/app"
 
 import "./app.css"
-import ProductsRow from "./ProductsRow/app";
+import ProductsRow from "../Product/ProductsRow/app";
 
 
 function WelcomePage() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      };
-
+    
     return (
         <div className="body">
             <MainHeader />
