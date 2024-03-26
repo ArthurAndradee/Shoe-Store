@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.product {
+    height: 360px;
+    width: 20%;
+
+    margin: 0 3% 0 3%;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Metrophobic", sans-serif;
+}
+
+.product:hover {
+    cursor: pointer;
+}
+
+.heart-icon {
+    margin: 5px 0 0 5px;
+    color: #474747;
+}
+
+.heart-icon:hover {
+    color: #000000;
+}
+
+img {
+    height: 220px;
+    width: 190px;
+
+    margin: auto;
+}
+
+.product-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product-name:hover {
+    text-decoration: underline;
+}
+
+.product-price {
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.product-variations {
+    color: #979797;
+    font-weight: 100;
+}

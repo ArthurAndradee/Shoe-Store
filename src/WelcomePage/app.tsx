@@ -46,11 +46,9 @@ function WelcomePage() {
                     <h1 className="products-row-title">LANÇAMENTOS:</h1>
                     <span className="products-row-all">→ Ver todos</span>
                     <div className="products">
-                        <Slider {...sliderSettings} className='slider'>
+                        {/* <Slider {...sliderSettings} className='slider'> */}
                             <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                        </Slider>
+                        {/* </Slider> */}
                     </div>
                 </div>
 
