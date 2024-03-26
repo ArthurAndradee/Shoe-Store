@@ -5,13 +5,14 @@ import ProductsRow from "../Product/ProductsRow/app";
 
 
 function WelcomePage() {
-    
+
     return (
         <div className="body">
             <MainHeader />
             <main>
 
                 <div className="ads-container">
+
                     <section className='adBox'>
                         <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
@@ -31,10 +32,9 @@ function WelcomePage() {
                         <div className="background-img" id="ad-5"></div>
                         <div className="background-img" id="ad-6"></div>
                     </section>
+
                 </div>
-
                 <ProductsRow />
-
             </main>
         </div>
     )

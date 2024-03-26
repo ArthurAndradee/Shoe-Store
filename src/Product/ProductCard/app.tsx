@@ -2,14 +2,22 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './app.css'
 
-function ProductCard() {
+interface ProductCardProps {
+    imgAlt: string,
+    imgLink: string,
+    name: string,
+    price: string,
+    variations: string
+}
+
+function ProductCard(props: ProductCardProps) {
     return (
         <div className="product">
             <div className="heart-icon"><FontAwesomeIcon icon={faHeart} /></div>
-            <img alt="Chuck 70 Seasonal Converse All Star" src="https://io.convertiez.com.br/m/nativoexclusive/shop/products/images/816425/medium/tenis-chuck-70-seasonal-converse-all-star_26961.jpg"/>
-            <p className="product-name">Chuck 70 Seasonal Converse All Star Marrom</p>
-            <span className="product-price">R$ 349,90</span>
-            <span className="product-variations">1 cor</span>
+            <img alt={props.imgAlt} src={props.imgLink}/>
+            <p className="product-name">{props.name}</p>
+            <span className="product-price">R$ {props.price}</span>
+            <span className="product-variations">{props.variations}</span>
         </div>
     )
 }
