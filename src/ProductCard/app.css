@@ -4,10 +4,10 @@
     height: 360px;
     width: 20%;
 
-    margin: 0 3% 0 3%;
-
     display: flex;
     flex-direction: column;
+
+    text-align: left;
 
     font-family: "Metrophobic", sans-serif;
 }
@@ -35,6 +35,8 @@ img {
 .product-name {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    width: 20vh;
 }
 
 .product-name:hover {
@@ -44,6 +46,8 @@ img {
 .product-price {
     margin-bottom: 10px;
     font-weight: 900;
+
+    width: 20vh;
 }
 
 .product-variations {

@@ -1,0 +1,19 @@
+.products-row-container {
+    border: 1px solid black;
+}
+
+.products-row-title {
+    margin: 32px 0 30px 40px;
+    font-size: 38px;
+}
+
+.products-row-all {
+    margin-left: 40px;
+}
+
+.products {
+    height: 400px;
+    width: 100%;
+
+    margin-top: 15px;
+}
