@@ -2,6 +2,7 @@ import MainHeader from "../../Components/Headers/TopHeader/app"
 
 import "./app.css"
 import ProductsRow from "../../Components/Product/ProductsRow/app";
+import Footer from "../../Components/Footer/footer";
 
 
 function WelcomePage() {
@@ -49,9 +50,7 @@ function WelcomePage() {
 
                 </div>
                 
-                <footer>
-                    AA
-                </footer>
+                <Footer />
 
             </main>
         </div>

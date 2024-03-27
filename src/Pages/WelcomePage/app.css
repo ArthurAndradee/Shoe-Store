@@ -111,6 +111,10 @@
     background-image: url(https://i.imgur.com/tGUki0R.gif);
 }
 
+/*
+----------------LARGE ADS styling---------------- 
+*/
+
 #ad-7 {
     height: 600px;
     width: 100%;
@@ -136,7 +140,3 @@
 
     margin-top:20px;
 }
-
-/* 
-----------------PRODUCTS ROW styling--------------------- 
-*/
