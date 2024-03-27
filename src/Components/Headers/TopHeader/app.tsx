@@ -20,7 +20,7 @@ function MainHeader() {
   };
 
   return (
-    <div className='app'>
+    <header className='app'>
 
       <div className="slider-container">
         <Slider {...sliderSettings} className='slider'>
@@ -57,7 +57,7 @@ function MainHeader() {
           
       </nav> 
 
-    </div>
+    </header>
   );
 }
 

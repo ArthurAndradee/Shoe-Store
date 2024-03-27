@@ -1,7 +1,7 @@
-import MainHeader from "../Headers/MainHeader/app"
+import MainHeader from "../../Components/Headers/TopHeader/app"
 
 import "./app.css"
-import ProductsRow from "../Product/ProductsRow/app";
+import ProductsRow from "../../Components/Product/ProductsRow/app";
 
 
 function WelcomePage() {
@@ -37,17 +37,22 @@ function WelcomePage() {
 
                 <ProductsRow />
 
-                <div>
-                    <section className='large-adBox'>
-                        <div className="background-img background-text" id="ad-7">
-                            <div className="large-ad-box">
-                                <h2 >ONE STAR</h2>
-                                <p className="ad-description">O clássico renovado: a tradição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
-                                <div className="large-ad-buyButton">COMPRE AGORA</div>
-                            </div>
+                <div className='large-adBox'>
+
+                    <section className="background-img background-text" id="ad-7">
+                        <div className="large-ad-box">
+                            <h2 >ONE STAR</h2>
+                            <p className="ad-description">O clássico renovado: a tradição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
+                            <div className="large-ad-buyButton">COMPRE AGORA</div>
                         </div>
                     </section>
+
                 </div>
+                
+                <footer>
+                    AA
+                </footer>
+
             </main>
         </div>
     )
