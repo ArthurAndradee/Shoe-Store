@@ -13,7 +13,7 @@ function ProductsRow() {
         slidesToScroll: 5
       };
 
-    const [shoes, setShoes] = useState (
+    const [shoes] = useState (
         [
             {
                 imgAlt: 'Chuck 70 De Luxe Heel Chrome Queen Preto',

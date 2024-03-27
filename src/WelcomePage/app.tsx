@@ -34,7 +34,22 @@ function WelcomePage() {
                     </section>
 
                 </div>
+
                 <ProductsRow />
+
+                <div>
+
+                    <section className='large-adBox'>
+                        <div className="background-img background-text" id="ad-7">
+                            <div className="large-ad-box">
+                                <h2 >ONE STAR</h2>
+                                <p className="ad-description">O clássico renovado: a tradição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
+                                <div className="large-ad-buyButton">COMPRE AGORA</div>
+                            </div>
+                        </div>
+                    </section>
+                
+                </div>
             </main>
         </div>
     )
