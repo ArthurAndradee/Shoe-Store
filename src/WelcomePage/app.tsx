@@ -16,7 +16,7 @@ function WelcomePage() {
                     <section className='adBox'>
                         <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
-                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa <br /> colaboração.</p>
+                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
                             <div className="ad-buyButton">COMPRE AGORA</div>
                         </div>
                         <div className="background-img" id="ad-2"></div>
@@ -26,7 +26,7 @@ function WelcomePage() {
                     <section className='adBox-2'>
                         <div className="background-img background-text" id="ad-4">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
-                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa <br /> colaboração.</p>
+                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
                             <div className="ad-buyButton">COMPRE AGORA</div>
                         </div>
                         <div className="background-img" id="ad-5"></div>
@@ -38,7 +38,6 @@ function WelcomePage() {
                 <ProductsRow />
 
                 <div>
-
                     <section className='large-adBox'>
                         <div className="background-img background-text" id="ad-7">
                             <div className="large-ad-box">
@@ -48,7 +47,6 @@ function WelcomePage() {
                             </div>
                         </div>
                     </section>
-                
                 </div>
             </main>
         </div>
