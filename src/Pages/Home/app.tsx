@@ -1,15 +1,15 @@
-import MainHeader from "../../Components/Headers/TopHeader/app"
-
 import "./app.css"
 import ProductsRow from "../../Components/Product/ProductsRow/app";
 import Footer from "../../Components/Footer/footer";
+import HomeHeader from "../../Components/Headers/HomeHeader/app";
 
-
-function WelcomePage() {
+function HomePage() {
 
     return (
         <div className="body">
-            <MainHeader />
+
+            <HomeHeader />
+                
             <main>
 
                 <div className="ads-container">
@@ -49,7 +49,7 @@ function WelcomePage() {
                     </section>
 
                 </div>
-                
+
                 <Footer />
 
             </main>
@@ -57,4 +57,4 @@ function WelcomePage() {
     )
 }
 
-export default WelcomePage
+export default HomePage;

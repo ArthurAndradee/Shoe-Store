@@ -1,16 +1,27 @@
+import { Link } from 'react-router-dom';
+import LanguageHeader from '../../Components/Headers/LanguagePageHeader/header';
 import './main.css';
 
 function LanguagePage() {
   return (
     <div className="Main">
+      <LanguageHeader />
         <div className='selectionText'>Select Location & Language</div>
         <div className='contentBox'>
             <h1 className='continent'>AMERICAS
               <ul>
-                <li>Brazil</li>
-                <li>Canada</li>
-                <li>United States</li>
-                <li>Mexico</li>
+                <li>
+                  <Link className='link' to="/home">Brazil</Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">Canada</Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">United States</Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">Mexico</Link>
+                </li>
               </ul>
             </h1>
             <h1 className='continent'>EUROPE

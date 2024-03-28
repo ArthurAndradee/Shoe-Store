@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './app.css';
 
 
-function MainHeader() {
+function HomeHeader() {
 
   var sliderSettings = {
     infinite: true,
@@ -61,4 +61,4 @@ function MainHeader() {
   );
 }
 
-export default MainHeader;
+export default HomeHeader;

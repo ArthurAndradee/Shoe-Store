@@ -13,6 +13,8 @@ In terminal, run:
 5. npm i --save @fortawesome/react-fontawesome@latest
 6. yarn add react-slick
 7. yarn add slick-carousel
+8. npm i react-router
+9. npm i -D react-router-dom@latest
 
 ## Available Scripts
 
