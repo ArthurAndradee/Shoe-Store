@@ -8,8 +8,10 @@ function Footer() {
     <footer>
       <section className='newslatter-container'>
         <h4>Não perca nenhuma novidade</h4>
-        <input type='email' />
-        <button type='submit'>-{'>'}</button>
+        <form>
+          <input type='email' placeholder='Digite seu email'/>
+          <button type='submit'>-{'>'}</button>
+        </form>
       </section>
       <section className='about-container'>
         <div>

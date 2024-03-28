@@ -35,6 +35,28 @@ footer img {
     border: none;
 }
 
+.newslatter-container input {
+    height: 50px;
+    width: 250px;
+
+    border: 1px solid #d2d2d2;
+
+    margin-top: 15px;
+}
+
+.newslatter-container input::placeholder {
+    padding-left: 10px;
+
+    letter-spacing: 0.04vw;
+
+    color: #b5b5b5;
+}
+
+.newslatter-container button {
+    height: 50px;
+    width: 50px;
+}
+
 .about-container {
 
 }
