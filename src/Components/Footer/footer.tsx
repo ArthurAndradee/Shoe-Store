@@ -10,11 +10,11 @@ function Footer() {
         <h4>Não perca nenhuma novidade</h4>
         <form>
           <input type='email' placeholder='Digite seu email'/>
-          <button type='submit'>-{'>'}</button>
+          <button type='submit'>→</button>
         </form>
       </section>
       <section className='about-container'>
-        <div>
+        <div className='package-icon'>
           <FontAwesomeIcon icon={faTruckFast} />
         </div>
         <h4>Frete</h4>
@@ -30,12 +30,12 @@ function Footer() {
           Converse</p>
       </section>
       <section className='socials-container'>
-        <div>
-          <FontAwesomeIcon icon={faFacebookF} />
-          <FontAwesomeIcon icon={faInstagram} />
+        <div className='icons-container'>
+          <FontAwesomeIcon icon={faFacebookF} className='icon'/>
+          <FontAwesomeIcon icon={faInstagram} className='icon'/>
           <br />
-          <FontAwesomeIcon icon={faTiktok} />
-          <FontAwesomeIcon icon={faYoutube} />
+          <FontAwesomeIcon icon={faTiktok} className='icon'/>
+          <FontAwesomeIcon icon={faYoutube} className='icon'/>
         </div>
         <h4>Redes Sociais</h4>
         <p>Nos siga nas redes sociais e fique por
