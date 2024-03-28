@@ -80,6 +80,11 @@ footer img {
     margin-bottom: 10px;
 }
 
+.socials-container p, .company-container p {
+    width: 20vh;
+    margin: auto;
+}
+
 .socials-container h4, .socials-container p {
     margin-top: 12px;
 }
