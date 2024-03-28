@@ -26,40 +26,138 @@ function LanguagePage() {
             </h1>
             <h1 className='continent'>EUROPE
               <ul>
-                <li>Belguim</li>
-                <li>Czech Republic</li>
-                <li>Denmark</li>
-                <li>Germany</li>
-                <li>España | Spain</li>
-                <li>Finland</li>
-                <li>France</li>
-                <li>Great Britain</li>
-                <li>Hrvatska</li>
-                <li>Ireland</li>
-                <li>Italy</li>
-                <li>Luxembourg</li>
-                <li>Hungary</li>
-                <li>Netherlands</li>
-                <li>Austria</li>
-                <li>Poland</li>
-                <li>Portugal</li>
-                <li>Serbia</li>
-                <li>Turkey</li>
+                <li>
+                  <Link className='link' to="/home">
+                    Belguim  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Czech  Republic
+                  </Link>
+                  </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Denmark  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Germany  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    España | Spain  
+                  </Link>
+                  </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Finland  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    France  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Great Britain
+                  </Link>
+                 </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Hrvatska  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Ireland  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Italy  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Luxembourg  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Hungary  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Netherlands  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Austria  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Poland  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Portugal  
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Serbia  
+                  </Link>
+                  </li>
+                <li>
+                  <Link className='link' to="/home">
+                    Turkey  
+                  </Link>
+                  </li>
               </ul>
             </h1>
             <h1 className='continent'>ASIA PACIFIC
               <ul>
-                <li>Australia</li>
-                <li>China</li>
-                <li>India</li>
-                <li>Indonesia</li>
-                <li>Korea</li>
-                <li>Philippines</li>
+                <li><Link className='link' to="/home">
+                    Australia
+                  </Link>
+                </li>
+                <li><Link className='link' to="/home">
+                    China
+                  </Link>
+                </li>
+                <li><Link className='link' to="/home">
+                    India
+                  </Link>
+                </li>
+                <li><Link className='link' to="/home">
+                    Indonesia
+                  </Link>
+                </li>
+                <li><Link className='link' to="/home">
+                    Korea
+                  </Link>
+                </li>
+                <li><Link className='link' to="/home">
+                    Philippines
+                  </Link>
+                </li>
               </ul>
             </h1>
             <h1 className='continent'>AFRICA
               <ul>
-                <li>South Africa</li>
+                <li>
+                <Link className='link' to="/home">
+                  South Africa
+                </Link>
+                </li>
               </ul>
             </h1>
         </div>

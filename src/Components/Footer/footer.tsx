@@ -10,7 +10,7 @@ function Footer() {
         <h4>Não perca nenhuma novidade</h4>
         <form>
           <input type='email' placeholder='Digite seu email'/>
-          <button type='submit'>→</button>
+          <button type='submit'>➜</button>
         </form>
       </section>
       <section className='about-container'>

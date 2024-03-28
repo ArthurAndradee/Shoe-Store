@@ -62,6 +62,8 @@ footer img {
     height: 4vh;
     width: 4vh;
 
+    padding-bottom: 2px;
+
     background-color: #000000;
     color: #FFFFFF;
 }
@@ -72,7 +74,12 @@ footer img {
 }
 
 .about-container h4 {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.about-container h4:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .company-container h4 {

@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .Main {
-    height: 100%;
+    height: 120vh;
     width: 100%;
 
     background-color: black;
     color: #FFFFFF;
 
-    position: absolute;
     text-align: center;
 }
 
 .selectionText {
     margin-top: 75px;
     font-weight: 600;
-    font-size: 120%;
+    font-size: 150%;
 }
 
 .contentBox {
@@ -28,6 +27,8 @@
 .continent {
     display:inline-table;
 
+    font-size: 420%;
+
     width: 150px;
 
     margin: 0px 3% 0px 3%;
@@ -36,7 +37,7 @@
     letter-spacing: 1px;
 
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: #FFFFFF;
 }
 
 ul {
@@ -53,6 +54,8 @@ li {
     font-size: 15px;
     font-weight: 300;
 
+    text-decoration: none;
+
     -webkit-text-stroke-width: 0;
     -webkit-text-stroke-color: 0;
  }
@@ -61,4 +64,8 @@ li {
     color: #8e8e8e;
     cursor: pointer;
     text-decoration: underline;
+ }
+
+ .link:visited {
+    color: #FFFFFF;
  }
