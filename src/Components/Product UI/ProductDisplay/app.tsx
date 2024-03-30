@@ -2,8 +2,7 @@ import './app.css'
 
 function ProductDisplay() {
     return (
-        <div className='display'>
-        </div>
+        <div className='display'></div>
     )
 }
 
