@@ -45,6 +45,9 @@ footer img {
     height: 4vh;
     width: 16vh;
 
+    max-width: 200px;
+    max-height: 40px;
+
     border: 1px solid #d2d2d2;
 
     margin-top: 15px;
@@ -61,6 +64,9 @@ footer img {
 .newslatter-container button {
     height: 4vh;
     width: 4vh;
+
+    max-height: 40px;
+    max-width: 40px;
 
     padding-bottom: 2px;
 
@@ -90,7 +96,6 @@ footer img {
 .socials-container p, .company-container p {
     width: 170px;
     margin: auto;
-    border: 1px solid red;
 }
 
 .socials-container h4, .socials-container p {
