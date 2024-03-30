@@ -8,10 +8,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .adBox{
-        display: inline-flex;
-    }
-
     #ad-2, #ad-3, #ad-5, #ad-6{
         display: none;
     }

@@ -4,13 +4,24 @@ import './app.css'
 import { useState } from 'react';
 
 function ProductsRow() {
+    
+    let windowWidth = window.innerWidth;
+    
+    if (window.innerWidth < 720) {
+        windowWidth = 3;
+    } else if (windowWidth < 850) {
+        windowWidth = 4
+    } else {
+        windowWidth = 5
+    }
+
     const settings = {
         dots: true,
         infinite: false,
         arrows: true,
         speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 5
+        slidesToShow: windowWidth,
+        slidesToScroll: windowWidth
       };
 
     const [shoes] = useState (
