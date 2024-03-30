@@ -88,8 +88,9 @@ footer img {
 }
 
 .socials-container p, .company-container p {
-    width: 20vh;
+    width: 170px;
     margin: auto;
+    border: 1px solid red;
 }
 
 .socials-container h4, .socials-container p {
@@ -101,5 +102,5 @@ footer img {
 }
 
 .icon {
-    margin: 0.9vh;
+    margin: 10px;
 }
