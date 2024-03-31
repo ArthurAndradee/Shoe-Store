@@ -29,6 +29,12 @@
     font-weight: 700;
 }
 
+.slider-text {
+  margin-top: 14px;
+
+  font-size: 14px;
+}
+
 .blueSliderText, .smallSliderText {
     display: inline-block;
 }

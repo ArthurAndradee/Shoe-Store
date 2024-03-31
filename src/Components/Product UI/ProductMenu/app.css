@@ -112,5 +112,13 @@
 }
 
 option {
-    background-color: #f1f1f1;
+    height: 15px;
+    width: 15px;
+    
+    background: #f7f7f7;
+    color: rgb(0, 0, 0);
+}
+
+option:hover {
+    background:rgb(0, 0, 0);
 }

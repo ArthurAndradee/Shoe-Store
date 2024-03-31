@@ -13,7 +13,7 @@ function ProductPage() {
                     <div className='home-link'>Home</div>
                 </Link>
                 <div className='home-link' style={{fontSize:'8px', color:'#dadada'}}>/</div>
-                <h4>Product Name</h4>
+                <h4 id='product-name'>Product Name</h4>
             </nav>
             <div className='content'>
                 <ProductDisplay />

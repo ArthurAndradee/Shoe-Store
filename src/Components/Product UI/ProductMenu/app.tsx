@@ -18,7 +18,8 @@ function ProductMenu(this: any) {
                 </div>
                 <div className='product-guide'>GUIA DE TAMANHOS</div>
             </div>
-            <select id='select' className="form-select" aria-label="Default select example">
+            <select
+            id='select' className="form-select" aria-label="Default select example">
                 <option selected>Escolha um tamanho</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
