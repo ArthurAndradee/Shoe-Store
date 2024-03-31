@@ -16,6 +16,7 @@ In terminal, run:
 8. npm i react-router
 9. npm i -D react-router-dom@latest
 10. npm i --save-dev @types/jquery
+11. npm install bootstrap@5.3.3
 
 ## Available Scripts
 
