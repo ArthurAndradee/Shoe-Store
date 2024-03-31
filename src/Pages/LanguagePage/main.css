@@ -60,8 +60,8 @@ li {
     -webkit-text-stroke-color: 0;
  }
 
- li:hover {
-    color: #8e8e8e;
+ .link:hover {
+    color: #8e8e8e !important;
     cursor: pointer;
     text-decoration: underline;
  }
