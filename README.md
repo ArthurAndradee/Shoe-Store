@@ -15,6 +15,7 @@ In terminal, run:
 7. yarn add slick-carousel
 8. npm i react-router
 9. npm i -D react-router-dom@latest
+10. npm i --save-dev @types/jquery
 
 ## Available Scripts
 
