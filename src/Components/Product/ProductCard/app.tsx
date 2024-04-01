@@ -8,17 +8,18 @@ interface ProductCardProps {
     imgLink: string,
     name: string,
     price: string,
-    variations: string
+    variations: string,
+    productUrl: string,
 }
 
 function ProductCard(props: ProductCardProps) {
     return (
         <div className="product">
             <div className="heart-icon"><FontAwesomeIcon icon={faHeart} /></div>
-            <Link to='/product'>
+            <Link key={props.productUrl} to={`/products/${props.productUrl}`} className="product-link">
                 <img alt={props.imgAlt} src={props.imgLink}/>
+                <p className="product-name">{props.name}</p>
             </Link>
-            <p className="product-name">{props.name}</p>
             <span className="product-price">R$ {props.price}</span>
             <span className="product-variations">{props.variations}</span>
         </div>

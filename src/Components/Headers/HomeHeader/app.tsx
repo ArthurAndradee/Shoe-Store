@@ -51,7 +51,7 @@ function HomeHeader() {
           </div>
 
           <div className='searchBar'>
-              <p>Buscar</p>
+              <div className='search-text'>Buscar</div>
               <div><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
           </div>
           

@@ -1,12 +1,12 @@
 @media (min-width: 1366px) {
-    .content {
+    .home-nav {
         width: 1366px;
         margin: auto;
     }
 }
 
 @media (min-width: 600px) {
-    .content, .home-nav {
+    .home-nav {
         display: flex;
         flex-direction: row;
     }
@@ -34,10 +34,6 @@
 
 .home-link:hover {
     text-decoration: underline  ;
-}
-
-.content {
-    margin-top: 17px;
 }
 
 #product-name {

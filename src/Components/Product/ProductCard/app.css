@@ -25,6 +25,10 @@
     color: #000000;
 }
 
+.product-link {
+    all: unset;
+}
+
 img {
     height: 220px;
     width: 190px;

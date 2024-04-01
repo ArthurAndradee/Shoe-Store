@@ -138,7 +138,7 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     background-color: rgb(0, 0, 0);
 }
 
-.searchBar p {
+.search-text   {
     font-size: 13px;
     margin-left: 15%;
 }

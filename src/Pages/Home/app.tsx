@@ -26,8 +26,8 @@ function HomePage() {
                     
                     <section className='adBox-2'>
                         <div className="background-img background-text" id="ad-4">
-                            <h2 className="ad-title">Converse X Martine Ali</h2>
-                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
+                            <h2 className="ad-title">Modern Lift Chrome Queen</h2>
+                            <p className="ad-description">Libere seu lado punk no estilo assinado Chuck Taylor. </p>
                             <div className="ad-buyButton">COMPRE AGORA</div>
                         </div>
                         <div className="background-img" id="ad-5"></div>
