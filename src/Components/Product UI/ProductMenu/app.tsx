@@ -16,7 +16,7 @@ function ProductMenu(this: any) {
                     <div className='product-warning'>ALERTA! FORMA GRANDE.</div>
                     <div className='product-suggestion'>Sugerimos que compre 1 número menor. </div>
                 </div>
-                <div className='product-guide'>GUIA DE TAMANHOS</div>
+                <a href='https://cdnv2.moovin.com.br/margilcalcados/imagens/produtos/det/tenis-converse-all-star-lona-ct00100007-chuck-taylor-a308c915b1fcc51eec63d8df5cb636aa.jpg' target='_blank' className='product-guide' rel="noreferrer">GUIA DE TAMANHOS</a>
             </div>
             <select
             id='select' className="form-select" aria-label="Default select example">

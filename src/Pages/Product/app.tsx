@@ -2,13 +2,17 @@ import HomeHeader from '../../Components/Headers/HomeHeader/app';
 import ProductDisplay from '../../Components/Product UI/ProductDisplay/app';
 import ProductMenu from '../../Components/Product UI/ProductMenu/app';
 import ProductNav from '../../Components/Product UI/ProductNav/app';
-import './app.css'
+import './app.css';
 
-function ProductPage() {
+interface ProductProps {
+    name: string
+  }
+
+function ProductPage(props: ProductProps) {
     return (
         <div>
             <HomeHeader />
-            <ProductNav />
+            <ProductNav name={props.name} />
             <div className='content'>
                 <ProductDisplay />
                 <ProductMenu />
