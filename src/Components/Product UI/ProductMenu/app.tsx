@@ -2,7 +2,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './app.css'
 
-function ProductMenu(this: any) {
+function ProductMenu() {
 
     return (
         <div className='menu-container'>

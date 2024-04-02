@@ -6,6 +6,7 @@ import './app.css';
 
 interface ProductProps {
     name: string
+    imgLink: string
   }
 
 function ProductPage(props: ProductProps) {
@@ -14,7 +15,7 @@ function ProductPage(props: ProductProps) {
             <HomeHeader />
             <ProductNav name={props.name} />
             <div className='content'>
-                <ProductDisplay />
+                <ProductDisplay imgLink={props.imgLink} />
                 <ProductMenu />
             </div>
         </div>

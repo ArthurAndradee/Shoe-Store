@@ -8,7 +8,6 @@
 .display {
     height: 800px;
     width: 68%;
-
-    background-image: url(https://converse.com.br/media/catalog/product/a/0/a08103c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:);
+    
     background-size: cover;
 }

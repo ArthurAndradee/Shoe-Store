@@ -25,17 +25,15 @@ const router = createBrowserRouter([{
   element: <HomePage />,
   errorElement: <ErrorPage />
 },
-{
-  path: '/product',
-  element: <ProductPage name={''} />,
-  errorElement: <ErrorPage />
-},
 //-------------------------PRODUCT LINKS-------------------------
 {
-  path:'products/chuck-70-de-luxe-heel-chrome-queen-preto',
-  element: <ProductPage name={shoes[2].name} />
-  //myArray[index]?.propertyName;
-}
+  path: `/products/${shoes[0].productUrl}`,
+  element: <ProductPage name={shoes[0].name} imgLink={shoes[0].imgLink} />
+},
+{
+  path: `/products/${shoes[1].productUrl}`,
+  element: <ProductPage name={shoes[1].name} imgLink={shoes[1].imgLink} />
+},
 ])
 
 root.render(

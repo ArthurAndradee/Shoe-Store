@@ -1,8 +1,12 @@
 import './app.css'
 
-function ProductDisplay() {
+interface ProductBackground {
+    imgLink: string
+}
+
+function ProductDisplay(props: ProductBackground) {
     return (
-        <div className='display'></div>
+        <div style={{backgroundImage:"url(" + props.imgLink + ")" }} className='display'></div>
     )
 }
 

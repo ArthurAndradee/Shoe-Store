@@ -1,7 +1,6 @@
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/app';
 import './app.css'
-import { useState } from 'react';
 import { shoes } from '../Props/shoes';
 
 
