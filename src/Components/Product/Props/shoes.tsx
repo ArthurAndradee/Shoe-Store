@@ -11,9 +11,9 @@ export const shoes = (
             productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto'
         },
         {
-            imgAlt: 'VANS THE LIZZIE CLOUD',
+            imgAlt: 'Vans the Lizzie Cloud',
             imgLink: 'https://cdn.shopify.com/s/files/1/0581/5900/5854/files/VANSLIZZIEFATIGUEBLACK_600x600.png?v=1691166617',
-            name: 'VANS THE LIZZIE CLOUD',
+            name: 'Vans the Lizzie Cloud',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'OFF THE WALL',
             price: '649,90',

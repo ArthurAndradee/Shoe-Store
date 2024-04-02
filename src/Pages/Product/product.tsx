@@ -1,8 +1,8 @@
-import HomeHeader from '../../Components/Headers/HomeHeader/app';
-import ProductDisplay from '../../Components/Product UI/ProductDisplay/app';
-import ProductMenu from '../../Components/Product UI/ProductMenu/app';
-import ProductNav from '../../Components/Product UI/ProductNav/app';
-import './app.css';
+import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import ProductDisplay from '../../Components/Product UI/ProductDisplay/product.display';
+import ProductMenu from '../../Components/Product UI/ProductMenu/product.menu';
+import ProductNav from '../../Components/Product UI/ProductNav/product.nav';
+import './product.css';
 
 interface ProductProps {
     imgLink: string,

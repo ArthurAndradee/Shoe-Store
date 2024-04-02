@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
 
+@media only screen and (min-width: 1366px) {
+    footer {
+        width: 1366px;
+        margin: auto;
+    }
+}
+
 footer {
     height: 230px;
 
@@ -56,6 +63,7 @@ footer img {
 .newslatter-container input::placeholder {
     padding-left: 10px;
 
+    font-size: 10px;
     letter-spacing: 0.04vw;
 
     color: #b5b5b5;

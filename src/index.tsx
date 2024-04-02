@@ -4,12 +4,13 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './Pages/Home/app';
-import LanguagePage from './Pages/LanguagePage/main';
+import HomePage from './Pages/Home/home';
+import LanguagePage from './Pages/Language/language';
 import ErrorPage from './Pages/Error/error';
-import ProductPage from './Pages/Product/app';
+import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
 import { shoes } from './Components/Product/Props/shoes';
+import Cart from './Pages/Cart/cart';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,6 +24,11 @@ const router = createBrowserRouter([{
 {
   path: '/home',
   element: <HomePage />,
+  errorElement: <ErrorPage />
+},
+{
+  path: '/cart',
+  element: <Cart />,
   errorElement: <ErrorPage />
 },
 //-------------------------PRODUCT LINKS-------------------------

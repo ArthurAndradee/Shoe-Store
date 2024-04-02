@@ -1,7 +1,7 @@
-import "./app.css"
-import ProductsRow from "../../Components/Product/ProductsRow/app";
+import "./home.css"
+import ProductsRow from "../../Components/Product/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
-import HomeHeader from "../../Components/Headers/HomeHeader/app";
+import HomeHeader from "../../Components/Headers/HomeHeader/home.header";
 
 function HomePage() {
 

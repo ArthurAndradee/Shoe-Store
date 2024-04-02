@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import LanguageHeader from '../../Components/Headers/LanguagePageHeader/header';
-import './main.css';
+import LanguageHeader from '../../Components/Headers/LanguageHeader/language.header';
+import './language.css';
 
 function LanguagePage() {
   return (

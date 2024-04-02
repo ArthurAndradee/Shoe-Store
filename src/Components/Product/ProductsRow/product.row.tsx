@@ -1,6 +1,6 @@
 import Slider from 'react-slick';
-import ProductCard from '../ProductCard/app';
-import './app.css'
+import ProductCard from '../ProductCard/product.card';
+import './product.row.css'
 import { shoes } from '../Props/shoes';
 
 

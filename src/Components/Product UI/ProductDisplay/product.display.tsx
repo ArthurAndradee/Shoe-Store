@@ -1,4 +1,4 @@
-import './app.css'
+import './product.display.css'
 
 interface ProductBackground {
     imgLink: string
