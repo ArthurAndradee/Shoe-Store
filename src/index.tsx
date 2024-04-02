@@ -9,7 +9,7 @@ import LanguagePage from './Pages/LanguagePage/main';
 import ErrorPage from './Pages/Error/error';
 import ProductPage from './Pages/Product/app';
 import 'bootstrap/dist/css/bootstrap.css';
-import { shoes } from './Components/Product/ProductsRow/shoes';
+import { shoes } from './Components/Product/Props/shoes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

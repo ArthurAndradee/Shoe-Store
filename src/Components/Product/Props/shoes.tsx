@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import './app.css'
-
 export const shoes = (
     [
         {
