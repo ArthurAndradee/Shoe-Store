@@ -9,9 +9,7 @@ import LanguagePage from './Pages/LanguagePage/main';
 import ErrorPage from './Pages/Error/error';
 import ProductPage from './Pages/Product/app';
 import 'bootstrap/dist/css/bootstrap.css';
-import { shoes } from './Components/Product/ProductsRow/app';
-
-const specificProperty = shoes['5']?.name;
+import { shoes } from './Components/Product/ProductsRow/shoes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -35,7 +33,7 @@ const router = createBrowserRouter([{
 //-------------------------PRODUCT LINKS-------------------------
 {
   path:'products/chuck-70-de-luxe-heel-chrome-queen-preto',
-  element: <ProductPage name={shoes.name} />
+  element: <ProductPage name={shoes[2].name} />
   //myArray[index]?.propertyName;
 }
 ])
