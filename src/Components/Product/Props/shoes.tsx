@@ -53,7 +53,7 @@ export const shoes = (
         {
             imgAlt: 'Tênis Converse Chuck Taylor All Star Hi Future Utility',
             imgLink: 'https://espacotenis.vteximg.com.br/arquivos/ids/171907-1000-1000/converse-hi-future-utility-branco.jpg?v=638191505258630000',
-            name: 'Tênis Converse Chuck Taylor All Star Hi Future Utility',
+            name: 'Converse Chuck Taylor All Star Hi Future Utility',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '449,90',
@@ -61,9 +61,9 @@ export const shoes = (
             productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility'
         },
         {
-            imgAlt: 'Vans sem cadarço Classic',
+            imgAlt: 'Vans Classic',
             imgLink: 'https://www.tradeinn.com/f/125/1252969/vans-sapatos-sem-cadarco-classic.jpg',
-            name: 'Vans Sapatos sem cadarço Classic',
+            name: 'Vans  Classic',
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'OFF THE WALL',
             price: '249,90',

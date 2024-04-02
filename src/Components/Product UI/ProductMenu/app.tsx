@@ -2,14 +2,21 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './app.css'
 
-function ProductMenu() {
+interface ProductInfo {
+    name: string,
+    type: string,
+    price: string,
+    catchPhrase: string,
+}
+
+function ProductMenu(props: ProductInfo) {
 
     return (
         <div className='menu-container'>
-            <h3 className='product-title'>Chuck 70 De Luxe Heel Chrome Queen Preto</h3>
-            <div className='product-type'>FEMININO CANO ALTO</div>
-            <div className='price'>R$ 799,90</div>
-            <div className='product-catch-phrase'>Libere seu lado punk no estilo assinado Chuck Taylor.</div>
+            <h3 className='product-title'>{props.name}</h3>
+            <div className='product-type'>{props.type}</div>
+            <div className='price'>R$ {props.price}</div>
+            <div className='product-catch-phrase'>{props.catchPhrase}</div>
             
             <div className='warning-container'>
                 <div className='warning'>
