@@ -28,10 +28,12 @@ function Cart() {
                             </div>
                             <div className='items-handle'>
                                 <input type="number" id="quantity" name="quantity" min="1" />
-                                <div className='item-price'>R$579,90</div>
                                 <div className='item-functions'>
-                                    <div className='item-wish'>MOVER PARA LISTA DE DESEJOS</div>
-                                    <div className='item-remove'>REMOVER ITEM</div>
+                                    <div className='item-price'>R$579,90</div>
+                                    <div>
+                                        <div className='item-wish'>MOVER PARA LISTA DE DESEJOS</div>
+                                        <div className='item-remove'>REMOVER ITEM</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

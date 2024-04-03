@@ -33,7 +33,6 @@
     margin-top: 25px;
 
     display: flex;
-    flex-direction: row;
 }
 
 .list-container {
@@ -48,6 +47,19 @@
     flex-direction: row;
 }
 
+.items-handle {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-functions {
+    display: flex;
+    flex-direction: row;
+}
+
+.items-handle input {
+    width: 40px;
+}
 
 .cart-overview {
     width: 32%;
@@ -66,7 +78,6 @@
 
 .cart-price {
     height: 200px;
-    width: 320px;
 
     margin: auto;
     
@@ -131,4 +142,24 @@
     margin-right: 5px;
 
     margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+    .cart-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .list-container, .cart-overview {
+        width: 100%;
+    }
+
+    .items-container {
+        flex-direction: column;
+    }
+
+    .item-functions {
+        display: flex;
+        flex-direction: column;
+    }
 }
