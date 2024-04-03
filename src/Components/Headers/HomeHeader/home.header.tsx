@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import './home.header.css';
+import { Link } from 'react-router-dom';
 
 function HomeHeader() {
 
@@ -46,7 +47,7 @@ function HomeHeader() {
           <div className='userOptions'>
               <div>Entrar</div>
               <div><FontAwesomeIcon icon={faHeart} /></div>
-              <div><FontAwesomeIcon icon={faCartShopping} /></div>
+              <div><Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link></div>
           </div>
 
           <div className='searchBar'>

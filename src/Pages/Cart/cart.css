@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1266px) {
     .cart-section {
         width: 1070px;
         margin: auto;
@@ -46,15 +46,83 @@
 .cart-overview {
     width: 32%;
 
-    background-color: #eeeeee;
+    background-color: #f6f6f6;
 }
 
 .cart-overview-title {
-    padding: 12px 0 12px 0;
+    padding: 40px 0 40px 0;
 
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     
-    border: 1px solid black;
+}
+
+.cart-price {
+    height: 200px;
+    width: 320px;
+
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: 1px solid #dadada;
+}
+
+.price-text-container, .price-number-container {
+    padding: 15px;
+}
+
+.total {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-weight: 700;
+}
+
+.price-text-container {
+    margin-right: auto;
+}
+
+.checkout-button {
+    height: 50px;
+    width: 250px;
+
+    padding-top: 10px;
+    
+    text-align: center;
+    margin: auto;
+    
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.checkout-button {
+    cursor: pointer;
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: row;
+
+    width: fit-content;
+    
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.checkout-icon {
+    margin-right: 5px;
+
+    margin-bottom: 15px;
 }
