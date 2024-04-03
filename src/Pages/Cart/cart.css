@@ -36,12 +36,18 @@
     flex-direction: row;
 }
 
-.items-container {
+.list-container {
     width: 66%;
     margin-right: 2%;
 
     border: 1px solid #dadada;
 }
+
+.items-container {
+    display: flex;
+    flex-direction: row;
+}
+
 
 .cart-overview {
     width: 32%;
@@ -118,7 +124,7 @@
     
     text-align: center;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .checkout-icon {
