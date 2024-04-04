@@ -1,5 +1,3 @@
-import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import './cart.css'

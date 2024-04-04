@@ -32,7 +32,7 @@ function HomeHeader() {
 
       <nav>
           <div className='logoBox'>
-              <div className='shopTitle'>SHOESHOP</div>
+              <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
 
