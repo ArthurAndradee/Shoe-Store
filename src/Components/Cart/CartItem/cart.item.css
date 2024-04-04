@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: row;
 
-    padding: 10px 30px;
-    border: 1px solid black;
+    padding: 10px 10px;
 }
 
 .item-display {
@@ -14,20 +13,74 @@
     height: 80px;
     width: 80px;
 
-    border: 1px solid red;
+    margin-right: 10px;
 
     background-size: cover;
     background-image: url(https://converse.com.br/media/catalog/product/a/0/a06426c_a_107x1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=897&width=960&canvas=960:897);
 }
 
+.item-name {
+    width: 150px;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.item-specifications {
+    font-size: 12px;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.item-variation {
+    margin-top: 10px;
+}
+
+.item-variation b {
+    margin-right: 5px;
+}
+
 .items-handle {
     display: flex;
     flex-direction: row;
+
+    margin-left: 60px;
+}
+
+.items-handle input {
+    height: 30px;
+    width: 30px;
+
+    padding: 10px;
+    padding-right: 4px;
+
+    margin-right: 10px;
+
+    border: 1px solid #dadada;
+}
+
+.item-price {
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-right: 90px;
 }
 
 .item-functions {
-    display: flex;
-    flex-direction: row;
+    display:flex;
+}
+
+.item-editing {
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+.item-wish {
+    margin-bottom: 10px;
 }
 
 .items-handle input {
@@ -42,5 +95,9 @@
     .item-functions {
         display: flex;
         flex-direction: column;
+    }
+
+    .items-handle,.item-price {
+        margin: 0;
     }
 }

@@ -9,7 +9,7 @@ function CartItem() {
                     <div className='item-name'>One Star Academy Pro Preto</div>
                     <div className='item-specifications'>
                         <div className='item-variation'><b>Cor: </b> BLACK</div>
-                        <div className='item-variation'><b>Size: </b> 40</div>
+                        <div className='item-variation'><b>Tamanho: </b> 40</div>
                     </div>
                 </div>
             </div>
@@ -17,9 +17,9 @@ function CartItem() {
                 <input type="number" id="quantity" name="quantity" min="1" />
                 <div className='item-functions'>
                     <div className='item-price'>R$579,90</div>
-                    <div>
+                    <div className='item-editing'>
                         <div className='item-wish'>MOVER PARA LISTA DE DESEJOS</div>
-                        <div className='item-remove'>REMOVER ITEM</div>
+                        <div>REMOVER ITEM</div>
                     </div>
                 </div>
             </div>
