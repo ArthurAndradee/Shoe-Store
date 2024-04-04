@@ -14,13 +14,14 @@
     width: 80px;
 
     margin-right: 10px;
+    cursor: pointer;
 
     background-size: cover;
     background-image: url(https://converse.com.br/media/catalog/product/a/0/a06426c_a_107x1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=897&width=960&canvas=960:897);
 }
 
 .item-name {
-    width: 150px;
+    cursor: pointer;
 
     font-size: 13px;
     font-weight: 700;
@@ -81,6 +82,10 @@
 
 .item-wish {
     margin-bottom: 10px;
+}
+
+.item-wish, .item-remove {
+    cursor: pointer;
 }
 
 .items-handle input {

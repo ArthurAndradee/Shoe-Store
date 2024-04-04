@@ -19,7 +19,7 @@ function CartItem() {
                     <div className='item-price'>R$579,90</div>
                     <div className='item-editing'>
                         <div className='item-wish'>MOVER PARA LISTA DE DESEJOS</div>
-                        <div>REMOVER ITEM</div>
+                        <div className='item-remove'>REMOVER ITEM</div>
                     </div>
                 </div>
             </div>

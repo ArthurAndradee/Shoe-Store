@@ -9,11 +9,11 @@ function CartOverview() {
             <div className='cart-price'>
                 <div className='price-container'>
                     <div className='price-text-container'>
-                        <div className='subtotal'>Subtotal:</div>
-                        <div className='total'>Total:</div>
+                        <div className='subtotal'>Sub-total</div>
+                        <div className='total'>Total</div>
                     </div>
                     <div className='price-number-container'>
-                        <div className='subtotal'>Subtotal price</div>
+                        <div className='subtotal'>Sub-total price</div>
                         <div className='total'>Total price</div>
                     </div>
                 </div>
