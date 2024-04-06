@@ -1,6 +1,7 @@
-export const shoes = (
+export const shoes = 
     [
         {
+            id: 1,
             imgAlt: 'Chuck 70 De Luxe Heel Chrome Queen Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08103c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck 70 De Luxe Heel Chrome Queen Preto',
@@ -11,6 +12,7 @@ export const shoes = (
             productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto'
         },
         {
+            id: 2,
             imgAlt: 'Vans the Lizzie Cloud',
             imgLink: 'https://cdn.shopify.com/s/files/1/0581/5900/5854/files/VANSLIZZIEFATIGUEBLACK_600x600.png?v=1691166617',
             name: 'Vans the Lizzie Cloud',
@@ -21,6 +23,7 @@ export const shoes = (
             productUrl: 'vans-the-lizzie-cloud'
         },
         {
+            id: 3,
             imgAlt: 'Nike Court Vision Mid Nn All Black',
             imgLink: 'https://images.tcdn.com.br/img/img_prod/1127564/180_tenis_nike_court_vision_mid_nn_all_black_1662_1_84b4860aa5c23c947606bf6707853c6f.jpg',
             name: 'Nike Court Vision Mid Nn All Black',
@@ -31,6 +34,7 @@ export const shoes = (
             productUrl: 'nike-court-vision-mid-nn-all-black'
         },
         {
+            id: 4,
             imgAlt: 'Converse X Martine Ali Chuck 70 Xhi Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08651c_a_107x1_1_2.png?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:&format=jpeg',
             name: 'Converse X Martine Ali Chuck 70 Xhi Preto',
@@ -41,6 +45,7 @@ export const shoes = (
             productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto'
         },
         {
+            id: 5,
             imgAlt: 'Chuck Taylor All Star Modern Lift Chrome Queen Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08102c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck Taylor All Star Modern Lift Chrome Queen Preto',
@@ -51,6 +56,7 @@ export const shoes = (
             productUrl: 'chuck-taylor-all-star-modern-lift-chrome-queen-preto'
         },
         {
+            id: 6,
             imgAlt: 'Tênis Converse Chuck Taylor All Star Hi Future Utility',
             imgLink: 'https://espacotenis.vteximg.com.br/arquivos/ids/171907-1000-1000/converse-hi-future-utility-branco.jpg?v=638191505258630000',
             name: 'Converse Chuck Taylor All Star Hi Future Utility',
@@ -61,6 +67,7 @@ export const shoes = (
             productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility'
         },
         {
+            id: 7,
             imgAlt: 'Vans Classic',
             imgLink: 'https://www.tradeinn.com/f/125/1252969/vans-sapatos-sem-cadarco-classic.jpg',
             name: 'Vans  Classic',
@@ -71,6 +78,7 @@ export const shoes = (
             productUrl: 'vans-sem-cadarço-classic'
         },
         {
+            id: 8,
             imgAlt: 'Tênis Nike Air Max 97',
             imgLink: 'https://images.tcdn.com.br/img/img_prod/1048024/tenis_nike_air_max_97_branco_921826_101_6729_1_1ed3ff085def62045397ec3725058f42.jpg',
             name: 'Tênis Nike Air Max 97',
@@ -81,6 +89,7 @@ export const shoes = (
             productUrl: 'tenis-nike-air-max-97'
         },
         {
+            id: 9,
             imgAlt: 'Chuck Taylor All Star Chrome Queen Branco',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a06444c_a_107x1_6.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck Taylor All Star Chrome Queen Branco',
@@ -91,6 +100,7 @@ export const shoes = (
             productUrl: 'chuck-taylor-all-star-chrome-queen-branco'
         },
         {
+            id: 10,
             imgAlt: 'Vans Benegas X Enarson White',
             imgLink: 'https://www.tillys.com/on/demandware.static/-/Sites-master-catalog/default/dw51976e42/tillys/images/catalog/1000x1000/267631150a.jpg',
             name: 'Vans Benegas X Enarson White',
@@ -101,4 +111,3 @@ export const shoes = (
             productUrl: 'tenis-bmx-sk8-hi-benegas-x-enarson-white'
         },
     ]
-) 
