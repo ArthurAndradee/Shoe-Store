@@ -1,6 +1,7 @@
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './product.menu.css'
+import { useCart } from '../../../Context/cart.context';
 
 interface ProductInfo {
     name: string,
@@ -10,6 +11,8 @@ interface ProductInfo {
 }
 
 function ProductMenu(props: ProductInfo) {
+
+    const {cartTotalQty} = useCart()
 
     return (
         <div className='menu-container'>

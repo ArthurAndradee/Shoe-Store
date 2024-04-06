@@ -11,6 +11,7 @@ import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
 import { shoes } from './Components/Product/Props/shoes';
 import Cart from './Pages/Cart/cart';
+import CartProvider from './Providers/cart.provider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -136,7 +137,9 @@ const router = createBrowserRouter([{
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );
 
