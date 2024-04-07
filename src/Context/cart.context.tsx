@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { ProductInfo } from "../Components/Product UI/ProductMenu/product.menu";
+import { toast } from "react-hot-toast";
 
 type CartContextType = {
     cartTotalQty: number
@@ -34,6 +35,7 @@ export const CartContextProvider = (props: Props) => {
                 updatedCart = [product]
             }
 
+            toast.success('Produto adicionado ao carrinho')
             localStorage.setItem('shoeShopProducts', JSON.stringify(updatedCart))
             return updatedCart
         })

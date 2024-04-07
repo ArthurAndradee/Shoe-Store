@@ -12,10 +12,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { products } from './Components/Product/Props/shoes';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+function test() {
+  for (let i = 0; i < products.length; i++) {
+
+  }
+}
 
 const router = createBrowserRouter([{
   path: '/',
@@ -147,6 +154,19 @@ const router = createBrowserRouter([{
 
 root.render(
   <React.StrictMode>
+    <Toaster toastOptions={{
+      duration: 3000,
+      style:{
+        background: '#FFFFFF',
+        color: '#000000'
+      },
+      success: {
+        iconTheme: {
+          primary: '#000000',
+          secondary: '#FFFFFF'
+        }
+      }
+    }}/>
     <CartProvider>
       <RouterProvider router={router} />
     </CartProvider>
