@@ -90,37 +90,34 @@
     font-weight: 700
 }
 
-#cart-button, #cart-buy-button {
-    border: 0;
-    border-radius: 0;
-
-    height: 140%;
+#cart-button, #see-cart {
+    height: 40px;
     width: 85%;
 
     text-align: left;
-    
+}
+
+#cart-button, #wish-button, #see-cart {
+    border: 0;
+    border-radius: 0;
+
     background-color: #000000;
 }
 
-#cart-buy-button {
+#wish-button {
+    height: 40px;
+    width: 14%;
+    
+    margin-left: 3px;
+}
+
+#see-cart {
     height: 50px;
     margin-top: 20px;
 
     border-radius: 5px;
     
     text-align: center;
-}
-
-#wish-button {
-    border: 0;
-    border-radius: 0;
-
-    height: 140%;
-    width: 14%;
-    
-    background-color: #000000;
-
-    margin-left: 3px;
 }
 
 option {
@@ -133,4 +130,14 @@ option {
 
 option:hover {
     background:rgb(0, 0, 0);
+}
+
+.size-warning {
+    #cart-button {
+        height: 10px;
+    }
+
+    #wish-button {
+        height: 10px;
+    }
 }

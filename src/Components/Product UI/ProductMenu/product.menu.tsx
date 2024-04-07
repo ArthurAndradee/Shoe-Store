@@ -23,22 +23,9 @@ interface ProductMenuProps extends ProductInfo {
 function ProductMenu(props: ProductMenuProps,) {
     const {cartTotalQty} = useCart()
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
+    const [isSizeSelected, setIsSizeSelected] = useState(false)
     const {handleAddProductToCart, cartProducts} = useCart()
     const [isProduictInCart, setIsProduictInCart] = useState(false)
-
-    
-    useEffect(() => {
-        setCartProduct(prevState => ({
-          ...prevState,
-          productSize: selectedSize
-        }));
-    }, [selectedSize]);
-    
-    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedSize(event.target.value);
-      props.onSizeChange(event.target.value); // Inform parent component about the change
-    };
-
     const [cartProduct, setCartProduct] = useState<ProductInfo>({
         id: props.id,
         name: props.name,
@@ -62,6 +49,27 @@ function ProductMenu(props: ProductMenuProps,) {
         }
     }, [cartProducts, props.id])
 
+    useEffect(() => {
+        setCartProduct(prevState => ({
+          ...prevState,
+          productSize: selectedSize
+        }));
+    }, [selectedSize]);
+    
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedSize(event.target.value);
+      props.onSizeChange(event.target.value);
+    };
+
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        event.preventDefault();
+        if (selectedSize !== '0') {
+            handleAddProductToCart(cartProduct);
+        } else {
+            setIsSizeSelected(true)
+        }
+    };
+
     return (
         <div className='menu-container'>
             <h3 className='product-title'>{props.name}</h3>
@@ -75,8 +83,7 @@ function ProductMenu(props: ProductMenuProps,) {
                 </div>
                 <a href='https://cdnv2.moovin.com.br/margilcalcados/imagens/produtos/det/tenis-converse-all-star-lona-ct00100007-chuck-taylor-a308c915b1fcc51eec63d8df5cb636aa.jpg' target='_blank' className='product-guide' rel="noreferrer">GUIA DE TAMANHOS</a>
             </div>
-            <form>
-            <select id='select' className="form-select" aria-label="Default select example" value={selectedSize} onChange={handleSelectChange} required>
+            <select id='select' className="form-select" aria-label="Default select example" value={selectedSize} onChange={handleSelectChange}>
                 <option selected>Escolha um tamanho</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
@@ -97,18 +104,25 @@ function ProductMenu(props: ProductMenuProps,) {
                     <div>Produto adicionado ao carrinho</div>
                 </div>
                 <Link to={'/cart'}>
-                    <button className='btn btn-primary' id='cart-buy-button'>Ver carrinho</button>
+                    <button className='btn btn-primary' id='see-cart'>Ver carrinho</button>
                 </Link>
                 </>
             ) : (
                 <>
                 <div className='product-options'>
-                    <button type='submit' className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
-                    <button className='btn btn-primary' id='wish-button' onClick={() => console.log(selectedSize)}><FontAwesomeIcon icon={faHeart} /></button>
+                    {isSizeSelected ? (
+                        <>
+                            <div className='text-danger' id='size-warning'>Por favor selecione um tamanho</div>
+                        </>
+                    ) : (
+                        <>
+                        </>
+                    )}
+                    <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleSubmit}>Adicionar ao carrinho</button>
+                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
                 </>
             )}
-            </form>
         </div>
     )
 }
