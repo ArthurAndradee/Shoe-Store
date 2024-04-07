@@ -47,7 +47,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[1].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[1].id} 
             name={products[1].name} 
             imgLink={products[1].imgLink} 
             type={products[1].type} 
@@ -58,7 +58,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[2].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[2].id} 
             name={products[2].name} 
             imgLink={products[2].imgLink} 
             type={products[2].type} 
@@ -69,7 +69,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[3].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[3].id} 
             name={products[3].name} 
             imgLink={products[3].imgLink} 
             type={products[3].type} 
@@ -80,7 +80,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[4].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[4].id} 
             name={products[4].name} 
             imgLink={products[4].imgLink} 
             type={products[4].type} 
@@ -91,7 +91,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[5].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[5].id} 
             name={products[5].name} 
             imgLink={products[5].imgLink} 
             type={products[5].type} 
@@ -102,7 +102,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[6].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[6].id} 
             name={products[6].name} 
             imgLink={products[6].imgLink} 
             type={products[6].type} 
@@ -113,7 +113,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[7].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[7].id} 
             name={products[7].name} 
             imgLink={products[7].imgLink} 
             type={products[7].type} 
@@ -124,7 +124,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[8].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[8].id} 
             name={products[8].name} 
             imgLink={products[8].imgLink} 
             type={products[8].type} 
@@ -135,7 +135,7 @@ const router = createBrowserRouter([{
 {
   path: `/products/${products[9].productUrl}`,
   element: <ProductPage
-            id={products[0].id} 
+            id={products[9].id} 
             name={products[9].name} 
             imgLink={products[9].imgLink} 
             type={products[9].type} 
