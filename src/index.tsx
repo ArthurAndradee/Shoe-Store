@@ -9,7 +9,7 @@ import LanguagePage from './Pages/Language/language';
 import ErrorPage from './Pages/Error/error';
 import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
-import { shoes } from './Components/Product/Props/shoes';
+import { products } from './Components/Product/Props/shoes';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 
@@ -34,103 +34,113 @@ const router = createBrowserRouter([{
 },
 //-------------------------PRODUCT LINKS-------------------------
 {
-  path: `/products/${shoes[0].productUrl}`,
-  element: <ProductPage 
-            name={shoes[0].name}  
-            imgLink={shoes[0].imgLink}  
-            type={shoes[0].type}  
-            price={shoes[0].price}  
-            catchPhrase={shoes[0].catchPhrase} 
+  path: `/products/${products[0].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[0].name}  
+            imgLink={products[0].imgLink}  
+            type={products[0].type}  
+            price={products[0].price}  
+            catchPhrase={products[0].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[1].productUrl}`,
-  element: <ProductPage 
-            name={shoes[1].name} 
-            imgLink={shoes[1].imgLink} 
-            type={shoes[1].type} 
-            price={shoes[1].price} 
-            catchPhrase={shoes[1].catchPhrase} 
+  path: `/products/${products[1].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[1].name} 
+            imgLink={products[1].imgLink} 
+            type={products[1].type} 
+            price={products[1].price} 
+            catchPhrase={products[1].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[2].productUrl}`,
-  element: <ProductPage 
-            name={shoes[2].name} 
-            imgLink={shoes[2].imgLink} 
-            type={shoes[2].type} 
-            price={shoes[2].price} 
-            catchPhrase={shoes[2].catchPhrase} 
+  path: `/products/${products[2].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[2].name} 
+            imgLink={products[2].imgLink} 
+            type={products[2].type} 
+            price={products[2].price} 
+            catchPhrase={products[2].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[3].productUrl}`,
-  element: <ProductPage 
-            name={shoes[3].name} 
-            imgLink={shoes[3].imgLink} 
-            type={shoes[3].type} 
-            price={shoes[3].price} 
-            catchPhrase={shoes[3].catchPhrase} 
+  path: `/products/${products[3].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[3].name} 
+            imgLink={products[3].imgLink} 
+            type={products[3].type} 
+            price={products[3].price} 
+            catchPhrase={products[3].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[4].productUrl}`,
-  element: <ProductPage 
-            name={shoes[4].name} 
-            imgLink={shoes[4].imgLink} 
-            type={shoes[4].type} 
-            price={shoes[4].price} 
-            catchPhrase={shoes[4].catchPhrase} 
+  path: `/products/${products[4].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[4].name} 
+            imgLink={products[4].imgLink} 
+            type={products[4].type} 
+            price={products[4].price} 
+            catchPhrase={products[4].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[5].productUrl}`,
-  element: <ProductPage 
-            name={shoes[5].name} 
-            imgLink={shoes[5].imgLink} 
-            type={shoes[5].type} 
-            price={shoes[5].price} 
-            catchPhrase={shoes[5].catchPhrase} 
+  path: `/products/${products[5].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[5].name} 
+            imgLink={products[5].imgLink} 
+            type={products[5].type} 
+            price={products[5].price} 
+            catchPhrase={products[5].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[6].productUrl}`,
-  element: <ProductPage 
-            name={shoes[6].name} 
-            imgLink={shoes[6].imgLink} 
-            type={shoes[6].type} 
-            price={shoes[6].price} 
-            catchPhrase={shoes[6].catchPhrase} 
+  path: `/products/${products[6].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[6].name} 
+            imgLink={products[6].imgLink} 
+            type={products[6].type} 
+            price={products[6].price} 
+            catchPhrase={products[6].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[7].productUrl}`,
-  element: <ProductPage 
-            name={shoes[7].name} 
-            imgLink={shoes[7].imgLink} 
-            type={shoes[7].type} 
-            price={shoes[7].price} 
-            catchPhrase={shoes[7].catchPhrase} 
+  path: `/products/${products[7].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[7].name} 
+            imgLink={products[7].imgLink} 
+            type={products[7].type} 
+            price={products[7].price} 
+            catchPhrase={products[7].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[8].productUrl}`,
-  element: <ProductPage 
-            name={shoes[8].name} 
-            imgLink={shoes[8].imgLink} 
-            type={shoes[8].type} 
-            price={shoes[8].price} 
-            catchPhrase={shoes[8].catchPhrase} 
+  path: `/products/${products[8].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[8].name} 
+            imgLink={products[8].imgLink} 
+            type={products[8].type} 
+            price={products[8].price} 
+            catchPhrase={products[8].catchPhrase} 
           />
 },
 {
-  path: `/products/${shoes[9].productUrl}`,
-  element: <ProductPage 
-            name={shoes[9].name} 
-            imgLink={shoes[9].imgLink} 
-            type={shoes[9].type} 
-            price={shoes[9].price} 
-            catchPhrase={shoes[9].catchPhrase} 
+  path: `/products/${products[9].productUrl}`,
+  element: <ProductPage
+            id={products[0].id} 
+            name={products[9].name} 
+            imgLink={products[9].imgLink} 
+            type={products[9].type} 
+            price={products[9].price} 
+            catchPhrase={products[9].catchPhrase} 
           />
 },
 ])

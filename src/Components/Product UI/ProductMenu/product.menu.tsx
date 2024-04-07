@@ -1,18 +1,43 @@
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './product.menu.css'
 import { useCart } from '../../../Context/cart.context';
+import { useEffect, useState } from 'react';
 
-interface ProductInfo {
+export interface ProductInfo {
+    id: number,
     name: string,
     type: string,
     price: string,
     catchPhrase: string,
 }
 
-function ProductMenu(props: ProductInfo) {
 
+function ProductMenu(props: ProductInfo) {
     const {cartTotalQty} = useCart()
+    const {handleAddProductToCart, cartProducts} = useCart()
+    const [isProduictInCart, setIsProduictInCart] = useState(false)
+
+    const [cartProduct, setCartProduct] = useState<ProductInfo>({
+        id: props.id,
+        name: props.name,
+        type: props.type,
+        price: props.price,
+        catchPhrase: props.catchPhrase,
+    })
+    console.log(cartProducts)
+
+    useEffect(() => {
+        setIsProduictInCart(false)
+
+        if(cartProducts) {
+            const existingIndex = cartProducts.findIndex((item) => item.id === props.id)
+
+            if (existingIndex > -1) {
+                setIsProduictInCart(true)
+            }
+        }
+    }, [cartProducts, props.id])
 
     return (
         <div className='menu-container'>
@@ -42,10 +67,22 @@ function ProductMenu(props: ProductInfo) {
                 <option value="43">43</option>
                 <option value="44">44</option>
             </select>
-            <div className='product-options'>
-                <button className='btn btn-primary' id='cart-button'>Adicionar ao carrinho</button>
-                <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} /></button>
-            </div>
+            {isProduictInCart ? (
+                <>
+                <div style={{display:'flex'}}>
+                    {/* later require user to pick a size before adding to cart */}
+                    <FontAwesomeIcon style={{margin:'6px 6px 0 0'}} icon={faCircleCheck} />
+                    <div>Produto adicionado ao carrinho</div>
+                </div>    
+                </>
+            ): (
+                <>
+                <div className='product-options'>
+                    <button className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
+                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} /></button>
+                </div>
+                </>
+            )}
         </div>
     )
 }

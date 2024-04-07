@@ -1,7 +1,7 @@
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css'
-import { shoes } from '../Props/shoes';
+import { products } from '../Props/shoes';
 
 
 function ProductsRow() {
@@ -33,7 +33,7 @@ function ProductsRow() {
         <span className="products-row-all">→ Ver todos</span>
         <div className="products">
             <Slider {...settings}>
-                {shoes.map((shoe) => {
+                {products.map((shoe) => {
                     return (
                         <ProductCard 
                         imgAlt={shoe.imgAlt}

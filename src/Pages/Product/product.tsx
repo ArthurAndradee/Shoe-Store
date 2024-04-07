@@ -5,6 +5,7 @@ import ProductNav from '../../Components/Product UI/ProductNav/product.nav';
 import './product.css';
 
 interface ProductProps {
+    id: number;
     imgLink: string,
     name: string,
     type: string,
@@ -19,7 +20,7 @@ function ProductPage(props: ProductProps) {
             <ProductNav name={props.name} />
             <div className='content'>
                 <ProductDisplay imgLink={props.imgLink} />
-                <ProductMenu name={props.name} type={props.type} price={props.price} catchPhrase={props.catchPhrase}/>
+                <ProductMenu id={props.id} name={props.name} type={props.type} price={props.price} catchPhrase={props.catchPhrase}/>
             </div>
             
         </div>
