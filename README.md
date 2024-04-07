@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Please install the following dependencies in order to run app
+## Please install the following dependencies in order to run the app
 
 In terminal, run:
 
