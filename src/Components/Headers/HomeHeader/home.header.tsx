@@ -4,11 +4,23 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import './home.header.css';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../../Context/cart.context';
+import { useEffect, useState } from 'react';
 
 function HomeHeader() {
+  const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
+  const {cartProducts} = useCart()
+
+  useEffect(() => {
+    if (cartProducts?.length) {
+      setShowCartItemsQuantity(true);
+    } else {
+      setShowCartItemsQuantity(false)
+    }
+
+  }, [showCartItemsQuantity, cartProducts]);
 
   var sliderSettings = {
     infinite: true,
@@ -21,7 +33,6 @@ function HomeHeader() {
 
   return (
     <header className='app'>
-
       <div className="slider-container">
         <Slider {...sliderSettings} className='slider'>
             <h3 className='slider-text'>APROVEITE NOSSA PROMOÇÃO COM <h3 className='blueSliderText'>ATÉ 50% OFF!</h3></h3>
@@ -47,7 +58,17 @@ function HomeHeader() {
           <div className='userOptions'>
               <div>Entrar</div>
               <div><FontAwesomeIcon icon={faHeart} /></div>
-              <div><Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link></div>
+              <div style={{display:'flex'}}>
+                  <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
+                  {showCartItemsQuantity ? (
+                    <>
+                    <div className='items-count'>{cartProducts?.length}</div>
+                    </>
+                  ):(
+                    <>
+                    </>
+                  )}
+              </div>
           </div>
 
           <div className='searchBar'>

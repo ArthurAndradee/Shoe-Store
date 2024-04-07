@@ -6,6 +6,10 @@ function CartItem() {
     const {cartProducts} = useCart()
     const {handleRemoveProductFromCart} = useCart()
 
+    if (cartProducts) {
+        const numberOfItems = cartProducts.length
+    }
+
     if(!cartProducts || cartProducts.length === 0) {
         return (
             <div className='p-3'>

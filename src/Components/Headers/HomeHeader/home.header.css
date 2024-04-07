@@ -124,6 +124,16 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
   text-decoration: underline;
 }
 
+.items-count {
+  padding: 0 6px 0 5px;
+  margin: 0 0 0 5px;
+  
+  font-size: 10px;
+
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
 .searchBar {
     width: 160px;
     height: 60px;

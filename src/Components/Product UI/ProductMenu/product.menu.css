@@ -91,13 +91,14 @@
 }
 
 #cart-button, #see-cart {
-    height: 40px;
     width: 85%;
 
     text-align: left;
 }
 
 #cart-button, #wish-button, #see-cart {
+    height: 50px;
+
     border: 0;
     border-radius: 0;
 
@@ -105,7 +106,6 @@
 }
 
 #wish-button {
-    height: 40px;
     width: 14%;
     
     margin-left: 3px;
@@ -113,7 +113,7 @@
 
 #see-cart {
     height: 50px;
-    margin-top: 20px;
+    margin-top: 15px;
 
     border-radius: 5px;
     

@@ -1,9 +1,9 @@
 import { faCircleCheck, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './product.menu.css'
-import { useCart } from '../../../Context/cart.context';
 import { useEffect, useState } from 'react';
+import { useCart } from '../../../Context/cart.context';
 import { Link } from 'react-router-dom';
+import './product.menu.css'
 
 export interface ProductInfo {
     id: number,

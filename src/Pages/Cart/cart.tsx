@@ -15,7 +15,7 @@ function Cart() {
                 </div>
                 <div className='cart-container'>
                     <div className='list-container'>
-                        <CartItem />
+                        <CartItem/>
                     </div>
                     <CartOverview />
                 </div>
