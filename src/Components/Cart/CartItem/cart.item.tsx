@@ -1,6 +1,25 @@
+import { Link } from 'react-router-dom';
+import { useCart } from '../../../Context/cart.context';
 import './cart.item.css'
 
 function CartItem() {
+    const {cartProducts} = useCart()
+
+    if(!cartProducts || cartProducts.length == 0) {
+        return (
+            <div className='p-3'>
+                <div>Você não possui nenhum item em seu carrinho de compras.</div>
+                <div>
+                    Clique
+                    <Link className='m-1 home-link' to={'/home'}>
+                        aqui
+                    </Link>
+                    para continuar comprando.
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className='items-container'>
             <div className='item-display'>

@@ -1,3 +1,12 @@
+.home-link {
+    color: #7c7c7c;
+    text-decoration: none;
+}
+
+.home-link:hover {
+    text-decoration: underline
+}
+
 .items-container {
     display: flex;
     flex-direction: row;
