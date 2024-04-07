@@ -17,7 +17,7 @@ interface ProductProps {
   }
 
 function ProductPage(props: ProductProps) {
-  const [selectedSize, setSelectedSize] = useState<string>(props.productSize);
+  const [ ,setSelectedSize] = useState<string>(props.productSize);
 
   const handleSizeChange = (size: string) => {
     setSelectedSize(size);

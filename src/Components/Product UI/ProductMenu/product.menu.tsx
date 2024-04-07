@@ -75,7 +75,8 @@ function ProductMenu(props: ProductMenuProps,) {
                 </div>
                 <a href='https://cdnv2.moovin.com.br/margilcalcados/imagens/produtos/det/tenis-converse-all-star-lona-ct00100007-chuck-taylor-a308c915b1fcc51eec63d8df5cb636aa.jpg' target='_blank' className='product-guide' rel="noreferrer">GUIA DE TAMANHOS</a>
             </div>
-            <select id='select' className="form-select" aria-label="Default select example" value={selectedSize} onChange={handleSelectChange}>
+            <form>
+            <select id='select' className="form-select" aria-label="Default select example" value={selectedSize} onChange={handleSelectChange} required>
                 <option selected>Escolha um tamanho</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
@@ -97,16 +98,17 @@ function ProductMenu(props: ProductMenuProps,) {
                 </div>
                 <Link to={'/cart'}>
                     <button className='btn btn-primary' id='cart-buy-button'>Ver carrinho</button>
-                </Link>    
+                </Link>
                 </>
             ) : (
                 <>
                 <div className='product-options'>
-                    <button className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
+                    <button type='submit' className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
                     <button className='btn btn-primary' id='wish-button' onClick={() => console.log(selectedSize)}><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
                 </>
             )}
+            </form>
         </div>
     )
 }
