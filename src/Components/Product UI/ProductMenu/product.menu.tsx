@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './product.menu.css'
 import { useCart } from '../../../Context/cart.context';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface ProductInfo {
     id: number,
@@ -73,7 +74,10 @@ function ProductMenu(props: ProductInfo) {
                     {/* later require user to pick a size before adding to cart */}
                     <FontAwesomeIcon style={{margin:'6px 6px 0 0'}} icon={faCircleCheck} />
                     <div>Produto adicionado ao carrinho</div>
-                </div>    
+                </div>
+                <Link to={'/cart'}>
+                    <button className='btn btn-primary' id='cart-buy-button'>Ver carrinho</button>
+                </Link>    
                 </>
             ): (
                 <>
