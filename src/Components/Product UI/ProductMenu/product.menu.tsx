@@ -12,6 +12,7 @@ export interface ProductInfo {
     price: string,
     catchPhrase: string,
     imgLink: string,
+    productUrl: string,
 }
 
 function ProductMenu(props: ProductInfo) {
@@ -26,6 +27,7 @@ function ProductMenu(props: ProductInfo) {
         price: props.price,
         catchPhrase: props.catchPhrase,
         imgLink: props.imgLink,
+        productUrl: props.productUrl,
     })
     
     console.log(cartProducts)

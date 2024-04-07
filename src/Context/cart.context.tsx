@@ -6,6 +6,7 @@ type CartContextType = {
     cartTotalQty: number
     cartProducts: ProductInfo[] | null
     handleAddProductToCart: (product: ProductInfo) => void
+    handleRemoveProductFromCart: (product: ProductInfo) => void
 }
 
 interface Props {
@@ -41,10 +42,26 @@ export const CartContextProvider = (props: Props) => {
         })
     }, [])
 
+    const handleRemoveProductFromCart = useCallback((
+        product: ProductInfo
+    ) => {
+        if(cartProducts) {
+            const filteredProducts = cartProducts.filter((item) => {
+                return item.id !== product.id
+            })
+
+            setCartProducts(filteredProducts)
+
+            toast.success('Produto removido do carrinho')
+            localStorage.setItem('shoeShopProducts', JSON.stringify(filteredProducts))
+        }
+    },[cartProducts])
+
     const value = {
         cartTotalQty,
         cartProducts,
-        handleAddProductToCart
+        handleAddProductToCart,
+        handleRemoveProductFromCart
     }
 
     return <CartContext.Provider value={value} {...props}/>

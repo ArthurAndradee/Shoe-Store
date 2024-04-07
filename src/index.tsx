@@ -42,7 +42,8 @@ const router = createBrowserRouter([{
             imgLink={products[0].imgLink}  
             type={products[0].type}  
             price={products[0].price}  
-            catchPhrase={products[0].catchPhrase} 
+            catchPhrase={products[0].catchPhrase}
+            productUrl={products[0].productUrl} 
           />
 },
 {
@@ -53,7 +54,8 @@ const router = createBrowserRouter([{
             imgLink={products[1].imgLink} 
             type={products[1].type} 
             price={products[1].price} 
-            catchPhrase={products[1].catchPhrase} 
+            catchPhrase={products[1].catchPhrase}
+            productUrl={products[1].productUrl} 
           />
 },
 {
@@ -64,7 +66,8 @@ const router = createBrowserRouter([{
             imgLink={products[2].imgLink} 
             type={products[2].type} 
             price={products[2].price} 
-            catchPhrase={products[2].catchPhrase} 
+            catchPhrase={products[2].catchPhrase}
+            productUrl={products[2].productUrl} 
           />
 },
 {
@@ -75,7 +78,8 @@ const router = createBrowserRouter([{
             imgLink={products[3].imgLink} 
             type={products[3].type} 
             price={products[3].price} 
-            catchPhrase={products[3].catchPhrase} 
+            catchPhrase={products[3].catchPhrase}
+            productUrl={products[3].productUrl} 
           />
 },
 {
@@ -86,7 +90,8 @@ const router = createBrowserRouter([{
             imgLink={products[4].imgLink} 
             type={products[4].type} 
             price={products[4].price} 
-            catchPhrase={products[4].catchPhrase} 
+            catchPhrase={products[4].catchPhrase}
+            productUrl={products[4].productUrl} 
           />
 },
 {
@@ -97,7 +102,8 @@ const router = createBrowserRouter([{
             imgLink={products[5].imgLink} 
             type={products[5].type} 
             price={products[5].price} 
-            catchPhrase={products[5].catchPhrase} 
+            catchPhrase={products[5].catchPhrase}
+            productUrl={products[5].productUrl} 
           />
 },
 {
@@ -108,7 +114,8 @@ const router = createBrowserRouter([{
             imgLink={products[6].imgLink} 
             type={products[6].type} 
             price={products[6].price} 
-            catchPhrase={products[6].catchPhrase} 
+            catchPhrase={products[6].catchPhrase}
+            productUrl={products[6].productUrl} 
           />
 },
 {
@@ -119,7 +126,8 @@ const router = createBrowserRouter([{
             imgLink={products[7].imgLink} 
             type={products[7].type} 
             price={products[7].price} 
-            catchPhrase={products[7].catchPhrase} 
+            catchPhrase={products[7].catchPhrase}
+            productUrl={products[7].productUrl} 
           />
 },
 {
@@ -130,7 +138,8 @@ const router = createBrowserRouter([{
             imgLink={products[8].imgLink} 
             type={products[8].type} 
             price={products[8].price} 
-            catchPhrase={products[8].catchPhrase} 
+            catchPhrase={products[8].catchPhrase}
+            productUrl={products[8].productUrl} 
           />
 },
 {
@@ -141,7 +150,8 @@ const router = createBrowserRouter([{
             imgLink={products[9].imgLink} 
             type={products[9].type} 
             price={products[9].price} 
-            catchPhrase={products[9].catchPhrase} 
+            catchPhrase={products[9].catchPhrase}
+            productUrl={products[9].productUrl} 
           />
 },
 ])

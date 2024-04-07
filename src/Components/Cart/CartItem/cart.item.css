@@ -37,6 +37,8 @@
 .item-name {
     cursor: pointer;
 
+    color: #000000;
+
     font-size: 13px;
     font-weight: 700;
     text-decoration: underline;

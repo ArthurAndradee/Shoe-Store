@@ -4,6 +4,7 @@ import './cart.item.css'
 
 function CartItem() {
     const {cartProducts} = useCart()
+    const {handleRemoveProductFromCart} = useCart()
 
     if(!cartProducts || cartProducts.length == 0) {
         return (
@@ -26,9 +27,13 @@ function CartItem() {
                 return (
                     <div className='items-list'>
                         <div className='item-display'>
-                            <div className='item-img' style={{backgroundImage:"url(" + product.imgLink + ")" }}></div>
+                            <Link to={`/products/${product.productUrl}`}>
+                                <div className='item-img' style={{backgroundImage:"url(" + product.imgLink + ")" }}></div>
+                            </Link>
                             <div className='item-info'>
-                                <div className='item-name'>{product.name}</div>
+                                <Link to={`/products/${product.productUrl}`}>
+                                    <div className='item-name'>{product.name}</div>
+                                </Link>
                                 <div className='item-specifications'>
                                     <div className='item-variation'><b>Cor: </b> BLACK</div>
                                     <div className='item-variation'><b>Tamanho: </b> 40</div>
@@ -41,7 +46,7 @@ function CartItem() {
                                 <div className='item-price'>{product.price}</div>
                                 <div className='item-editing'>
                                     <div className='item-wish'>MOVER PARA LISTA DE DESEJOS</div>
-                                    <div className='item-remove'>REMOVER ITEM</div>
+                                    <div className='item-remove' onClick={() => handleRemoveProductFromCart(product)}>REMOVER ITEM</div>
                                 </div>
                             </div>
                         </div>
