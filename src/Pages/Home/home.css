@@ -71,7 +71,16 @@
     width: 165px;
 }
 
+.ad-buy-link {
+    color: #000000;
+    text-decoration: none;
+}
+
 .ad-buyButton:hover, .large-ad-buyButton:hover {
+    .ad-buy-link {    
+        color: #FFFFFF;
+    }
+
     cursor: pointer;
     
     color: #FFFFFF;

@@ -2,6 +2,7 @@ import "./home.css"
 import ProductsRow from "../../Components/Product/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
 import HomeHeader from "../../Components/Headers/HomeHeader/home.header";
+import { Link } from "react-router-dom";
 
 function HomePage() {
 
@@ -18,7 +19,9 @@ function HomePage() {
                         <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
                             <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
-                            <div className="ad-buyButton">COMPRE AGORA</div>
+                            <div className="ad-buyButton">
+                                <Link to={'/products/converse-x-martine-ali-chuck-70-xhi-preto'} className="ad-buy-link">COMPRE AGORA</Link>
+                            </div>
                         </div>
                         <div className="background-img" id="ad-2"></div>
                         <div className="background-img" id="ad-3"></div>
@@ -28,7 +31,9 @@ function HomePage() {
                         <div className="background-img background-text" id="ad-4">
                             <h2 className="ad-title">Modern Lift Chrome Queen</h2>
                             <p className="ad-description">Libere seu lado punk no estilo assinado Chuck Taylor. </p>
-                            <div className="ad-buyButton">COMPRE AGORA</div>
+                            <div className="ad-buyButton">
+                                <Link to={'/products/chuck-taylor-all-star-modern-lift-chrome-queen-preto'} className="ad-buy-link">COMPRE AGORA</Link>
+                            </div>
                         </div>
                         <div className="background-img" id="ad-5"></div>
                         <div className="background-img" id="ad-6"></div>
