@@ -6,7 +6,7 @@ function CartItem() {
     const {cartProducts} = useCart()
     const {handleRemoveProductFromCart} = useCart()
 
-    if(!cartProducts || cartProducts.length == 0) {
+    if(!cartProducts || cartProducts.length === 0) {
         return (
             <div className='p-3'>
                 <div>Você não possui nenhum item em seu carrinho de compras.</div>

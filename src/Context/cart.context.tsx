@@ -42,9 +42,7 @@ export const CartContextProvider = (props: Props) => {
         })
     }, [])
 
-    const handleRemoveProductFromCart = useCallback((
-        product: ProductInfo
-    ) => {
+    const handleRemoveProductFromCart = useCallback((product: ProductInfo) => {
         if(cartProducts) {
             const filteredProducts = cartProducts.filter((item) => {
                 return item.id !== product.id
