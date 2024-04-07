@@ -36,7 +36,7 @@ function CartItem() {
                                 </Link>
                                 <div className='item-specifications'>
                                     <div className='item-variation'><b>Cor: </b> BLACK</div>
-                                    <div className='item-variation'><b>Tamanho: </b> 40</div>
+                                    <div className='item-variation'><b>Tamanho: </b> {product.productSize}</div>
                                 </div>
                             </div>
                         </div>

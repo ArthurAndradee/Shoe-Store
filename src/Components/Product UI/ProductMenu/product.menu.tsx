@@ -13,12 +13,31 @@ export interface ProductInfo {
     catchPhrase: string,
     imgLink: string,
     productUrl: string,
+    productSize: string
 }
 
-function ProductMenu(props: ProductInfo) {
+interface ProductMenuProps extends ProductInfo {
+    onSizeChange: (size: string) => void; // Added prop to handle size change
+  }
+
+function ProductMenu(props: ProductMenuProps,) {
     const {cartTotalQty} = useCart()
+    const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
     const {handleAddProductToCart, cartProducts} = useCart()
     const [isProduictInCart, setIsProduictInCart] = useState(false)
+
+    
+    useEffect(() => {
+        setCartProduct(prevState => ({
+          ...prevState,
+          productSize: selectedSize
+        }));
+    }, [selectedSize]);
+    
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedSize(event.target.value);
+      props.onSizeChange(event.target.value); // Inform parent component about the change
+    };
 
     const [cartProduct, setCartProduct] = useState<ProductInfo>({
         id: props.id,
@@ -28,9 +47,8 @@ function ProductMenu(props: ProductInfo) {
         catchPhrase: props.catchPhrase,
         imgLink: props.imgLink,
         productUrl: props.productUrl,
+        productSize: props.productSize
     })
-    
-    console.log(cartProducts)
 
     useEffect(() => {
         setIsProduictInCart(false)
@@ -57,8 +75,7 @@ function ProductMenu(props: ProductInfo) {
                 </div>
                 <a href='https://cdnv2.moovin.com.br/margilcalcados/imagens/produtos/det/tenis-converse-all-star-lona-ct00100007-chuck-taylor-a308c915b1fcc51eec63d8df5cb636aa.jpg' target='_blank' className='product-guide' rel="noreferrer">GUIA DE TAMANHOS</a>
             </div>
-            <select
-            id='select' className="form-select" aria-label="Default select example">
+            <select id='select' className="form-select" aria-label="Default select example" value={selectedSize} onChange={handleSelectChange}>
                 <option selected>Escolha um tamanho</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
@@ -86,7 +103,7 @@ function ProductMenu(props: ProductInfo) {
                 <>
                 <div className='product-options'>
                     <button className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
-                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} /></button>
+                    <button className='btn btn-primary' id='wish-button' onClick={() => console.log(selectedSize)}><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
                 </>
             )}

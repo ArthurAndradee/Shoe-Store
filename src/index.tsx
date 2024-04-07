@@ -28,6 +28,7 @@ const productRoutes = products.map(product => ({
             price={product.price} 
             catchPhrase={product.catchPhrase}
             productUrl={product.productUrl} 
+            productSize={product.productSize}
           />
 })); 
 

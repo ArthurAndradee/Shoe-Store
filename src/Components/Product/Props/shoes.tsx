@@ -9,7 +9,8 @@ export const products =
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '799,90',
             variations: '1 cor',
-            productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto'
+            productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto',
+            productSize: '0'
         },
         {
             id: 2,
@@ -20,7 +21,8 @@ export const products =
             catchPhrase: 'OFF THE WALL',
             price: '649,90',
             variations: '1 cor',
-            productUrl: 'vans-the-lizzie-cloud'
+            productUrl: 'vans-the-lizzie-cloud',
+            productSize: '0'
         },
         {
             id: 3,
@@ -31,7 +33,8 @@ export const products =
             catchPhrase: 'JUST DO IT',
             price: '649,90',
             variations: '1 cor',
-            productUrl: 'nike-court-vision-mid-nn-all-black'
+            productUrl: 'nike-court-vision-mid-nn-all-black',
+            productSize: '0'
         },
         {
             id: 4,
@@ -42,7 +45,8 @@ export const products =
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '1.099,90',
             variations: '1 cor',
-            productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto'
+            productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto',
+            productSize: '0'
         },
         {
             id: 5,
@@ -53,7 +57,8 @@ export const products =
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '599,90',
             variations: '1 cor',
-            productUrl: 'chuck-taylor-all-star-modern-lift-chrome-queen-preto'
+            productUrl: 'chuck-taylor-all-star-modern-lift-chrome-queen-preto',
+            productSize: '0'
         },
         {
             id: 6,
@@ -64,7 +69,8 @@ export const products =
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '449,90',
             variations: '1 cor',
-            productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility'
+            productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility',
+            productSize: '0'
         },
         {
             id: 7,
@@ -75,7 +81,8 @@ export const products =
             catchPhrase: 'OFF THE WALL',
             price: '249,90',
             variations: '1 cor',
-            productUrl: 'vans-sem-cadarço-classic'
+            productUrl: 'vans-sem-cadarço-classic',
+            productSize: '0'
         },
         {
             id: 8,
@@ -86,7 +93,8 @@ export const products =
             catchPhrase: 'JUST DO IT',
             price: '1049,90',
             variations: '1 cor',
-            productUrl: 'tenis-nike-air-max-97'
+            productUrl: 'tenis-nike-air-max-97',
+            productSize: '0'
         },
         {
             id: 9,
@@ -97,7 +105,8 @@ export const products =
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: '549,90',
             variations: '1 cor',
-            productUrl: 'chuck-taylor-all-star-chrome-queen-branco'
+            productUrl: 'chuck-taylor-all-star-chrome-queen-branco',
+            productSize: '0'
         },
         {
             id: 10,
@@ -108,6 +117,7 @@ export const products =
             catchPhrase: 'OFF THE WALL',
             price: '599,90',
             variations: '1 cor',
-            productUrl: 'tenis-bmx-sk8-hi-benegas-x-enarson-white'
+            productUrl: 'tenis-bmx-sk8-hi-benegas-x-enarson-white',
+            productSize: '0'
         },
     ]
