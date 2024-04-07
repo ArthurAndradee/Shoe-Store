@@ -11,6 +11,7 @@ export interface ProductInfo {
     type: string,
     price: string,
     catchPhrase: string,
+    imgLink: string,
 }
 
 function ProductMenu(props: ProductInfo) {
@@ -24,6 +25,7 @@ function ProductMenu(props: ProductInfo) {
         type: props.type,
         price: props.price,
         catchPhrase: props.catchPhrase,
+        imgLink: props.imgLink,
     })
     
     console.log(cartProducts)
@@ -45,8 +47,7 @@ function ProductMenu(props: ProductInfo) {
             <h3 className='product-title'>{props.name}</h3>
             <div className='product-type'>{props.type}</div>
             <div className='price'>R$ {props.price}</div>
-            <div className='product-catch-phrase'>{props.catchPhrase}</div>
-            
+            <div className='product-catch-phrase'>{props.catchPhrase}</div>            
             <div className='warning-container'>
                 <div className='warning'>
                     <div className='product-warning'>ALERTA! FORMA GRANDE.</div>

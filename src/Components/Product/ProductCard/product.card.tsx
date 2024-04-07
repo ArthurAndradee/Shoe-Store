@@ -25,5 +25,5 @@ function ProductCard(props: ProductCardProps) {
         </div>
     )
 }
-
+ 
 export default ProductCard;

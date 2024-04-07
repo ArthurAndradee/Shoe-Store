@@ -18,12 +18,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-function test() {
-  for (let i = 0; i < products.length; i++) {
-
-  }
-}
-
 const router = createBrowserRouter([{
   path: '/',
   element: <LanguagePage />,

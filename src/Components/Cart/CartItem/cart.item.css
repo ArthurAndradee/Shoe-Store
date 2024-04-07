@@ -9,12 +9,18 @@
 
 .items-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     padding: 10px 10px;
 }
 
+.items-list {
+    height: 130px;
+    display:inline-flex;
+}
+
 .item-display {
+    width: fit-content;
     display: flex;
 }
 
@@ -26,7 +32,6 @@
     cursor: pointer;
 
     background-size: cover;
-    background-image: url(https://converse.com.br/media/catalog/product/a/0/a06426c_a_107x1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=897&width=960&canvas=960:897);
 }
 
 .item-name {
@@ -56,7 +61,7 @@
     display: flex;
     flex-direction: row;
 
-    margin-left: 60px;
+    margin-left: auto;
 }
 
 .items-handle input {

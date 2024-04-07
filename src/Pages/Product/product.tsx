@@ -6,11 +6,11 @@ import './product.css';
 
 interface ProductProps {
     id: number;
-    imgLink: string,
     name: string,
     type: string,
     price: string,
-    catchPhrase: string
+    catchPhrase: string,
+    imgLink: string,
   }
 
 function ProductPage(props: ProductProps) {
@@ -20,7 +20,7 @@ function ProductPage(props: ProductProps) {
             <ProductNav name={props.name} />
             <div className='content'>
                 <ProductDisplay imgLink={props.imgLink} />
-                <ProductMenu id={props.id} name={props.name} type={props.type} price={props.price} catchPhrase={props.catchPhrase}/>
+                <ProductMenu id={props.id} name={props.name} type={props.type} price={props.price} catchPhrase={props.catchPhrase} imgLink={props.imgLink}/>
             </div>
             
         </div>
