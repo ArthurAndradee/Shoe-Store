@@ -13,7 +13,6 @@ export interface ProductInfo {
     catchPhrase: string,
 }
 
-
 function ProductMenu(props: ProductInfo) {
     const {cartTotalQty} = useCart()
     const {handleAddProductToCart, cartProducts} = useCart()
@@ -26,6 +25,7 @@ function ProductMenu(props: ProductInfo) {
         price: props.price,
         catchPhrase: props.catchPhrase,
     })
+    
     console.log(cartProducts)
 
     useEffect(() => {
@@ -79,7 +79,7 @@ function ProductMenu(props: ProductInfo) {
                     <button className='btn btn-primary' id='cart-buy-button'>Ver carrinho</button>
                 </Link>    
                 </>
-            ): (
+            ) : (
                 <>
                 <div className='product-options'>
                     <button className='btn btn-primary' id='cart-button' onClick={() => handleAddProductToCart(cartProduct)}>Adicionar ao carrinho</button>
