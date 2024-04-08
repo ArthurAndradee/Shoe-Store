@@ -73,7 +73,7 @@ function ProductMenu(props: ProductMenuProps,) {
         <div className='menu-container'>
             <h3 className='product-title'>{props.name}</h3>
             <div className='product-type'>{props.type}</div>
-            <div className='price'>R$ {props.price + '0'}</div>
+            <div className='price'>R$ {props.price.toFixed(2)}</div>
             <div className='product-catch-phrase'>{props.catchPhrase}</div>            
             <div className='warning-container'>
                 <div className='warning'>

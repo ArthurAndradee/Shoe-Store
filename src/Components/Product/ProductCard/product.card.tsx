@@ -20,7 +20,7 @@ function ProductCard(props: ProductCardProps) {
                 <img alt={props.imgAlt} src={props.imgLink}/>
                 <p className="product-name">{props.name}</p>
             </Link>
-            <span className="product-price">R$ {props.price + '0'}</span>
+            <span className="product-price">R$ {props.price.toFixed(2)}</span>
             <span className="product-variations">{props.variations}</span>
         </div>
     )
