@@ -3,10 +3,11 @@ import LanguageHeader from '../../Components/Headers/LanguageHeader/language.hea
 import './language.css';
 
 function LanguagePage() {
+
   return (
-    <div className="Main">
+    <div className='language-container'>
       <LanguageHeader />
-        <div className='selectionText'>Select Location & Language</div>
+      <div className='selectionText'>Select Location & Language</div>
         <div className='contentBox'>
             <h1 className='continent'>AMERICAS
               <ul>
