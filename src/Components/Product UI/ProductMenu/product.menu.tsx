@@ -62,7 +62,7 @@ function ProductMenu(props: ProductMenuProps,) {
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
-        if (selectedSize !== '0') {
+        if (selectedSize !== '0' && selectedSize !== 'Escolha um tamanho') {
             handleAddProductToCart(cartProduct);
         } else {
             setIsSizeSelected(true)
