@@ -44,7 +44,7 @@ const router = createBrowserRouter([{
 },
 {
   path: '/cart',
-  element: <Cart />, 
+  element: <Cart/>, 
   errorElement: <ErrorPage />
 },
 //-------------------------PRODUCT LINKS-------------------------
