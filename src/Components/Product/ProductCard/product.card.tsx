@@ -7,7 +7,7 @@ interface ProductCardProps {
     imgAlt: string,
     imgLink: string,
     name: string,
-    price: string,
+    price: number,
     variations: string,
     productUrl: string,
 }

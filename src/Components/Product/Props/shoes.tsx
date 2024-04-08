@@ -7,7 +7,7 @@ export const products =
             name: 'Chuck 70 De Luxe Heel Chrome Queen Preto',
             type: 'FEMININO CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: '799,90',
+            price: 799.90,
             variations: '1 cor',
             productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto',
             productSize: '0'
@@ -19,7 +19,7 @@ export const products =
             name: 'Vans the Lizzie Cloud',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'OFF THE WALL',
-            price: '649,90',
+            price: 649.90,
             variations: '1 cor',
             productUrl: 'vans-the-lizzie-cloud',
             productSize: '0'
@@ -31,7 +31,7 @@ export const products =
             name: 'Nike Court Vision Mid Nn All Black',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'JUST DO IT',
-            price: '649,90',
+            price: 649.90,
             variations: '1 cor',
             productUrl: 'nike-court-vision-mid-nn-all-black',
             productSize: '0'
@@ -43,7 +43,7 @@ export const products =
             name: 'Converse X Martine Ali Chuck 70 Xhi Preto',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: '1.099,90',
+            price: 1.090,
             variations: '1 cor',
             productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto',
             productSize: '0'
@@ -55,7 +55,7 @@ export const products =
             name: 'Chuck Taylor All Star Modern Lift Chrome Queen Preto',
             type: 'FEMININO CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: '599,90',
+            price: 599.90,
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-modern-lift-chrome-queen-preto',
             productSize: '0'
@@ -67,7 +67,7 @@ export const products =
             name: 'Converse Chuck Taylor All Star Hi Future Utility',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: '449,90',
+            price: 449.90,
             variations: '1 cor',
             productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility',
             productSize: '0'
@@ -79,7 +79,7 @@ export const products =
             name: 'Vans  Classic',
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'OFF THE WALL',
-            price: '249,90',
+            price: 249.90,
             variations: '1 cor',
             productUrl: 'vans-sem-cadarço-classic',
             productSize: '0'
@@ -91,7 +91,7 @@ export const products =
             name: 'Tênis Nike Air Max 97',
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'JUST DO IT',
-            price: '1049,90',
+            price: 1.049,
             variations: '1 cor',
             productUrl: 'tenis-nike-air-max-97',
             productSize: '0'
@@ -103,7 +103,7 @@ export const products =
             name: 'Chuck Taylor All Star Chrome Queen Branco',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: '549,90',
+            price: 549.90,
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-chrome-queen-branco',
             productSize: '0'
@@ -115,7 +115,7 @@ export const products =
             name: 'Vans Benegas X Enarson White',
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'OFF THE WALL',
-            price: '599,90',
+            price: 599.90,
             variations: '1 cor',
             productUrl: 'tenis-bmx-sk8-hi-benegas-x-enarson-white',
             productSize: '0'

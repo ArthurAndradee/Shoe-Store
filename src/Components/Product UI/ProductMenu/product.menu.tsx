@@ -9,7 +9,7 @@ export interface ProductInfo {
     id: number,
     name: string,
     type: string,
-    price: string,
+    price: number,
     catchPhrase: string,
     imgLink: string,
     productUrl: string,
@@ -21,7 +21,6 @@ interface ProductMenuProps extends ProductInfo {
   }
 
 function ProductMenu(props: ProductMenuProps,) {
-    const {cartTotalQty} = useCart()
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const {handleAddProductToCart, cartProducts} = useCart()

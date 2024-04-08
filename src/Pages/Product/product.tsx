@@ -9,7 +9,7 @@ interface ProductProps {
     id: number;
     name: string,
     type: string,
-    price: string,
+    price: number;
     catchPhrase: string,
     imgLink: string,
     productUrl: string
