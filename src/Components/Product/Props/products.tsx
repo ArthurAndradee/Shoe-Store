@@ -1,7 +1,7 @@
 export const products = 
     [
         {
-            id: 1,
+            id: 'id',
             imgAlt: 'Chuck 70 De Luxe Heel Chrome Queen Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08103c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck 70 De Luxe Heel Chrome Queen Preto',
@@ -13,7 +13,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 2,
+            id: 'id',
             imgAlt: 'Vans the Lizzie Cloud',
             imgLink: 'https://cdn.shopify.com/s/files/1/0581/5900/5854/files/VANSLIZZIEFATIGUEBLACK_600x600.png?v=1691166617',
             name: 'Vans the Lizzie Cloud',
@@ -25,7 +25,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 3,
+            id: 'id',
             imgAlt: 'Nike Court Vision Mid Nn All Black',
             imgLink: 'https://images.tcdn.com.br/img/img_prod/1127564/180_tenis_nike_court_vision_mid_nn_all_black_1662_1_84b4860aa5c23c947606bf6707853c6f.jpg',
             name: 'Nike Court Vision Mid Nn All Black',
@@ -37,7 +37,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 4,
+            id: 'id',
             imgAlt: 'Converse X Martine Ali Chuck 70 Xhi Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08651c_a_107x1_1_2.png?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:&format=jpeg',
             name: 'Converse X Martine Ali Chuck 70 Xhi Preto',
@@ -49,7 +49,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 5,
+            id: 'id',
             imgAlt: 'Chuck Taylor All Star Modern Lift Chrome Queen Preto',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a08102c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck Taylor All Star Modern Lift Chrome Queen Preto',
@@ -61,7 +61,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 6,
+            id: 'id',
             imgAlt: 'Tênis Converse Chuck Taylor All Star Hi Future Utility',
             imgLink: 'https://espacotenis.vteximg.com.br/arquivos/ids/171907-1000-1000/converse-hi-future-utility-branco.jpg?v=638191505258630000',
             name: 'Converse Chuck Taylor All Star Hi Future Utility',
@@ -73,7 +73,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 7,
+            id: 'id',
             imgAlt: 'Vans Classic',
             imgLink: 'https://www.tradeinn.com/f/125/1252969/vans-sapatos-sem-cadarco-classic.jpg',
             name: 'Vans  Classic',
@@ -85,7 +85,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 8,
+            id: 'id',
             imgAlt: 'Tênis Nike Air Max 97',
             imgLink: 'https://images.tcdn.com.br/img/img_prod/1048024/tenis_nike_air_max_97_branco_921826_101_6729_1_1ed3ff085def62045397ec3725058f42.jpg',
             name: 'Tênis Nike Air Max 97',
@@ -97,7 +97,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 9,
+            id: 'id',
             imgAlt: 'Chuck Taylor All Star Chrome Queen Branco',
             imgLink: 'https://converse.com.br/media/catalog/product/a/0/a06444c_a_107x1_6.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
             name: 'Chuck Taylor All Star Chrome Queen Branco',
@@ -109,7 +109,7 @@ export const products =
             productSize: '0'
         },
         {
-            id: 10,
+            id: 'id',
             imgAlt: 'Vans Benegas X Enarson White',
             imgLink: 'https://www.tillys.com/on/demandware.static/-/Sites-master-catalog/default/dw51976e42/tillys/images/catalog/1000x1000/267631150a.jpg',
             name: 'Vans Benegas X Enarson White',

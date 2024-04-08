@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import { useCart } from '../../../Context/cart.context';
 import { Link } from 'react-router-dom';
 import './product.menu.css'
+import { v4 } from 'uuid';
 
 export interface ProductInfo {
-    id: number,
+    id: string,
     name: string,
     type: string,
     price: number,
@@ -17,14 +18,17 @@ export interface ProductInfo {
 }
 
 interface ProductMenuProps extends ProductInfo {
-    onSizeChange: (size: string) => void; // Added prop to handle size change
+    onSizeChange: (size: string) => void;
+    createId: (id: string) => void; 
   }
 
 function ProductMenu(props: ProductMenuProps,) {
-    const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
-    const [isSizeSelected, setIsSizeSelected] = useState(false)
     const {handleAddProductToCart, cartProducts} = useCart()
+    const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)
+    const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
+    const [id, setId] = useState<string>(props.id)
+
     const [cartProduct, setCartProduct] = useState<ProductInfo>({
         id: props.id,
         name: props.name,
@@ -51,13 +55,17 @@ function ProductMenu(props: ProductMenuProps,) {
     useEffect(() => {
         setCartProduct(prevState => ({
           ...prevState,
-          productSize: selectedSize
+          productSize: selectedSize,
+          id: id
         }));
-    }, [selectedSize]);
+    }, [selectedSize, id]);
     
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
       setSelectedSize(event.target.value);
       props.onSizeChange(event.target.value);
+
+      setId(v4())
+      props.createId(id)
     };
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

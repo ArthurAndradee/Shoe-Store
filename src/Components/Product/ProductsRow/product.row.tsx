@@ -1,7 +1,7 @@
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css'
-import { products } from '../Props/shoes';
+import { products } from '../Props/products';
 
 
 function ProductsRow() {
@@ -27,27 +27,27 @@ function ProductsRow() {
         slidesToScroll: windowWidth
     };
     
-        return (
-            <div className="products-row-container">
-        <h1 className="products-row-title">LANÇAMENTOS:</h1>
-        <span className="products-row-all">→ Ver todos</span>
-        <div className="products">
-            <Slider {...settings}>
-                {products.map((shoe) => {
-                    return (
-                        <ProductCard 
-                        imgAlt={shoe.imgAlt}
-                        imgLink={shoe.imgLink}
-                        name={shoe.name}
-                        price={shoe.price}
-                        variations={shoe.variations}
-                        productUrl={shoe.productUrl}
-                        />
-                        )
-                    })}
-            </Slider>
+    return (
+        <div className="products-row-container">
+            <h1 className="products-row-title">LANÇAMENTOS:</h1>
+            <span className="products-row-all">→ Ver todos</span>
+            <div className="products">
+                <Slider {...settings}>
+                    {products.map((shoe) => {
+                        return (
+                            <ProductCard 
+                            imgAlt={shoe.imgAlt}
+                            imgLink={shoe.imgLink}
+                            name={shoe.name}
+                            price={shoe.price}
+                            variations={shoe.variations}
+                            productUrl={shoe.productUrl}
+                            />
+                            )
+                        })}
+                </Slider>
+            </div>
         </div>
-    </div>
     )
 }
 

@@ -9,7 +9,7 @@ import LanguagePage from './Pages/Language/language';
 import ErrorPage from './Pages/Error/error';
 import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
-import { products } from './Components/Product/Props/shoes';
+import { products } from './Components/Product/Props/products';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';

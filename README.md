@@ -8,16 +8,18 @@ In terminal, run:
 
 1. npm i --save @fortawesome/fontawesome-svg-core
 2. npm i --save @fortawesome/free-solid-svg-icons
-3. npm i --save @fortawesome/free-regular-svg-icons
+3. npm i --save @fortawesome/free-regular-svg-icons 
 4. npm i --save @fortawesome/free-brands-svg-icons
 5. npm i --save @fortawesome/react-fontawesome@latest
-6. yarn add react-slick
-7. yarn add slick-carousel
-8. npm i react-router
-9. npm i -D react-router-dom@latest
-10. npm i --save-dev @types/jquery
-11. npm install bootstrap@5.3.3
-12. yarn add react-hot-toast
+6. npm i react-router
+7. npm i -D react-router-dom@latest
+8. npm i --save-dev @types/jquery
+9. npm install bootstrap@5.3.3
+10. npm i --save-dev @types/uuid
+11. yarn add react-slick
+12. yarn add slick-carousel
+13. yarn add react-hot-toast
+14. yarn add uuid
 
 ## Available Scripts
 

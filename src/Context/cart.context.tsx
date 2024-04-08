@@ -3,7 +3,6 @@ import { ProductInfo } from "../Components/Product UI/ProductMenu/product.menu";
 import { toast } from "react-hot-toast";
 
 type CartContextType = {
-    cartTotalQty: number
     cartProducts: ProductInfo[] | null
     handleAddProductToCart: (product: ProductInfo) => void
     handleRemoveProductFromCart: (product: ProductInfo) => void
@@ -16,7 +15,6 @@ interface Props {
 export const CartContext = createContext<CartContextType | null> (null)
 
 export const CartContextProvider = (props: Props) => {
-    const [cartTotalQty, setCartTotalQty] = useState(0)
     const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
 
     useEffect(() => {
@@ -56,7 +54,6 @@ export const CartContextProvider = (props: Props) => {
     },[cartProducts])
 
     const value = {
-        cartTotalQty,
         cartProducts,
         handleAddProductToCart,
         handleRemoveProductFromCart

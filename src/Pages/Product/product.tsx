@@ -6,7 +6,7 @@ import ProductNav from '../../Components/Product UI/ProductNav/product.nav';
 import './product.css';
 
 interface ProductProps {
-    id: number;
+    id: string;
     name: string,
     type: string,
     price: number;
@@ -18,9 +18,14 @@ interface ProductProps {
 
 function ProductPage(props: ProductProps) {
   const [ ,setSelectedSize] = useState<string>(props.productSize);
+  const [ ,setId] = useState<string>(props.productSize);
 
   const handleSizeChange = (size: string) => {
     setSelectedSize(size);
+  };
+
+  const createId = (id: string) => {
+    setId(id);
   };
 
     return (
@@ -39,6 +44,7 @@ function ProductPage(props: ProductProps) {
                 productUrl={props.productUrl}
                 productSize={props.productSize}
                 onSizeChange={handleSizeChange}
+                createId={createId}
                 />
             </div>
             
