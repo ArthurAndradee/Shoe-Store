@@ -41,18 +41,6 @@ function ProductMenu(props: ProductMenuProps,) {
     })
 
     useEffect(() => {
-        setIsProduictInCart(false)
-
-        if(cartProducts) {
-            const existingIndex = cartProducts.findIndex((item) => item.id === props.id)
-
-            if (existingIndex > -1) {
-                setIsProduictInCart(true)
-            }
-        }
-    }, [cartProducts, props.id])
-
-    useEffect(() => {
         setCartProduct(prevState => ({
           ...prevState,
           productSize: selectedSize,
@@ -72,6 +60,7 @@ function ProductMenu(props: ProductMenuProps,) {
         event.preventDefault();
         if (selectedSize !== '0' && selectedSize !== 'Escolha um tamanho') {
             handleAddProductToCart(cartProduct);
+            setIsProduictInCart(true)
         } else {
             setIsSizeSelected(true)
         }
