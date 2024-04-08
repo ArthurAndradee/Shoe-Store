@@ -43,7 +43,7 @@ export const products =
             name: 'Converse X Martine Ali Chuck 70 Xhi Preto',
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
-            price: 1.090,
+            price: 1090.00,
             variations: '1 cor',
             productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto',
             productSize: '0'
