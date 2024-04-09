@@ -13,6 +13,7 @@ import { products } from './Database/products';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';
+import FemininePage from './Pages/Categories/Feminine/feminine';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -45,6 +46,11 @@ const router = createBrowserRouter([{
 {
   path: '/cart',
   element: <Cart/>, 
+  errorElement: <ErrorPage />
+},
+{
+  path: '/feminine',
+  element: <FemininePage/>, 
   errorElement: <ErrorPage />
 },
 //-------------------------PRODUCT LINKS-------------------------
