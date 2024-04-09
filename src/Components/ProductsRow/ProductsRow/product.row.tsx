@@ -26,6 +26,8 @@ function ProductsRow() {
         slidesToShow: windowWidth,
         slidesToScroll: windowWidth
     };
+
+    const indexesToShow = Array.from({ length: windowWidth }, (_, i) => i);
     
     return (
         <div className="products-row-container">
@@ -33,18 +35,17 @@ function ProductsRow() {
             <span className="products-row-all">→ Ver todos</span>
             <div className="products">
                 <Slider {...settings}>
-                    {products.map((shoe) => {
-                        return (
-                            <ProductCard 
+                   {products.filter((_, index) => indexesToShow.includes(index))
+                    .map((shoe, index) => (
+                        <ProductCard
                             imgAlt={shoe.imgAlt}
                             imgLink={shoe.imgLink}
                             name={shoe.name}
                             price={shoe.price}
                             variations={shoe.variations}
                             productUrl={shoe.productUrl}
-                            />
-                            )
-                        })}
+                        />
+                    ))}
                 </Slider>
             </div>
         </div>
