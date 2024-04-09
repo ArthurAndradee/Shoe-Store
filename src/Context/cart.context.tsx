@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { ProductInfo } from "../Components/Product UI/ProductMenu/product.menu";
+import { ProductInfo } from "../Components/ProductPage/ProductMenu/product.menu";
 import { toast } from "react-hot-toast";
 
 type CartContextType = {

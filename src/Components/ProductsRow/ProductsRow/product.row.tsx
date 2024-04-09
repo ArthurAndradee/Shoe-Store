@@ -1,7 +1,7 @@
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css'
-import { products } from '../Props/products';
+import { products } from '../../../Database/products';
 
 
 function ProductsRow() {

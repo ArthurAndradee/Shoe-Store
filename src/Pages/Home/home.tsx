@@ -1,5 +1,5 @@
 import "./home.css"
-import ProductsRow from "../../Components/Product/ProductsRow/product.row";
+import ProductsRow from "../../Components/ProductsRow/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
 import HomeHeader from "../../Components/Headers/HomeHeader/home.header";
 import { Link } from "react-router-dom";

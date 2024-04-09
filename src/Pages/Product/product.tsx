@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
-import ProductDisplay from '../../Components/Product UI/ProductDisplay/product.display';
-import ProductMenu from '../../Components/Product UI/ProductMenu/product.menu';
-import ProductNav from '../../Components/Product UI/ProductNav/product.nav';
+import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.display';
+import ProductMenu from '../../Components/ProductPage/ProductMenu/product.menu';
+import ProductNav from '../../Components/ProductPage/ProductNav/product.nav';
 import './product.css';
 
 interface ProductProps {

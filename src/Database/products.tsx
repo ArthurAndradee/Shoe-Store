@@ -117,7 +117,19 @@ export const products =
             catchPhrase: 'OFF THE WALL',
             price: 599.90,
             variations: '1 cor',
-            productUrl: 'tenis-bmx-sk8-hi-benegas-x-enarson-white',
+            productUrl: 'vans-hi-benegas-x-enarson-white',
             productSize: '0'
+        },
+        {
+            id: 'id',
+            imgAlt: '',
+            imgLink: '',
+            name: '',
+            type: '',
+            catchPhrase: '',
+            price: 0,
+            variations: '',
+            productUrl: '',
+            productSize: '0',
         },
     ]
