@@ -33,7 +33,7 @@ export const CartContextProvider = (props: Props) => {
             } else {
                 updatedCart = [product]
             }
-
+ 
             toast.success('Produto adicionado ao carrinho')
             localStorage.setItem('shoeShopProducts', JSON.stringify(updatedCart))
             return updatedCart
