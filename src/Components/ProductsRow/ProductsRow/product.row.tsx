@@ -27,7 +27,7 @@ function ProductsRow() {
         slidesToScroll: windowWidth
     };
 
-    const indexesToShow = Array.from({ length: windowWidth }, (_, i) => i);
+    const indexesToShow = Array.from({ length: 10 }, (_, i) => i);
     
     return (
         <div className="products-row-container">

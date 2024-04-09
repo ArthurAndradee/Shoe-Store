@@ -91,7 +91,7 @@ export const products =
             name: 'Tênis Nike Air Max 97',
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'JUST DO IT',
-            price: 1.049,
+            price: 1049,
             variations: '1 cor',
             productUrl: 'tenis-nike-air-max-97',
             productSize: '0'
