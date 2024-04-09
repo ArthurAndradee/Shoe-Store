@@ -8,14 +8,14 @@ function ProductsRow() {
         
     let windowWidth = window.innerWidth;
         
-        if (window.innerWidth < 600) {
-            windowWidth = 2
-        } else if (window.innerWidth < 720) {
-            windowWidth = 3;
-        } else if (windowWidth < 850) {
-            windowWidth = 4
-        } else {
-        windowWidth = 5
+    if (window.innerWidth < 600) {
+        windowWidth = 2
+    } else if (window.innerWidth < 720) {
+        windowWidth = 3;
+    } else if (windowWidth < 850) {
+        windowWidth = 4
+    } else {
+    windowWidth = 5
     }
     
     const settings = {

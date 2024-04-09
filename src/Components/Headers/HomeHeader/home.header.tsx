@@ -48,7 +48,7 @@ function HomeHeader() {
           </div>
 
           <div className='navTitleBox'>
-              <div className='navTitle'><Link to={'/feminine'}>Feminino</Link></div>
+              <div className='navTitle'><Link to={'/feminine'} className='navLink'>Feminino</Link></div>
               <div className='navTitle'>Masculino</div>
               <div className='navTitle'>Infantil</div>
               <div className='navTitle'>Edição Limitada</div>

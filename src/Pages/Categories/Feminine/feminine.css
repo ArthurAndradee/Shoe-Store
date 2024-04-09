@@ -1,0 +1,38 @@
+.fem-products-row-container {
+    margin-bottom: 20px;
+    padding-top: 100px;
+    border: 1px solid red;
+}
+
+.fem-products-row-title {
+    margin: 32px 0 30px 40px;
+    font-size: 38px;
+}
+
+.fem-products-row-all {
+    margin-left: 40px;
+}
+
+.fem-products {
+    height: 400px;
+    width: 100%;
+
+    display:grid;
+
+    margin-top: 15px;
+}
+
+.test {
+    border: 1px solid blue;
+
+    height: 400px;
+    width: 300px;
+}
+
+@media only screen and (min-width: 1366px) {
+    .fem-products-row-container {
+      width: 1366px;
+      margin: auto;
+    }
+  }
+  

@@ -98,6 +98,11 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     font-size: 12px;
 }
 
+.navLink {
+  color: #000000;
+  text-decoration: none;
+}
+
 .navTitle:hover {
     cursor: pointer;
 
