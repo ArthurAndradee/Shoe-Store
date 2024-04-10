@@ -15,7 +15,7 @@ function FemininePage() {
             <div className="fem-products-row-container">
                 <h1 className="fem-products-row-title">Femininos:</h1>
                 <div className="fem-products ">
-                       {/* {products.filter((_, index) => indexesToShow.includes(index))
+                       {products.filter((_, index) => indexesToShow.includes(index))
                         .map((shoe, index) => (
                             <ProductCard
                                 imgAlt={shoe.imgAlt}
@@ -25,17 +25,7 @@ function FemininePage() {
                                 variations={shoe.variations}
                                 productUrl={shoe.productUrl}
                             />
-                        ))} */}
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
-                        <div className='test'></div>
+                        ))}
                 </div>
             </div>
 
