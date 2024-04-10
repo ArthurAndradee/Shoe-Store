@@ -1,7 +1,6 @@
 .fem-products-row-container {
-    height: 1700px;
-    
-    margin-bottom: 20px;
+    height: 1860px;
+
     padding-top: 100px;
 }
 
@@ -18,6 +17,7 @@
     height: 400px;
 
     display: grid;
+    
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
 
@@ -25,9 +25,26 @@
 }
 
 @media only screen and (min-width: 1366px) {
+   .fem-products-row-container {
+     width: 1366px;
+     margin: auto;
+   }
+ }
+
+@media only screen and (max-width: 1145px) {
+  .fem-products-row-container {
+    height: 2300px;
+  }
+}
+
+@media only screen and (max-width: 937px) {
+  .fem-products-row-container {
+    height: 3010px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
     .fem-products-row-container {
-      width: 1366px;
-      margin: auto;
+      height: 5810px;
     }
   }
-  
