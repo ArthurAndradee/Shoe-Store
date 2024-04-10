@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import './product.nav.css'
+import './top.nav.css'
 
 interface ProductName{
     name: string
 }
 
-function ProductNav(props: ProductName) {
+function TopNav(props: ProductName) {
     return (
         <div className='home-nav'>
-            <Link  style={{textDecoration:'none'}} to='/home'>
+            <Link style={{textDecoration:'none'}} to='/home'>
                 <div className='home-link'>Home</div>
             </Link>
-            <div className='home-link' style={{fontSize:'8px', color:'#dadada'}}>/</div>
+            <div className='home-link' style={{fontSize:'11px', color:'#dadada'}}>/</div>
             <h4 id='product-name'>{props.name}</h4>
         </div>
     )
 }
 
-export default ProductNav;
+export default TopNav;

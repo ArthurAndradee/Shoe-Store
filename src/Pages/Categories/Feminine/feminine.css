@@ -1,16 +1,10 @@
 .fem-products-row-container {
-    height: 1860px;
-
-    padding-top: 100px;
+    height: 1840px;
 }
 
 .fem-products-row-title {
-    margin: 32px 0 30px 40px;
+    margin: 32px 0 30px 0px;
     font-size: 38px;
-}
-
-.fem-products-row-all {
-    margin-left: 40px;
 }
 
 .fem-products {

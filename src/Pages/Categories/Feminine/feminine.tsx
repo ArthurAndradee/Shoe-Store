@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import Footer from '../../../Components/Footer/footer';
 import HomeHeader from '../../../Components/Headers/HomeHeader/home.header';
 import ProductCard from '../../../Components/ProductsRow/ProductCard/product.card';
+import TopNav from '../../../Components/TopNavComponent/top.nav';
 import { products } from '../../../Database/products';
 import './feminine.css';
 
@@ -11,7 +11,7 @@ function FemininePage() {
     return (
         <div>
             <HomeHeader />
-            
+            <TopNav name={"Feminino"}/>
             <div className="fem-products-row-container" id='grid-container'>
                 <h1 className="fem-products-row-title">Femininos:</h1>
                 <div className="fem-products">

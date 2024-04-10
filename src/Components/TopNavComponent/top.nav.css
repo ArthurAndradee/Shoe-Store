@@ -23,12 +23,11 @@
     flex-direction: row;
 
     margin-top: 118px;
-
+    
     font-size: 12px;
 }
 
 .home-link {
-    margin-right: 15px;
     color: #a4a4a4;
 }
 
@@ -37,7 +36,6 @@
 }
 
 #product-name {
-    padding: 0;
-    margin: 0;
+    border-top: 2px solid transparent;
     font-size: 12px;
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.display';
 import ProductMenu from '../../Components/ProductPage/ProductMenu/product.menu';
-import ProductNav from '../../Components/ProductPage/ProductNav/product.nav';
+import TopNav from '../../Components/TopNavComponent/top.nav';
 import './product.css';
 
 interface ProductProps {
@@ -31,7 +31,7 @@ function ProductPage(props: ProductProps) {
     return (
         <div>
             <HomeHeader />
-            <ProductNav name={props.name} />
+            <TopNav name={props.name} />
             <div className='content'>
                 <ProductDisplay imgLink={props.imgLink} />
                 <ProductMenu 
