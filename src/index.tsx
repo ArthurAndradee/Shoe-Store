@@ -13,7 +13,7 @@ import { products } from './Database/products';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';
-import FemininePage from './Pages/Categories/Feminine/feminine';
+import CategoryPage from './Pages/Categories/categories';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -48,10 +48,41 @@ const router = createBrowserRouter([{
   element: <Cart/>, 
   errorElement: <ErrorPage />
 },
+//-------------------------CATEGORY LINKS-------------------------
 {
-  path: '/feminine',
-  element: <FemininePage/>, 
-  errorElement: <ErrorPage />
+  path: '/femininos',
+  element: <CategoryPage 
+  primaryType={'F'} 
+  secondaryType={'U'} 
+  category={'Feminino'}/>, 
+},
+{
+  path: '/masculinos',
+  element: <CategoryPage 
+  primaryType={'M'} 
+  secondaryType={'U'} 
+  category={'Masculino'}/>, 
+},
+{
+  path: '/infantil',
+  element: <CategoryPage 
+  primaryType={'I'} 
+  secondaryType={'I'} 
+  category={'Infantl'}/>, 
+},
+{
+  path: '/edicao-limitada',
+  element: <CategoryPage 
+  primaryType={'LaterToAdd'} 
+  secondaryType={'LaterToAdd'} 
+  category={'Edição Limitada'}/>, 
+},
+{
+  path: '/promocoes',
+  element: <CategoryPage 
+  primaryType={'LaterToAdd'} 
+  secondaryType={'LaterToAdd'} 
+  category={'Promoções'}/>, 
 },
 //-------------------------PRODUCT LINKS-------------------------
 ...productRoutes

@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import Footer from '../../../Components/Footer/footer';
-import HomeHeader from '../../../Components/Headers/HomeHeader/home.header';
-import ProductCard from '../../../Components/ProductsRow/ProductCard/product.card';
-import TopNav from '../../../Components/TopNavComponent/top.nav';
-import { products } from '../../../Database/products';
+import Footer from '../../Components/Footer/footer';
+import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
+import TopNav from '../../Components/TopNavComponent/top.nav';
+import { products } from '../../Database/products';
 import './feminine.css';
 
-function FemininePage() {
+interface Props {
+    primaryType: string
+    secondaryType: string
+    category: string
+}
+
+function CategoryPage(props: Props) {
     const [sortBy, setSortBy] = useState("low-high"); 
 
     function sortProducts (products: any[], sortBy: string) {
@@ -29,17 +35,14 @@ function FemininePage() {
     };
 
     const sortedProducts = sortProducts(products, sortBy);
-
-    const indexesToShow = Array.from({ length: 16 }, (_, i) => i);
-
-    const filteredProducts = sortedProducts.filter(product => product.type.startsWith('U') || product.type.startsWith('F'));
+    const filteredProducts = sortedProducts.filter(product => product.type.startsWith(props.primaryType) || product.type.startsWith(props.secondaryType));
 
     return (
         <div>
             <HomeHeader />
-            <TopNav name={"Feminino"} />
+            <TopNav name={props.category} />
             <div className="category-products-row-container" id='grid-container'>
-                <h1 className="category-products-row-title">Femininos:</h1>
+                <h1 className="category-products-row-title">{props.category}</h1>
                 <nav>Ordenar: </nav>
                 <select className='form-select' id='sort' onChange={handleSortChange} value={sortBy}>
                     <option value="low-high">Menor Preço</option>
@@ -49,16 +52,15 @@ function FemininePage() {
                 </select>
                 <div className="category-products">
                     {filteredProducts
-                        .filter((_, index) => indexesToShow.includes(index))
-                        .map((shoe, index) => (
+                        .map((product, index) => (
                             <ProductCard
                                 key={index}
-                                imgAlt={shoe.imgAlt}
-                                imgLink={shoe.imgLink}
-                                name={shoe.name}
-                                price={shoe.price}
-                                variations={shoe.variations}
-                                productUrl={shoe.productUrl}
+                                imgAlt={product.imgAlt}
+                                imgLink={product.imgLink}
+                                name={product.name}
+                                price={product.price}
+                                variations={product.variations}
+                                productUrl={product.productUrl}
                             />
                         ))}
                 </div>
@@ -69,4 +71,4 @@ function FemininePage() {
     );
 }
 
-export default FemininePage;
+export default CategoryPage;

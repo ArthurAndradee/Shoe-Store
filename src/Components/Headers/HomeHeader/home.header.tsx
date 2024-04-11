@@ -48,11 +48,11 @@ function HomeHeader() {
           </div>
 
           <div className='navTitleBox'>
-              <div className='navTitle'><Link to={'/feminine'} className='navLink'>Feminino</Link></div>
-              <div className='navTitle'>Masculino</div>
-              <div className='navTitle'>Infantil</div>
-              <div className='navTitle'>Edição Limitada</div>
-              <div className='navTitle'>Promoção</div>
+              <div className='navTitle'><Link to={'/femininos'} className='navLink'>Feminino</Link></div>
+              <div className='navTitle'><Link to={'/masculinos'} className='navLink'>Masculinos</Link></div>
+              <div className='navTitle'><Link to={'/infantil'} className='navLink'>Infantil</Link></div>
+              <div className='navTitle'><Link to={'/edicao-limitada'} className='navLink'>Edição Limitada</Link></div>
+              <div className='navTitle'><Link to={'/promocoes'} className='navLink'>Promoções</Link></div>
           </div>
 
           <div className='userOptions'>
