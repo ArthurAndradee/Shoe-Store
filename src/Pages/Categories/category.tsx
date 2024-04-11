@@ -4,7 +4,7 @@ import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import { products } from '../../Database/products';
-import './feminine.css';
+import './category.css';
 
 interface Props {
     primaryType: string

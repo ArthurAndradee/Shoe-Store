@@ -13,7 +13,7 @@ import { products } from './Database/products';
 import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';
-import CategoryPage from './Pages/Categories/categories';
+import CategoryPage from './Pages/Categories/category';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
