@@ -38,16 +38,16 @@ function FemininePage() {
         <div>
             <HomeHeader />
             <TopNav name={"Feminino"} />
-            <div className="fem-products-row-container" id='grid-container'>
-                <h1 className="fem-products-row-title">Femininos:</h1>
+            <div className="category-products-row-container" id='grid-container'>
+                <h1 className="category-products-row-title">Femininos:</h1>
                 <nav>Ordenar: </nav>
-                <select className='form-select' id='fem-sort' onChange={handleSortChange} value={sortBy}>
+                <select className='form-select' id='sort' onChange={handleSortChange} value={sortBy}>
                     <option value="low-high">Menor Preço</option>
                     <option value="high-low">Maior Preço</option>
                     <option value="a-z">Nome: A-Z</option>
                     <option value="z-a">Nome: Z-A</option>
                 </select>
-                <div className="fem-products">
+                <div className="category-products">
                     {filteredProducts
                         .filter((_, index) => indexesToShow.includes(index))
                         .map((shoe, index) => (
