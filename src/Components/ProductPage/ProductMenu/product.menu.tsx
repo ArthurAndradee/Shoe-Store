@@ -23,6 +23,7 @@ interface ProductMenuProps extends ProductInfo {
   }
 
 function ProductMenu(props: ProductMenuProps,) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {handleAddProductToCart, cartProducts} = useCart()
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)

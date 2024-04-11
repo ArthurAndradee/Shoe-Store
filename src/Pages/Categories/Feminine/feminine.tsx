@@ -14,6 +14,13 @@ function FemininePage() {
             <TopNav name={"Feminino"}/>
             <div className="fem-products-row-container" id='grid-container'>
                 <h1 className="fem-products-row-title">Femininos:</h1>
+                <nav>Ordenar: </nav>
+                <select className='form-select' id='fem-sort'>
+                    <option value="low-high">Menor Preço</option>
+                    <option value="high-low">Maior Preço</option>
+                    <option value="a-z">Nome: A-Z</option>
+                    <option value="z-a">Nome: Z-A</option>
+                </select>
                 <div className="fem-products">
                     {products.filter((_, index) => indexesToShow.includes(index))
                         .map((shoe, index) => (

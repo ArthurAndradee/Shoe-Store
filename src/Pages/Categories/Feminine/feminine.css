@@ -18,6 +18,17 @@
     margin-top: 15px;
 }
 
+#fem-sort {
+  width: 97%;
+
+  margin: 10px 0 20px 0;
+}
+
+#fem-sort:focus {
+  box-shadow: none;
+  border-color: #dadada;
+}
+
 @media only screen and (min-width: 1366px) {
    .fem-products-row-container {
      width: 1366px;
