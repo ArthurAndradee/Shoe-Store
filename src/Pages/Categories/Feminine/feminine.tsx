@@ -16,9 +16,9 @@ function FemininePage() {
             case "high-low":
                 return products.slice().sort((a: { price: number; }, b: { price: number; }) => b.price - a.price);
             case "a-z":
-                return products.slice().sort((a: { name: string; }, b: { name: any; }) => a.name.localeCompare(b.name));
+                return products.slice().sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name));
             case "z-a":
-                return products.slice().sort((a: { name: any; }, b: { name: string; }) => b.name.localeCompare(a.name));
+                return products.slice().sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
             default:
                 return products;
         }
@@ -30,7 +30,9 @@ function FemininePage() {
 
     const sortedProducts = sortProducts(products, sortBy);
 
-    const indexesToShow = Array.from({ length: 14 }, (_, i) => i);
+    const indexesToShow = Array.from({ length: 16 }, (_, i) => i);
+
+    const filteredProducts = sortedProducts.filter(product => product.type.startsWith('U') || product.type.startsWith('F'));
 
     return (
         <div>
@@ -46,9 +48,9 @@ function FemininePage() {
                     <option value="z-a">Nome: Z-A</option>
                 </select>
                 <div className="fem-products">
-                    {sortedProducts
-                        .filter((_: any, index: number) => indexesToShow.includes(index))
-                        .map((shoe: { imgAlt: string; imgLink: string; name: string; price: number; variations: string; productUrl: string; }, index: React.Key | null | undefined) => (
+                    {filteredProducts
+                        .filter((_, index) => indexesToShow.includes(index))
+                        .map((shoe, index) => (
                             <ProductCard
                                 key={index}
                                 imgAlt={shoe.imgAlt}
