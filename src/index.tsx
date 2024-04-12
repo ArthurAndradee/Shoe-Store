@@ -64,13 +64,6 @@ const router = createBrowserRouter([{
   category={'Masculino'}/>, 
 },
 {
-  path: '/infantil',
-  element: <CategoryPage 
-  primaryType={'I'} 
-  secondaryType={'I'} 
-  category={'Infantil'}/>, 
-},
-{
   path: '/edicao-limitada',
   element: <CategoryPage 
   primaryType={'LaterToAdd'} 
