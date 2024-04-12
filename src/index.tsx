@@ -66,8 +66,8 @@ const router = createBrowserRouter([{
 {
   path: '/edicao-limitada',
   element: <CategoryPage 
-  primaryType={'LaterToAdd'} 
-  secondaryType={'LaterToAdd'} 
+  primaryType={'L'} 
+  secondaryType={'L'} 
   category={'Edição Limitada'}/>, 
 },
 {
