@@ -68,7 +68,7 @@ const router = createBrowserRouter([{
   element: <CategoryPage 
   primaryType={'I'} 
   secondaryType={'I'} 
-  category={'Infantl'}/>, 
+  category={'Infantil'}/>, 
 },
 {
   path: '/edicao-limitada',
@@ -90,21 +90,9 @@ const router = createBrowserRouter([{
 
 root.render(
   <React.StrictMode>
-    <Toaster toastOptions={{
-      duration: 3000,
-      style:{
-        background: '#FFFFFF',
-        color: '#000000'
-      },
-      success: {
-        iconTheme: {
-          primary: '#000000',
-          secondary: '#FFFFFF'
-        }
-      }
-    }}/>
+    <Toaster toastOptions={{duration: 3000,style:{background: '#FFFFFF',color: '#000000'},success: {iconTheme: {primary: '#000000',secondary: '#FFFFFF'}}}}/>
     <CartProvider>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </CartProvider>
   </React.StrictMode>
 );
