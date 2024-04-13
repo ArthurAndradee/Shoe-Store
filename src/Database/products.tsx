@@ -337,4 +337,16 @@ export const products =
             productUrl: 'dungeons-dragons-x-converse-chuck-taylor-all-star-cano-alto-grande-ci05030001-preto',
             productSize: '0',
         },
+        {
+            id: 'id',
+            imgAlt: 'One Star Pro Preto',
+            imgLink: 'https://converse.com.br/media/catalog/product/1/7/171327c_a_107x1_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:',
+            name: 'One Star Pro Preto',
+            type: 'MASCULINO CANO BAIXO',
+            catchPhrase: 'Estilo ou desempenho? O One Star Pro oferece os dois.',
+            price: 549.90,
+            variations: '1 Cor',
+            productUrl: 'one-star-pro-cano-baixo-normal-preto',
+            productSize: '0',
+        },
     ]

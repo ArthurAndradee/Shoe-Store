@@ -49,7 +49,9 @@ function HomePage() {
                         <div className="large-ad-box">
                             <h2 >ONE STAR</h2>
                             <p className="ad-description">O clássico renovado: a tradição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
-                            <div className="large-ad-buyButton">COMPRE AGORA</div>
+                            <div className="large-ad-buyButton">
+                                <Link to={'/products/one-star-pro-cano-baixo-normal-preto'} className="ad-buy-link">COMPRE AGORA</Link>
+                            </div>
                         </div>
                     </section>
 
