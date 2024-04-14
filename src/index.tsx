@@ -27,6 +27,7 @@ const productRoutes = products.map(product => ({
             imgLink={product.imgLink} 
             type={product.type} 
             price={product.price} 
+            discountedPrice={product.discountedPrice}
             catchPhrase={product.catchPhrase}
             productUrl={product.productUrl} 
             productSize={product.productSize}

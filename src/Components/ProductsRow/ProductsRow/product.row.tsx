@@ -36,15 +36,15 @@ function ProductsRow() {
             <div className="products">
                 <Slider {...settings}>
                    {products.filter((_, index) => indexesToShow.includes(index))
-                    .map((shoe, index) => (
+                    .map((product, index) => (
                         <ProductCard
-                            imgAlt={shoe.imgAlt}
-                            imgLink={shoe.imgLink}
-                            name={shoe.name}
-                            price={shoe.price}
-                            variations={shoe.variations}
-                            productUrl={shoe.productUrl}
-                        />
+                            imgAlt={product.imgAlt}
+                            imgLink={product.imgLink}
+                            name={product.name}
+                            price={product.price}
+                            variations={product.variations}
+                            productUrl={product.productUrl} 
+                            discountedPrice={product.discountedPrice}/>
                     ))}
                 </Slider>
             </div>

@@ -10,6 +10,7 @@ interface ProductProps {
     name: string,
     type: string,
     price: number;
+    discountedPrice: number,
     catchPhrase: string,
     imgLink: string,
     productUrl: string

@@ -21,7 +21,7 @@ export const products =
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'OFF THE WALL',
             price: 649.90,
-            discountedPrice: 0,
+            discountedPrice: 449.90,
             variations: '1 cor',
             productUrl: 'vans-the-lizzie-cloud',
             productSize: '0'

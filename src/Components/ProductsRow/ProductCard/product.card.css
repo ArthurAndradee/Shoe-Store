@@ -60,6 +60,14 @@ img {
     width: 20vh;
 }
 
+.product-price-discount {
+    margin: 0;
+
+    display: inline;
+    color: #2b2b2b;
+    text-decoration: line-through;
+}
+
 .product-variations {
     color: #979797;
     font-weight: 100;
