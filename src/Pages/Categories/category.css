@@ -1,5 +1,5 @@
 .category-products-row-title {
-    margin: 32px 0 30px 0px;
+    margin: 142px 0 30px 0px;
     font-size: 38px;
 }
 
@@ -11,18 +11,6 @@
 
     margin-top: 15px;
 }
-
-#sort {
-  width: 97%;
-
-  margin: 10px 0 20px 0;
-}
-
-#sort:focus {
-  box-shadow: none;
-  border-color: #dadada;
-}
-
 
 @media only screen and (min-width: 1366px) {
    .category-products-row-container {

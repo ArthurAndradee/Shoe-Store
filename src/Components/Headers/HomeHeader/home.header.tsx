@@ -56,7 +56,7 @@ function HomeHeader() {
 
           <div className='userOptions'>
               <div>Entrar</div>
-              <div><FontAwesomeIcon icon={faHeart} /></div>
+              <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
               <div style={{display:'flex'}}>
                   <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
                   {showCartItemsQuantity ? (

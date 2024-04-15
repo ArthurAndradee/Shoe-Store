@@ -14,6 +14,7 @@ import Cart from './Pages/Cart/cart';
 import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';
 import CategoryPage from './Pages/Categories/category';
+import Wishlist from './Pages/Wishlist/wishlist';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -47,6 +48,11 @@ const router = createBrowserRouter([{
 {
   path: '/cart',
   element: <Cart/>, 
+  errorElement: <ErrorPage />
+},
+{
+  path:'/wishlist',
+  element: <Wishlist />,
   errorElement: <ErrorPage />
 },
 //-------------------------CATEGORY LINKS-------------------------
