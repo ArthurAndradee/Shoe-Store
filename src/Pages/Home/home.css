@@ -11,6 +11,10 @@
     #ad-2, #ad-3, #ad-5, #ad-6{
         display: none;
     }
+
+    #ad-7, .large-ad-box {
+        width: 200px;
+    }
   }
 
 /*
@@ -159,3 +163,11 @@
     margin-top:20px;
     padding-bottom: 13%;
 }
+
+@media only screen and (max-width: 700px) {
+    #ad-7, .large-ad-box {
+        width: 100vw;
+        margin: 30px 0 0 0;
+        padding-top: 50px;
+    }
+  }
