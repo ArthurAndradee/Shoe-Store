@@ -13,7 +13,7 @@ function ProductsRow() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const slidesToShow = windowWidth < 600 ? 2 : windowWidth < 720 ? 3 : windowWidth < 950 ? 4 : 5;
+    const slidesToShow = windowWidth < 600 ? 2 : windowWidth < 820 ? 3 : windowWidth < 950 ? 4 : 5;
 
     return (
         <div className="products-row-container">

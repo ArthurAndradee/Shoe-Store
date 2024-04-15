@@ -17,10 +17,6 @@
     }
   }
 
-/*
-----------------MAIN ADS styling---------------- 
-*/
-
 .body {
     overflow-y: hidden;
 }
@@ -34,7 +30,6 @@
     height: 480px;
 
     display: flex;
-    /* LATER: Write a @media only snippet that changes display to "inline block" if screen is not capafle of fitting images */
 }
 
 .background-img {
