@@ -34,7 +34,7 @@ export const products =
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'JUST DO IT',
             price: 649.90,
-            discountedPrice: 0,
+            discountedPrice: 549.90,
             variations: '1 cor',
             productUrl: 'nike-court-vision-mid-nn-all-black',
             productSize: '0'
@@ -73,7 +73,7 @@ export const products =
             type: 'UNISEX CANO ALTO',
             catchPhrase: 'Libere seu lado punk no estilo assinado por Chuck Taylor',
             price: 449.90,
-            discountedPrice: 0,
+            discountedPrice: 349.90,
             variations: '1 cor',
             productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility',
             productSize: '0'
@@ -99,7 +99,7 @@ export const products =
             type: 'UNISEX CANO BAIXO',
             catchPhrase: 'JUST DO IT',
             price: 1049.90,
-            discountedPrice: 0,
+            discountedPrice: 849.90,
             variations: '1 cor',
             productUrl: 'tenis-nike-air-max-97',
             productSize: '0'

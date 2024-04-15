@@ -53,29 +53,25 @@ const router = createBrowserRouter([{
 {
   path: '/femininos',
   element: <CategoryPage 
-  primaryType={'F'} 
-  secondaryType={'U'} 
+  primaryType={['F', 'U']} 
   category={'Feminino'}/>, 
 },
 {
   path: '/masculinos',
-  element: <CategoryPage 
-  primaryType={'M'} 
-  secondaryType={'U'} 
+  element: <CategoryPage
+  primaryType={['M', 'U']} 
   category={'Masculino'}/>, 
 },
 {
   path: '/edicao-limitada',
   element: <CategoryPage 
-  primaryType={'L'} 
-  secondaryType={'L'} 
+  primaryType={['L']} 
   category={'Edição Limitada'}/>, 
 },
 {
   path: '/promocoes',
   element: <CategoryPage 
-  primaryType={'LaterToAdd'} 
-  secondaryType={'LaterToAdd'} 
+  primaryType={['M', 'F', 'U']} 
   category={'Promoções'}/>, 
 },
 //-------------------------PRODUCT LINKS-------------------------

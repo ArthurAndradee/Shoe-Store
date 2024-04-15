@@ -7,8 +7,7 @@ import { products } from '../../Database/products';
 import './category.css';
 
 interface Props {
-    primaryType: string
-    secondaryType: string
+    primaryType: Array<string>
     category: string
 }
 
@@ -35,7 +34,7 @@ function CategoryPage(props: Props) {
     };
 
     const sortedProducts = sortProducts(products, sortBy);
-    const filteredProducts = sortedProducts.filter(product => product.type.startsWith(props.primaryType) || product.type.startsWith(props.secondaryType));
+    const filteredProducts = sortedProducts.filter(product => props.primaryType.some(type => product.type.startsWith(type)));
 
     return (
         <div>
@@ -61,7 +60,8 @@ function CategoryPage(props: Props) {
                                 price={product.price}
                                 variations={product.variations}
                                 productUrl={product.productUrl} 
-                                discountedPrice={0}                            />
+                                discountedPrice={0}                            
+                            />
                         ))}
                 </div>
             </div>
