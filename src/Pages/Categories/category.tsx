@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
@@ -12,9 +13,26 @@ interface Props {
 }
 
 function CategoryPage(props: Props) {
-    const [sortBy, setSortBy] = useState("low-high"); 
+    const [sortBy, setSortBy] = useState("low-high");
+    const [discountedProducts, setDiscountedProducts] = useState<any[]>([]);
+    const location = useLocation();
 
-    function sortProducts (products: any[], sortBy: string) {
+    useEffect(() => {
+        if (location.pathname === '/promocoes') {
+            const filteredDiscountedProducts = products.filter(product => (
+                props.type.some(type => product.type.startsWith(type)) &&
+                product.discountedPrice > 0
+            ));
+            setDiscountedProducts(filteredDiscountedProducts);
+        } else {
+            const filteredProducts = products.filter(product => (
+                props.type.some(type => product.type.startsWith(type))
+            ));
+            setDiscountedProducts(filteredProducts);
+        }
+    }, [location.pathname, props.type]);
+
+    function sortProducts(products: any[], sortBy: string) {
         switch (sortBy) {
             case "low-high":
                 return products.slice().sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);
@@ -33,9 +51,7 @@ function CategoryPage(props: Props) {
         setSortBy(event.target.value);
     };
 
-    const sortedProducts = sortProducts(products, sortBy);
-    const filteredProducts = sortedProducts.filter(product => props.type.some(type => product.type.startsWith(type)));
-    //const discountedProducts = filteredProducts.filter(product => product.discountedPrice > 0); // Filter discounted products
+    const sortedProducts = sortProducts(discountedProducts, sortBy);
 
     return (
         <div>
@@ -51,7 +67,7 @@ function CategoryPage(props: Props) {
                     <option value="z-a">Nome: Z-A</option>
                 </select>
                 <div className="category-products">
-                    {filteredProducts.map((product) => (
+                    {sortedProducts.map((product) => (
                         <ProductCard
                             imgAlt={product.imgAlt}
                             imgLink={product.imgLink}
@@ -59,7 +75,7 @@ function CategoryPage(props: Props) {
                             price={product.price}
                             discountedPrice={product.discountedPrice}
                             variations={product.variations}
-                            productUrl={product.productUrl} 
+                            productUrl={product.productUrl}
                         />
                     ))}
                 </div>
