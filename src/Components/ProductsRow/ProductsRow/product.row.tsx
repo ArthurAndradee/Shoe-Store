@@ -1,56 +1,49 @@
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
-import './product.row.css'
+import './product.row.css';
 import { products } from '../../../Database/products';
 
-
 function ProductsRow() {
-        
-    let windowWidth = window.innerWidth;
-        
-    if (window.innerWidth < 600) {
-        windowWidth = 2
-    } else if (window.innerWidth < 720) {
-        windowWidth = 3;
-    } else if (windowWidth < 850) {
-        windowWidth = 4
-    } else {
-    windowWidth = 5
-    }
-    
-    const settings = {
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: windowWidth,
-        slidesToScroll: windowWidth
-    };
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const indexesToShow = Array.from({ length: 10 }, (_, i) => i);
-    
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const slidesToShow = windowWidth < 600 ? 2 : windowWidth < 720 ? 3 : windowWidth < 950 ? 4 : 5;
+
     return (
         <div className="products-row-container">
             <h1 className="products-row-title">LANÇAMENTOS:</h1>
             <span className="products-row-all">→ Ver todos</span>
             <div className="products">
-                <Slider {...settings}>
-                   {products.filter((_, index) => indexesToShow.includes(index))
-                    .map((product) => (
+                <Slider
+                    dots={true}
+                    infinite={false}
+                    arrows={true}
+                    speed={500}
+                    slidesToShow={slidesToShow}
+                    slidesToScroll={slidesToShow}
+                >
+                    {products.slice(0, 10).map((product) => (
                         <ProductCard
+                            key={product.id}
                             imgAlt={product.imgAlt}
                             imgLink={product.imgLink}
                             name={product.name}
                             price={product.price}
                             variations={product.variations}
-                            productUrl={product.productUrl} 
-                            discountedPrice={product.discountedPrice}/>
+                            productUrl={product.productUrl}
+                            discountedPrice={product.discountedPrice}
+                        />
                     ))}
                 </Slider>
             </div>
         </div>
-    )
+    );
 }
 
 export default ProductsRow;
-
