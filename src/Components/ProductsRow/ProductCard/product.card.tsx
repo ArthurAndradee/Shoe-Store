@@ -15,7 +15,7 @@ interface ProductCardProps {
 }
 
 function ProductCard(props: ProductCardProps) {
-    const [doesItemHaveDiscount, setDoesItemHaveDiscount] = useState(props.discountedPrice > 0);
+    const [doesItemHaveDiscount] = useState(props.discountedPrice > 0);
 
     return (
         <div className="product">

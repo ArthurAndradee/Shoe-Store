@@ -7,7 +7,7 @@ import { products } from '../../Database/products';
 import './category.css';
 
 interface Props {
-    primaryType: Array<string>
+    type: Array<string>
     category: string
 }
 
@@ -34,7 +34,7 @@ function CategoryPage(props: Props) {
     };
 
     const sortedProducts = sortProducts(products, sortBy);
-    const filteredProducts = sortedProducts.filter(product => props.primaryType.some(type => product.type.startsWith(type)));
+    const filteredProducts = sortedProducts.filter(product => props.type.some(type => product.type.startsWith(type)));
 
     return (
         <div>
@@ -51,9 +51,8 @@ function CategoryPage(props: Props) {
                 </select>
                 <div className="category-products">
                     {filteredProducts
-                        .map((product, index) => (
+                        .map((product) => (
                             <ProductCard
-                                key={index}
                                 imgAlt={product.imgAlt}
                                 imgLink={product.imgLink}
                                 name={product.name}
