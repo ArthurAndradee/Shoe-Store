@@ -35,6 +35,7 @@ function CategoryPage(props: Props) {
 
     const sortedProducts = sortProducts(products, sortBy);
     const filteredProducts = sortedProducts.filter(product => props.type.some(type => product.type.startsWith(type)));
+    //const discountedProducts = filteredProducts.filter(product => product.discountedPrice > 0); // Filter discounted products
 
     return (
         <div>
@@ -50,18 +51,17 @@ function CategoryPage(props: Props) {
                     <option value="z-a">Nome: Z-A</option>
                 </select>
                 <div className="category-products">
-                    {filteredProducts
-                        .map((product) => (
-                            <ProductCard
-                                imgAlt={product.imgAlt}
-                                imgLink={product.imgLink}
-                                name={product.name}
-                                price={product.price}
-                                variations={product.variations}
-                                productUrl={product.productUrl} 
-                                discountedPrice={0}                            
-                            />
-                        ))}
+                    {filteredProducts.map((product) => (
+                        <ProductCard
+                            imgAlt={product.imgAlt}
+                            imgLink={product.imgLink}
+                            name={product.name}
+                            price={product.price}
+                            discountedPrice={product.discountedPrice}
+                            variations={product.variations}
+                            productUrl={product.productUrl} 
+                        />
+                    ))}
                 </div>
             </div>
 

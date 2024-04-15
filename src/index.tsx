@@ -56,7 +56,7 @@ const router = createBrowserRouter([{
   type={['F', 'U']} 
   category={'Feminino'}/>, 
 },
-{
+{ 
   path: '/masculinos',
   element: <CategoryPage
   type={['M', 'U']} 
@@ -71,7 +71,7 @@ const router = createBrowserRouter([{
 {
   path: '/promocoes',
   element: <CategoryPage 
-  type={['M', 'F', 'U']} 
+  type={['M', 'F', 'U', 'L']} 
   category={'Promoções'}/>, 
 },
 //-------------------------PRODUCT LINKS-------------------------
