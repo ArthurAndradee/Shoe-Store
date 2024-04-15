@@ -36,7 +36,7 @@ function ProductsRow() {
             <div className="products">
                 <Slider {...settings}>
                    {products.filter((_, index) => indexesToShow.includes(index))
-                    .map((product, index) => (
+                    .map((product) => (
                         <ProductCard
                             imgAlt={product.imgAlt}
                             imgLink={product.imgLink}
