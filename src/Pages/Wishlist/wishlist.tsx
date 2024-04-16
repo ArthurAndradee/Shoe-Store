@@ -1,5 +1,5 @@
 import Footer from '../../Components/Footer/footer';
-import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import WishlistItem from '../../Components/Wishlist/wishlist.item';
 import './wishlist.css'
 

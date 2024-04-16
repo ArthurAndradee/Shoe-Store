@@ -1,7 +1,7 @@
 import "./home.css"
 import ProductsRow from "../../Components/ProductsRow/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
-import HomeHeader from "../../Components/Headers/HomeHeader/home.header";
+import HomeHeader from "../../Components/Headers/HomeHeader/header";
 import { Link } from "react-router-dom";
 
 function HomePage() {

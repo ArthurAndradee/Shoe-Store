@@ -4,12 +4,12 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './home.header.css';
+import './header.css';
 import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
 
-function HomeHeader() {
+function Header() {
   const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
   const {cartProducts} = useLocalStorage()
 
@@ -81,4 +81,4 @@ function HomeHeader() {
   );
 }
 
-export default HomeHeader;
+export default Header;

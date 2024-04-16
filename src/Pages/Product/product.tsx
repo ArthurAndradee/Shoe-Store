@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.display';
 import ProductMenu from '../../Components/ProductPage/ProductMenu/product.menu';
 import TopNav from '../../Components/TopNavComponent/top.nav';

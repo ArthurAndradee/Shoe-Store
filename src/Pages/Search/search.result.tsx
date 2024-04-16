@@ -1,5 +1,5 @@
 import Footer from '../../Components/Footer/footer';
-import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import { products } from '../../Database/products';
 import './search.result.css'

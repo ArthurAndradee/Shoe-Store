@@ -1,5 +1,5 @@
 import Footer from '../../Components/Footer/footer';
-import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import './cart.css'
 import CartItem from '../../Components/Cart/CartItem/cart.item';
 import CartOverview from '../../Components/Cart/CartOverview/cart.overview';

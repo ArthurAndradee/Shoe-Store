@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Footer from '../../Components/Footer/footer';
-import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
+import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import { products } from '../../Database/products';
