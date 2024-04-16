@@ -1,6 +1,6 @@
 'use client'
 
-import { ContextProvider } from "../Context/cart.context"
+import { ContextProvider } from "../Context/context"
 
 interface ProviderProps {
     children: React.ReactNode

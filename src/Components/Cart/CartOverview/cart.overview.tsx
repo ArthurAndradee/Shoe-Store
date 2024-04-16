@@ -1,7 +1,7 @@
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './cart.overview.css'
-import { useLocalStorage } from '../../../Context/cart.context'
+import { useLocalStorage } from '../../../Context/context'
 
 function CartOverview() {
     const {cartProducts} = useLocalStorage()

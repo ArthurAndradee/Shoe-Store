@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLocalStorage } from '../../../Context/cart.context';
+import { useLocalStorage } from '../../../Context/context';
 import './cart.item.css'
 
 function CartItem() {

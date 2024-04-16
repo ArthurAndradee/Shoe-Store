@@ -14,7 +14,7 @@ import Cart from './Pages/Cart/cart';
 import { Toaster } from 'react-hot-toast';
 import CategoryPage from './Pages/Categories/category';
 import Wishlist from './Pages/Wishlist/wishlist';
-import { ContextProvider } from './Context/cart.context';
+import { ContextProvider } from './Context/context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

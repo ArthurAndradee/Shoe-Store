@@ -1,7 +1,7 @@
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
-import { useLocalStorage } from '../../Context/cart.context';
+import { useLocalStorage } from '../../Context/context';
 import './wishlist.css'
 
 function Wishlist() {

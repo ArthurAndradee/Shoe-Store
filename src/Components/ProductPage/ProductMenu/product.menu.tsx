@@ -1,7 +1,7 @@
 import { faCircleCheck, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { useLocalStorage } from '../../../Context/cart.context';
+import { useLocalStorage } from '../../../Context/context';
 import { Link } from 'react-router-dom';
 import './product.menu.css'
 import { v4 } from 'uuid';
