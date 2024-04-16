@@ -8,7 +8,7 @@ function Wishlist() {
         <div>
             <HomeHeader />
             <div className="category-products-row-container">
-                <h1 className="category-products-row-title">Meus Favoritos</h1>
+                <h1 className="category-products-row-title">Lista de desejos</h1>
                 <div className="category-products">
                     <WishlistItem/>
                 </div>
