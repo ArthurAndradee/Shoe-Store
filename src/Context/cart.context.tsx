@@ -15,15 +15,16 @@ interface Props {
     [propName: string]: any
 }
 
-export const CartContext = createContext<CartContextType | null> (null)
+export const AppContext = createContext<CartContextType | null> (null)
 
-export const CartContextProvider = (props: Props) => {
+export const ContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
     const [wishlistProducts,setWishlistProducts] = useState<ProductInfo[] | null>(null)
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('shoeShopProducts')
         const savedCartProducts: ProductInfo[] | null = JSON.parse(cartItems)
+        
         const wishlistItems: any = localStorage.getItem('wishlist')
         const savedWishlistItems: ProductInfo[] | null = JSON.parse(wishlistItems)
 
@@ -100,11 +101,11 @@ export const CartContextProvider = (props: Props) => {
         handleRemoveProductFromWishlist
     }
 
-    return <CartContext.Provider value={value} {...props}/>
+    return <AppContext.Provider value={value} {...props}/>
 }
 
 export const useCart = () => {
-    const context = useContext(CartContext)
+    const context = useContext(AppContext)
     
     if(context === null) {
         throw new Error("UseCart must be used within a CartContextProvider")

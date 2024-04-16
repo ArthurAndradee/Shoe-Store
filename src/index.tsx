@@ -11,10 +11,10 @@ import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
 import { products } from './Database/products';
 import Cart from './Pages/Cart/cart';
-import CartProvider from './Providers/cart.provider';
 import { Toaster } from 'react-hot-toast';
 import CategoryPage from './Pages/Categories/category';
 import Wishlist from './Pages/Wishlist/wishlist';
+import { ContextProvider } from './Context/cart.context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -89,9 +89,9 @@ const router = createBrowserRouter([{
 root.render(
   <React.StrictMode>
     <Toaster toastOptions={{duration: 3000,style:{background: '#FFFFFF',color: '#000000'},success: {iconTheme: {primary: '#000000',secondary: '#FFFFFF'}}}}/>
-    <CartProvider>
+    <ContextProvider>
         <RouterProvider router={router} />
-    </CartProvider>
+    </ContextProvider>
   </React.StrictMode>
 );
 

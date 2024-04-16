@@ -2,7 +2,6 @@ import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/home.header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import { useCart } from '../../Context/cart.context';
-import { products } from '../../Database/products';
 import './wishlist.css'
 
 function Wishlist() {
