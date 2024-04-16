@@ -32,7 +32,7 @@ function ProductMenu(props: ProductMenuProps,) {
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
     const [id, setId] = useState<string>(props.id)
 
-    const [cartProduct, setCartProduct] = useState<ProductInfo>({
+    const [product, setProduct] = useState<ProductInfo>({
         id: props.id,
         name: props.name,
         type: props.type,
@@ -47,7 +47,7 @@ function ProductMenu(props: ProductMenuProps,) {
     })
 
     useEffect(() => {
-        setCartProduct(prevState => ({
+        setProduct(prevState => ({
           ...prevState,
           productSize: selectedSize,
           id: id
@@ -65,7 +65,7 @@ function ProductMenu(props: ProductMenuProps,) {
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
         if (selectedSize !== '0' && selectedSize !== 'Escolha um tamanho') {
-            handleAddProductToCart(cartProduct);
+            handleAddProductToCart(product);
             setIsProduictInCart(true)
         } else {
             setIsSizeSelected(true)
@@ -73,7 +73,7 @@ function ProductMenu(props: ProductMenuProps,) {
     };
 
     const handleWishlist = (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-        handleAddProductToWishlist(cartProduct)
+        handleAddProductToWishlist(product)
     };
 
     return (

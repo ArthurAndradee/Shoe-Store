@@ -46,11 +46,26 @@ export const CartContextProvider = (props: Props) => {
             return updatedCart
         })
     }, [])
+    
+    const handleRemoveProductFromCart = useCallback((product: ProductInfo) => {
+        if(cartProducts) {
+            const filteredProducts = cartProducts.filter((item) => {
+                return item.id !== product.id
+            })
 
+            setCartProducts(filteredProducts)
+            
+            toast.success('Produto removido do carrinho')
+            localStorage.setItem('shoeShopProducts', JSON.stringify(filteredProducts))
+        }
+    },[cartProducts])
+
+    //-------------------------WISHLIST METHODS-------------------------
+    
     const handleAddProductToWishlist = useCallback((product: ProductInfo) => {
         setWishlistProducts((prev) => {
             let updatedCart;
-
+ 
             if(prev) {
                 updatedCart = [...prev, product]
             } else {
@@ -62,19 +77,6 @@ export const CartContextProvider = (props: Props) => {
             return updatedCart
         })
     }, [])
-
-    const handleRemoveProductFromCart = useCallback((product: ProductInfo) => {
-        if(cartProducts) {
-            const filteredProducts = cartProducts.filter((item) => {
-                return item.id !== product.id
-            })
-
-            setCartProducts(filteredProducts)
-
-            toast.success('Produto removido do carrinho')
-            localStorage.setItem('shoeShopProducts', JSON.stringify(filteredProducts))
-        }
-    },[cartProducts])
 
     const handleRemoveProductFromWishlist = useCallback((product: ProductInfo) => {
         if(wishlistProducts) {
