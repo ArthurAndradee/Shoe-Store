@@ -7,6 +7,9 @@ import './product.menu.css'
 import { v4 } from 'uuid';
 
 export interface ProductInfo {
+    imgAlt: string;
+    discountedPrice: number;
+    variations: string;
     id: string,
     name: string,
     type: string,
@@ -23,7 +26,7 @@ interface ProductMenuProps extends ProductInfo {
   }
 
 function ProductMenu(props: ProductMenuProps,) {
-    const {handleAddProductToCart} = useCart()
+    const {handleAddProductToCart, handleAddProductToWishlist} = useCart()
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
@@ -35,6 +38,9 @@ function ProductMenu(props: ProductMenuProps,) {
         type: props.type,
         price: props.price,
         catchPhrase: props.catchPhrase,
+        variations: props.variations,
+        discountedPrice: props.discountedPrice,
+        imgAlt: props.imgAlt,
         imgLink: props.imgLink,
         productUrl: props.productUrl,
         productSize: props.productSize
@@ -66,6 +72,10 @@ function ProductMenu(props: ProductMenuProps,) {
         }
     };
 
+    const handleWishlist = (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+        handleAddProductToWishlist(cartProduct)
+    };
+
     return (
         <div className='menu-container'>
             <h3 className='product-title'>{props.name}</h3>
@@ -95,7 +105,6 @@ function ProductMenu(props: ProductMenuProps,) {
             {isProduictInCart ? (
                 <>
                 <div style={{display:'flex'}}>
-                    {/* later require user to pick a size before adding to cart */}
                     <FontAwesomeIcon style={{margin:'6px 6px 0 0'}} icon={faCircleCheck} />
                     <div>Produto adicionado ao carrinho</div>
                 </div>
@@ -115,7 +124,7 @@ function ProductMenu(props: ProductMenuProps,) {
                         </>
                     )}
                     <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleSubmit}>Adicionar ao carrinho</button>
-                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} /></button>
+                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} onClick={handleWishlist} /></button>
                 </div>
                 </>
             )}

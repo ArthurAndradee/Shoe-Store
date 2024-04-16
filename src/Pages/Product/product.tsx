@@ -6,15 +6,17 @@ import TopNav from '../../Components/TopNavComponent/top.nav';
 import './product.css';
 
 interface ProductProps {
-    id: string;
-    name: string,
-    type: string,
-    price: number;
-    discountedPrice: number,
-    catchPhrase: string,
-    imgLink: string,
+    id: string
+    name: string
+    type: string
+    price: number
+    discountedPrice: number
+    catchPhrase: string
+    imgLink: string
+    imgAlt: string
     productUrl: string
     productSize: string
+    variations: string
   }
 
 function ProductPage(props: ProductProps) {
@@ -36,16 +38,19 @@ function ProductPage(props: ProductProps) {
             <div className='content'>
                 <ProductDisplay imgLink={props.imgLink} />
                 <ProductMenu 
-                id={props.id} 
-                name={props.name} 
-                type={props.type} 
-                price={props.price} 
-                catchPhrase={props.catchPhrase} 
-                imgLink={props.imgLink} 
-                productUrl={props.productUrl}
-                productSize={props.productSize}
-                onSizeChange={handleSizeChange}
-                createId={createId}
+                  id={props.id}
+                  name={props.name}
+                  type={props.type}
+                  price={props.price}
+                  discountedPrice={props.discountedPrice} 
+                  catchPhrase={props.catchPhrase}
+                  imgLink={props.imgLink}
+                  imgAlt={props.imgAlt} 
+                  productUrl={props.productUrl}
+                  productSize={props.productSize}
+                  variations={props.variations}                
+                  onSizeChange={handleSizeChange}
+                  createId={createId} 
                 />
             </div>
             

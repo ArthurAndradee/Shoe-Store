@@ -4,8 +4,11 @@ import { toast } from "react-hot-toast";
 
 type CartContextType = {
     cartProducts: ProductInfo[] | null
+    wishlistProducts: ProductInfo[] | null
     handleAddProductToCart: (product: ProductInfo) => void
     handleRemoveProductFromCart: (product: ProductInfo) => void
+    handleAddProductToWishlist: (product: ProductInfo) => void
+    handleRemoveProductFromWishlist: (product: ProductInfo) => void
 }
 
 interface Props {
@@ -16,12 +19,16 @@ export const CartContext = createContext<CartContextType | null> (null)
 
 export const CartContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
+    const [wishlistProducts,setWishlistProducts] = useState<ProductInfo[] | null>(null)
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('shoeShopProducts')
         const savedCartProducts: ProductInfo[] | null = JSON.parse(cartItems)
+        const wishlistItems: any = localStorage.getItem('wishlist')
+        const savedWishlistItems: ProductInfo[] | null = JSON.parse(wishlistItems)
 
         setCartProducts(savedCartProducts)
+        setWishlistProducts(savedWishlistItems)
     }, [])
 
     const handleAddProductToCart = useCallback((product: ProductInfo) => {
@@ -40,6 +47,22 @@ export const CartContextProvider = (props: Props) => {
         })
     }, [])
 
+    const handleAddProductToWishlist = useCallback((product: ProductInfo) => {
+        setWishlistProducts((prev) => {
+            let updatedCart;
+
+            if(prev) {
+                updatedCart = [...prev, product]
+            } else {
+                updatedCart = [product]
+            }
+ 
+            toast.success('Produto adicionado à lista de desejos!')
+            localStorage.setItem('wishlist', JSON.stringify(updatedCart))
+            return updatedCart
+        })
+    }, [])
+
     const handleRemoveProductFromCart = useCallback((product: ProductInfo) => {
         if(cartProducts) {
             const filteredProducts = cartProducts.filter((item) => {
@@ -53,10 +76,26 @@ export const CartContextProvider = (props: Props) => {
         }
     },[cartProducts])
 
+    const handleRemoveProductFromWishlist = useCallback((product: ProductInfo) => {
+        if(wishlistProducts) {
+            const filteredProducts = wishlistProducts.filter((item) => {
+                return item.id !== product.id
+            })
+
+            setWishlistProducts(filteredProducts)
+
+            toast.success('Produto removido da lista de desejos')
+            localStorage.setItem('wishlist', JSON.stringify(filteredProducts))
+        }
+    },[wishlistProducts])
+
     const value = {
         cartProducts,
+        wishlistProducts,
         handleAddProductToCart,
-        handleRemoveProductFromCart
+        handleRemoveProductFromCart,
+        handleAddProductToWishlist,
+        handleRemoveProductFromWishlist
     }
 
     return <CartContext.Provider value={value} {...props}/>
