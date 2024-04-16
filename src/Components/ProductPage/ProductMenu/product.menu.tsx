@@ -1,7 +1,7 @@
 import { faCircleCheck, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { useCart } from '../../../Context/cart.context';
+import { useLocalStorage } from '../../../Context/cart.context';
 import { Link } from 'react-router-dom';
 import './product.menu.css'
 import { v4 } from 'uuid';
@@ -26,7 +26,7 @@ interface ProductMenuProps extends ProductInfo {
   }
 
 function ProductMenu(props: ProductMenuProps,) {
-    const {handleAddProductToCart, handleAddProductToWishlist} = useCart()
+    const {handleAddProductToCart, handleAddProductToWishlist} = useLocalStorage()
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)

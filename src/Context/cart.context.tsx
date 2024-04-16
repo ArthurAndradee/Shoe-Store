@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { ProductInfo } from "../Components/ProductPage/ProductMenu/product.menu";
 import { toast } from "react-hot-toast";
 
-type CartContextType = {
+type ContextType = {
     cartProducts: ProductInfo[] | null
     wishlistProducts: ProductInfo[] | null
     handleAddProductToCart: (product: ProductInfo) => void
@@ -15,14 +15,14 @@ interface Props {
     [propName: string]: any
 }
 
-export const AppContext = createContext<CartContextType | null> (null)
+export const AppContext = createContext<ContextType | null> (null)
 
 export const ContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
     const [wishlistProducts,setWishlistProducts] = useState<ProductInfo[] | null>(null)
 
     useEffect(() => {
-        const cartItems: any = localStorage.getItem('shoeShopProducts')
+        const cartItems: any = localStorage.getItem('cart')
         const savedCartProducts: ProductInfo[] | null = JSON.parse(cartItems)
         
         const wishlistItems: any = localStorage.getItem('wishlist')
@@ -43,7 +43,7 @@ export const ContextProvider = (props: Props) => {
             }
  
             toast.success('Produto adicionado ao carrinho')
-            localStorage.setItem('shoeShopProducts', JSON.stringify(updatedCart))
+            localStorage.setItem('cart', JSON.stringify(updatedCart))
             return updatedCart
         })
     }, [])
@@ -57,7 +57,7 @@ export const ContextProvider = (props: Props) => {
             setCartProducts(filteredProducts)
             
             toast.success('Produto removido do carrinho')
-            localStorage.setItem('shoeShopProducts', JSON.stringify(filteredProducts))
+            localStorage.setItem('cart', JSON.stringify(filteredProducts))
         }
     },[cartProducts])
 
@@ -104,11 +104,11 @@ export const ContextProvider = (props: Props) => {
     return <AppContext.Provider value={value} {...props}/>
 }
 
-export const useCart = () => {
+export const useLocalStorage = () => {
     const context = useContext(AppContext)
     
     if(context === null) {
-        throw new Error("UseCart must be used within a CartContextProvider")
+        throw new Error("UseCart must be used within a ContextProvider")
     }
 
     return context

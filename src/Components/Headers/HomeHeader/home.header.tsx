@@ -6,12 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './home.header.css';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../../Context/cart.context';
+import { useLocalStorage } from '../../../Context/cart.context';
 import { useEffect, useState } from 'react';
 
 function HomeHeader() {
   const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
-  const {cartProducts} = useCart()
+  const {cartProducts} = useLocalStorage()
 
   useEffect(() => {
     if (cartProducts?.length) {

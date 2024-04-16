@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../../Context/cart.context';
+import { useLocalStorage } from '../../../Context/cart.context';
 import './cart.item.css'
 
 function CartItem() {
-    const {cartProducts} = useCart()
-    const {handleRemoveProductFromCart} = useCart()
+    const {cartProducts} = useLocalStorage()
+    const {handleRemoveProductFromCart} = useLocalStorage()
 
     if(!cartProducts || cartProducts.length === 0) {
         return (

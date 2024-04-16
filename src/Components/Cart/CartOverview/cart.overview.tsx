@@ -1,10 +1,10 @@
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './cart.overview.css'
-import { useCart } from '../../../Context/cart.context'
+import { useLocalStorage } from '../../../Context/cart.context'
 
 function CartOverview() {
-    const {cartProducts} = useCart()
+    const {cartProducts} = useLocalStorage()
 
     const totalSum = cartProducts ? cartProducts.reduce((price, product) => price + product.price, 0) : 0;
 
