@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css';

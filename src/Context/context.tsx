@@ -82,7 +82,7 @@ export const ContextProvider = (props: Props) => {
     const handleRemoveProductFromWishlist = useCallback((product: ProductInfo) => {
         if(wishlistProducts) {
             const filteredProducts = wishlistProducts.filter((item) => {
-                return item.id !== product.id
+                return item.name !== product.name
             })
 
             setWishlistProducts(filteredProducts)
