@@ -26,11 +26,12 @@ interface ProductMenuProps extends ProductInfo {
   }
 
 function ProductMenu(props: ProductMenuProps,) {
-    const {handleAddProductToCart, handleAddProductToWishlist} = useLocalStorage()
+    const {handleAddProductToCart, handleAddProductToWishlist, wishlistProducts} = useLocalStorage()
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)
-    const [isProductInWishlist, setIsProductInWishlist] = useState('')
+    const [isProductInWishlist, setIsProductInWishlist] = useState(false)
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
+    const [wishlistButtonBackgroundDisplay,setWishlistButtonBackgroundDisplay] = useState('')
     const [id, setId] = useState<string>(props.id)
 
     const [product, setProduct] = useState<ProductInfo>({
@@ -74,8 +75,15 @@ function ProductMenu(props: ProductMenuProps,) {
     };
 
     const handleWishlist = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        handleAddProductToWishlist(product)
-        setIsProductInWishlist('none')
+        if(wishlistProducts) {
+            const productExistsInCart = wishlistProducts.some(item => item.name === product.name);
+                if (!productExistsInCart) {
+                    handleAddProductToWishlist(product);
+                    setWishlistButtonBackgroundDisplay('none')
+                } else {
+                    setIsProductInWishlist(true);
+                }
+        }
     };
     
     return (
@@ -126,7 +134,15 @@ function ProductMenu(props: ProductMenuProps,) {
                         </>
                     )}
                     <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleSubmit}>Adicionar ao carrinho</button>
-                    <button className='btn btn-primary' id='wish-button' style={{display: isProductInWishlist}}  onClick={handleWishlist}><FontAwesomeIcon icon={faHeart}/></button>
+                    <button className='btn btn-primary' id='wish-button' style={{display: wishlistButtonBackgroundDisplay}}  onClick={handleWishlist}><FontAwesomeIcon icon={faHeart}/></button>
+                    {isProductInWishlist ? (
+                        <>
+                            <div className='text-danger' id='size-warning'>Item já adicionado à lista de desejos</div>
+                        </>
+                    ) : (
+                        <>
+                        </>
+                    )}
                 </div>
                 </>
             )}

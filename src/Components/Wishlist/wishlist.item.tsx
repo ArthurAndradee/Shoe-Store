@@ -8,7 +8,7 @@ function WishlistItem() {
     if(!wishlistProducts || wishlistProducts.length === 0) {
         return (
             <div className='p-3'>
-                <div>Você não possui nenhum item em seu carrinho de compras.</div>
+                <div>Você não possui nenhum item adicionado aos seus favoritos.</div>
                 <div>
                     Clique
                     <Link className='m-1 home-link' to={'/home'}>
