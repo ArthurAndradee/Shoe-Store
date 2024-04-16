@@ -1,0 +1,10 @@
+.search-container {
+    padding-top: 117px;
+}
+
+@media only screen and (min-width: 1366px) {
+    .search-container {
+        width: 1366px;
+        margin: auto;
+    }
+}

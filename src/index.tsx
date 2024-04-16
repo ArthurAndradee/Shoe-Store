@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast';
 import CategoryPage from './Pages/Categories/category';
 import Wishlist from './Pages/Wishlist/wishlist';
 import { ContextProvider } from './Context/context';
+import SearchResult from './Pages/Search/search.result';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -55,6 +56,11 @@ const router = createBrowserRouter([{
 {
   path:'/wishlist',
   element: <Wishlist />,
+  errorElement: <ErrorPage />
+},
+{
+  path: '/search',
+  element: <SearchResult />,
   errorElement: <ErrorPage />
 },
 //-------------------------CATEGORY LINKS-------------------------
