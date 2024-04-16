@@ -29,6 +29,7 @@ function ProductMenu(props: ProductMenuProps,) {
     const {handleAddProductToCart, handleAddProductToWishlist} = useLocalStorage()
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isProduictInCart, setIsProduictInCart] = useState(false)
+    const [isProductInWishlist, setIsProductInWishlist] = useState('')
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
     const [id, setId] = useState<string>(props.id)
 
@@ -72,10 +73,11 @@ function ProductMenu(props: ProductMenuProps,) {
         }
     };
 
-    const handleWishlist = (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    const handleWishlist = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         handleAddProductToWishlist(product)
+        setIsProductInWishlist('none')
     };
-
+    
     return (
         <div className='menu-container'>
             <h3 className='product-title'>{props.name}</h3>
@@ -124,7 +126,7 @@ function ProductMenu(props: ProductMenuProps,) {
                         </>
                     )}
                     <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleSubmit}>Adicionar ao carrinho</button>
-                    <button className='btn btn-primary' id='wish-button'><FontAwesomeIcon icon={faHeart} onClick={handleWishlist} /></button>
+                    <button className='btn btn-primary' id='wish-button' style={{display: isProductInWishlist}}  onClick={handleWishlist}><FontAwesomeIcon icon={faHeart}/></button>
                 </div>
                 </>
             )}
