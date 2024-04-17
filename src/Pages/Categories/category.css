@@ -12,6 +12,11 @@
     margin-top: 15px;
 }
 
+#sort {
+  box-shadow: none;
+  border-color: #dadada;
+}
+
 @media only screen and (min-width: 1366px) {
    .category-products-row-container {
      width: 1366px;
