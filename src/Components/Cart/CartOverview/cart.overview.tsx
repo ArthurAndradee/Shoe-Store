@@ -2,9 +2,19 @@ import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './cart.overview.css'
 import { useLocalStorage } from '../../../Context/context'
+import { useGoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 
 function CartOverview() {
     const {cartProducts} = useLocalStorage()
+    const navigate = useNavigate()
+
+    const login = useGoogleLogin({
+        onSuccess: tokenResponse => {
+          console.log(tokenResponse)
+          navigate('/checkout')
+        }
+    });
 
     const totalSum = cartProducts ? cartProducts.reduce((price, product) => price + product.price, 0) : 0;
 
@@ -23,7 +33,7 @@ function CartOverview() {
                         <div className='total'>{'R$ ' + totalSum.toFixed(2)}</div>
                     </div>
                 </div>
-                <div className='checkout-button'>Avançar para o checkout</div>
+                <div className='checkout-button' onClick={() => login()}>Avançar para o checkout</div>
             </div>
             <div className='checkout-container'>
                 <div className='checkout-icon'><FontAwesomeIcon icon={faCircleCheck} /></div>

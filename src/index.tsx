@@ -17,6 +17,7 @@ import CategoryPage from './Pages/Categories/category';
 import Wishlist from './Pages/Wishlist/wishlist';
 import { ContextProvider } from './Context/context';
 import SearchResult from './Pages/Search/search.result';
+import Checkout from './Pages/Checkout/checkout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -50,8 +51,8 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />
 },
 {
-  path: '/cart',
-  element: <Cart/>, 
+  path: '/search',
+  element: <SearchResult/>,
   errorElement: <ErrorPage />
 },
 {
@@ -60,8 +61,13 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />
 },
 {
-  path: '/search',
-  element: <SearchResult/>,
+  path: '/cart',
+  element: <Cart/>, 
+  errorElement: <ErrorPage />
+},
+{
+  path: '/checkout',
+  element: <Checkout />,
   errorElement: <ErrorPage />
 },
 //-------------------------CATEGORY LINKS-------------------------
