@@ -7,7 +7,7 @@ function Wishlist() {
     return (
         <div>
             <HomeHeader />
-            <div className="category-products-row-container">
+            <div className="category-products-container">
                 <h1 className="category-products-row-title">Lista de desejos</h1>
                 <div className="category-products">
                     <WishlistItem/>
