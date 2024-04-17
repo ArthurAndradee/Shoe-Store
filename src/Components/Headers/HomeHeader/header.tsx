@@ -8,9 +8,11 @@ import './header.css';
 import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
 
 function Header() {
   const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const {cartProducts} = useLocalStorage()
 
   useEffect(() => {
@@ -21,6 +23,13 @@ function Header() {
     }
 
   }, [showCartItemsQuantity, cartProducts]);
+
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => {
+      console.log(tokenResponse)
+      setIsUserLoggedIn(true)
+    }
+  });
 
   var sliderSettings = {
     infinite: true,
@@ -55,7 +64,11 @@ function Header() {
           </div>
 
           <div className='userOptions'>
-              <div>Entrar</div>
+            {isUserLoggedIn ? (
+              <div onClick={() => login()}>Sair</div>
+            ) : (
+              <div onClick={() => login()}>Entrar</div>
+            )}
               <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
               <div style={{display:'flex'}}>
                   <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>

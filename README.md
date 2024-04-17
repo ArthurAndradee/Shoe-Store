@@ -20,6 +20,7 @@ In terminal, run:
 12. yarn add slick-carousel
 13. yarn add react-hot-toast
 14. yarn add uuid
+15. yarn add @react-oauth/google@latest
 
 ## Available Scripts
 

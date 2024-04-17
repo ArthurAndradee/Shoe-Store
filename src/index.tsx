@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -94,10 +95,12 @@ const router = createBrowserRouter([{
 
 root.render(
   <React.StrictMode>
-    <Toaster toastOptions={{duration: 3000,style:{background: '#FFFFFF',color: '#000000'},success: {iconTheme: {primary: '#000000',secondary: '#FFFFFF'}}}}/>
-    <ContextProvider>
-        <RouterProvider router={router} />
-    </ContextProvider>
+    <GoogleOAuthProvider clientId="225610013643-h4vjojhkbfol6ht7rnlprjbdmjpfp1tp.apps.googleusercontent.com">
+      <Toaster toastOptions={{duration: 3000,style:{background: '#FFFFFF',color: '#000000'},success: {iconTheme: {primary: '#000000',secondary: '#FFFFFF'}}}}/>
+      <ContextProvider>
+          <RouterProvider router={router} />
+      </ContextProvider>
+    </GoogleOAuthProvider>;
   </React.StrictMode>
 );
 
