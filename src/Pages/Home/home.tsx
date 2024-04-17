@@ -5,7 +5,6 @@ import HomeHeader from "../../Components/Headers/HomeHeader/header";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-
     return (
         <div className="body">
 

@@ -140,27 +140,52 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
 }
 
 .searchBar {
-    width: 160px;
-    height: 60px;
+  width: 160px;
+  height: 60px;
 
-    margin-bottom: 13px;
+  margin-bottom: 13px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    font-size: 13px;
+  font-size: 13px;
 
-    color: #FFFFFF;
-    background-color: rgb(0, 0, 0);
+  color: #FFFFFF;
+  background-color: rgb(0, 0, 0);
 }
 
-.search-text   {
-    font-size: 13px;
-    margin-left: 15%;
+.search-text {
+  width: 90px;
+
+  font-weight: 400;
+  font-size: 15px;
+  
+  color: #FFFFFF;
+  background-color: rgb(0, 0, 0);
+
+  border: none;
+  padding: 0;
+  outline: inherit;
+
+  margin-left: 10%;
 }
 
-.searchBar div {
-    margin-left: auto;
-    margin-right: 15%;
+.search-text::placeholder {
+  color: #FFFFFF;
+  font-size: 15px;
+  border: none;
+}
+
+.search-text:focus + .search-text::placeholder {
+  color: transparent;
+}
+
+.searchBar button {
+  margin-left: auto;
+  margin-right: 15%;
+
+  background: transparent;
+  color: #FFFFFF;
+  border: none;
 }
 
 @media only screen and (min-width: 1366px) {

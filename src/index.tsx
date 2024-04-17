@@ -60,7 +60,7 @@ const router = createBrowserRouter([{
 },
 {
   path: '/search',
-  element: <SearchResult />,
+  element: <SearchResult/>,
   errorElement: <ErrorPage />
 },
 //-------------------------CATEGORY LINKS-------------------------

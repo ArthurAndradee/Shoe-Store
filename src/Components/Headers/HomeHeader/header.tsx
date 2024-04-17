@@ -69,12 +69,12 @@ function Header() {
                   )}
               </div>
           </div>
-
           <div className='searchBar'>
+            <Link to={'/search'} style={{display:'flex', textDecoration:'none', width:'190px'}}>
               <div className='search-text'>Buscar</div>
-              <div><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
-          </div>
-          
+              <button type='submit'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+            </Link>
+          </div> 
       </nav> 
 
     </header>
