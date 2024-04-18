@@ -8,7 +8,6 @@ function CardPage() {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [safetyCode, setSafetyCode] = useState('')
-  const [cardName, setCardName] = useState('')
 
   const handleCardSelect = () => {
       setIsCardSelected(true);
@@ -39,60 +38,59 @@ function CardPage() {
     setSafetyCode(formattedValue);
   }
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        // Check if the pressed key is a number
-        if (!isNaN(Number(event.key))) {
-            event.preventDefault(); // Prevent typing the number
-        }
-    };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (!isNaN(Number(event.key))) {
+          event.preventDefault();
+      }
+  };
 
-    return (
-        <div className='card-form-container'>
-            <h2>Método de Pagamento</h2>
-            <form className='card-form'>
-                <input type='radio' onClick={handleCardSelect}/>
-                <label className="card-label">
-                    <FontAwesomeIcon icon={faCreditCard} style={{fontSize:"20px", margin:"0 10px 0 10px"}}/>
-                    <div>Cartão de crédito</div>
-                </label>
-            </form>
-            {isCardSelected ? (
-                <form className="card-body payment-card-body">
-                    <span className="font-weight-normal card-text">Cartão de Crédito</span>
-                    <div className="input">
-                      <i className="fa fa-credit-card"></i>
-                      <input type="text" className="form-control" placeholder="0000 0000 0000 0000" maxLength={19} value={cardNumber} onChange={handleCardNumberChange}/>
-                    </div> 
+  return (
+      <div className='card-form-container'>
+          <h2>Método de Pagamento</h2>
+          <form className='card-form'>
+              <input type='radio' onClick={handleCardSelect}/>
+              <label className="card-label">
+                  <FontAwesomeIcon icon={faCreditCard} style={{fontSize:"20px", margin:"0 10px 0 10px"}}/>
+                  <div>Cartão de crédito</div>
+              </label>
+          </form>
+          {isCardSelected ? (
+              <form className="card-body payment-card-body">
+                  <span className="font-weight-normal card-text">Cartão de Crédito</span>
+                  <div className="input">
+                    <i className="fa fa-credit-card"></i>
+                    <input type="text" className="form-control" placeholder="0000 0000 0000 0000" maxLength={19} value={cardNumber} onChange={handleCardNumberChange}/>
+                  </div> 
 
-                    <div className="row mt-3 mb-3">
-                      <div className="col-md-6">
-                        <span className="font-weight-normal card-text">Data de Validade</span>
-                        <div className="input">
-                          <i className="fa fa-calendar"></i>
-                          <input type="text" className="form-control" placeholder="MM/YY" maxLength={7} value={expiryDate} onChange={handleExpiryChange}/>
-                        </div> 
-                      </div>
-
-                      <div className="col-md-6">
-                        <span className="font-weight-normal card-text">Código de Segurança</span>
-                        <div className="input">
-                          <i className="fa fa-lock"></i>
-                          <input type="text" className="form-control" placeholder="000" maxLength={3} value={safetyCode} onChange={handleSafetyCodeChange}/>
-                        </div> 
-                      </div>
+                  <div className="row mt-3 mb-3">
+                    <div className="col-md-6">
+                      <span className="font-weight-normal card-text">Data de Validade</span>
+                      <div className="input">
+                        <i className="fa fa-calendar"></i>
+                        <input type="text" className="form-control" placeholder="MM/YY" maxLength={7} value={expiryDate} onChange={handleExpiryChange}/>
+                      </div> 
                     </div>
 
-                    <span className="font-weight-normal card-text">Nome no cartão</span>
-                    <div className="input">
-                      <i className="fa fa-credit-card"></i>
-                      <input type="text" className="form-control" placeholder="Arthur A. da Silva" maxLength={100} onKeyDown={handleKeyDown}/>
-                    </div> 
+                    <div className="col-md-6">
+                      <span className="font-weight-normal card-text">Código de Segurança</span>
+                      <div className="input">
+                        <i className="fa fa-lock"></i>
+                        <input type="text" className="form-control" placeholder="000" maxLength={3} value={safetyCode} onChange={handleSafetyCodeChange}/>
+                      </div> 
+                    </div>
+                  </div>
 
-                    <button type='submit' className='submit-button'>Finalizar pedido</button>
-              </form>
-            ) : (
-            <></>
-            )}
+                  <span className="font-weight-normal card-text">Nome no cartão</span>
+                  <div className="input">
+                    <i className="fa fa-credit-card"></i>
+                    <input type="text" className="form-control" placeholder="Arthur A. da Silva" maxLength={100} onKeyDown={handleKeyDown}/>
+                  </div> 
+
+                  <button type='submit' className='submit-button'>Finalizar pedido</button>
+            </form>
+          ) : (
+          <></>
+          )}
         </div>
     )
 }
