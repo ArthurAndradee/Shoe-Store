@@ -1,0 +1,52 @@
+.add-adress-button, .handle-form-button {
+    width: 10%;
+    padding: 8px;
+
+    font-size: 12px;
+    
+    background-color: #000000;
+    color: #FFFFFF;
+    
+    text-align: center;
+    cursor: pointer;
+}
+
+.handle-form-button {
+    width: 10%;
+}
+
+.form-group {
+    width: 70%;
+    padding: 20px;
+    padding-bottom: 20px;
+    
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-group {
+    flex-direction: column;
+}
+
+#form-input {
+    border: none;
+    border-radius: 3px;
+
+    width: 90%;
+
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .checkout-section {
+        width: 400%;
+    }
+    .form-container {
+        flex-direction: column;
+    }
+}

@@ -3,7 +3,7 @@ import Footer from '../../Components/Footer/footer';
 import Header from '../../Components/Headers/HomeHeader/header'
 import './checkout.css'
 import CardPage from '../../Components/Checkout/CardPage/card.page';
-import ShippingPage from '../../Components/Checkout/ShippingPage/shipping.page';
+import ShippingPage from '../../Components/Checkout/ShippingPage/Container/shipping.page';
 
 function Checkout() {
     const [isShippingSelected, setIsShippingSelected] = useState(false)
