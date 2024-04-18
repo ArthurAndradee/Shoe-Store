@@ -106,7 +106,7 @@ root.render(
       <ContextProvider>
           <RouterProvider router={router} />
       </ContextProvider>
-    </GoogleOAuthProvider>;
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 

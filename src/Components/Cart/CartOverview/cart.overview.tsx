@@ -4,16 +4,19 @@ import './cart.overview.css'
 import { useLocalStorage } from '../../../Context/context'
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function CartOverview() {
     const {cartProducts} = useLocalStorage()
+    const [failWarning, setFailWarning] = useState(false)
     const navigate = useNavigate()
 
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
           console.log(tokenResponse)
           navigate('/checkout')
-        }
+        },
+        onError: tokenResponse => setFailWarning(true)
     });
 
     const totalSum = cartProducts ? cartProducts.reduce((price, product) => price + product.price, 0) : 0;
@@ -34,6 +37,11 @@ function CartOverview() {
                     </div>
                 </div>
                 <div className='checkout-button' onClick={() => login()}>Avançar para o checkout</div>
+                {failWarning ? (
+                    <div className='text-danger text-center'>Algo deu errado</div>
+                ) : (
+                    <></>
+                )}
             </div>
             <div className='checkout-container'>
                 <div className='checkout-icon'><FontAwesomeIcon icon={faCircleCheck} /></div>

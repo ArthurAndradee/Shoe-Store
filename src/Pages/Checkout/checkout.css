@@ -1,0 +1,40 @@
+.checkout-section {
+    padding-top: 117px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-nav {
+    height: 30px;
+    width: 100% !important;
+    
+    display:flex;
+    
+    margin-bottom: 15px;
+}
+
+.shipping, .payment {
+    cursor: pointer;
+    display: flex;
+}
+
+.shipping:hover, .payment:hover {
+    text-decoration: underline;
+}
+
+.shipping {
+    margin-right: 5%;
+
+}
+
+.payment {
+
+}
+
+@media (min-width: 1366px) {
+    .checkout-section {
+        width: 1366px;
+        margin: auto;
+    }
+}
