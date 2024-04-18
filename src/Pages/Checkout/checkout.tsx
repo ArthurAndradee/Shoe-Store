@@ -26,9 +26,9 @@ function Checkout() {
                 </div>
                 <div>
                     {isShippingSelected ? (
-                        <ShippingPage />
-                    ) : (
                         <CardPage />
+                    ) : (
+                        <ShippingPage />
                     )}
                 </div>
             </div>

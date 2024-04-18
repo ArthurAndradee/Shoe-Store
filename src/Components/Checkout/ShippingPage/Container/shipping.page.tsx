@@ -66,7 +66,7 @@ function ShippingPage() {
                             <h4 className='fs-6'>Número de telefone</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" value={phoneNumber} onChange={handlePhoneNumberChange} maxLength={13}/>
                             <h4 className='fs-6'>CPF</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" value={CPF} onChange={handleCPFChange} maxLength={15}/>
                             <h4 className='fs-6'>CEP</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" value={CEP} onChange={HandleCepChange} maxLength={9}/>
                             <h4 className='fs-6'>Endereço</h4>
