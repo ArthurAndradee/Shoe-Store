@@ -1,13 +1,49 @@
+import React, { useState } from 'react';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './card.page.css'
-import { useState } from 'react';
+import './card.page.css';
 
 function CardPage() {
-    const [isCardSelected, setIsCardSelected] = useState(false)
+  const [isCardSelected, setIsCardSelected] = useState(false);
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [safetyCode, setSafetyCode] = useState('')
+  const [cardName, setCardName] = useState('')
 
-    const handleCardSelect = () => {
-        setIsCardSelected(true);
+  const handleCardSelect = () => {
+      setIsCardSelected(true);
+  };
+
+  //INPUT VALIDATION
+
+  const handleCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const formattedNumber = event.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+      setCardNumber(formattedNumber);
+  };
+
+  const handleExpiryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    let formattedValue = inputValue.replace(/\D/g, '').slice(0, 4);
+
+    if (formattedValue.length > 2) {
+        formattedValue = formattedValue.replace(/(\d{2})(\d{0,2})/, '$1/$2');
+    }
+
+    setExpiryDate(formattedValue);
+  };
+
+  const handleSafetyCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const formattedValue = inputValue.replace(/\D/g, '') 
+  
+    setSafetyCode(formattedValue);
+  }
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        // Check if the pressed key is a number
+        if (!isNaN(Number(event.key))) {
+            event.preventDefault(); // Prevent typing the number
+        }
     };
 
     return (
@@ -25,7 +61,7 @@ function CardPage() {
                     <span className="font-weight-normal card-text">Cartão de Crédito</span>
                     <div className="input">
                       <i className="fa fa-credit-card"></i>
-                      <input type="text" className="form-control" placeholder="0000 0000 0000 0000" />
+                      <input type="text" className="form-control" placeholder="0000 0000 0000 0000" maxLength={19} value={cardNumber} onChange={handleCardNumberChange}/>
                     </div> 
 
                     <div className="row mt-3 mb-3">
@@ -33,7 +69,7 @@ function CardPage() {
                         <span className="font-weight-normal card-text">Data de Validade</span>
                         <div className="input">
                           <i className="fa fa-calendar"></i>
-                          <input type="text" className="form-control" placeholder="MM/YY" />
+                          <input type="text" className="form-control" placeholder="MM/YY" maxLength={7} value={expiryDate} onChange={handleExpiryChange}/>
                         </div> 
                       </div>
 
@@ -41,7 +77,7 @@ function CardPage() {
                         <span className="font-weight-normal card-text">Código de Segurança</span>
                         <div className="input">
                           <i className="fa fa-lock"></i>
-                          <input type="text" className="form-control" placeholder="000" />
+                          <input type="text" className="form-control" placeholder="000" maxLength={3} value={safetyCode} onChange={handleSafetyCodeChange}/>
                         </div> 
                       </div>
                     </div>
@@ -49,7 +85,7 @@ function CardPage() {
                     <span className="font-weight-normal card-text">Nome no cartão</span>
                     <div className="input">
                       <i className="fa fa-credit-card"></i>
-                      <input type="text" className="form-control" placeholder="Arthur A. da Silva" />
+                      <input type="text" className="form-control" placeholder="Arthur A. da Silva" maxLength={100} onKeyDown={handleKeyDown}/>
                     </div> 
 
                     <button type='submit' className='submit-button'>Finalizar pedido</button>
