@@ -44,6 +44,7 @@ const productRoutes = products.map(product => ({
 const shippingDestinations = destinations.map(destination => ({
   path: `/checkout`,
   element: <Checkout
+            id={destination.id}
             name={destination.name}
             surName={destination.surName} 
             phoneNumber={destination.phoneNumber} 

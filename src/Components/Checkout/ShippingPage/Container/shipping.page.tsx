@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
 import { useLocalStorage } from '../../../../Context/context';
+import { v4 } from 'uuid';
 
 export interface DestinationInfo {
+    id: string
     name: string
     surName: string
     phoneNumber: string
@@ -58,6 +60,7 @@ function ShippingPage(props: DestinationInfo) {
 
     //ADDRESS OBJECT SET METHOD
     const [destination, setDestination] = useState<DestinationInfo>({
+        id: props.id,
         name: props.name,
         surName: props.surName,
         phoneNumber: props.phoneNumber,
@@ -145,6 +148,7 @@ function ShippingPage(props: DestinationInfo) {
 
                         //SET VALUES FOR ADDRESS OBJECT
                         setDestination({
+                            id: v4(),
                             name: name,
                             surName: surName,
                             phoneNumber: phoneNumber,

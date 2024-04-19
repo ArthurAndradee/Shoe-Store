@@ -6,6 +6,7 @@ import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/Container/shipping.page';
 
 interface DestinationInfo {
+    id: string
     name: string
     surName: string
     phoneNumber: string
@@ -41,6 +42,7 @@ function Checkout(props: DestinationInfo) {
                 <div>
                     {isShippingSelected ? (
                         <ShippingPage 
+                        id={props.id}
                         name={props.name} 
                         surName={props.surName} 
                         phoneNumber={props.phoneNumber} 
