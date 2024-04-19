@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
 import { useLocalStorage } from '../../../../Context/context';
@@ -29,8 +29,15 @@ function ShippingPage(props: ShippingProps) {
     const {handleAddDestination, handleRemoveDestination, destinations} = useLocalStorage()
     const {register, setFocus, setValue, handleSubmit} = useForm()
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectDestination, setSelectDestination] = useState(-1)
     const [selectWarning, setSelectWarning] = useState(false)
+    const [selectDestination, setSelectDestination] = useState(() => {
+        const savedCount = localStorage.getItem('selectedShippingAddress');
+        return savedCount !== null ? parseInt(savedCount) : -1;
+      });
+
+    useEffect(() => {
+        localStorage.setItem('selectedShippingAddress', selectDestination.toString());
+      }, [selectDestination]);
     
     const handleCreateAddressModal = () => {
         setModalIsOpen(!modalIsOpen);
@@ -39,6 +46,7 @@ function ShippingPage(props: ShippingProps) {
     const advanceToNextPage = () => {
         if(selectDestination > -1) {
             props.handleStateChange()
+            console.log(selectDestination)
         } else {
             setSelectWarning(true)
         }
