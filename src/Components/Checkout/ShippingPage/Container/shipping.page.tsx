@@ -1,10 +1,26 @@
 import { useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
+import { destinations } from '../../../../Database/destinations';
 
-function ShippingPage() {
+export interface DestinationInfo {
+    name: string
+    surName: string
+    phoneNumber: string
+    cpf: string
+    cep: string
+    address: string
+    addressNumber: string
+    complement: string
+    neighbourhood: string
+    city: string
+    uf: string
+}
+
+function ShippingPage(props: DestinationInfo) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const {register, setFocus, setValue, handleSubmit} = useForm()
+    const [selectDestination, setSelectDestination] = useState(-1)
 
     const handleCreateAddressModal = () => {
         setModalIsOpen(!modalIsOpen);
@@ -104,6 +120,28 @@ function ShippingPage() {
 
     return(
         <div>
+            <div className='destination-card-container'>
+                {destinations.map((destination, index) => (
+                    <div className='destination-card' onClick={() => setSelectDestination(index)}>
+                        {selectDestination === index && (
+                            <div className='select-destination'>✓</div>
+                        )}
+                        <div className='d-flex'>
+                            <div style={{marginRight:"2%"}}>{destination.name}</div>
+                            <div>{destination.surName}</div>
+                        </div>
+                        <div className='mb-2'>{destination.phoneNumber}</div>
+                        <div className='mb-2'>{destination.cpf}</div>
+                        <div className='mb-2'>{destination.cep}</div>
+                        <div className='mb-2'>{destination.address}</div>
+                        <div className='mb-2'>{destination.addressNumber}</div>
+                        <div className='mb-2'>{destination.complement}</div>
+                        <div className='mb-2'>{destination.neighbourhood}</div>
+                        <div className='mb-2'>{destination.city}</div>
+                        <div className='mb-2'>{destination.uf}</div>
+                    </div>
+                ))}
+            </div>
             <div className='add-adress-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
             {modalIsOpen ? (
                 <form className='form-group' onSubmit={handleSubmit(onSubmit)}>

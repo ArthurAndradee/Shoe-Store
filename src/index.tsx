@@ -18,6 +18,7 @@ import Wishlist from './Pages/Wishlist/wishlist';
 import { ContextProvider } from './Context/context';
 import SearchResult from './Pages/Search/search.result';
 import Checkout from './Pages/Checkout/checkout';
+import { destinations } from './Database/destinations';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -37,7 +38,24 @@ const productRoutes = products.map(product => ({
             productUrl={product.productUrl} 
             productSize={product.productSize}
             variations={product.variations}
-          />
+          />, 
+})); 
+
+const shippingDestinations = destinations.map(destination => ({
+  path: `/checkout`,
+  element: <Checkout
+            name={destination.name}
+            surName={destination.surName} 
+            phoneNumber={destination.phoneNumber} 
+            cpf={destination.cpf} 
+            cep={destination.cep} 
+            address={destination.address} 
+            addressNumber={destination.addressNumber}
+            complement={destination.complement} 
+            neighbourhood={destination.neighbourhood} 
+            city={destination.city} 
+            uf={destination.uf}
+          />, 
 })); 
 
 const router = createBrowserRouter([{
@@ -65,38 +83,38 @@ const router = createBrowserRouter([{
   element: <Cart/>, 
   errorElement: <ErrorPage />
 },
-{
-  path: '/checkout',
-  element: <Checkout />,
-  errorElement: <ErrorPage />
-},
 //-------------------------CATEGORY LINKS-------------------------
 {
   path: '/femininos',
   element: <CategoryPage 
   type={['F', 'U']} 
-  category={'Feminino'}/>, 
+  
+            category={'Feminino'}/>, 
 },
 { 
   path: '/masculinos',
   element: <CategoryPage
   type={['M', 'U']} 
-  category={'Masculino'}/>, 
+  
+            category={'Masculino'}/>, 
 },
 {
   path: '/edicao-limitada',
   element: <CategoryPage 
   type={['L']} 
-  category={'Edição Limitada'}/>, 
+  
+            category={'Edição Limitada'}/>, 
 },
 {
   path: '/promocoes',
   element: <CategoryPage 
   type={['M', 'F', 'U', 'L']} 
-  category={'Promoções'}/>, 
+  
+            category={'Promoções'}/>, 
 },
 //-------------------------PRODUCT LINKS-------------------------
-...productRoutes
+...productRoutes,
+...shippingDestinations
 ])
 
 root.render(

@@ -5,7 +5,21 @@ import './checkout.css'
 import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/Container/shipping.page';
 
-function Checkout() {
+interface DestinationInfo {
+    name: string
+    surName: string
+    phoneNumber: string
+    cpf: string
+    cep: string
+    address: string
+    addressNumber: string
+    complement: string
+    neighbourhood: string
+    city: string
+    uf: string
+}
+
+function Checkout(props: DestinationInfo) {
     const [isShippingSelected, setIsShippingSelected] = useState(true)
 
     const handleShippingClick = () => {
@@ -26,7 +40,18 @@ function Checkout() {
                 </div>
                 <div>
                     {isShippingSelected ? (
-                        <ShippingPage />
+                        <ShippingPage 
+                        name={props.name} 
+                        surName={props.surName} 
+                        phoneNumber={props.phoneNumber} 
+                        cpf={props.cpf} 
+                        cep={props.cpf} 
+                        address={props.address} 
+                        addressNumber={props.addressNumber} 
+                        complement={props.complement} 
+                        neighbourhood={props.neighbourhood} 
+                        city={props.city} 
+                        uf={props.uf} />
                     ) : (
                         <CardPage />
                     )}
