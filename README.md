@@ -21,6 +21,7 @@ In terminal, run:
 13. yarn add react-hot-toast
 14. yarn add uuid
 15. yarn add @react-oauth/google@latest
+16. yarn add react-hook-form
 
 ## Available Scripts
 
