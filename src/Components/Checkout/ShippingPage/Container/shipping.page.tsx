@@ -19,10 +19,13 @@ export interface DestinationInfo {
     neighbourhood: string
     city: string
     uf: string
-    // handleStateChange: any
 }
 
-function ShippingPage(props: DestinationInfo) {
+interface ShippingProps extends DestinationInfo {
+    handleStateChange: (newValue: DestinationInfo) => void;
+}
+
+function ShippingPage(props: ShippingProps) {
     const {handleAddDestination, handleRemoveDestination, destinations} = useLocalStorage()
     const {register, setFocus, setValue, handleSubmit} = useForm()
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -35,7 +38,7 @@ function ShippingPage(props: DestinationInfo) {
 
     const advanceToNextPage = () => {
         if(selectDestination > -1) {
-            alert("god how do I do this")
+            props.handleStateChange(destination)
         } else {
             setSelectWarning(true)
         }
