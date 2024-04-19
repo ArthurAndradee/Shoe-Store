@@ -42,7 +42,7 @@ const productRoutes = products.map(product => ({
 })); 
 
 const shippingDestinations = destinations.map(destination => ({
-  path: `/delivery`,
+  path: `/checkout`,
   element: <Checkout
             id={destination.id}
             name={destination.name}

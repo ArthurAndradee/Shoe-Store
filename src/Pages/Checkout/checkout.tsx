@@ -34,6 +34,10 @@ function Checkout(props: DestinationInfo) {
         setIsShippingSelected(false);
     };
 
+    const handleStateChange = () => {
+        setIsShippingSelected(!isShippingSelected)
+    }
+
     return (
         <div> 
             <Header />
@@ -66,7 +70,9 @@ function Checkout(props: DestinationInfo) {
                         complement={props.complement} 
                         neighbourhood={props.neighbourhood} 
                         city={props.city} 
-                        uf={props.uf} />
+                        uf={props.uf} 
+                        handleStateChange={handleStateChange}
+                        />
                     ) : (
                         <CardPage />
                     )}

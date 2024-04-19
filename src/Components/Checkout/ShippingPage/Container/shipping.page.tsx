@@ -19,6 +19,7 @@ export interface DestinationInfo {
     neighbourhood: string
     city: string
     uf: string
+    // handleStateChange: any
 }
 
 function ShippingPage(props: DestinationInfo) {
