@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { ProductInfo } from "../Components/ProductPage/ProductMenu/product.menu";
 import { toast } from "react-hot-toast";
-import { DestinationInfo } from "../Components/Checkout/ShippingPage/Container/shipping.page";
+import { DestinationInfo } from "../Components/Checkout/ShippingPage/shipping.page";
 
 type ContextType = {
     cartProducts: ProductInfo[] | null

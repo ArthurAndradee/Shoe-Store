@@ -2,23 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { ContextProvider } from './Context/context';
 import './index.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { products } from './Database/products';
+import { destinations } from './Database/destinations';
+
 import HomePage from './Pages/Home/home';
 import LanguagePage from './Pages/Language/language';
 import ErrorPage from './Pages/Error/error';
 import ProductPage from './Pages/Product/product';
 import 'bootstrap/dist/css/bootstrap.css';
-import { products } from './Database/products';
 import Cart from './Pages/Cart/cart';
-import { Toaster } from 'react-hot-toast';
 import CategoryPage from './Pages/Categories/category';
 import Wishlist from './Pages/Wishlist/wishlist';
-import { ContextProvider } from './Context/context';
 import SearchResult from './Pages/Search/search.result';
 import Checkout from './Pages/Checkout/checkout';
-import { destinations } from './Database/destinations';
+import OrderCompletion from './Components/Checkout/OrderCompletion/order.completion';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -82,6 +84,11 @@ const router = createBrowserRouter([{
 {
   path: '/cart',
   element: <Cart/>, 
+  errorElement: <ErrorPage />
+},
+{
+  path: '/orderconfirmation',
+  element: <OrderCompletion/>, 
   errorElement: <ErrorPage />
 },
 //-------------------------CATEGORY LINKS-------------------------

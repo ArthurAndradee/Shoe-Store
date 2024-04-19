@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
-import { useLocalStorage } from '../../../../Context/context';
+import { useLocalStorage } from '../../../Context/context';
 import { v4 } from 'uuid';
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
