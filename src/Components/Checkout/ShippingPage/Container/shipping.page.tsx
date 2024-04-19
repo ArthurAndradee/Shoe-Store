@@ -7,8 +7,8 @@ function ShippingPage() {
         setModalIsOpen(!modalIsOpen);
     };
 
-    //METHOS TO HANDLE INPUT CHANGES
-    
+    //METHODS TO HANDLE INPUT CHANGES
+    //ADDRESS NUMBER
     const [numberValue, setNumberValue] = useState('')
     const handleChangeNumberValue = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (/^\d*$/.test(event.target.value)) {
@@ -16,6 +16,7 @@ function ShippingPage() {
         }
     };
 
+    //PHONE NUMBER
     const [phoneNumber, setPhoneNumber] = useState('');
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const formattedValue = (event.target.value).replace(/\D/g, '')
@@ -25,6 +26,7 @@ function ShippingPage() {
           setPhoneNumber(formattedValue);
     };
 
+    //CEP
     const [CEP, setCEP] = useState('');
     const HandleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const formattedValue = (event.target.value).replace(/\D/g, '')
@@ -33,6 +35,7 @@ function ShippingPage() {
         setCEP(formattedValue);
     };
 
+    //CPF
     const [CPF, setCPF] = useState('');
     const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
@@ -52,6 +55,16 @@ function ShippingPage() {
         setCPF(formatted);
     };
 
+    const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
+        if (e.target.value) {
+            const cep = e.target.value.replace(/\D/g,'')
+            fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+                console.log(data)
+            })
+            .catch((err) => console.log(err));
+        }
+    }
+
     return(
         <div>
             <div className='add-adress-button' onClick={handleShippingClick}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
@@ -68,7 +81,7 @@ function ShippingPage() {
                             <h4 className='fs-6'>CPF</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" value={CPF} onChange={handleCPFChange} maxLength={15}/>
                             <h4 className='fs-6'>CEP</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" value={CEP} onChange={HandleCepChange} maxLength={9}/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" maxLength={9} onBlur={checkCEP}/>
                             <h4 className='fs-6'>Endereço</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text"/>
                         </div>
