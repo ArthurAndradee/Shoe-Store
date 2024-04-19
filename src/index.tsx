@@ -87,7 +87,7 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />
 },
 {
-  path: '/orderconfirmation',
+  path: '/orderCompletion',
   element: <OrderCompletion/>, 
   errorElement: <ErrorPage />
 },

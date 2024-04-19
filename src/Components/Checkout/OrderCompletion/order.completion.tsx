@@ -2,7 +2,9 @@ import './order.completion.css'
 
 function OrderCompletion () {
     return (
-        <div></div>
+        <div>
+            AA
+        </div>
     )
 }
 
