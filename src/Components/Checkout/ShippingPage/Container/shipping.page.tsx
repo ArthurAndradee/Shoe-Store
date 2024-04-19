@@ -1,18 +1,25 @@
 import { useState } from 'react';
+import { useForm } from "react-hook-form"
 import './shipping.page.css'
 
 function ShippingPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const handleShippingClick = () => {
+    const {register, setFocus, setValue, handleSubmit} = useForm()
+
+    const handleCreateAddressModal = () => {
         setModalIsOpen(!modalIsOpen);
     };
 
+    const onSubmit = (e: Object) => {
+        console.log(e)
+    }
+
     //METHODS TO HANDLE INPUT CHANGES
     //ADDRESS NUMBER
-    const [numberValue, setNumberValue] = useState('')
-    const handleChangeNumberValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const [addressNumber, setaAdressNumber] = useState('')
+    const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (/^\d*$/.test(event.target.value)) {
-          setNumberValue(event.target.value);
+          setaAdressNumber(event.target.value);
         }
     };
 
@@ -55,11 +62,17 @@ function ShippingPage() {
         setCPF(formatted);
     };
 
+    //CEP API
     const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
         if (e.target.value) {
             const cep = e.target.value.replace(/\D/g,'')
             fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
-                console.log(data)
+                setValue('cep', data.cep)
+                setValue('address', data.logradouro)
+                setValue('neighbourhood', data.bairro)
+                setValue('city', data.localidade)
+                setValue('uf', data.uf)
+                setFocus('addressNumber')
             })
             .catch((err) => console.log(err));
         }
@@ -67,9 +80,9 @@ function ShippingPage() {
 
     return(
         <div>
-            <div className='add-adress-button' onClick={handleShippingClick}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
+            <div className='add-adress-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
             {modalIsOpen ? (
-                <form className='form-group'>
+                <form className='form-group' onSubmit={handleSubmit(onSubmit)}>
                     <div className='form-container'>
                         <div className='input-group'>
                             <h4 className='fs-6'>Nome</h4>
@@ -81,28 +94,28 @@ function ShippingPage() {
                             <h4 className='fs-6'>CPF</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" value={CPF} onChange={handleCPFChange} maxLength={15}/>
                             <h4 className='fs-6'>CEP</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" maxLength={9} onBlur={checkCEP}/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("cep")} value={CEP} onChange={HandleCepChange} maxLength={9} onBlur={checkCEP}/>
                             <h4 className='fs-6'>Endereço</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("address")}/>
                         </div>
                         <div className='input-group'>
                             <h4 className='fs-6'>Número</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" value={numberValue} onChange={handleChangeNumberValue}/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressNumber")} value={addressNumber} onChange={handleChangeAddressNumber}/>
                             <h4 className='fs-6'>Complemento</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text"/>
                             <h4 className='fs-6'>Bairro</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("neighbourhood")}/>
                             <h4 className='fs-6'>Cidade</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("city")}/>
                             <h4 className='fs-6'>Estado</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("uf")}/>
                             <h4 className='fs-6'>País</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text"/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" value={"Brasil"}/>
                         </div>
                     </div>
                     <div className='d-flex flex-row'>
-                        <div className='handle-form-button' onClick={handleShippingClick}>Enviar aqui</div>
-                        <div className='handle-form-button mx-3' onClick={handleShippingClick}>Cancelar</div>
+                        <button className='handle-form-button' type='submit'>Enviar aqui</button>
+                        <div className='handle-form-button mx-3' onClick={handleCreateAddressModal}>Cancelar</div>
                     </div>
                 </form>
             ) : (
