@@ -130,7 +130,6 @@ function CardPage() {
           {warning && (
             <div className='text-danger'>Por favor preencha todos os campos</div>
           )}
-
           <button type='submit' className='submit-button' onClick={SubmitOrder}>
             Finalizar pedido
           </button>
