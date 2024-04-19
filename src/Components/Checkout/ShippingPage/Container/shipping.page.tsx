@@ -5,7 +5,6 @@ import { useLocalStorage } from '../../../../Context/context';
 import { v4 } from 'uuid';
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate  } from 'react-router';
 
 export interface DestinationInfo {
     id: string
