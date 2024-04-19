@@ -6,7 +6,7 @@ import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/Container/shipping.page';
 
 function Checkout() {
-    const [isShippingSelected, setIsShippingSelected] = useState(false)
+    const [isShippingSelected, setIsShippingSelected] = useState(true)
 
     const handleShippingClick = () => {
         setIsShippingSelected(true);
