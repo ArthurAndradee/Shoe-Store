@@ -1,14 +1,18 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { ProductInfo } from "../Components/ProductPage/ProductMenu/product.menu";
 import { toast } from "react-hot-toast";
+import { DestinationInfo } from "../Components/Checkout/ShippingPage/Container/shipping.page";
 
 type ContextType = {
     cartProducts: ProductInfo[] | null
     wishlistProducts: ProductInfo[] | null
+    destinations: DestinationInfo[] | null
     handleAddProductToCart: (product: ProductInfo) => void
     handleRemoveProductFromCart: (product: ProductInfo) => void
     handleAddProductToWishlist: (product: ProductInfo) => void
     handleRemoveProductFromWishlist: (product: ProductInfo) => void
+    handleAddDestination: (destination: DestinationInfo) => void
+    handleRemoveDestination: (destination: DestinationInfo) => void
 }
 
 interface Props {
@@ -20,6 +24,9 @@ export const AppContext = createContext<ContextType | null> (null)
 export const ContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
     const [wishlistProducts,setWishlistProducts] = useState<ProductInfo[] | null>(null)
+    const [destinations,setDestinations] = useState<DestinationInfo[] | null>(null)
+
+    //-------------------------RETRIEVE INFO FROM LOCAL STORAGE-------------------------
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('cart')
@@ -27,10 +34,16 @@ export const ContextProvider = (props: Props) => {
         
         const wishlistItems: any = localStorage.getItem('wishlist')
         const savedWishlistItems: ProductInfo[] | null = JSON.parse(wishlistItems)
+        
+        const destinations: any = localStorage.getItem('shippingDestinations')
+        const savedDestinations: DestinationInfo[] | null = JSON.parse(destinations)
 
         setCartProducts(savedCartProducts)
         setWishlistProducts(savedWishlistItems)
+        setDestinations(savedDestinations)
     }, [])
+
+    //-------------------------CART METHODS-------------------------
 
     const handleAddProductToCart = useCallback((product: ProductInfo) => {
         setCartProducts((prev) => {
@@ -92,13 +105,49 @@ export const ContextProvider = (props: Props) => {
         }
     },[wishlistProducts])
 
+    //-------------------------SHIPPING DESTINATIONS METHODS-------------------------
+
+    const handleAddDestination = useCallback((destinations: DestinationInfo) => {
+        setDestinations((prev) => {
+            let updatedDestinations;
+ 
+            if(prev) {
+                updatedDestinations = [...prev, destinations]
+            } else {
+                updatedDestinations = [destinations]
+            }
+ 
+            toast.success('Ponto de entrega adicionado!')
+            localStorage.setItem('shippingDestinations', JSON.stringify(updatedDestinations))
+            return updatedDestinations
+        })
+    }, [])
+
+    const handleRemoveDestination = useCallback((shippingDestination: DestinationInfo) => {
+        if(destinations) {
+            const filteredShippingDestinations = destinations.filter((destination) => {
+                return shippingDestination.name !== destination.complement
+            })
+
+            setDestinations(filteredShippingDestinations)
+
+            toast.success('Ponto de entrega removido!')
+            localStorage.setItem('shippingDestinations', JSON.stringify(filteredShippingDestinations))
+        }
+    },[destinations])
+
+    //-------------------------SAVE FUNCTION VALUES-------------------------
+
     const value = {
         cartProducts,
         wishlistProducts,
+        destinations,
         handleAddProductToCart,
         handleRemoveProductFromCart,
         handleAddProductToWishlist,
-        handleRemoveProductFromWishlist
+        handleRemoveProductFromWishlist,
+        handleAddDestination,
+        handleRemoveDestination
     }
 
     return <AppContext.Provider value={value} {...props}/>

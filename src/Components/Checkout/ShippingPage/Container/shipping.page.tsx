@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
-import { destinations } from '../../../../Database/destinations';
+import { useLocalStorage } from '../../../../Context/context';
 
 export interface DestinationInfo {
     name: string
@@ -19,6 +19,7 @@ export interface DestinationInfo {
 
 function ShippingPage(props: DestinationInfo) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const {handleAddDestination, handleRemoveDestination, destinations} = useLocalStorage()
     const {register, setFocus, setValue, handleSubmit} = useForm()
     const [selectDestination, setSelectDestination] = useState(-1)
 
@@ -28,7 +29,30 @@ function ShippingPage(props: DestinationInfo) {
 
     const onSubmit = (e: Object) => {
         console.log(e)
+        console.log(destination)
+
+        handleAddDestination(destination)
     }
+
+    const [destination, setDestination] = useState<DestinationInfo>({
+        name: props.name,
+        surName: props.surName,
+        phoneNumber: props.phoneNumber,
+        cpf: props.cpf,
+        cep: props.cep,
+        address: props.address,
+        addressNumber: props.addressNumber,
+        complement: props.complement,
+        neighbourhood: props.neighbourhood,
+        city: props.city,
+        uf: props.uf
+    })
+
+    useEffect(() => {
+        setDestination(prevState => ({
+          ...prevState,
+        }));
+    }, []);
 
     //METHODS TO HANDLE INPUT CHANGES
 
@@ -99,6 +123,20 @@ function ShippingPage(props: DestinationInfo) {
                     setValue('city', data.localidade)
                     setValue('uf', data.uf)
                     setFocus('addressNumber')
+
+                    setDestination({
+                        name: name,
+                        surName: surName,
+                        phoneNumber: phoneNumber,
+                        cpf: CPF,
+                        cep: data.cep,
+                        address: data.logradouro,
+                        addressNumber: addressNumber,
+                        complement: complement,
+                        neighbourhood: data.bairro,
+                        city: data.localidade,
+                        uf: data.uf
+                    })
                 })
                 .catch((err) => console.log(err));
             }
@@ -121,7 +159,7 @@ function ShippingPage(props: DestinationInfo) {
     return(
         <div>
             <div className='destination-card-container'>
-                {destinations.map((destination, index) => (
+                {destinations && destinations.map((destination, index) => (
                     <div className='destination-card' onClick={() => setSelectDestination(index)}>
                         {selectDestination === index && (
                             <div className='select-destination'>✓</div>
