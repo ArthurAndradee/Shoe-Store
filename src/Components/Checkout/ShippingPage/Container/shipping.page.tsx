@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import './shipping.page.css'
 
 function ShippingPage() {
