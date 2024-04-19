@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form"
 import './shipping.page.css'
 import { useLocalStorage } from '../../../../Context/context';
@@ -18,9 +18,9 @@ export interface DestinationInfo {
 }
 
 function ShippingPage(props: DestinationInfo) {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const {handleAddDestination, handleRemoveDestination, destinations} = useLocalStorage()
     const {register, setFocus, setValue, handleSubmit} = useForm()
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectDestination, setSelectDestination] = useState(-1)
 
     const handleCreateAddressModal = () => {
@@ -32,8 +32,31 @@ function ShippingPage(props: DestinationInfo) {
         console.log(destination)
 
         handleAddDestination(destination)
+
+        setName('');
+        setSurName('');
+        setPhoneNumber('');
+        setCPF('');
+        setCEP('');
+        setaAdressNumber('');
+        setComplement('');
+
+
+        //CLEAR INPUT VALUES AFTER SUBMIT
+        setName('');
+        setSurName('');
+        setPhoneNumber('');
+        setCPF('');
+        setCEP('');
+        setValue('address', '')
+        setaAdressNumber('');
+        setComplement('');
+        setValue('neighbourhood', '')
+        setValue('city', '')
+        setValue('uf', '')
     }
 
+    //ADDRESS OBJECT SET METHOD
     const [destination, setDestination] = useState<DestinationInfo>({
         name: props.name,
         surName: props.surName,
@@ -48,113 +71,112 @@ function ShippingPage(props: DestinationInfo) {
         uf: props.uf
     })
 
-    useEffect(() => {
-        setDestination(prevState => ({
-          ...prevState,
-        }));
-    }, []);
+    //---------------------METHODS TO HANDLE INPUT CHANGES---------------------
 
-    //METHODS TO HANDLE INPUT CHANGES
-
-    //NAME
-    const [name, setName] = useState('')
-    const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value);
-    };
+        //NAME
+        const [name, setName] = useState('')
+        const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setName(event.target.value);
+        };
 
 
-    //SURNAME
-    const [surName, setSurName] = useState('')
-    const handleChangeSurName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSurName(event.target.value);
-    };
-    
-    
-    //PHONE NUMBER
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const formattedValue = (event.target.value).replace(/\D/g, '')
-        .replace(/^(\(\d{2}\)) (\d{5})/, '$1 $2-') 
-        .replace(/(\d{2})\s?(\d{5})\s?(\d{4})/, '$1 $2-$3'); 
-        
-        setPhoneNumber(formattedValue);
-    };
+        //SURNAME
+        const [surName, setSurName] = useState('')
+        const handleChangeSurName = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setSurName(event.target.value);
+        };
 
-    //CPF
-    const [CPF, setCPF] = useState('');
-    const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const inputValue = event.target.value;
-        
-        const numericValue = inputValue.replace(/\D/g, '');
-        
-        let formatted = '';
-        for (let i = 0; i < numericValue.length; i++) {
-            if (i % 3 === 0 && i !== 0 && i !== numericValue.length - 2) {
-                formatted += '.';
-            } else if (i === numericValue.length - 2) {
-                formatted += '-';
+
+        //PHONE NUMBER
+        const [phoneNumber, setPhoneNumber] = useState('');
+        const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const formattedValue = (event.target.value).replace(/\D/g, '')
+            .replace(/^(\(\d{2}\)) (\d{5})/, '$1 $2-') 
+            .replace(/(\d{2})\s?(\d{5})\s?(\d{4})/, '$1 $2-$3'); 
+
+            setPhoneNumber(formattedValue);
+        };
+
+        //CPF
+        const [CPF, setCPF] = useState('');
+        const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const inputValue = event.target.value;
+
+            const numericValue = inputValue.replace(/\D/g, '');
+
+            let formatted = '';
+            for (let i = 0; i < numericValue.length; i++) {
+                if (i % 3 === 0 && i !== 0 && i !== numericValue.length - 2) {
+                    formatted += '.';
+                } else if (i === numericValue.length - 2) {
+                    formatted += '-';
+                }
+                formatted += numericValue[i];
             }
-            formatted += numericValue[i];
-        }
 
-        setCPF(formatted);
-    };
-    
-    //CEP
-    const [CEP, setCEP] = useState('');
-    const HandleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const formattedValue = (event.target.value).replace(/\D/g, '')
-        .replace(/(\d{5})(\d+)/, '$1-$2'); 
-        
-        setCEP(formattedValue);
-    };
-        //CEP API
-        const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
-            if (e.target.value) {
-                const cep = e.target.value.replace(/\D/g,'')
-                fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
-                    setValue('name', name)
-                    setValue('surname', surName)
-                    setValue('phoneNumber', phoneNumber)
-                    setValue('cpf', CPF)
-                    setValue('cep', data.cep)
-                    setValue('address', data.logradouro)
-                    setValue('neighbourhood', data.bairro)
-                    setValue('city', data.localidade)
-                    setValue('uf', data.uf)
-                    setFocus('addressNumber')
+            setCPF(formatted);
+        };
 
-                    setDestination({
-                        name: name,
-                        surName: surName,
-                        phoneNumber: phoneNumber,
-                        cpf: CPF,
-                        cep: data.cep,
-                        address: data.logradouro,
-                        addressNumber: addressNumber,
-                        complement: complement,
-                        neighbourhood: data.bairro,
-                        city: data.localidade,
-                        uf: data.uf
+        //CEP
+        const [CEP, setCEP] = useState('');
+        const HandleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const formattedValue = (event.target.value).replace(/\D/g, '')
+            .replace(/(\d{5})(\d+)/, '$1-$2'); 
+
+            setCEP(formattedValue);
+        };
+            //CEP API
+            const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
+                if (e.target.value) {
+                    const cep = e.target.value.replace(/\D/g,'')
+                    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+
+                        //SET VALUES FOR INPUT TAGS
+                        setValue('name', name)
+                        setValue('surname', surName)
+                        setValue('phoneNumber', phoneNumber)
+                        setValue('cpf', CPF)
+                        setValue('cep', data.cep)
+                        setValue('address', data.logradouro)
+                        setValue('neighbourhood', data.bairro)
+                        setValue('city', data.localidade)
+                        setValue('uf', data.uf)
+                        setFocus('addressNumber')
+
+                        //SET VALUES FOR ADDRESS OBJECT
+                        setDestination({
+                            name: name,
+                            surName: surName,
+                            phoneNumber: phoneNumber,
+                            cpf: CPF,
+                            cep: data.cep,
+                            address: data.logradouro,
+                            addressNumber: addressNumber,
+                            complement: complement,
+                            neighbourhood: data.bairro,
+                            city: data.localidade,
+                            uf: data.uf
+                        })
                     })
-                })
-                .catch((err) => console.log(err));
+                    .catch((err) => console.log(err));
+                }
             }
-        }
 
-    //ADDRESS NUMBER
-    const [addressNumber, setaAdressNumber] = useState('')
-    const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (/^\d*$/.test(event.target.value)) {
-          setaAdressNumber(event.target.value);
-        }
-    };
+        //ADDRESS NUMBER 
+        const [addressNumber, setaAdressNumber] = useState('')
+        const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+            if (/^\d*$/.test(event.target.value)) {
+              setaAdressNumber(event.target.value);
+            }
+        };
 
-    //COMPLEMENT
-    const [complement, setComplement] = useState('')
-    const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setComplement(event.target.value);
-    };
+        //COMPLEMENT
+        const [complement, setComplement] = useState('')
+        const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setComplement(event.target.value);
+        };
+
+    //---------------------------------------------------------------
 
     return(
         <div>
@@ -177,10 +199,11 @@ function ShippingPage(props: DestinationInfo) {
                         <div className='mb-2'>{destination.neighbourhood}</div>
                         <div className='mb-2'>{destination.city}</div>
                         <div className='mb-2'>{destination.uf}</div>
+                        <div className='add-address-button' style={{width:"80%"}} onClick={() => handleRemoveDestination(destination)}>Remover endereço</div>
                     </div>
                 ))}
             </div>
-            <div className='add-adress-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
+            <div className='add-address-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
             {modalIsOpen ? (
                 <form className='form-group' onSubmit={handleSubmit(onSubmit)}>
                     <div className='form-container'>

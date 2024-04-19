@@ -126,7 +126,7 @@ export const ContextProvider = (props: Props) => {
     const handleRemoveDestination = useCallback((shippingDestination: DestinationInfo) => {
         if(destinations) {
             const filteredShippingDestinations = destinations.filter((destination) => {
-                return shippingDestination.name !== destination.complement
+                return shippingDestination.complement !== destination.complement
             })
 
             setDestinations(filteredShippingDestinations)
