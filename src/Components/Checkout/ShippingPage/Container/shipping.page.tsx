@@ -5,6 +5,7 @@ import { useLocalStorage } from '../../../../Context/context';
 import { v4 } from 'uuid';
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate  } from 'react-router';
 
 export interface DestinationInfo {
     id: string
@@ -26,15 +27,21 @@ function ShippingPage(props: DestinationInfo) {
     const {register, setFocus, setValue, handleSubmit} = useForm()
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectDestination, setSelectDestination] = useState(-1)
+    const [selectWarning, setSelectWarning] = useState(false)
     
     const handleCreateAddressModal = () => {
         setModalIsOpen(!modalIsOpen);
     };
-    
-    const onSubmit = (e: Object) => {
-        console.log(e)
-        console.log(destination)
 
+    const advanceToNextPage = () => {
+        if(selectDestination > -1) {
+            alert("god how do I do this")
+        } else {
+            setSelectWarning(true)
+        }
+    }
+    
+    const onSubmit = () => {
         handleAddDestination(destination)
 
         //CLEAR INPUT VALUES AFTER SUBMIT
@@ -181,71 +188,73 @@ function ShippingPage(props: DestinationInfo) {
         
         return(
             <div>
-            <div className='destination-card-container'>
-                {destinations && destinations.map((destination, index) => (
-                    <div className='destination-card' onClick={() => setSelectDestination(index)}>
-                        {selectDestination === index && (
-                            <FontAwesomeIcon icon={faSquareCheck} style={{float:'right', color:'#000000'}} />
-                        )}
-                        <div className='d-flex'>
-                            <div style={{marginRight:"2%"}}>{destination.name}</div>
-                            <div>{destination.surName}</div>
+                <div className='destination-card-container'>
+                    {destinations && destinations.map((destination, index) => (
+                        <div className='destination-card' onClick={() => setSelectDestination(index)}>
+                            {selectDestination === index && (
+                                <FontAwesomeIcon icon={faSquareCheck} style={{float:'right', color:'#000000'}} />
+                            )}
+                            <div className='d-flex'>
+                                <div style={{marginRight:"2%"}}>{destination.name}</div>
+                                <div>{destination.surName}</div>
+                            </div>
+                            <div className='mb-2'>{destination.phoneNumber}</div>
+                            <div className='mb-2'>{destination.cpf}</div>
+                            <div className='mb-2'>{destination.cep}</div>
+                            <div className='mb-2'>{destination.address}</div>
+                            <div className='mb-2'>{destination.addressNumber}</div>
+                            <div className='mb-2'>{destination.complement}</div>
+                            <div className='mb-2'>{destination.neighbourhood}</div>
+                            <div className='mb-2'>{destination.city}</div>
+                            <div className='mb-2'>{destination.uf}</div>
+                            <div className='add-address-button' style={{width:"80%"}} onClick={() => handleRemoveDestination(destination)}>Remover endereço</div>
                         </div>
-                        <div className='mb-2'>{destination.phoneNumber}</div>
-                        <div className='mb-2'>{destination.cpf}</div>
-                        <div className='mb-2'>{destination.cep}</div>
-                        <div className='mb-2'>{destination.address}</div>
-                        <div className='mb-2'>{destination.addressNumber}</div>
-                        <div className='mb-2'>{destination.complement}</div>
-                        <div className='mb-2'>{destination.neighbourhood}</div>
-                        <div className='mb-2'>{destination.city}</div>
-                        <div className='mb-2'>{destination.uf}</div>
-                        <div className='add-address-button' style={{width:"80%"}} onClick={() => handleRemoveDestination(destination)}>Remover endereço</div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div className='add-address-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
+                {modalIsOpen && (
+                    <form className='form-group' onSubmit={handleSubmit(onSubmit)}>
+                        <div className='form-container'>
+                            <div className='input-group'>
+                                <h4 className='fs-6'>Nome</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("name")} value={name} onChange={handleChangeName}/>
+                                <h4 className='fs-6'>Sobrenome</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("surname")} value={surName} onChange={handleChangeSurName}/>
+                                <h4 className='fs-6'>Número de telefone</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("phoneNumber")} value={phoneNumber} onChange={handlePhoneNumberChange} maxLength={13}/>
+                                <h4 className='fs-6'>CPF</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("cpf")} value={CPF} onChange={handleCPFChange} maxLength={15}/>
+                                <h4 className='fs-6'>CEP</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("cep")} value={CEP} onChange={HandleCepChange} maxLength={9} onBlur={checkCEP}/>
+                                <h4 className='fs-6'>Endereço</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("address")}/>
+                            </div>
+                            <div className='input-group'>
+                                <h4 className='fs-6'>Número</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressNumber")} value={addressNumber} onChange={handleChangeAddressNumber}/>
+                                <h4 className='fs-6'>Complemento</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("complement")} value={complement} onChange={handleChangeComplement}/>
+                                <h4 className='fs-6'>Bairro</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("neighbourhood")}/>
+                                <h4 className='fs-6'>Cidade</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("city")}/>
+                                <h4 className='fs-6'>Estado</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("uf")}/>
+                                <h4 className='fs-6'>País</h4>
+                                <input className="form-control form-control-sm" id='form-input' type="text" {...register("country")}/>
+                            </div>
+                        </div>
+                        <div className='d-flex flex-row'>
+                            <button className='handle-form-button' type='submit'>Enviar aqui</button>
+                            <div className='handle-form-button mx-3' onClick={handleCreateAddressModal}>Cancelar</div>
+                        </div>
+                    </form>
+                )}
+                {selectWarning && (
+                    <div className='text-danger'>Por favor selecione um ponto de entrega</div>
+                )}
+                <div className='advance-button' onClick={advanceToNextPage}>Avançar</div>
             </div>
-            <div className='add-address-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
-            {modalIsOpen ? (
-                <form className='form-group' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='form-container'>
-                        <div className='input-group'>
-                            <h4 className='fs-6'>Nome</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("name")} value={name} onChange={handleChangeName}/>
-                            <h4 className='fs-6'>Sobrenome</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("surname")} value={surName} onChange={handleChangeSurName}/>
-                            <h4 className='fs-6'>Número de telefone</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("phoneNumber")} value={phoneNumber} onChange={handlePhoneNumberChange} maxLength={13}/>
-                            <h4 className='fs-6'>CPF</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("cpf")} value={CPF} onChange={handleCPFChange} maxLength={15}/>
-                            <h4 className='fs-6'>CEP</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("cep")} value={CEP} onChange={HandleCepChange} maxLength={9} onBlur={checkCEP}/>
-                            <h4 className='fs-6'>Endereço</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("address")}/>
-                        </div>
-                        <div className='input-group'>
-                            <h4 className='fs-6'>Número</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressNumber")} value={addressNumber} onChange={handleChangeAddressNumber}/>
-                            <h4 className='fs-6'>Complemento</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("complement")} value={complement} onChange={handleChangeComplement}/>
-                            <h4 className='fs-6'>Bairro</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("neighbourhood")}/>
-                            <h4 className='fs-6'>Cidade</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("city")}/>
-                            <h4 className='fs-6'>Estado</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("uf")}/>
-                            <h4 className='fs-6'>País</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("country")}/>
-                        </div>
-                    </div>
-                    <div className='d-flex flex-row'>
-                        <button className='handle-form-button' type='submit'>Enviar aqui</button>
-                        <div className='handle-form-button mx-3' onClick={handleCreateAddressModal}>Cancelar</div>
-                    </div>
-                </form>
-            ) : (
-                <></>
-            )}
-        </div>
     )
 }
 
