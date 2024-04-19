@@ -4,6 +4,8 @@ import Header from '../../Components/Headers/HomeHeader/header'
 import './checkout.css'
 import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/Container/shipping.page';
+import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface DestinationInfo {
     id: string
@@ -25,6 +27,7 @@ function Checkout(props: DestinationInfo) {
 
     const handleShippingClick = () => {
         setIsShippingSelected(true);
+
     };
 
     const handlePaymentClick = () => {
@@ -36,8 +39,18 @@ function Checkout(props: DestinationInfo) {
             <Header />
             <div className='checkout-section'>
                 <div className='checkout-nav'>
-                    <div className='shipping' onClick={handleShippingClick}>Frete</div>
-                    <div className='payment' onClick={handlePaymentClick}>Revisão e pagamentos</div>
+                    {isShippingSelected ? (
+                        <FontAwesomeIcon icon={faCircleDot} style={{margin:'5px'}} />
+                    ) : (
+                        <FontAwesomeIcon icon={faCircle} style={{margin:"5px"}} id='foo'/>
+                    )}
+                    <div className='checkout-sub' onClick={handleShippingClick}>Frete</div>
+                    {isShippingSelected ? (
+                        <FontAwesomeIcon icon={faCircle} style={{margin:"5px"}} id='foo'/>
+                    ) : (
+                        <FontAwesomeIcon icon={faCircleDot} style={{margin:'5px'}} />
+                    )}
+                    <div className='checkout-sub' onClick={handlePaymentClick}>Revisão e pagamentos</div>
                 </div>
                 <div>
                     {isShippingSelected ? (

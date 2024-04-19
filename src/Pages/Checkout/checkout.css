@@ -14,22 +14,26 @@
     margin-bottom: 15px;
 }
 
-.shipping, .payment {
+.checkout-sub, .payment {
     cursor: pointer;
     display: flex;
 }
 
-.shipping:hover, .payment:hover {
+.checkout-sub:hover, .payment:hover {
     text-decoration: underline;
 }
 
-.shipping {
+.checkout-sub {
     margin-right: 5%;
-
 }
 
-.payment {
+.round-number {
+    background-color: #000000;
+    color: #FFFFFF;
 
+    font-size: 20px;
+    padding: 0 10px 0 10px;
+    border-radius: 20px;
 }
 
 @media (min-width: 1366px) {

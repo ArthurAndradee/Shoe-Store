@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import './shipping.page.css'
 import { useLocalStorage } from '../../../../Context/context';
 import { v4 } from 'uuid';
+import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface DestinationInfo {
     id: string
@@ -24,40 +26,34 @@ function ShippingPage(props: DestinationInfo) {
     const {register, setFocus, setValue, handleSubmit} = useForm()
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectDestination, setSelectDestination] = useState(-1)
-
+    
     const handleCreateAddressModal = () => {
         setModalIsOpen(!modalIsOpen);
     };
-
+    
     const onSubmit = (e: Object) => {
         console.log(e)
         console.log(destination)
 
         handleAddDestination(destination)
 
-        setName('');
-        setSurName('');
-        setPhoneNumber('');
-        setCPF('');
-        setCEP('');
-        setaAdressNumber('');
-        setComplement('');
-
-
         //CLEAR INPUT VALUES AFTER SUBMIT
-        setName('');
-        setSurName('');
-        setPhoneNumber('');
-        setCPF('');
-        setCEP('');
+        setValue('name', '');
+        setValue('surname', '');
+        setValue('phoneNumber', '');
+        setValue('cpf', '');
+        setValue('cep', '');
         setValue('address', '')
-        setaAdressNumber('');
-        setComplement('');
+        setValue('addressNumber', '')
+        setValue('complement', '')
         setValue('neighbourhood', '')
         setValue('city', '')
         setValue('uf', '')
-    }
+        setValue('country', '')
 
+        setModalIsOpen(false)
+    }
+    
     //ADDRESS OBJECT SET METHOD
     const [destination, setDestination] = useState<DestinationInfo>({
         id: props.id,
@@ -73,12 +69,12 @@ function ShippingPage(props: DestinationInfo) {
         city: props.city,
         uf: props.uf
     })
-
+    
     //---------------------METHODS TO HANDLE INPUT CHANGES---------------------
-
-        //NAME
-        const [name, setName] = useState('')
-        const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    
+    //NAME
+    const [name, setName] = useState('')
+    const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
             setName(event.target.value);
         };
 
@@ -89,24 +85,24 @@ function ShippingPage(props: DestinationInfo) {
             setSurName(event.target.value);
         };
 
-
+        
         //PHONE NUMBER
         const [phoneNumber, setPhoneNumber] = useState('');
         const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             const formattedValue = (event.target.value).replace(/\D/g, '')
             .replace(/^(\(\d{2}\)) (\d{5})/, '$1 $2-') 
             .replace(/(\d{2})\s?(\d{5})\s?(\d{4})/, '$1 $2-$3'); 
-
+            
             setPhoneNumber(formattedValue);
         };
-
+        
         //CPF
         const [CPF, setCPF] = useState('');
         const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             const inputValue = event.target.value;
-
+            
             const numericValue = inputValue.replace(/\D/g, '');
-
+            
             let formatted = '';
             for (let i = 0; i < numericValue.length; i++) {
                 if (i % 3 === 0 && i !== 0 && i !== numericValue.length - 2) {
@@ -116,38 +112,39 @@ function ShippingPage(props: DestinationInfo) {
                 }
                 formatted += numericValue[i];
             }
-
+            
             setCPF(formatted);
         };
-
+        
         //CEP
         const [CEP, setCEP] = useState('');
         const HandleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             const formattedValue = (event.target.value).replace(/\D/g, '')
             .replace(/(\d{5})(\d+)/, '$1-$2'); 
-
+            
             setCEP(formattedValue);
         };
-            //CEP API
-            const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
-                if (e.target.value) {
-                    const cep = e.target.value.replace(/\D/g,'')
-                    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
-
-                        //SET VALUES FOR INPUT TAGS
-                        setValue('name', name)
-                        setValue('surname', surName)
-                        setValue('phoneNumber', phoneNumber)
-                        setValue('cpf', CPF)
-                        setValue('cep', data.cep)
-                        setValue('address', data.logradouro)
-                        setValue('neighbourhood', data.bairro)
-                        setValue('city', data.localidade)
-                        setValue('uf', data.uf)
-                        setFocus('addressNumber')
-
-                        //SET VALUES FOR ADDRESS OBJECT
-                        setDestination({
+        //CEP API
+        const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
+            if (e.target.value) {
+                const cep = e.target.value.replace(/\D/g,'')
+                fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+                    
+                    //SET VALUES FOR INPUT TAGS
+                    setValue('name', name)
+                    setValue('surname', surName)
+                    setValue('phoneNumber', phoneNumber)
+                    setValue('cpf', CPF)
+                    setValue('cep', data.cep)
+                    setValue('address', data.logradouro)
+                    setValue('neighbourhood', data.bairro)
+                    setValue('city', data.localidade)
+                    setValue('uf', data.uf)
+                    setValue('country', 'Brasil')
+                    setFocus('addressNumber')
+                    
+                    //SET VALUES FOR ADDRESS OBJECT
+                    setDestination({
                             id: v4(),
                             name: name,
                             surName: surName,
@@ -173,22 +170,22 @@ function ShippingPage(props: DestinationInfo) {
               setaAdressNumber(event.target.value);
             }
         };
-
+        
         //COMPLEMENT
         const [complement, setComplement] = useState('')
         const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
             setComplement(event.target.value);
         };
-
-    //---------------------------------------------------------------
-
-    return(
-        <div>
+        
+        //---------------------------------------------------------------
+        
+        return(
+            <div>
             <div className='destination-card-container'>
                 {destinations && destinations.map((destination, index) => (
                     <div className='destination-card' onClick={() => setSelectDestination(index)}>
                         {selectDestination === index && (
-                            <div className='select-destination'>✓</div>
+                            <FontAwesomeIcon icon={faSquareCheck} style={{float:'right', color:'#000000'}} />
                         )}
                         <div className='d-flex'>
                             <div style={{marginRight:"2%"}}>{destination.name}</div>
@@ -237,7 +234,7 @@ function ShippingPage(props: DestinationInfo) {
                             <h4 className='fs-6'>Estado</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("uf")}/>
                             <h4 className='fs-6'>País</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" value={"Brasil"}/>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("country")}/>
                         </div>
                     </div>
                     <div className='d-flex flex-row'>
