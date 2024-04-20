@@ -14,7 +14,11 @@ function CartOverview() {
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
           console.log(tokenResponse)
-          navigate('/checkout')
+          if(cartProducts?.length) {
+              navigate('/checkout')
+          } else {
+            setFailWarning(true)
+          }
         },
         onError: tokenResponse => setFailWarning(true)
     });
@@ -37,10 +41,8 @@ function CartOverview() {
                     </div>
                 </div>
                 <div className='checkout-button' onClick={() => login()}>Avançar para o checkout</div>
-                {failWarning ? (
-                    <div className='text-danger text-center'>Algo deu errado</div>
-                ) : (
-                    <></>
+                {failWarning && (
+                    <div className='text-danger text-center'>Por favor adicione produtos ao carrinho</div>
                 )}
             </div>
             <div className='checkout-container'>
