@@ -17,6 +17,7 @@ interface ProductProps {
     productUrl: string
     productSize: string
     variations: string
+    quantity: number
   }
 
 function ProductPage(props: ProductProps) {
@@ -51,6 +52,7 @@ function ProductPage(props: ProductProps) {
                   variations={props.variations}                
                   onSizeChange={handleSizeChange}
                   createId={createId} 
+                  quantity={props.quantity}
                 />
             </div>
             

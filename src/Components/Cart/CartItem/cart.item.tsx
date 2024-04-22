@@ -4,7 +4,7 @@ import './cart.item.css'
 
 function CartItem() {
     const {cartProducts} = useLocalStorage()
-    const {handleRemoveProductFromCart} = useLocalStorage()
+    const {handleRemoveProductFromCart, handleCartQuantityIncrease, handleCartQuantityDecrease} = useLocalStorage()
 
     if(!cartProducts || cartProducts.length === 0) {
         return (
@@ -23,7 +23,7 @@ function CartItem() {
 
     return (
         <div className='items-container'>
-            {cartProducts && cartProducts.map((product) => {
+            {cartProducts.map((product) => {
                 return (
                     <div className='items-list'>
                         <div className='item-display'>
@@ -37,11 +37,13 @@ function CartItem() {
                                 <div className='item-specifications'>
                                     <div className='item-variation'><b>Cor: </b> BLACK</div>
                                     <div className='item-variation'><b>Tamanho: </b> {product.productSize}</div>
+                                    <div className='item-variation'><b>Quantidade: </b> {product.quantity}</div>
                                 </div>
                             </div>
                         </div>
                         <div className='items-handle'>
-                            <input type="number" id="quantity" name="quantity" min="1" />
+                            <div className='btn btn-light' style={{height:'40px'}} onClick={() => {handleCartQuantityIncrease(product)}}>+</div>
+                            <div className='btn btn-light' style={{height:'40px'}} onClick={() => {handleCartQuantityDecrease(product)}}>-</div>
                             <div className='item-functions'>
                                 <div className='item-price'>{product.price.toFixed(2)}</div>
                                 <div className='item-editing'>

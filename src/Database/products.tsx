@@ -11,7 +11,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'chuck-70-de-luxe-heel-chrome-queen-preto',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -24,7 +25,8 @@ export const products =
             discountedPrice: 449.90,
             variations: '1 cor',
             productUrl: 'vans-the-lizzie-cloud',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -37,7 +39,8 @@ export const products =
             discountedPrice: 549.90,
             variations: '1 cor',
             productUrl: 'nike-court-vision-mid-nn-all-black',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -50,7 +53,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'converse-x-martine-ali-chuck-70-xhi-preto',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -63,7 +67,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-modern-lift-chrome-queen-preto',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -76,7 +81,8 @@ export const products =
             discountedPrice: 349.90,
             variations: '1 cor',
             productUrl: 'tenis-coverse-chuck-taylor-all-star-hi-future-utility',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -89,7 +95,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'vans-sem-cadarço-classic',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -102,7 +109,8 @@ export const products =
             discountedPrice: 849.90,
             variations: '1 cor',
             productUrl: 'tenis-nike-air-max-97',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -115,7 +123,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-chrome-queen-branco',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -128,7 +137,8 @@ export const products =
             discountedPrice: 0,
             variations: '1 cor',
             productUrl: 'vans-hi-benegas-x-enarson-white',
-            productSize: '0'
+            productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -142,6 +152,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'slacker-160w',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -155,6 +166,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'camel-311wpu',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -168,6 +180,7 @@ export const products =
             variations: '1 COR',
             productUrl: 'gravedigger-250bvl',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -181,6 +194,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'shaker-70',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -194,6 +208,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'shaker-52',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -207,6 +222,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-city-trek-cano-alto-normal-marrom',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -220,6 +236,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'chuck-taylor-all-star-city-trek-cano-alto-normal-cinza',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -233,6 +250,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'chuck-70-garden-starter-waxed-canvas-cano-alto-grande-marrom',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -246,6 +264,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'chuck-70-garden-starter-waxed-canvas-cano-alto-grande-amarelo',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -259,6 +278,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'pro-blaze-v2-cano-baixo-normal-preto',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -272,6 +292,7 @@ export const products =
             variations: '1 cor',
             productUrl: 'pro-blaze-v2-cano-baixo-normal-branco',
             productSize: '0',
+            quantity: 1
         },
         //--------------------------LIMITED-EDITION--------------------------
         {
@@ -286,6 +307,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'converse-x-comme-des-garcons-play-chuck-70-cano-alto-preto',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -299,6 +321,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'converse-x-comme-des-garcons-play-chuck-70-cano-alto-grande-azul',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -312,6 +335,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'converse-x-comme-des-garcons-multi-heart-chuck-70-branco-cano-alto-grande-branco',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -325,6 +349,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'dungeons-dragons-x-converse-chuck-taylor-all-star-cano-alto-grande-preto',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -338,6 +363,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'dungeons-dragons-x-converse-chuck-70-cano-alto-grande-preto',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -351,6 +377,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'dungeons-dragons-x-converse-chuck-70-cano-alto-grande-branco',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -364,6 +391,7 @@ export const products =
             variations: '1 Cor',
             productUrl: 'dungeons-dragons-x-converse-chuck-taylor-all-star-cano-alto-grande-ci05030001-preto',
             productSize: '0',
+            quantity: 1
         },
         {
             id: 'id',
@@ -377,5 +405,6 @@ export const products =
             variations: '1 Cor',
             productUrl: 'one-star-pro-cano-baixo-normal-preto',
             productSize: '0',
+            quantity: 1
         },
     ]

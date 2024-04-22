@@ -17,7 +17,8 @@ export interface ProductInfo {
     catchPhrase: string,
     imgLink: string,
     productUrl: string,
-    productSize: string
+    productSize: string,
+    quantity: number
 }
 
 interface ProductMenuProps extends ProductInfo {
@@ -45,7 +46,8 @@ function ProductMenu(props: ProductMenuProps,) {
         imgAlt: props.imgAlt,
         imgLink: props.imgLink,
         productUrl: props.productUrl,
-        productSize: props.productSize
+        productSize: props.productSize,
+        quantity: props.quantity
     })
 
     useEffect(() => {
