@@ -1,26 +1,11 @@
 import { useState } from 'react';
 import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.display';
-import ProductMenu from '../../Components/ProductPage/ProductMenu/product.menu';
+import ProductMenu, { ProductInfo } from '../../Components/ProductPage/ProductMenu/product.menu';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import './product.css';
 
-interface ProductProps {
-    id: string
-    name: string
-    type: string
-    price: number
-    discountedPrice: number
-    catchPhrase: string
-    imgLink: string
-    imgAlt: string
-    productUrl: string
-    productSize: string
-    variations: string
-    quantity: number
-  }
-
-function ProductPage(props: ProductProps) {
+function ProductPage(props: ProductInfo) {
   const [ ,setSelectedSize] = useState<string>(props.productSize);
   const [ ,setId] = useState<string>(props.productSize);
 
