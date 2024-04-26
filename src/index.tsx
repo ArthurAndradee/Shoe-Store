@@ -62,6 +62,11 @@ const shippingDestinations = destinations.map(destination => ({
           />, 
 })); 
 
+const categoryRoutes = products.map(product => ({
+  path: `/categories/${product.type}`, // Assuming category exists in product data
+  element: <CategoryPage type={product.type} category={product.type} />, 
+}));
+
 const router = createBrowserRouter([{
   path: '/',
   element: <LanguagePage />,
@@ -92,38 +97,10 @@ const router = createBrowserRouter([{
   element: <OrderCompletion/>, 
   errorElement: <ErrorPage />
 },
-//-------------------------CATEGORY LINKS-------------------------
-{
-  path: '/femininos',
-  element: <CategoryPage 
-  type={['F', 'U']} 
-  
-            category={'Feminino'}/>, 
-},
-{ 
-  path: '/masculinos',
-  element: <CategoryPage
-  type={['M', 'U']} 
-  
-            category={'Masculino'}/>, 
-},
-{
-  path: '/edicao-limitada',
-  element: <CategoryPage 
-  type={['L']} 
-  
-            category={'Edição Limitada'}/>, 
-},
-{
-  path: '/promocoes',
-  element: <CategoryPage 
-  type={['M', 'F', 'U', 'L']} 
-  
-            category={'Promoções'}/>, 
-},
-//-------------------------PRODUCT LINKS-------------------------
+//-------------------------DYNAMIC LINKS-------------------------
 ...productRoutes,
-...shippingDestinations
+...shippingDestinations,
+...categoryRoutes
 ])
 
 root.render(

@@ -8,7 +8,7 @@ import { products } from '../../Database/products';
 import './category.css';
 
 interface Props {
-    type: Array<string>
+    type: string
     category: string
 }
 
@@ -18,17 +18,19 @@ function CategoryPage(props: Props) {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname === '/promocoes') {
-            const filteredDiscountedProducts = products.filter(product => (
-                props.type.some(type => product.type.startsWith(type)) &&
-                product.discountedPrice > 0
-            ));
-            setDiscountedProducts(filteredDiscountedProducts);
-        } else {
-            const filteredProducts = products.filter(product => (
-                props.type.some(type => product.type.startsWith(type))
-            ));
-            setDiscountedProducts(filteredProducts);
+        if (typeof props.type === 'string') {
+            if (location.pathname === '/promocoes') {
+                const filteredDiscountedProducts = products.filter(product => (
+                    product.type.startsWith(props.type) &&
+                    product.discountedPrice > 0
+                ));
+                setDiscountedProducts(filteredDiscountedProducts);
+            } else {
+                const filteredProducts = products.filter(product => (
+                    product.type.startsWith(props.type)
+                ));
+                setDiscountedProducts(filteredProducts);
+            }
         }
     }, [location.pathname, props.type]);
 
