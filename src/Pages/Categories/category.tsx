@@ -9,7 +9,7 @@ import './category.css';
 
 interface Props {
     type: string
-    category: string
+    category: Array<string>
 }
 
 function CategoryPage(props: Props) {
@@ -18,20 +18,13 @@ function CategoryPage(props: Props) {
     const location = useLocation();
 
     useEffect(() => {
-        if (typeof props.category === 'string') {
-            if (location.pathname === '/promocoes') {
-                const filteredDiscountedProducts = products.filter(product => (
-                    product.category.startsWith(props.category) &&
-                    product.discountedPrice > 0
-                ));
-                setDiscountedProducts(filteredDiscountedProducts);
-            } else {
-                const filteredProducts = products.filter(product => (
-                    product.category.startsWith(props.category)
-                ));
-                setDiscountedProducts(filteredProducts);
-            }
-        }
+        const filteredProducts = products.filter(product =>
+            props.category.some(category =>
+                product.category.some(subCategory => subCategory.startsWith(category))
+            )
+        );
+        setDiscountedProducts(filteredProducts);
+
     }, [location.pathname, props.category]);
 
     function sortProducts(products: any[], sortBy: string) {
@@ -58,7 +51,7 @@ function CategoryPage(props: Props) {
     return (
         <div>
             <HomeHeader />
-            <TopNav name={props.category} />
+            <TopNav name={'Produtos'} />
             <div className="category-products-row-container" id='grid-container'>
                 <h1 className="category-products-row-title">{props.category}</h1>
                 <nav>Ordenar: </nav>

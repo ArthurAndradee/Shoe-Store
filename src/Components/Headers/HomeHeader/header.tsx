@@ -41,7 +41,11 @@ function Header() {
     autoplaySpeed: 2500,
   };
 
-  const individualCategories = Array.from(new Set(products.map(product => product.category)));
+  const individualCategories = Array.from(new Set(products.flatMap(product => product.category)));
+  //Função FlatMap pega todos os valores de um array e apenas retorna os valores diferentes, sem repetição de valores iguais.
+
+  const uniqueCategories = individualCategories.filter(category => category);
+  
 
   return (
     <header className='app'>
@@ -60,7 +64,7 @@ function Header() {
           </div>
 
           <div className='navTitleBox'>
-            {individualCategories.map((category) => (
+            {uniqueCategories.map((category) => (
               <div className='navTitle'><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
             ))}
           </div>
