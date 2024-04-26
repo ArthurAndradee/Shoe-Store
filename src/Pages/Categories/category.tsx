@@ -24,6 +24,7 @@ function CategoryPage(props: Props) {
             )
         );
         setDiscountedProducts(filteredProducts);
+        console.log(props.category[0])
 
     }, [location.pathname, props.category]);
 
@@ -51,9 +52,9 @@ function CategoryPage(props: Props) {
     return (
         <div>
             <HomeHeader />
-            <TopNav name={'Produtos'} />
+            <TopNav name={props.category[0]} />
             <div className="category-products-row-container" id='grid-container'>
-                <h1 className="category-products-row-title">{props.category}</h1>
+                <h1 className="category-products-row-title">{props.category[0]}</h1>
                 <nav>Ordenar: </nav>
                 <select className='form-select' id='sort' onChange={handleSortChange} value={sortBy}>
                     <option value="low-high">Menor Preço</option>
