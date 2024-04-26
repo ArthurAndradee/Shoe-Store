@@ -41,7 +41,7 @@ function Header() {
     autoplaySpeed: 2500,
   };
 
-  const individualCategories = Array.from(new Set(products.flatMap(product => product.category))).filter(category => category);
+  const individualCategories = Array.from(new Set(products.flatMap(product => product.category)));
   //Função FlatMap pega todos os valores de um array e apenas retorna os valores diferentes, sem repetição de valores iguais.
   
   return (
