@@ -1,6 +1,6 @@
 ## Bem vindo ao meu projeto!
 
-Shoe-Store é um website modelo para um e-commerce de produtos, com um design dinâmico e links dependentes de itens disponíveis e categorizando-os pelo seu tipo.
+Shoe-Store é um website modelo para um e-commerce de produtos, especializado na compra de sapatos, com um componentes dinâmico e links dependentes de itens disponíveis e categorizando-os pelo seu tipo.
 
 # Funções:
 
