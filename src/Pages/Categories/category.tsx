@@ -22,10 +22,8 @@ function CategoryPage(props: Props) {
             props.category.some(category =>
                 product.category.some(subCategory => subCategory.startsWith(category))
             )
-        );
+        )
         setDiscountedProducts(filteredProducts);
-        console.log(props.category[0])
-
     }, [location.pathname, props.category]);
 
     function sortProducts(products: any[], sortBy: string) {
