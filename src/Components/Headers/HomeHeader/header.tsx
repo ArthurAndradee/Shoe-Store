@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
+import { products } from '../../../Database/products';
 
 function Header() {
   const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
@@ -40,6 +41,8 @@ function Header() {
     autoplaySpeed: 2500,
   };
 
+  const individualCategories = Array.from(new Set(products.map(product => product.category)));
+
   return (
     <header className='app'>
       <div className="slider-container">
@@ -57,10 +60,9 @@ function Header() {
           </div>
 
           <div className='navTitleBox'>
-              <div className='navTitle'><a href={'/femininos'} className='navLink'>Feminino</a></div>
-              <div className='navTitle'><a href={'/masculinos'} className='navLink'>Masculinos</a></div>
-              <div className='navTitle'><a href={'/edicao-limitada'} className='navLink'>Edição Limitada</a></div>
-              <div className='navTitle'><a href={'/promocoes'} className='navLink'>Promoções</a></div>
+            {individualCategories.map((category) => (
+              <div className='navTitle'><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
+            ))}
           </div>
 
           <div className='userOptions'>

@@ -18,21 +18,21 @@ function CategoryPage(props: Props) {
     const location = useLocation();
 
     useEffect(() => {
-        if (typeof props.type === 'string') {
+        if (typeof props.category === 'string') {
             if (location.pathname === '/promocoes') {
                 const filteredDiscountedProducts = products.filter(product => (
-                    product.type.startsWith(props.type) &&
+                    product.category.startsWith(props.category) &&
                     product.discountedPrice > 0
                 ));
                 setDiscountedProducts(filteredDiscountedProducts);
             } else {
                 const filteredProducts = products.filter(product => (
-                    product.type.startsWith(props.type)
+                    product.category.startsWith(props.category)
                 ));
                 setDiscountedProducts(filteredProducts);
             }
         }
-    }, [location.pathname, props.type]);
+    }, [location.pathname, props.category]);
 
     function sortProducts(products: any[], sortBy: string) {
         switch (sortBy) {

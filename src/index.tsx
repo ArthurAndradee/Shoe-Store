@@ -63,8 +63,8 @@ const shippingDestinations = destinations.map(destination => ({
 })); 
 
 const categoryRoutes = products.map(product => ({
-  path: `/categories/${product.type}`,
-  element: <CategoryPage type={product.type} category={product.type} />, 
+  path: `/categories/${product.category}`,
+  element: <CategoryPage type={product.type} category={product.category} />, 
 }));
 
 const router = createBrowserRouter([{
