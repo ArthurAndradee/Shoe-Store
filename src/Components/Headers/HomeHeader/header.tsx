@@ -46,7 +46,6 @@ function Header() {
 
   const uniqueCategories = individualCategories.filter(category => category);
   
-
   return (
     <header className='app'>
       <div className="slider-container">
