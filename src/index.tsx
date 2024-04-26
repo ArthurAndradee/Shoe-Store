@@ -63,7 +63,7 @@ const shippingDestinations = destinations.map(destination => ({
 })); 
 
 const categoryRoutes = products.map(product => ({
-  path: `/categories/${product.type}`, // Assuming category exists in product data
+  path: `/categories/${product.type}`,
   element: <CategoryPage type={product.type} category={product.type} />, 
 }));
 
