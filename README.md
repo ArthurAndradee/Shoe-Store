@@ -21,4 +21,3 @@ No terminal, rode:
 5. yarn add react-slick slick-carousel react-hot-toast uuid @react-oauth/google@latest react-hook-form 
 
 Após isso, rode "yarn start" para abrir o site.
-
