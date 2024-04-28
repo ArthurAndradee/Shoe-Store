@@ -10,18 +10,30 @@ function CartOverview() {
     const {cartProducts} = useLocalStorage()
     const [failWarning, setFailWarning] = useState(false)
     const navigate = useNavigate()
-
+    
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
-          console.log(tokenResponse)
-          if(cartProducts?.length) {
-              navigate('/checkout')
-          } else {
-            setFailWarning(true)
-          }
+            console.log(tokenResponse)
+            if(cartProducts?.length) {
+                navigate('/checkout')
+            } else {
+                setFailWarning(true)
+            }
         },
         onError: tokenResponse => setFailWarning(true)
     });
+    
+    function handleLogin() {
+        if(!localStorage.getItem('authToken')) {
+            if(cartProducts?.length) {
+                login()
+            } else {
+                setFailWarning(true)
+            }
+        } else {
+            navigate('/checkout')
+        }
+    }
 
     const totalSum = cartProducts ? cartProducts.reduce((price, product) => price + product.price * product.quantity, 0) : 0;
 
@@ -40,7 +52,7 @@ function CartOverview() {
                         <div className='total'>{'R$ ' + totalSum.toFixed(2)}</div>
                     </div>
                 </div>
-                <div className='checkout-button' onClick={() => login()}>Avançar para o checkout</div>
+                <div className='checkout-button' onClick={() => handleLogin()}>Avançar para o checkout</div>
                 {failWarning && (
                     <div className='text-danger text-center'>Por favor adicione produtos ao carrinho</div>
                 )}
