@@ -24,14 +24,14 @@ function CartOverview() {
     });
     
     function handleLogin() {
-        if(!localStorage.getItem('authToken')) {
-            if(cartProducts?.length) {
+        if(cartProducts?.length) {
+            if(!localStorage.getItem('authToken')) {
                 login()
             } else {
-                setFailWarning(true)
+                navigate('/checkout')
             }
         } else {
-            navigate('/checkout')
+            setFailWarning(true)
         }
     }
 
