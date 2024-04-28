@@ -13,7 +13,7 @@ interface Props {
 
 function CategoryPage(props: Props) {
     const [sortBy, setSortBy] = useState("low-high");
-    const [discountedProducts, setDiscountedProducts] = useState<any[]>([]);
+    const [productsDisplayed, setProductsDisplayed] = useState<any[]>([]);
     const location = useLocation();
 
     useEffect(() => {
@@ -23,12 +23,11 @@ function CategoryPage(props: Props) {
             )
         );
 
-        // Check if the path is '/promocoes' and set discountedProducts accordingly
         if (location.pathname === '/promocoes') {
             const discountedFilteredProducts = filteredProducts.filter(product => product.discountedPrice > 0);
-            setDiscountedProducts(discountedFilteredProducts);
+            setProductsDisplayed(discountedFilteredProducts);
         } else {
-            setDiscountedProducts(filteredProducts);
+            setProductsDisplayed(filteredProducts);
         }
     }, [location.pathname, props.category]);
 
@@ -51,7 +50,7 @@ function CategoryPage(props: Props) {
         setSortBy(event.target.value);
     };
 
-    const sortedProducts = sortProducts(discountedProducts, sortBy);
+    const sortedProducts = sortProducts(productsDisplayed, sortBy);
 
     return (
         <div>

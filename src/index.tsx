@@ -81,6 +81,11 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />
 },
 {
+  path: '/promocoes',
+  element: <CategoryPage category={['Promoções','Feminino', 'Unisex', 'Masculino', 'Edição Limitada']}/>, 
+  errorElement: <ErrorPage />
+},
+{
   path: '/search',
   element: <SearchResult/>,
   errorElement: <ErrorPage />
@@ -93,11 +98,6 @@ const router = createBrowserRouter([{
 {
   path: '/cart',
   element: <Cart/>, 
-  errorElement: <ErrorPage />
-},
-{
-  path: '/promocoes',
-  element: <CategoryPage category={[]}/>, 
   errorElement: <ErrorPage />
 },
 {
