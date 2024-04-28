@@ -38,6 +38,7 @@ function ProductPage(props: ProductInfo) {
                   onSizeChange={handleSizeChange}
                   createId={createId} 
                   quantity={props.quantity}
+                  availableQuantity={props.availableQuantity}
                 />
             </div>
             

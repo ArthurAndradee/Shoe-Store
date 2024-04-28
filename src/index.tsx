@@ -41,6 +41,7 @@ const productRoutes = products.map(product => ({
             productSize={product.productSize}
             variations={product.variations}
             quantity={product.quantity}
+            availableQuantity={product.availableQuantity}
           />, 
 })); 
 

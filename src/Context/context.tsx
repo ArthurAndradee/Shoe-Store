@@ -85,8 +85,9 @@ export const ContextProvider = (props: Props) => {
 
     const handleCartQuantityIncrease = useCallback((product: ProductInfo) => {
         let updatedCart;
+        console.log(product.availableQuantity)
 
-        if(product.quantity > 99) {
+        if(product.quantity > product.availableQuantity) {
             return toast.error("Quantidade máxima atingida!")
         }
 
