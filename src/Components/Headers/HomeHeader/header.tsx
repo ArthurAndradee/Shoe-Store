@@ -12,34 +12,26 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { products } from '../../../Database/products';
 
 function Header() {
-  const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const {cartProducts} = useLocalStorage()
 
   useEffect(() => {
-    if (cartProducts?.length) {
-      setShowCartItemsQuantity(true);
-    } else {
-      setShowCartItemsQuantity(false)
-    }
-
-  }, [showCartItemsQuantity, cartProducts]);
+    setIsUserLoggedIn(!!localStorage.getItem('authToken'));
+  }, []);
 
   const login = useGoogleLogin({
-    onSuccess: tokenResponse => {
-      console.log(tokenResponse)
-      setIsUserLoggedIn(true)
+    onSuccess: (tokenResponse) => {
+      console.log(tokenResponse);
+  
+      localStorage.setItem('authToken', tokenResponse.access_token);
+      setIsUserLoggedIn(true);
     }
   });
 
-  var sliderSettings = {
-    infinite: true,
-    speed: 200,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-  };
+  const logout = () => {
+    localStorage.removeItem("authToken")
+    setIsUserLoggedIn(false);
+  }
 
   const individualCategories = Array.from(new Set(products.flatMap(product => product.category)));
   //Função FlatMap pega todos os valores de um array e apenas retorna os valores diferentes, sem repetição de valores iguais.
@@ -47,7 +39,7 @@ function Header() {
   return (
     <header className='app'>
       <div className="slider-container">
-        <Slider {...sliderSettings} className='slider'>
+        <Slider infinite={true} speed={200} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={2500} className='slider'>
             <h3 className='slider-text'>APROVEITE NOSSA PROMOÇÃO COM <h3 className='blueSliderText'><Link to={'/promocoes'} style={{textDecoration:'none'}}>ATÉ 50% OFF!</Link></h3></h3>
             <h3 className='slider-text'>NINGUÉM VÊ O MUNDO COMO NÓS {'>'} <h3 className='blueSliderText'><Link to={'/search'} style={{textDecoration:'none'}}>VEJA OS LANÇAMENTOS!</Link></h3></h3>
             <h3><h3 className='blueSliderText'>FRETE GRÁTIS</h3><h3 className='smallSliderText'>nas compras acima de R$350!</h3></h3>
@@ -69,7 +61,7 @@ function Header() {
 
           <div className='userOptions'>
             {isUserLoggedIn ? (
-              <div onClick={() => login()}>Sair</div>
+              <div onClick={() => logout()}>Sair</div>
             ) : (
               <div onClick={() => login()}>Entrar</div>
             )}

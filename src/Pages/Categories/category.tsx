@@ -23,7 +23,7 @@ function CategoryPage(props: Props) {
             )
         );
 
-        if (location.pathname === '/promocoes') {
+        if (location.pathname === '/categories/promocoes') {
             const discountedFilteredProducts = filteredProducts.filter(product => product.discountedPrice > 0);
             setProductsDisplayed(discountedFilteredProducts);
         } else {
