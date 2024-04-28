@@ -8,7 +8,6 @@ import { products } from '../../Database/products';
 import './category.css';
 
 interface Props {
-    type: string
     category: Array<string>
 }
 
@@ -22,8 +21,15 @@ function CategoryPage(props: Props) {
             props.category.some(category =>
                 product.category.some(subCategory => subCategory.startsWith(category))
             )
-        )
-        setDiscountedProducts(filteredProducts);
+        );
+
+        // Check if the path is '/promocoes' and set discountedProducts accordingly
+        if (location.pathname === '/promocoes') {
+            const discountedFilteredProducts = filteredProducts.filter(product => product.discountedPrice > 0);
+            setDiscountedProducts(discountedFilteredProducts);
+        } else {
+            setDiscountedProducts(filteredProducts);
+        }
     }, [location.pathname, props.category]);
 
     function sortProducts(products: any[], sortBy: string) {

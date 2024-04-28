@@ -66,7 +66,7 @@ const shippingDestinations = destinations.map(destination => ({
 const categoryRoutes = products.flatMap(product => {
     return product.category.map((category, index) => ({
       path: `/categories/${index === 0 ? category : ''}`, // Apenas primeiros index do array de categorias irão gerar um link
-      element: <CategoryPage type={product.type} category={product.category} />,
+      element: <CategoryPage category={product.category} />,
     }));
 });
 
@@ -93,6 +93,11 @@ const router = createBrowserRouter([{
 {
   path: '/cart',
   element: <Cart/>, 
+  errorElement: <ErrorPage />
+},
+{
+  path: '/promocoes',
+  element: <CategoryPage category={[]}/>, 
   errorElement: <ErrorPage />
 },
 {
