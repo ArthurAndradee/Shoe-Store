@@ -5,20 +5,21 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { ContextProvider } from './Context/context';
-import './index.css';
 
 import { products } from './Database/products';
 import { destinations } from './Database/destinations';
 
-import HomePage from './Pages/Home/home';
-import LanguagePage from './Pages/Language/language';
-import ErrorPage from './Pages/Error/error';
-import ProductPage from './Pages/Product/product';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Cart from './Pages/Cart/cart';
+
+import LanguagePage from './Pages/Language/language';
+import HomePage from './Pages/Home/home';
+import ErrorPage from './Pages/Error/error';
 import CategoryPage from './Pages/Categories/category';
-import Wishlist from './Pages/Wishlist/wishlist';
 import SearchResult from './Pages/Search/search.result';
+import ProductPage from './Pages/Product/product';
+import Wishlist from './Pages/Wishlist/wishlist';
+import Cart from './Pages/Cart/cart';
 import Checkout from './Pages/Checkout/checkout';
 import OrderCompletion from './Components/Checkout/OrderCompletion/order.completion';
 
@@ -81,7 +82,7 @@ const router = createBrowserRouter([{
   errorElement: <ErrorPage />
 },
 {
-  path: '/promocoes',
+  path: '/categories/promocoes',
   element: <CategoryPage category={['Promoções','Feminino', 'Unisex', 'Masculino', 'Edição Limitada']}/>, 
   errorElement: <ErrorPage />
 },

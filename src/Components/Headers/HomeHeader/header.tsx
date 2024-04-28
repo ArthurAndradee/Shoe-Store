@@ -64,6 +64,7 @@ function Header() {
             {individualCategories.map((category) => (
               <div className='navTitle'><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
             ))}
+            <div className='navTitle'><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
           </div>
 
           <div className='userOptions'>
@@ -75,14 +76,7 @@ function Header() {
               <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
               <div style={{display:'flex'}}>
                   <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
-                  {showCartItemsQuantity ? (
-                    <>
-                    <div className='items-count'>{cartProducts?.length}</div>
-                    </>
-                  ):(
-                    <>
-                    </>
-                  )}
+                  {cartProducts?.length ? (<><div className='items-count'>{cartProducts?.length}</div></>):(<></>)}
               </div>
           </div>
           <div className='searchBar'>
