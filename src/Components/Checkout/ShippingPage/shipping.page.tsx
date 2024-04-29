@@ -203,7 +203,7 @@ function ShippingPage(props: ShippingProps) {
                     {destinations && destinations.map((destination, index) => (
                         <div className='destination-card' onClick={() => setSelectDestination(index)}>
                             {selectDestination === index && (
-                                <FontAwesomeIcon icon={faSquareCheck} style={{float:'right', color:'#000000'}} />
+                                <FontAwesomeIcon className='select-destination' icon={faSquareCheck}/>
                             )}
                             <div className='d-flex'>
                                 <div style={{marginRight:"2%"}}>{destination.name}</div>
