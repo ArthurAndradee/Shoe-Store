@@ -1,6 +1,6 @@
 .checkout-section {
     padding-top: 117px;
-    
+
     display: flex;
     flex-direction: column;
 }
@@ -40,5 +40,11 @@
     .checkout-section {
         width: 1366px;
         margin: auto;
+    }
+}
+
+@media only screen and (max-width: 602px) {
+    .checkout-section {
+        border: 1px solid red;
     }
 }

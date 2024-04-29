@@ -9,7 +9,7 @@
     width: 100%;
 
     z-index: 1;
-}
+} 
 
 .slider-container {
     height: 45px;
@@ -199,6 +199,17 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
   .navTitleBox {
     display: none;
   }
+  .searchBar{
+    margin-left: 20px;
+  }
+
+  .items-count {
+    display: none;
+  }
+
+  .userOptions * {
+    margin-left: 3px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -207,6 +218,7 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
   }
   .searchBar{
     margin-left: auto;
+    padding-left: 20px;
   }
 }
 

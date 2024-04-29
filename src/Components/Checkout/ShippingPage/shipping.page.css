@@ -50,10 +50,6 @@
     margin-left: auto;
 }
 
-.handle-form-button {
-    width: 10%;
-}
-
 .form-group {
     width: 70%;
     padding: 20px;
@@ -82,10 +78,11 @@
 }
 
 @media (max-width: 600px) {
-    .checkout-section {
-        width: 400%;
-    }
     .form-container {
         flex-direction: column;
+    }
+
+    .add-address-button {
+        width: 100px;
     }
 }
