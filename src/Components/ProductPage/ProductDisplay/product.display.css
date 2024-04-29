@@ -1,3 +1,10 @@
+.display {
+    height: 900px;
+    width: 68%;
+    
+    background-size: cover;
+}
+
 @media only screen and (min-width: 1366px) {
     .display {
         width: 1366px;
@@ -5,9 +12,11 @@
     }
 }
 
-.display {
-    height: 900px;
-    width: 68%;
-    
-    background-size: cover;
+@media only screen and (max-width: 800px) {
+    .display {
+        height: 350px;
+        width: 100%;
+
+        background-size: contain;
+    }
 }

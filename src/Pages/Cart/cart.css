@@ -45,6 +45,10 @@
 @media only screen and (max-width: 800px) {
     .cart-container {
         display: flex;
-        flex-direction: column-reversew;
+        flex-direction: column-reverse;
+    }
+
+    .list-container {
+        width: 100%;
     }
 }

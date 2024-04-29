@@ -4,6 +4,7 @@ import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.
 import ProductMenu, { ProductInfo } from '../../Components/ProductPage/ProductMenu/product.menu';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import './product.css';
+import Footer from '../../Components/Footer/footer';
 
 function ProductPage(props: ProductInfo) {
   const [ ,setSelectedSize] = useState<string>(props.productSize);
@@ -41,7 +42,7 @@ function ProductPage(props: ProductInfo) {
                   availableQuantity={props.availableQuantity}
                 />
             </div>
-            
+            <Footer />
         </div>
     )
 }

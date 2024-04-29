@@ -205,14 +205,10 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
   .userOptions{
     display: none;
   }
-}
-
-@media only screen and (max-width: 400px) {
   .searchBar{
     margin-left: auto;
   }
 }
-
 
 @media only screen and (max-width: 310px) {
   .searchBar{
