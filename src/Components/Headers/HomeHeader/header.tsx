@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faGripLines, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,10 +13,15 @@ import { products } from '../../../Database/products';
 
 function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const [isUserInMobile, setIsUserInMobile] = useState(false)
+  const [showHeaderMenu, setShowHeaderMenu] = useState(false)
   const {cartProducts} = useLocalStorage()
 
   useEffect(() => {
     setIsUserLoggedIn(!!localStorage.getItem('authToken'));
+    if (window.innerWidth < 600) {
+      setIsUserInMobile(true)
+    }
   }, []);
 
   const login = useGoogleLogin({
@@ -47,7 +52,9 @@ function Header() {
       </div>
 
       <nav>
-          <div className='logoBox'>
+          <div className='logoBox'> 
+          {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 10px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
+          {showHeaderMenu && <div>Bruh</div>}
               <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
