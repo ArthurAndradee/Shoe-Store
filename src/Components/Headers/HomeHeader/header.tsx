@@ -53,8 +53,27 @@ function Header() {
 
       <nav>
           <div className='logoBox'> 
-          {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 10px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
-          {showHeaderMenu && <div>Bruh</div>}
+              {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 10px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
+              {showHeaderMenu && 
+              <div className='mobile-dropdown'>
+                {individualCategories.map((category) => (
+                  <div className='navTitle' style={{marginLeft:'0'}}><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
+                ))}
+                <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
+                <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
+                  {isUserLoggedIn ? (
+                    <div onClick={() => logout()}>Sair</div>
+                  ) : (
+                    <div onClick={() => login()}>Entrar</div>
+                  )}
+                  <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
+                  <div style={{display:'flex'}}>
+                    <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
+                    {cartProducts?.length ? (<><div className='items-count'>{cartProducts?.length}</div></>):(<></>)}
+                  </div>
+                </div>
+              </div>
+              }
               <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
