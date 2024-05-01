@@ -234,6 +234,10 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     margin-left: auto;
     padding-left: 20px;
   }
+
+  .slider-container {
+    padding-bottom: 75px;
+  }
 }
 
 @media only screen and (max-width: 310px) {
