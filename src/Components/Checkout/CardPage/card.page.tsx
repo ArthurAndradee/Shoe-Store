@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router';
 import './card.page.css';
 
 function CardPage() {
-  //Later add function to empty products from cart
   const [isCardSelected, setIsCardSelected] = useState(false);
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -24,8 +23,12 @@ function CardPage() {
 
   const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
+    
     if(isFormFilled) {
+      localStorage.removeItem('cart')
+      
       navigate('/orderCompletion');
+      window.location.reload();
     } else {
       setWarning(true)
     }

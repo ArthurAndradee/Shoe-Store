@@ -15,7 +15,6 @@ type ContextType = {
     handleRemoveProductFromCart: (product: ProductInfo) => void
     handleCartQuantityIncrease: (product: ProductInfo) => void
     handleCartQuantityDecrease: (product: ProductInfo) => void
-    handleCartItemsClear: (product: ProductInfo) => void
 
     //Export Wishlist methods
     handleAddProductToWishlist: (product: ProductInfo) => void
@@ -128,15 +127,6 @@ export const ContextProvider = (props: Props) => {
         }
     },[cartProducts])
 
-    const handleCartItemsClear = useCallback((product: ProductInfo) => {
-        if(cartProducts) {
-            const updatedCart = cartProducts.filter(item => item.id !== product.id);
-
-            setCartProducts(updatedCart);
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
-        }
-    },[cartProducts])
-
     //-------------------------WISHLIST METHODS-------------------------
     
     const handleAddProductToWishlist = useCallback((product: ProductInfo) => {
@@ -209,7 +199,6 @@ export const ContextProvider = (props: Props) => {
         handleRemoveProductFromCart,
         handleCartQuantityIncrease,
         handleCartQuantityDecrease,
-        handleCartItemsClear,
         handleAddProductToWishlist,
         handleRemoveProductFromWishlist,
         handleAddDestination,
