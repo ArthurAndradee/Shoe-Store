@@ -22,7 +22,8 @@ function CardPage() {
     );
   }, [cardNumber, expiryDate, safetyCode]);
 
-  const SubmitOrder = () => {
+  const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault()
     if(isFormFilled) {
       navigate('/orderCompletion');
     } else {
