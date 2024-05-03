@@ -37,8 +37,9 @@ function ProductsRow() {
                             price={product.price}
                             variations={product.variations}
                             productUrl={product.productUrl}
-                            discountedPrice={product.discountedPrice}
-                        />
+                            discountedPrice={product.discountedPrice} 
+                            product={product}
+                            />
                     ))}
                 </Slider>
             </div>

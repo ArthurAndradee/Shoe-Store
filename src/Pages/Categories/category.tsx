@@ -75,6 +75,7 @@ function CategoryPage(props: Props) {
                             discountedPrice={product.discountedPrice}
                             variations={product.variations}
                             productUrl={product.productUrl}
+                            product={product}
                         />
                     ))}
                 </div>

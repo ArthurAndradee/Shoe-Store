@@ -131,17 +131,24 @@ export const ContextProvider = (props: Props) => {
     
     const handleAddProductToWishlist = useCallback((product: ProductInfo) => {
         setWishlistProducts((prev) => {
-            let updatedCart;
- 
-            if(prev) {
-                updatedCart = [...prev, product]
-            } else {
-                updatedCart = [product]
+            if (!prev) {
+                const updatedCart = [product];
+                toast.success('Produto adicionado à lista de desejos!');
+                localStorage.setItem('wishlist', JSON.stringify(updatedCart));
+                return updatedCart;
             }
- 
-            toast.success('Produto adicionado à lista de desejos!')
-            localStorage.setItem('wishlist', JSON.stringify(updatedCart))
-            return updatedCart
+    
+            const isProductInWishlist = prev.some((wishlistProduct) => wishlistProduct.name === product.name);
+    
+            if (isProductInWishlist) {
+                toast.error('Produto já está na lista de desejos!');
+                return prev;
+            }
+    
+            const updatedCart = [...prev, product];
+            toast.success('Produto adicionado à lista de desejos!');
+            localStorage.setItem('wishlist', JSON.stringify(updatedCart));
+            return updatedCart;
         })
     }, [])
 
