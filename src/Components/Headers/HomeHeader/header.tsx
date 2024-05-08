@@ -53,7 +53,7 @@ function Header() {
 
       <nav>
           <div className='logoBox'> 
-              {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 10px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
+              {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 0px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
               {showHeaderMenu && 
               <div className='mobile-dropdown'>
                 {individualCategories.map((category) => (
