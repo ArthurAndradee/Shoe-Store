@@ -64,10 +64,12 @@
 }
 
 .product-guide {
+    width: 5rem;
+
     font-size: 12px;
     font-weight: 600;
     text-decoration: underline;
-    
+
     color: #000000;
 }
 
@@ -131,11 +133,6 @@ option:hover {
     
     #wish-button {
         height: 10px;
-    }
-}
-
-@media only screen and (min-width: 1366px) {
-    .menu-container {
     }
 }
 
