@@ -7,7 +7,7 @@ Shoe-Store é um website modelo para um e-commerce de produtos, especializado na
 - Lista de Desejos
 - Lista de Produtos
 - Login funcional
-- Consumo de APIs (Correios e Google)
+- Consumo de APIs (Correios e Google Auth)
 - Cálculo de frete dependendo da localização informada (Localizações ficam salvas).
 
 ## Por favor instale as dependências abaixo para rodar o website
