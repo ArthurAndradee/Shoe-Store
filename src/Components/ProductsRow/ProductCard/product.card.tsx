@@ -20,7 +20,7 @@ interface ProductCardProps {
 
 function ProductCard(props: ProductCardProps) {
     const {handleAddProductToWishlist} = useLocalStorage()
-    //Add function to change heart color later
+    //Add function to change heart color after adding to wishlist later
 
     const [doesItemHaveDiscount] = useState(props.discountedPrice > 0);
 
