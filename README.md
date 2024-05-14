@@ -16,7 +16,7 @@ To launch the website successfully, ensure the following dependencies are instal
 
 1. Run the following command in your terminal:
 ```bash
-npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons save @fortawesome/react-fontawesome@latest react-router bootstrap@5.3.3
+npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons save @fortawesome/react-fontawesome@latest react-router bootstrap@5.3
 ```
 2. Next, install react-router-dom:
 ```bash
