@@ -8,7 +8,6 @@ Shoe-Store presents a model e-commerce website tailored for shoe enthusiasts. Wi
 - Comprehensive Product Listings
 - Secure Login System
 - Integration of APIs (Post Office and Google Auth)
-- Dynamic Freight Calculation based on user location data
 
 ## Installation Instructions:
 
