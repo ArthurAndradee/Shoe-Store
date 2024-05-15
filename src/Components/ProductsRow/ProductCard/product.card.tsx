@@ -20,14 +20,25 @@ interface ProductCardProps {
 
 function ProductCard(props: ProductCardProps) {
     const {handleAddProductToWishlist} = useLocalStorage()
-    //Add function to change heart color after adding to wishlist later
+    const [heartColor, setHeartColor] = useState("#000000");
+
+    function AddProductToWishlist() {
+        setHeartColor("#898989");
+        handleAddProductToWishlist(props.product);
+        setTimeout(() => setHeartColor("#000000"), 1000)
+    }
 
     const [doesItemHaveDiscount] = useState(props.discountedPrice > 0);
 
     return (
         <div className="product">
-            <div className="heart-icon"><FontAwesomeIcon icon={faHeart} onClick={() => handleAddProductToWishlist(props.product)}/></div>
-            <Link key={props.productUrl} to={`/products/${props.productUrl}`} className="product-link">
+            <div className="heart-icon">
+                <FontAwesomeIcon 
+                    icon={faHeart} 
+                    onClick={AddProductToWishlist} 
+                    style={{color: heartColor, transition:'all 500ms'}}/>
+            </div>
+            <Link key={props.productUrl} to={`/products/${props.productUrl}`} className="product-link"> 
                 <img alt={props.imgAlt} src={props.imgLink}/>
                 <p className="product-name">{props.name}</p>
             </Link>

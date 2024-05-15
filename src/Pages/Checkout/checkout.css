@@ -42,9 +42,3 @@
         margin: auto;
     }
 }
-
-@media only screen and (max-width: 602px) {
-    .checkout-section {
-        border: 1px solid red;
-    }
-}
