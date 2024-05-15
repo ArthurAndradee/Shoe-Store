@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import './product.card.css'
 import { ProductInfo } from "../../ProductPage/ProductMenu/product.menu";
 
-
 interface ProductCardProps {
     imgAlt: string,
     imgLink: string,
