@@ -1,23 +1,38 @@
-## Bem vindo ao meu projeto!
+## Welcome to Shoe-Store Project!
 
-Shoe-Store é um website modelo para um e-commerce de produtos, especializado na compra de sapatos, com um componentes dinâmico e links dependentes de itens disponíveis e categorizando-os pelo seu tipo.
+Shoe-Store presents a model e-commerce website tailored for shoe enthusiasts. With a dynamic interface and specialized categorization, our platform offers a seamless shopping experience.
 
-# Funções:
+### Key Features:
 
-- Lista de Desejos
-- Lista de Produtos
-- Login funcional
-- Consumo de APIs (Correios e Google Auth)
-- Cálculo de frete dependendo da localização informada (Localizações ficam salvas).
+- Wish List functionality
+- Comprehensive Product Listings
+- Secure Login System
+- Integration of APIs (Post Office and Google Auth)
+- Dynamic Freight Calculation based on user location data
 
-## Por favor instale as dependências abaixo para rodar o website
+## Installation Instructions:
 
-No terminal, rode:
+To launch the website successfully, ensure the following dependencies are installed:
 
-1. npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons save @fortawesome/react-fontawesome@latest react-router bootstrap@5.3.3
-2. npm i -D react-router-dom@latest
-3. npm i --save-dev @types/jquery
-4. npm i --save-dev @types/uuid
-5. yarn add react-slick slick-carousel react-hot-toast uuid @react-oauth/google@latest react-hook-form 
+1. Run the following command in your terminal:
+```bash
+npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons save @fortawesome/react-fontawesome@latest react-router bootstrap@5.3.3
+```
+2. Next, install react-router-dom:
+```bash
+npm i -D react-router-dom@latest
+```
+3. Install jQuery types:
+```bash
+npm i --save-dev @types/jquery
+```
+4. Install UUID types:
+```bash
+npm i --save-dev @types/uuid
+```
+5. Finally, add the following packages using yarn:
+```bash
+yarn add react-slick slick-carousel react-hot-toast uuid @react-oauth/google@latest react-hook-form
+```
 
-Após isso, rode "yarn start" para abrir o site.
+Once all dependencies are installed, execute ```yarn start``` command to launch the website.
