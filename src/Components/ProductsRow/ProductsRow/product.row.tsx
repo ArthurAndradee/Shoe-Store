@@ -15,6 +15,8 @@ function ProductsRow() {
 
     const slidesToShow = windowWidth < 600 ? 2 : windowWidth < 820 ? 3 : windowWidth < 950 ? 4 : 5;
 
+    const unisexProducts = products.filter(product => product.category.includes('Todos'));
+
     return (
         <div className="products-row-container">
             <h1 className="products-row-title">LANÇAMENTOS:</h1>
@@ -28,7 +30,7 @@ function ProductsRow() {
                     slidesToShow={slidesToShow}
                     slidesToScroll={slidesToShow}
                 >
-                    {products.slice(0, 10).map((product) => (
+                    {unisexProducts.slice(0,10).map((product) => (
                         <ProductCard
                             key={product.id}
                             imgAlt={product.imgAlt}
