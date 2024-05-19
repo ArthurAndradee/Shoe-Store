@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css';
 import { products } from '../../../Database/products';
+import { Link } from 'react-router-dom';
 
 function ProductsRow() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -20,7 +21,7 @@ function ProductsRow() {
     return (
         <div className="products-row-container">
             <h1 className="products-row-title">LANÇAMENTOS:</h1>
-            <span className="products-row-all">→ Ver todos</span>
+            <span className="products-row-all"><Link to={'/categories/Todos'} style={{color:'black', textDecoration:'none'}}>→ Ver todos</Link></span>
             <div className="products">
                 <Slider
                     dots={true}
