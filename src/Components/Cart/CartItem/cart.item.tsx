@@ -35,7 +35,6 @@ function CartItem() {
                                     <div className='item-name'>{product.name}</div>
                                 </Link>
                                 <div className='item-specifications'>
-                                    <div className='item-variation'><b>Cor: </b> BLACK</div>
                                     <div className='item-variation'><b>Tamanho: </b> {product.productSize}</div>
                                     <div className='item-variation'><b>Quantidade: </b> {product.quantity}</div>
                                 </div>
