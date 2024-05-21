@@ -57,7 +57,7 @@ function Header() {
               {showHeaderMenu && 
               <div className='mobile-dropdown'>
                 {individualCategories.map((category) => (
-                  <div className='navTitle' style={{marginLeft:'0'}}><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
+                  <a href={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></a>
                 ))}
                 <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
                 <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
