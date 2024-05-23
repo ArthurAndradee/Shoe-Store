@@ -108,6 +108,10 @@ footer img {
     margin: auto;
 }
 
+.icons-container * {
+    cursor: pointer;
+}
+
 .icon {
     margin: 10px;
 }
