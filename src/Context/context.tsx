@@ -1,24 +1,24 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { ProductInfo } from "../Components/ProductPage/ProductMenu/product.menu";
 import { DestinationInfo } from "../Components/Checkout/ShippingPage/shipping.page";
+import { Product } from "..";
 
 type ContextType = {
     //Export Local Storage
-    cartProducts: ProductInfo[] | null
-    wishlistProducts: ProductInfo[] | null
+    cartProducts: Product[] | null
+    wishlistProducts: Product[] | null
     destinations: DestinationInfo[] | null
 
     //Export Cart methods
-    handleAddProductToCart: (product: ProductInfo) => void
-    handleRemoveProductFromCart: (product: ProductInfo) => void
-    handleCartQuantityIncrease: (product: ProductInfo) => void
-    handleCartQuantityDecrease: (product: ProductInfo) => void
+    handleAddProductToCart: (product: Product) => void
+    handleRemoveProductFromCart: (product: Product) => void
+    handleCartQuantityIncrease: (product: Product) => void
+    handleCartQuantityDecrease: (product: Product) => void
 
     //Export Wishlist methods
-    handleAddProductToWishlist: (product: ProductInfo) => void
-    handleRemoveProductFromWishlist: (product: ProductInfo) => void
+    handleAddProductToWishlist: (product: Product) => void
+    handleRemoveProductFromWishlist: (product: Product) => void
 
     //Export Shipping methods
     handleAddDestination: (destination: DestinationInfo) => void
@@ -32,18 +32,18 @@ interface Props {
 export const AppContext = createContext<ContextType | null> (null)
 
 export const ContextProvider = (props: Props) => {
-    const [cartProducts,setCartProducts] = useState<ProductInfo[] | null>(null)
-    const [wishlistProducts,setWishlistProducts] = useState<ProductInfo[] | null>(null)
+    const [cartProducts,setCartProducts] = useState<Product[] | null>(null)
+    const [wishlistProducts,setWishlistProducts] = useState<Product[] | null>(null)
     const [destinations,setDestinations] = useState<DestinationInfo[] | null>(null)
 
     //-------------------------RETRIEVE INFO FROM LOCAL STORAGE-------------------------
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('cart')
-        const savedCartProducts: ProductInfo[] | null = JSON.parse(cartItems)
+        const savedCartProducts: Product[] | null = JSON.parse(cartItems)
         
         const wishlistItems: any = localStorage.getItem('wishlist')
-        const savedWishlistItems: ProductInfo[] | null = JSON.parse(wishlistItems)
+        const savedWishlistItems: Product[] | null = JSON.parse(wishlistItems)
         
         const destinations: any = localStorage.getItem('shippingDestinations')
         const savedDestinations: DestinationInfo[] | null = JSON.parse(destinations)
@@ -55,7 +55,7 @@ export const ContextProvider = (props: Props) => {
 
     //-------------------------CART METHODS-------------------------
 
-    const handleAddProductToCart = useCallback((product: ProductInfo) => {
+    const handleAddProductToCart = useCallback((product: Product) => {
         setCartProducts((prev) => {
             let updatedCart;
 
@@ -71,7 +71,7 @@ export const ContextProvider = (props: Props) => {
         })
     }, [])
     
-    const handleRemoveProductFromCart = useCallback((product: ProductInfo) => {
+    const handleRemoveProductFromCart = useCallback((product: Product) => {
         if(cartProducts) {
             const filteredProducts = cartProducts.filter((item) => {
                 return item.id !== product.id
@@ -84,7 +84,7 @@ export const ContextProvider = (props: Props) => {
         }
     },[cartProducts])
 
-    const handleCartQuantityIncrease = useCallback((product: ProductInfo) => {
+    const handleCartQuantityIncrease = useCallback((product: Product) => {
         let updatedCart;
         console.log(product.availableQuantity)
 
@@ -106,7 +106,7 @@ export const ContextProvider = (props: Props) => {
         }
     },[cartProducts])
 
-    const handleCartQuantityDecrease = useCallback((product: ProductInfo) => {
+    const handleCartQuantityDecrease = useCallback((product: Product) => {
         let updatedCart;
 
         if(product.quantity <= 1) {
@@ -129,7 +129,7 @@ export const ContextProvider = (props: Props) => {
 
     //-------------------------WISHLIST METHODS-------------------------
     
-    const handleAddProductToWishlist = useCallback((product: ProductInfo) => {
+    const handleAddProductToWishlist = useCallback((product: Product) => {
         setWishlistProducts((prev) => {
             if (!prev) {
                 const updatedCart = [product];
@@ -152,7 +152,7 @@ export const ContextProvider = (props: Props) => {
         })
     }, [])
 
-    const handleRemoveProductFromWishlist = useCallback((product: ProductInfo) => {
+    const handleRemoveProductFromWishlist = useCallback((product: Product) => {
         if(wishlistProducts) {
             const filteredProducts = wishlistProducts.filter((item) => {
                 return item.name !== product.name
@@ -186,7 +186,7 @@ export const ContextProvider = (props: Props) => {
     const handleRemoveDestination = useCallback((shippingDestination: DestinationInfo) => {
         if(destinations) {
             const filteredShippingDestinations = destinations.filter((destination) => {
-                return shippingDestination.id !== destination.id
+                return shippingDestination.destinationId !== destination.destinationId
             })
 
             setDestinations(filteredShippingDestinations)

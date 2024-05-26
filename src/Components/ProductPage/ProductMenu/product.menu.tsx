@@ -5,24 +5,9 @@ import { useLocalStorage } from '../../../Context/context';
 import { Link } from 'react-router-dom';
 import './product.menu.css'
 import { v4 } from 'uuid';
+import { Product } from '../../..';
 
-export interface ProductInfo {
-    imgAlt: string;
-    discountedPrice: number;
-    variations: string;
-    id: string,
-    name: string,
-    type: string,
-    price: number,
-    catchPhrase: string,
-    imgLink: string,
-    productUrl: string,
-    productSize: string,
-    quantity: number,
-    availableQuantity: number,
-}
-
-interface ProductMenuProps extends ProductInfo {
+interface ProductMenuProps extends Product {
     onSizeChange: (size: string) => void;
     createId: (id: string) => void; 
   }
@@ -36,7 +21,7 @@ function ProductMenu(props: ProductMenuProps,) {
     const [wishlistButtonBackgroundDisplay,setWishlistButtonBackgroundDisplay] = useState('')
     const [id, setId] = useState<string>(props.id)
 
-    const [product, setProduct] = useState<ProductInfo>({
+    const [product, setProduct] = useState<Product>({
         id: props.id,
         name: props.name,
         type: props.type,
@@ -49,7 +34,8 @@ function ProductMenu(props: ProductMenuProps,) {
         productUrl: props.productUrl,
         productSize: props.productSize,
         quantity: props.quantity,
-        availableQuantity: props.availableQuantity
+        availableQuantity: props.availableQuantity,
+        category: props.category
     })
 
     useEffect(() => {

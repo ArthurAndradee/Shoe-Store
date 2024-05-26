@@ -8,7 +8,7 @@ import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface DestinationInfo {
-    id: string
+    destinationId: string
     name: string
     surName: string
     phoneNumber: string
@@ -58,9 +58,9 @@ function Checkout(props: DestinationInfo) {
                 <div>
                     {isShippingSelected ? (
                         <ShippingPage 
-                        id={props.id}
-                        name={props.name} 
-                        surName={props.surName} 
+                        destinationId={props.destinationId}
+                        destinationName={props.name} 
+                        destinationSurname={props.surName} 
                         phoneNumber={props.phoneNumber} 
                         cpf={props.cpf} 
                         cep={props.cpf} 

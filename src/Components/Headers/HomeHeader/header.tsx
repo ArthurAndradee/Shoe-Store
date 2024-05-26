@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-import { products } from '../../../Database/products';
 
 import Axios from "axios"
+import { Product } from '../../..';
 
 function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
@@ -20,7 +20,7 @@ function Header() {
   const {cartProducts} = useLocalStorage()
 
   /////////////////////////////////////////////////
-  const [data, setData] = useState("");
+  const [data, setData] = useState<Product[]>([]);
   
   const getData = async () => {
     const response = await Axios.get("http://localhost:5000/getData");
@@ -53,7 +53,7 @@ function Header() {
     setIsUserLoggedIn(false);
   }
 
-  const individualCategories = Array.from(new Set(products.flatMap(product => product.category)));
+  const individualCategories = Array.from(new Set(data.flatMap(product => product.category)));
   //Função FlatMap pega todos os valores de um array e apenas retorna os valores diferentes, sem repetição de valores iguais.
   
   return (
@@ -91,7 +91,7 @@ function Header() {
                 </div>
               }
 
-              <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>{data}</Link></div>
+              <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
 

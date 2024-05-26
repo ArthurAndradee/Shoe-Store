@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { ContextProvider } from './Context/context';
+import axios from 'axios';
 
-import { products } from './Database/products';
 import { destinations } from './Database/destinations';
 
 import './index.css';
@@ -23,107 +23,146 @@ import Cart from './Pages/Cart/cart';
 import Checkout from './Pages/Checkout/checkout';
 import OrderCompletion from './Components/Checkout/OrderCompletion/order.completion';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const productRoutes = products.map(product => ({
-  path: `/products/${product.productUrl}`,
-  element: <ProductPage
-            id={product.id} 
-            name={product.name} 
-            imgLink={product.imgLink} 
-            imgAlt={product.imgAlt}
-            type={product.type} 
-            price={product.price} 
-            discountedPrice={product.discountedPrice}
-            catchPhrase={product.catchPhrase}
-            productUrl={product.productUrl} 
-            productSize={product.productSize}
-            variations={product.variations}
-            quantity={product.quantity}
-            availableQuantity={product.availableQuantity}
-          />, 
-})); 
+export interface Product {
+  id: string;
+  name: string;
+  imgLink: string;
+  imgAlt: string;
+  type: string;
+  price: number;
+  discountedPrice: number;
+  catchPhrase: string;
+  productUrl: string;
+  productSize: string;
+  variations: any;
+  quantity: number;
+  availableQuantity: number;
+  category: string[];
+}
 
-const shippingDestinations = destinations.map(destination => ({
-  path: `/checkout`,
-  element: <Checkout
-            id={destination.id}
-            name={destination.name}
-            surName={destination.surName} 
-            phoneNumber={destination.phoneNumber} 
-            cpf={destination.cpf} 
-            cep={destination.cep} 
-            address={destination.address} 
-            addressNumber={destination.addressNumber}
-            complement={destination.complement} 
-            neighbourhood={destination.neighbourhood} 
-            city={destination.city} 
-            uf={destination.uf}
-          />, 
-})); 
+const App = () => {
+  const [data, setData] = useState<Product[]>([]);
 
-const categoryRoutes = products.flatMap(product => {
-    return product.category.map((category, index) => ({
-      path: `/categories/${index === 0 ? category : ''}`, // Apenas primeiros index do array de categorias irão gerar um link
-      element: <CategoryPage category={product.category} />,
-    }));
-});
+  const getData = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/getData');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  };
 
-const router = createBrowserRouter([{
-  path: '/',
-  element: <LanguagePage />,
-  errorElement: <ErrorPage />
-},
-{
-  path: '/home',
-  element: <HomePage />,
-  errorElement: <ErrorPage />
-},
-{
-  path: '/categories/promocoes',
-  element: <CategoryPage category={['Promoções','Feminino', 'Unisex', 'Masculino', 'Edição Limitada']}/>, 
-  errorElement: <ErrorPage />
-},
-{
-  path: '/search',
-  element: <SearchResult/>,
-  errorElement: <ErrorPage />
-},
-{
-  path:'/wishlist',
-  element: <Wishlist />,
-  errorElement: <ErrorPage />
-},
-{
-  path: '/cart',
-  element: <Cart/>, 
-  errorElement: <ErrorPage />
-},
-{
-  path: '/orderCompletion',
-  element: <OrderCompletion/>, 
-  errorElement: <ErrorPage />
-},
-//-------------------------DYNAMIC LINKS-------------------------
-...productRoutes,
-...shippingDestinations,
-...categoryRoutes
-])
+  useEffect(() => {
+    getData();
+  }, []);
 
-root.render(
-  <React.StrictMode>
-    <GoogleOAuthProvider clientId="225610013643-h4vjojhkbfol6ht7rnlprjbdmjpfp1tp.apps.googleusercontent.com">
-      <Toaster toastOptions={{duration: 3000,style:{background: '#FFFFFF',color: '#000000'},success: {iconTheme: {primary: '#000000',secondary: '#FFFFFF'}}}}/>
-      <ContextProvider>
+  const productRoutes = data.map((product) => ({
+    path: `/products/${product.productUrl}`,
+    element: (
+      <ProductPage
+        id={product.id}
+        name={product.name}
+        imgLink={product.imgLink}
+        imgAlt={product.imgAlt}
+        type={product.type}
+        price={product.price}
+        discountedPrice={product.discountedPrice}
+        catchPhrase={product.catchPhrase}
+        productUrl={product.productUrl}
+        productSize={product.productSize}
+        variations={product.variations}
+        quantity={product.quantity}
+        availableQuantity={product.availableQuantity} 
+        category={product.category}      
+      />
+    ),
+  }));
+
+  const shippingDestinations = destinations.map((destination) => ({
+    path: `/checkout`,
+    element: (
+      <Checkout
+        destinationId={destination.id}
+        name={destination.name}
+        surName={destination.surName}
+        phoneNumber={destination.phoneNumber}
+        cpf={destination.cpf}
+        cep={destination.cep}
+        address={destination.address}
+        addressNumber={destination.addressNumber}
+        complement={destination.complement}
+        neighbourhood={destination.neighbourhood}
+        city={destination.city}
+        uf={destination.uf}
+      />
+    ),
+  }));
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <LanguagePage />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/home',
+      element: <HomePage />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/categories/:category',
+      element: <CategoryPage products={data} />, // passing all products
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/categories/promocoes',
+      element: <CategoryPage products={data} />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/search',
+      element: <SearchResult />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/wishlist',
+      element: <Wishlist />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/cart',
+      element: <Cart />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/orderCompletion',
+      element: <OrderCompletion />,
+      errorElement: <ErrorPage />,
+    },
+    ...productRoutes,
+    ...shippingDestinations,
+  ]);
+
+  return (
+    <React.StrictMode>
+      <GoogleOAuthProvider clientId="225610013643-h4vjojhkbfol6ht7rnlprjbdmjpfp1tp.apps.googleusercontent.com">
+        <Toaster
+          toastOptions={{
+            duration: 3000,
+            style: { background: '#FFFFFF', color: '#000000' },
+            success: { iconTheme: { primary: '#000000', secondary: '#FFFFFF' } },
+          }}
+        />
+        <ContextProvider>
           <RouterProvider router={router} />
-      </ContextProvider>
-    </GoogleOAuthProvider>
-  </React.StrictMode>
-);
+        </ContextProvider>
+      </GoogleOAuthProvider>
+    </React.StrictMode>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+root.render(<App />);
+
 reportWebVitals();

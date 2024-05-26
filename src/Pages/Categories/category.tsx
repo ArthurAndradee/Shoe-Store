@@ -1,52 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import TopNav from '../../Components/TopNavComponent/top.nav';
-import { products } from '../../Database/products';
 import './category.css';
+import { Product } from '../..';
 
-interface Props {
-    category: Array<string>
-}
+type CategoryPageProps = {
+    products: Product[];
+};
 
-function CategoryPage(props: Props) {
+function CategoryPage({ products }: CategoryPageProps) {
     const [sortBy, setSortBy] = useState("low-high");
-    const [productsDisplayed, setProductsDisplayed] = useState<any[]>([]);
+    const [productsDisplayed, setProductsDisplayed] = useState<Product[]>([]);
     const location = useLocation();
+    const { category } = useParams<{ category: string }>();
 
     useEffect(() => {
-        const filteredProducts = products.filter(product =>
-            props.category.some(category =>
-                product.category.some(subCategory => subCategory.startsWith(category))
-            )
-        );
+        let filteredProducts: Product[] = [];
 
         if (location.pathname === '/categories/promocoes') {
-            const discountedFilteredProducts = filteredProducts.filter(product => product.discountedPrice > 0);
-            setProductsDisplayed(discountedFilteredProducts);
-        } else {
-            setProductsDisplayed(filteredProducts);
+            filteredProducts = products.filter(product => product.discountedPrice > 0);
+        } else if (category) {
+            if (category === "Todos") {
+                filteredProducts = products
+            } else {
+                filteredProducts = products.filter(product => product.category.includes(category));
+            }
         }
-    }, [location.pathname, props.category]);
 
-    function sortProducts(products: any[], sortBy: string) {
+        setProductsDisplayed(filteredProducts);
+    }, [location.pathname, products, category]);
+
+    function sortProducts(products: Product[], sortBy: string) {
         switch (sortBy) {
             case "low-high":
-                return products.slice().sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);
+                return products.slice().sort((a, b) => a.price - b.price);
             case "high-low":
-                return products.slice().sort((a: { price: number; }, b: { price: number; }) => b.price - a.price);
+                return products.slice().sort((a, b) => b.price - a.price);
             case "a-z":
-                return products.slice().sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name));
+                return products.slice().sort((a, b) => a.name.localeCompare(b.name));
             case "z-a":
-                return products.slice().sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
+                return products.slice().sort((a, b) => b.name.localeCompare(a.name));
             default:
                 return products;
         }
     }
 
-    const handleSortChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
     };
 
@@ -55,9 +57,9 @@ function CategoryPage(props: Props) {
     return (
         <div>
             <HomeHeader />
-            <TopNav name={props.category[0]} />
+            <TopNav name={category || 'Promoções'} />
             <div className="category-products-row-container" id='grid-container'>
-                <h1 className="category-products-row-title">{props.category[0]}</h1>
+                <h1 className="category-products-row-title">{category || 'Promoções'}</h1>
                 <nav>Ordenar: </nav>
                 <select className='form-select' id='sort' onChange={handleSortChange} value={sortBy}>
                     <option value="low-high">Menor Preço</option>
@@ -68,6 +70,7 @@ function CategoryPage(props: Props) {
                 <div className="category-products">
                     {sortedProducts.map((product) => (
                         <ProductCard
+                            key={product.productUrl} // Ensure to add a unique key prop
                             imgAlt={product.imgAlt}
                             imgLink={product.imgLink}
                             name={product.name}
@@ -80,7 +83,6 @@ function CategoryPage(props: Props) {
                     ))}
                 </div>
             </div>
-
             <Footer />
         </div>
     );

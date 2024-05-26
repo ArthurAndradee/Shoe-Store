@@ -4,7 +4,7 @@ import { useLocalStorage } from '../../../Context/context';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './product.card.css'
-import { ProductInfo } from "../../ProductPage/ProductMenu/product.menu";
+import { Product } from "../../..";
 
 interface ProductCardProps {
     imgAlt: string,
@@ -14,7 +14,7 @@ interface ProductCardProps {
     discountedPrice: number,
     variations: string,
     productUrl: string,
-    product: ProductInfo
+    product: Product
 }
 
 function ProductCard(props: ProductCardProps) {

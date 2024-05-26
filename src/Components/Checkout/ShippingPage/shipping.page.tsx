@@ -7,9 +7,9 @@ import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface DestinationInfo {
-    id: string
-    name: string
-    surName: string
+    destinationId: string
+    destinationName: string
+    destinationSurname: string
     phoneNumber: string
     cpf: string
     cep: string
@@ -74,9 +74,9 @@ function ShippingPage(props: ShippingProps) {
     
     //ADDRESS OBJECT SET METHOD
     const [destination, setDestination] = useState<DestinationInfo>({
-        id: props.id,
-        name: props.name,
-        surName: props.surName,
+        destinationId: props.destinationId,
+        destinationName: props.destinationName,
+        destinationSurname: props.destinationSurname,
         phoneNumber: props.phoneNumber,
         cpf: props.cpf,
         cep: props.cep,
@@ -163,9 +163,9 @@ function ShippingPage(props: ShippingProps) {
                     
                     //SET VALUES FOR ADDRESS OBJECT
                     setDestination({
-                            id: v4(),
-                            name: name,
-                            surName: surName,
+                            destinationId: v4(),
+                            destinationName: name,
+                            destinationSurname: surName,
                             phoneNumber: phoneNumber,
                             cpf: CPF,
                             cep: data.cep,
@@ -206,8 +206,8 @@ function ShippingPage(props: ShippingProps) {
                                 <FontAwesomeIcon className='select-destination' icon={faSquareCheck}/>
                             )}
                             <div className='d-flex'>
-                                <div style={{marginRight:"2%"}}>{destination.name}</div>
-                                <div>{destination.surName}</div>
+                                <div style={{marginRight:"2%"}}>{destination.destinationName}</div>
+                                <div>{destination.destinationName}</div>
                             </div>
                             <div className='mb-2'>{destination.phoneNumber}</div>
                             <div className='mb-2'>{destination.cpf}</div>
