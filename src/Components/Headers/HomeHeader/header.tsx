@@ -11,11 +11,26 @@ import { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { products } from '../../../Database/products';
 
+import Axios from "axios"
+
 function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const [isUserInMobile, setIsUserInMobile] = useState(false)
-  const [showHeaderMenu, setShowHeaderMenu] = useState(false)
+  const [showHeaderMobileMenu, setShowHeaderMobileMenu] = useState(false)
   const {cartProducts} = useLocalStorage()
+
+  /////////////////////////////////////////////////
+  const [data, setData] = useState("");
+  
+  const getData = async () => {
+    const response = await Axios.get("http://localhost:5000/getData");
+    setData(response.data);
+  };
+  
+  useEffect(() => {
+    getData()
+  },[])
+  /////////////////////////////////////////////////
 
   useEffect(() => {
     setIsUserLoggedIn(!!localStorage.getItem('authToken'));
@@ -53,28 +68,30 @@ function Header() {
 
       <nav>
           <div className='logoBox'> 
-              {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 0px'}} onClick={() => setShowHeaderMenu(!showHeaderMenu)}/>}
-              {showHeaderMenu && 
-              <div className='mobile-dropdown'>
-                {individualCategories.map((category) => (
-                  <a href={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></a>
-                ))}
-                <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
-                <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
-                  {isUserLoggedIn ? (
-                    <div onClick={() => logout()}>Sair</div>
-                  ) : (
-                    <div onClick={() => login()}>Entrar</div>
-                  )}
-                  <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
-                  <div style={{display:'flex'}}>
-                    <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
-                    {cartProducts?.length ? (<><div className='items-count'>{cartProducts?.length}</div></>):(<></>)}
+
+              {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 0px'}} onClick={() => setShowHeaderMobileMenu(!showHeaderMobileMenu)}/>}
+              {showHeaderMobileMenu && 
+                <div className='mobile-dropdown'>
+                  {individualCategories.map((category) => (
+                    <a href={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></a>
+                  ))}
+                  <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
+                  <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
+                    {isUserLoggedIn ? (
+                      <div onClick={() => logout()}>Sair</div>
+                    ) : (
+                      <div onClick={() => login()}>Entrar</div>
+                    )}
+                    <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
+                    <div style={{display:'flex'}}>
+                      <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
+                      {cartProducts?.length ? (<><div className='items-count'>{cartProducts?.length}</div></>):(<></>)}
+                    </div>
                   </div>
                 </div>
-              </div>
               }
-              <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
+
+              <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>{data}</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
 
