@@ -26,20 +26,20 @@ import OrderCompletion from './Components/Checkout/OrderCompletion/order.complet
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 export interface Product {
-  id: string;
-  name: string;
-  imgLink: string;
-  imgAlt: string;
-  type: string;
-  price: number;
-  discountedPrice: number;
+  availableQuantity: number;
   catchPhrase: string;
+  category: any;
+  discountedPrice: number;
+  id: string;
+  imgAlt: string;
+  imgLink: string;
+  price: number;
   productUrl: string;
   productSize: string;
-  variations: any;
+  name: string;
   quantity: number;
-  availableQuantity: number;
-  category: string[];
+  type: string;
+  variations: any;
 }
 
 const App = () => {
@@ -47,9 +47,10 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getData');
+      const response = await axios.get('http://localhost:5000/getProducts');
       setData(response.data);
     } catch (error) {
+      console.log("Connection unsuccessful")
       console.error('Error fetching data', error);
     }
   };
@@ -113,12 +114,7 @@ const App = () => {
     },
     {
       path: '/categories/:category',
-      element: <CategoryPage products={data} />, // passing all products
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: '/categories/promocoes',
-      element: <CategoryPage products={data} />,
+      element: <CategoryPage />,
       errorElement: <ErrorPage />,
     },
     {

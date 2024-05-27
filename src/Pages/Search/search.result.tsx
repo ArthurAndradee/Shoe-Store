@@ -15,7 +15,7 @@ function SearchResult() {
     const [data, setData] = useState<Product[]>([]);
   
     const getData = async () => {
-      const response = await Axios.get("http://localhost:5000/getData");
+      const response = await Axios.get("http://localhost:5000/getProducts");
       setData(response.data);
     };
     

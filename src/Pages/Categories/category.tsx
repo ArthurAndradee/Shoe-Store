@@ -6,32 +6,40 @@ import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import './category.css';
 import { Product } from '../..';
+import Axios from 'axios';
 
-type CategoryPageProps = {
-    products: Product[];
-};
-
-function CategoryPage({ products }: CategoryPageProps) {
+function CategoryPage() {
     const [sortBy, setSortBy] = useState("low-high");
     const [productsDisplayed, setProductsDisplayed] = useState<Product[]>([]);
     const location = useLocation();
     const { category } = useParams<{ category: string }>();
 
+    const [data, setData] = useState<any[]>([]);
+  
+    const getData = async () => {
+      const response = await Axios.get("http://localhost:5000/getProducts");
+      setData(response.data);
+    };
+
+    useEffect(() => {
+      getData()
+    },[])
+
     useEffect(() => {
         let filteredProducts: Product[] = [];
 
         if (location.pathname === '/categories/promocoes') {
-            filteredProducts = products.filter(product => product.discountedPrice > 0);
+            filteredProducts = data.filter(product => product.discountedPrice > 0);
         } else if (category) {
             if (category === "Todos") {
-                filteredProducts = products
+                filteredProducts = data
             } else {
-                filteredProducts = products.filter(product => product.category.includes(category));
+                filteredProducts = data.filter(data => data.category.includes(category));
             }
         }
 
         setProductsDisplayed(filteredProducts);
-    }, [location.pathname, products, category]);
+    }, [location.pathname, category, data]);
 
     function sortProducts(products: Product[], sortBy: string) {
         switch (sortBy) {

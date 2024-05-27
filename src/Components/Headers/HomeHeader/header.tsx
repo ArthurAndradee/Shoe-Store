@@ -19,18 +19,16 @@ function Header() {
   const [showHeaderMobileMenu, setShowHeaderMobileMenu] = useState(false)
   const {cartProducts} = useLocalStorage()
 
-  /////////////////////////////////////////////////
   const [data, setData] = useState<Product[]>([]);
   
   const getData = async () => {
-    const response = await Axios.get("http://localhost:5000/getData");
+    const response = await Axios.get("http://localhost:5000/getProducts");
     setData(response.data);
   };
   
   useEffect(() => {
     getData()
   },[])
-  /////////////////////////////////////////////////
 
   useEffect(() => {
     setIsUserLoggedIn(!!localStorage.getItem('authToken'));
@@ -54,7 +52,6 @@ function Header() {
   }
 
   const individualCategories = Array.from(new Set(data.flatMap(product => product.category)));
-  //Função FlatMap pega todos os valores de um array e apenas retorna os valores diferentes, sem repetição de valores iguais.
   
   return (
     <header className='app'>
