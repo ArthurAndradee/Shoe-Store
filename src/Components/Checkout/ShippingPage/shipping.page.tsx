@@ -31,6 +31,15 @@ function ShippingPage(props: ShippingProps) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectWarning, setSelectWarning] = useState(false)
 
+    const [destinationCheckbox, setDestinationCheckbox] = useState(() => {
+        const savedCount = localStorage.getItem('destinationCheckbox');
+        return savedCount !== null ? parseInt(savedCount) : -1;
+      });
+
+    useEffect(() => {
+      localStorage.setItem('destinationCheckbox', destinationCheckbox.toString());
+    }, [destinationCheckbox]);
+
     const [selectedDestination, setSelectedDestination] = useState<DestinationInfo | null>(
         destinations && destinations.length ? destinations[0] : null
     );
@@ -39,8 +48,8 @@ function ShippingPage(props: ShippingProps) {
         setSelectedDestination(selectedDestination);
         localStorage.setItem('selectedShippingAddress', JSON.stringify(selectedDestination));
         console.log(JSON.stringify(selectedDestination));
-        setSelectDestination(index)
-        localStorage.setItem('selectedShippingAddressCheckbox', JSON.stringify(index));
+        setDestinationCheckbox(index)
+        localStorage.setItem('destinationCheckbox', JSON.stringify(index));
     };
 
     const handleDeleteSelectedDestination = (destination: DestinationInfo) => {
@@ -49,22 +58,13 @@ function ShippingPage(props: ShippingProps) {
             setSelectedDestination(destinations && destinations.length > 1 ? destinations[0] : null);
         }
     };
-
-    const [selectDestination, setSelectDestination] = useState(() => {
-        const savedCount = localStorage.getItem('selectedShippingAddressCheckbox');
-        return savedCount !== null ? parseInt(savedCount) : -1;
-      });
     
-    useEffect(() => {
-      localStorage.setItem('selectedShippingAddressCheckbox', selectDestination.toString());
-    }, [selectDestination]);
-    
-    const handleCreateAddressModal = () => {
+    const toggleCreateAccessModal = () => {
         setModalIsOpen(!modalIsOpen);
     };
 
     const advanceToNextPage = () => {
-        if(selectDestination > -1) {
+        if(destinationCheckbox > -1) {
             props.handleStateChange()
         } else {
             setSelectWarning(true)
@@ -125,6 +125,7 @@ function ShippingPage(props: ShippingProps) {
         
         setCEP(formattedValue);
     };
+
     //CEP API
     const [address, setAddress] = useState('')
     const [neighbourhood, setNeighbourhood] = useState('')
@@ -154,12 +155,11 @@ function ShippingPage(props: ShippingProps) {
                 setCity(data.localidade)
                 setUf(data.uf)
                 })
-                
                 .catch((err) => console.log(err));
             }
         }
+        
     //ADDRESS NUMBER 
-
     const [addressNumber, setAdressNumber] = useState('')
     const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (/^\d*$/.test(event.target.value)) {
@@ -172,8 +172,6 @@ function ShippingPage(props: ShippingProps) {
     const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
         setComplement(event.target.value);
     };
-    
-    //---------------------------------------------------------------
         
     const onSubmit = () => {
         const newDestination: DestinationInfo = {
@@ -213,7 +211,7 @@ function ShippingPage(props: ShippingProps) {
             <div className='destination-card-container'>
                 {destinations && destinations.map((destination, index) => (
                     <div className={`destination-card ${selectedDestination === destination ? 'selected' : ''}`} onClick={() => {handleDestinationClick(destination, index)}}>
-                        {selectDestination === index && (
+                        {destinationCheckbox === index && (
                             <FontAwesomeIcon className='select-destination' icon={faSquareCheck}/>
                         )}
                         <div className='d-flex'>
@@ -233,7 +231,7 @@ function ShippingPage(props: ShippingProps) {
                     </div>
                 ))}
             </div>
-            <div className='add-address-button' onClick={handleCreateAddressModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
+            <div className='add-address-button' onClick={toggleCreateAccessModal}>Adicionar endereço {modalIsOpen? ( <>-</>) : (<>+</>)}</div>
             {modalIsOpen && (
                 <form className='form-group' onSubmit={handleSubmit(onSubmit)}>
                     <div className='form-container'>
@@ -268,7 +266,7 @@ function ShippingPage(props: ShippingProps) {
                     </div>
                     <div className='d-flex flex-row'>
                         <button className='handle-form-button' type='submit'>Enviar aqui</button>
-                        <div className='handle-form-button mx-3' onClick={handleCreateAddressModal}>Cancelar</div>
+                        <div className='handle-form-button mx-3' onClick={toggleCreateAccessModal}>Cancelar</div>
                     </div>
                 </form>
             )}
