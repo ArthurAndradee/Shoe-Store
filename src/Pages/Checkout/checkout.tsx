@@ -6,6 +6,7 @@ import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/shipping.page';
 import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router';
 
 interface DestinationInfo {
     destinationId: string
@@ -24,6 +25,15 @@ interface DestinationInfo {
 
 function Checkout(props: DestinationInfo) {
     const [isShippingSelected, setIsShippingSelected] = useState(true)
+    const navigate = useNavigate();
+
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    const isCartEmpty = cart.length === 0;
+  
+    if (isCartEmpty) {
+        navigate('/home');
+    }
 
     const handleShippingClick = () => {
         setIsShippingSelected(true);
