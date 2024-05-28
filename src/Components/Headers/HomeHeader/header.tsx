@@ -9,9 +9,8 @@ import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-
-import Axios from "axios"
 import { Product } from '../../..';
+import Axios from "axios"
 
 function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)

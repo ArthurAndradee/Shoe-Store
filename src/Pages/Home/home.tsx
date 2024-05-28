@@ -3,8 +3,9 @@ import ProductsRow from "../../Components/ProductsRow/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
 import HomeHeader from "../../Components/Headers/HomeHeader/header";
 import { Link } from "react-router-dom";
+import { ProductProps } from "../..";
 
-function HomePage() {
+function HomePage({ products }: ProductProps) {
     return (
         <div className="body">
 
@@ -44,7 +45,7 @@ function HomePage() {
 
                 </div>
 
-                <ProductsRow />
+                <ProductsRow products={products} />
 
                 <div className='large-adBox'>
 

@@ -42,24 +42,27 @@ export interface Product {
   variations: any;
 }
 
-const App = () => {
-  const [data, setData] = useState<Product[]>([]);
+export interface ProductProps {
+  products: Product[];
+}
 
-  const getData = async () => {
+const App = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  const getProducts = async () => {
     try {
       const response = await axios.get('http://localhost:5000/getProducts');
-      setData(response.data);
+      setProducts(response.data);
     } catch (error) {
-      console.log("Connection unsuccessful")
-      console.error('Error fetching data', error);
+      console.error('Error fetching products', error);
     }
   };
 
   useEffect(() => {
-    getData();
+    getProducts();
   }, []);
 
-  const productRoutes = data.map((product) => ({
+  const productRoutes = products.map((product) => ({
     path: `/products/${product.productUrl}`,
     element: (
       <ProductPage
@@ -109,17 +112,17 @@ const App = () => {
     },
     {
       path: '/home',
-      element: <HomePage />,
+      element: <HomePage products={products} />,
       errorElement: <ErrorPage />,
     },
     {
       path: '/categories/:category',
-      element: <CategoryPage />,
+      element: <CategoryPage products={products} />,
       errorElement: <ErrorPage />,
     },
     {
       path: '/search',
-      element: <SearchResult />,
+      element: <SearchResult products={products} />,
       errorElement: <ErrorPage />,
     },
     {

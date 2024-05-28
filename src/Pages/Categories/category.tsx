@@ -5,41 +5,29 @@ import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import TopNav from '../../Components/TopNavComponent/top.nav';
 import './category.css';
-import { Product } from '../..';
-import Axios from 'axios';
+import { ProductProps, Product } from '../..';
 
-function CategoryPage() {
+function CategoryPage({ products }: ProductProps) {
     const [sortBy, setSortBy] = useState("low-high");
     const [productsDisplayed, setProductsDisplayed] = useState<Product[]>([]);
     const location = useLocation();
     const { category } = useParams<{ category: string }>();
 
-    const [data, setData] = useState<any[]>([]);
-  
-    const getData = async () => {
-      const response = await Axios.get("http://localhost:5000/getProducts");
-      setData(response.data);
-    };
-
-    useEffect(() => {
-      getData()
-    },[])
-
     useEffect(() => {
         let filteredProducts: Product[] = [];
 
         if (location.pathname === '/categories/promocoes') {
-            filteredProducts = data.filter(product => product.discountedPrice > 0);
+            filteredProducts = products.filter((product: { discountedPrice: number; }) => product.discountedPrice > 0);
         } else if (category) {
             if (category === "Todos") {
-                filteredProducts = data
+                filteredProducts = products;
             } else {
-                filteredProducts = data.filter(data => data.category.includes(category));
+                filteredProducts = products.filter((product: { category: string | string[]; }) => product.category.includes(category));
             }
         }
 
         setProductsDisplayed(filteredProducts);
-    }, [location.pathname, category, data]);
+    }, [location.pathname, category, products]);
 
     function sortProducts(products: Product[], sortBy: string) {
         switch (sortBy) {
@@ -78,7 +66,6 @@ function CategoryPage() {
                 <div className="category-products">
                     {sortedProducts.map((product) => (
                         <ProductCard
-                            key={product.productUrl} // Ensure to add a unique key prop
                             imgAlt={product.imgAlt}
                             imgLink={product.imgLink}
                             name={product.name}

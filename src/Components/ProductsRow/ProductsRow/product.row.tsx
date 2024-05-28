@@ -3,22 +3,10 @@ import Slider from 'react-slick';
 import ProductCard from '../ProductCard/product.card';
 import './product.row.css';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import { Product } from '../../..';
+import { ProductProps } from '../../..';
 
-function ProductsRow() {
+function ProductsRow({ products }: ProductProps) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    const [data, setData] = useState<Product[]>([]);
-  
-    const getData = async () => {
-      const response = await Axios.get("http://localhost:5000/getProducts");
-      setData(response.data);
-    };
-    
-    useEffect(() => {
-      getData()
-    },[])
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
@@ -28,7 +16,7 @@ function ProductsRow() {
 
     const slidesToShow = windowWidth < 600 ? 2 : windowWidth < 820 ? 3 : windowWidth < 950 ? 4 : 5;
 
-    const unisexProducts = data.filter(product => product.category.includes('Todos'));
+    const unisexProducts = products.filter(product => product.category.includes('Todos'));
 
     return (
         <div className="products-row-container">

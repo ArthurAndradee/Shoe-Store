@@ -4,24 +4,12 @@ import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
 import './search.result.css'
 import { useLocalStorage } from '../../Context/context';
 import Header from '../../Components/Headers/HomeHeader/header';
-import Axios from 'axios';
-import { Product } from '../..';
+import { ProductProps } from '../..';
 
-function SearchResult() {
+function SearchResult({ products }: ProductProps) {
     const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)
     const [searchTerm, setSearchTerm] = useState('');
     const {cartProducts} = useLocalStorage()
-
-    const [data, setData] = useState<Product[]>([]);
-  
-    const getData = async () => {
-      const response = await Axios.get("http://localhost:5000/getProducts");
-      setData(response.data);
-    };
-    
-    useEffect(() => {
-      getData()
-    },[])
   
     const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(e.target.value);
@@ -36,7 +24,7 @@ function SearchResult() {
   
     }, [showCartItemsQuantity, cartProducts]);
     
-    const filteredProducts = data.filter(product =>
+    const filteredProducts = products.filter(product =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
