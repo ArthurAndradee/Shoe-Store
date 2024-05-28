@@ -106,12 +106,18 @@ function CardPage() {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!isNaN(Number(event.key))) {
-      event.preventDefault();
+    const charCode = event.key;
+    console.log(cardOwner)
+
+    if (/^[a-zA-Z\sáéíóúâêîôûàèìòùãẽĩõũäëïöüÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃẼĨÕŨÄËÏÖÜçÇ]$/.test(charCode) || charCode === "Backspace") {
+      if (charCode !== "Backspace") {
+        setCardOwner(prevValue => prevValue + charCode);
+      } else if (cardOwner.length > 0) {
+        setCardOwner(prevValue => prevValue.slice(0, -1));
+      }
     } else {
-      setCardOwner(event.currentTarget.value + event.key);
-    }
-  };
+      event.preventDefault();
+    }};
 
   return (
     <div className='card-form-container'>
