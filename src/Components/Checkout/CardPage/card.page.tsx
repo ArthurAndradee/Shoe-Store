@@ -9,6 +9,7 @@ function CardPage() {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [safetyCode, setSafetyCode] = useState('');
+  const [cardOwner, setCardOwner] = useState('');
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [warning, setWarning] = useState(false);
   const navigate = useNavigate();
@@ -17,15 +18,26 @@ function CardPage() {
     setIsFormFilled(
       cardNumber.length === 19 &&
       expiryDate.length === 5 &&
-      safetyCode.length === 3
+      safetyCode.length === 3 &&
+      cardOwner.trim().length > 0
     );
-  }, [cardNumber, expiryDate, safetyCode]);
+  }, [cardNumber, cardOwner, expiryDate, safetyCode]);
 
   const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     
     if(isFormFilled) {
       localStorage.removeItem('cart')
+
+      const formData = {
+        cardNumber: cardNumber,
+        expiryDate: expiryDate,
+        safetyCode: safetyCode,
+        cardOwner: cardOwner
+      };
+
+      localStorage.setItem("cardData", JSON.stringify(formData))
+      console.log(localStorage.getItem("cardData"));
       
       navigate('/orderCompletion');
       window.location.reload();
@@ -64,6 +76,8 @@ function CardPage() {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (!isNaN(Number(event.key))) {
       event.preventDefault();
+    } else {
+      setCardOwner(event.currentTarget.value + event.key);
     }
   };
 
