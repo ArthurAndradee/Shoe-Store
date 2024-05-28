@@ -93,7 +93,7 @@ function Header() {
 
           <div className='navTitleBox'>
             {individualCategories.map((category) => (
-              <div className='navTitle'><a href={`/categories/${category}`} className='navLink'>{category}</a></div>
+              <a href={`/categories/${category}`} className='navLink'><div className='navTitle'>{category}</div></a>
             ))}
             <div className='navTitle'><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
           </div>
