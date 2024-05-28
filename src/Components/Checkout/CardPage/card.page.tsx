@@ -27,20 +27,25 @@ function CardPage() {
     event.preventDefault()
     
     if(isFormFilled) {
-      localStorage.removeItem('cart')
-
-      const formData = {
+      const cardData = {
         cardNumber: cardNumber,
         expiryDate: expiryDate,
         safetyCode: safetyCode,
         cardOwner: cardOwner
       };
-
-      localStorage.setItem("cardData", JSON.stringify(formData))
-      console.log(localStorage.getItem("cardData"));
+      
+      localStorage.setItem("cardData", JSON.stringify(cardData))
+      
+      const order = {
+        card: JSON.parse(localStorage.getItem('cardData') || '{}'),
+        products: JSON.parse(localStorage.getItem('cart') || '{}'),
+        shippingAdress: JSON.parse(localStorage.getItem('selectedShippingAddress') || '{}')
+      };
+      
+      console.log(order)
       
       navigate('/orderCompletion');
-      window.location.reload();
+      // localStorage.removeItem('cart')
     } else {
       setWarning(true)
     }
