@@ -47,7 +47,6 @@ function ShippingPage(props: ShippingProps) {
     const handleDestinationClick = (selectedDestination: DestinationInfo, index: number) => {
         setSelectedDestination(selectedDestination);
         localStorage.setItem('selectedShippingAddress', JSON.stringify(selectedDestination));
-        console.log(JSON.stringify(selectedDestination));
         setDestinationCheckbox(index)
         localStorage.setItem('destinationCheckbox', JSON.stringify(index));
     };
