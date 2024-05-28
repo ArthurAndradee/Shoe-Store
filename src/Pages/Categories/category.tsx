@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
@@ -10,13 +10,13 @@ import { ProductProps, Product } from '../..';
 function CategoryPage({ products }: ProductProps) {
     const [sortBy, setSortBy] = useState("low-high");
     const [productsDisplayed, setProductsDisplayed] = useState<Product[]>([]);
-    const location = useLocation();
     const { category } = useParams<{ category: string }>();
+    const [ displayedCategory, setDisplayedCategory ] = useState('Promoções')
 
     useEffect(() => {
         let filteredProducts: Product[] = [];
 
-        if (location.pathname === '/categories/promocoes') {
+        if (category === 'promocoes') {
             filteredProducts = products.filter((product: { discountedPrice: number; }) => product.discountedPrice > 0);
         } else if (category) {
             if (category === "Todos") {
@@ -24,10 +24,11 @@ function CategoryPage({ products }: ProductProps) {
             } else {
                 filteredProducts = products.filter((product: { category: string | string[]; }) => product.category.includes(category));
             }
+            setDisplayedCategory(category)
         }
 
         setProductsDisplayed(filteredProducts);
-    }, [location.pathname, category, products]);
+    }, [category, products]);
 
     function sortProducts(products: Product[], sortBy: string) {
         switch (sortBy) {
@@ -53,9 +54,9 @@ function CategoryPage({ products }: ProductProps) {
     return (
         <div>
             <HomeHeader />
-            <TopNav name={category || 'Promoções'} />
+            <TopNav name={displayedCategory || 'Promoções'} />
             <div className="category-products-row-container" id='grid-container'>
-                <h1 className="category-products-row-title">{category || 'Promoções'}</h1>
+                <h1 className="category-products-row-title">{displayedCategory || 'Promoções'}</h1>
                 <nav>Ordenar: </nav>
                 <select className='form-select' id='sort' onChange={handleSortChange} value={sortBy}>
                     <option value="low-high">Menor Preço</option>
