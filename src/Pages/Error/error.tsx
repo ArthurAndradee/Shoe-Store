@@ -6,7 +6,7 @@ function ErrorPage() {
         <div className='error-page'>            
             <h1 className='error-title'>?</h1>
             <h2 className='error-subtitle'>There was an error</h2>
-            <Link className='link' to="/">Go back</Link>
+            <Link className='link' to="/home">Go back</Link>
         </div>
     )
 }
