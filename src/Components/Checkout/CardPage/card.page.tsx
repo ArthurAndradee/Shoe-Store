@@ -4,6 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router';
 import './card.page.css';
 
+export interface Order {
+  payment: Record<string, any>;
+  products: Record<string, any>;
+  shippingAdress: Record<string, any>;
+}
+
 function CardPage() {
   const [isCardSelected, setIsCardSelected] = useState(false);
   const [cardNumber, setCardNumber] = useState('');
@@ -22,6 +28,30 @@ function CardPage() {
       cardOwner.trim().length > 0
     );
   }, [cardNumber, cardOwner, expiryDate, safetyCode]);
+  
+  const sendOrderToBackend = async (order: Order) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const responseData = await response.json();
+      console.log('Order successfully submitted:', responseData);
+      
+      localStorage.removeItem('cart')
+      navigate('/orderCompletion');
+    } catch (error) {
+      console.error('Error submitting order:', error);
+    }
+  };
 
   const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
@@ -36,16 +66,13 @@ function CardPage() {
       
       localStorage.setItem("cardData", JSON.stringify(cardData))
       
-      const order = {
-        card: JSON.parse(localStorage.getItem('cardData') || '{}'),
+      const order: Order = {
+        payment: JSON.parse(localStorage.getItem('cardData') || '{}'),
         products: JSON.parse(localStorage.getItem('cart') || '{}'),
         shippingAdress: JSON.parse(localStorage.getItem('selectedShippingAddress') || '{}')
       };
-      
-      console.log(order)
-      
-      navigate('/orderCompletion');
-      // localStorage.removeItem('cart')
+
+      sendOrderToBackend(order)
     } else {
       setWarning(true)
     }
