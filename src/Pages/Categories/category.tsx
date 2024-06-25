@@ -10,9 +10,9 @@ import { ProductProps, Product } from '../..';
 function CategoryPage({ products }: ProductProps) {
     const [sortBy, setSortBy] = useState("low-high");
     const [productsDisplayed, setProductsDisplayed] = useState<Product[]>([]);
-    const { category } = useParams<{ category: string }>();
-    const [ displayedCategory, setDisplayedCategory ] = useState('Promoções')
-
+    const [displayedCategory, setDisplayedCategory ] = useState('Promoções')
+    const {category} = useParams<{ category: string }>();
+    
     useEffect(() => {
         let filteredProducts: Product[] = [];
 
