@@ -22,6 +22,7 @@ import Wishlist from './Pages/Wishlist/wishlist';
 import Cart from './Pages/Cart/cart';
 import Checkout from './Pages/Checkout/checkout';
 import OrderCompletion from './Components/Checkout/OrderCompletion/order.completion';
+import Summary from './Components/Checkout/Summary/summary';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -134,6 +135,11 @@ const App = () => {
       path: '/cart',
       element: <Cart />,
       errorElement: <ErrorPage />,
+    },
+    {
+      path: '/order-summary',
+      element: <Summary />,
+      errorElement: <ErrorPage />, 
     },
     {
       path: '/orderCompletion',
