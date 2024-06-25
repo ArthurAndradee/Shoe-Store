@@ -29,30 +29,6 @@ function CardPage() {
     );
   }, [cardNumber, cardOwner, expiryDate, safetyCode]);
   
-  const sendOrderToBackend = async (order: Order) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(order),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      
-      const responseData = await response.json();
-      console.log('Order successfully submitted:', responseData);
-      
-      localStorage.removeItem('cart')
-      navigate('/orderCompletion');
-    } catch (error) {
-      console.error('Error submitting order:', error);
-    }
-  };
-
   const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     
@@ -78,37 +54,34 @@ function CardPage() {
     }
   };
 
-  const handleCardSelect = () => {
-    setIsCardSelected(true);
-  };
-
-  const handleCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const formattedNumber = event.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
-    setCardNumber(formattedNumber);
-  };
-
-  const handleExpiryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-    let formattedValue = inputValue.replace(/\D/g, '').slice(0, 4);
-
-    if (formattedValue.length > 2) {
-      formattedValue = formattedValue.replace(/(\d{2})(\d{0,2})/, '$1/$2');
+  const sendOrderToBackend = async (order: Order) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const responseData = await response.json();
+      console.log('Order successfully submitted:', responseData);
+      
+      localStorage.removeItem('cart')
+      navigate('/orderCompletion');
+    } catch (error) {
+      console.error('Error submitting order:', error);
     }
-
-    setExpiryDate(formattedValue);
   };
-
-  const handleSafetyCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-    const formattedValue = inputValue.replace(/\D/g, '');
-
-    setSafetyCode(formattedValue);
-  };
-
+  
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const charCode = event.key;
     console.log(cardOwner)
-
+    
     if (/^[a-zA-Z\sáéíóúâêîôûàèìòùãẽĩõũäëïöüÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃẼĨÕŨÄËÏÖÜçÇ]$/.test(charCode) || charCode === "Backspace") {
       if (charCode !== "Backspace") {
         setCardOwner(prevValue => prevValue + charCode);
@@ -119,8 +92,36 @@ function CardPage() {
       event.preventDefault();
     }};
 
-  return (
-    <div className='card-form-container'>
+    
+  const handleExpiryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    let formattedValue = inputValue.replace(/\D/g, '').slice(0, 4);
+    
+    if (formattedValue.length > 2) {
+      formattedValue = formattedValue.replace(/(\d{2})(\d{0,2})/, '$1/$2');
+    }
+    
+    setExpiryDate(formattedValue);
+  };
+  
+  const handleCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedNumber = event.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+    setCardNumber(formattedNumber);
+  };
+    
+  const handleSafetyCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const formattedValue = inputValue.replace(/\D/g, '');
+    
+    setSafetyCode(formattedValue);
+  };
+
+  const handleCardSelect = () => {
+    setIsCardSelected(true);
+  };
+    
+    return (
+      <div className='card-form-container'>
       <h2>Método de Pagamento</h2>
       <form className='card-form'>
         <input type='radio' onClick={handleCardSelect} />
