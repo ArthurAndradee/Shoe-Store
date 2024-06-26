@@ -1,3 +1,5 @@
+import { faLocationDot, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from '../../Footer/footer';
 import Header from '../../Headers/HomeHeader/header';
 import './summary.css'
@@ -10,19 +12,18 @@ function Summary() {
                 <section className='review-container'>
                     <h4 className='review-title'>Revise e confirme sua compra</h4>
                     <div className='shipping-info'>
-                        <p>Detalha do envio</p>
+                        <p>Detalhes do envio</p>
                         <div className='shipping-container'>
-                            <div className='shipping-icon'></div>
+                            <FontAwesomeIcon className='shipping-icon' icon={faLocationDot} />
                             <div className='shipping-details'>
-                                <div className='shipping-address'></div>
-                                <div className='shipping-detail'></div>
-                                <div className='shipping-detail'></div>
+                                <div className='shipping-address'>AVENIDA DORIVAL</div>
+                                <div className='shipping-detail'>CACHOEIRINHA</div>
+                                <div className='shipping-detail'>PRONTOMED</div>
                             </div>
-                            <div>Editar ou escolher outro produto</div>
                         </div>
                         <div className='shipping-product-container'>
                             <div className='top-shipping-container'>
-                                <div className='shipping-icon'></div>
+                                <FontAwesomeIcon icon={faTruck} />
                                 <div className=''>Receba X produto(s)</div>
                             </div>
                             <div className='bottom-shipping-container'>
