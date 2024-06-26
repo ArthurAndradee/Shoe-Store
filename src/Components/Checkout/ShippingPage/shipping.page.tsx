@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
-import './shipping.page.css'
 import { useLocalStorage } from '../../../Context/context';
 import { v4 } from 'uuid';
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './shipping.page.css'
 
 export interface DestinationInfo {
     destinationId: string
@@ -30,19 +30,16 @@ function ShippingPage(props: ShippingProps) {
     const {register, setValue, handleSubmit} = useForm()
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectWarning, setSelectWarning] = useState(false)
-
+    const [selectedDestination, setSelectedDestination] = useState<DestinationInfo | null>(destinations && destinations.length ? destinations[0] : null);
     const [destinationCheckbox, setDestinationCheckbox] = useState(() => {
         const savedCount = localStorage.getItem('destinationCheckbox');
         return savedCount !== null ? parseInt(savedCount) : -1;
-      });
+    });
 
     useEffect(() => {
       localStorage.setItem('destinationCheckbox', destinationCheckbox.toString());
     }, [destinationCheckbox]);
 
-    const [selectedDestination, setSelectedDestination] = useState<DestinationInfo | null>(
-        destinations && destinations.length ? destinations[0] : null
-    );
 
     const handleDestinationClick = (selectedDestination: DestinationInfo, index: number) => {
         setSelectedDestination(selectedDestination);
@@ -70,24 +67,28 @@ function ShippingPage(props: ShippingProps) {
         }
     }
     
-    //---------------------METHODS TO HANDLE INPUT CHANGES---------------------
+    //METHODS TO HANDLE INPUT CHANGES
     
-    //NAME
     const [name, setName] = useState('')
+    const [surName, setSurName] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [CPF, setCPF] = useState('');
+    const [CEP, setCEP] = useState('');
+    const [address, setAddress] = useState('')
+    const [addressNumber, setAdressNumber] = useState('')
+    const [neighbourhood, setNeighbourhood] = useState('')
+    const [complement, setComplement] = useState('')
+    const [city, setCity] = useState('')
+    const [uf, setUf] = useState('')
+
     const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
     };
 
-
-    //SURNAME
-    const [surName, setSurName] = useState('')
     const handleChangeSurName = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSurName(event.target.value);
     };
-
-        
-    //PHONE NUMBER
-    const [phoneNumber, setPhoneNumber] = useState('');
+  
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const formattedValue = (event.target.value).replace(/\D/g, '')
         .replace(/^(\(\d{2}\)) (\d{5})/, '$1 $2-') 
@@ -96,13 +97,12 @@ function ShippingPage(props: ShippingProps) {
         setPhoneNumber(formattedValue);
     };
         
-    //CPF
-    const [CPF, setCPF] = useState('');
     const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
         
         const numericValue = inputValue.replace(/\D/g, '');
         
+        //TODO: Break formatted for loop in separate function
         let formatted = '';
         for (let i = 0; i < numericValue.length; i++) {
             if (i % 3 === 0 && i !== 0 && i !== numericValue.length - 2) {
@@ -117,24 +117,18 @@ function ShippingPage(props: ShippingProps) {
     };
     
     //CEP
-    const [CEP, setCEP] = useState('');
     const HandleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const formattedValue = (event.target.value).replace(/\D/g, '')
         .replace(/(\d{5})(\d+)/, '$1-$2'); 
         
         setCEP(formattedValue);
     };
-
+    
     //CEP API
-    const [address, setAddress] = useState('')
-    const [neighbourhood, setNeighbourhood] = useState('')
-    const [city, setCity] = useState('')
-    const [uf, setUf] = useState('')
     const checkCEP = (e: React.FocusEvent<HTMLInputElement>) => {
         if (e.target.value) {
             const cep = e.target.value.replace(/\D/g,'')
-            fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
-                
+            fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {    
                 //SET VALUES FOR INPUT TAGS
                 setValue('name', name)
                 setValue('surname', surName)
@@ -147,32 +141,29 @@ function ShippingPage(props: ShippingProps) {
                 setValue('uf', data.uf)
                 setValue('country', 'Brasil')
                 
-                //SET VALUES FOR ADDRESS OBJECT
+                //SET VALUES IN ADDRESS INPUT
                 setCEP(data.cep)
                 setAddress(data.logradouro)
                 setNeighbourhood(data.bairro)
                 setCity(data.localidade)
                 setUf(data.uf)
-                })
-                .catch((err) => console.log(err));
-            }
+            })
+            .catch((err) => console.log(err));
         }
+    }
         
-    //ADDRESS NUMBER 
-    const [addressNumber, setAdressNumber] = useState('')
     const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (/^\d*$/.test(event.target.value)) {
           setAdressNumber(event.target.value);
         }
     };
     
-    //COMPLEMENT
-    const [complement, setComplement] = useState('')
     const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
         setComplement(event.target.value);
     };
         
     const onSubmit = () => {
+        //TODO: Create separate function to clearing form values
         const newDestination: DestinationInfo = {
             destinationId: v4(),
             destinationName: name,
@@ -190,7 +181,7 @@ function ShippingPage(props: ShippingProps) {
     
         handleAddDestination(newDestination);
     
-        // Clear form values
+        //TODO: Create separate function to clearing form values
         setName('');
         setSurName('');
         setPhoneNumber('');
@@ -202,6 +193,7 @@ function ShippingPage(props: ShippingProps) {
         setNeighbourhood('');
         setCity('');
         setUf('');
+
         setModalIsOpen(false);
     }
     

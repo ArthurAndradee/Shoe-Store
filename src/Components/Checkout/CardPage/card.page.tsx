@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './card.page.css';
 import { Link } from 'react-router-dom';
+import './card.page.css';
 
 export interface Order {
   payment: Record<string, any>;
@@ -58,7 +58,6 @@ function CardPage() {
     } else {
       event.preventDefault();
     }};
-
     
   const handleExpiryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;

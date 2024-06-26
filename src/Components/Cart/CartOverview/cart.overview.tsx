@@ -1,27 +1,15 @@
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './cart.overview.css'
 import { useLocalStorage } from '../../../Context/context'
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import './cart.overview.css'
 
 function CartOverview() {
     const {cartProducts} = useLocalStorage()
     const [failWarning, setFailWarning] = useState(false)
     const navigate = useNavigate()
-    
-    const login = useGoogleLogin({
-        onSuccess: tokenResponse => {
-            console.log(tokenResponse)
-            if(cartProducts?.length) {
-                navigate('/checkout')
-            } else {
-                setFailWarning(true)
-            }
-        },
-        onError: tokenResponse => setFailWarning(true)
-    });
     
     function handleLogin() {
         if(cartProducts?.length) {
@@ -34,12 +22,23 @@ function CartOverview() {
             setFailWarning(true)
         }
     }
+    
+    const login = useGoogleLogin({
+        onSuccess: tokenResponse => {
+            console.log(tokenResponse)
+            if(cartProducts?.length) {
+                navigate('/checkout')
+            } else {
+                setFailWarning(true)
+            }
+        },
+        onError: tokenResponse => setFailWarning(true)
+    });
 
     const totalSum = cartProducts ? cartProducts.reduce((price, product) => price + product.price * product.quantity, 0) : 0;
 
     return (
         <div className='cart-overview'>
-            
             <div className='cart-overview-title'>Resumo do Carrinho</div>
             <div className='cart-price'>
                 <div className='price-container'>

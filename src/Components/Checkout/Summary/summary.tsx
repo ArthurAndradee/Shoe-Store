@@ -2,10 +2,10 @@ import { faLocationDot, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from '../../Footer/footer';
 import Header from '../../Headers/HomeHeader/header';
-import './summary.css';
 import { useNavigate } from 'react-router';
 import { Order } from '../CardPage/card.page';
 import { useLocalStorage } from '../../../Context/context';
+import './summary.css';
 
 function Summary() {
     const { cartProducts } = useLocalStorage();

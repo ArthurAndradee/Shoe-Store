@@ -1,7 +1,7 @@
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './footer.css';
 import { faFacebookF, faInstagram, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import './footer.css';
 
 function Footer() {
   return (

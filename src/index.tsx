@@ -49,6 +49,10 @@ export interface ProductProps {
 
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const getProducts = async () => {
     try {
@@ -58,10 +62,6 @@ const App = () => {
       console.error('Error fetching products', error);
     }
   };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   const productRoutes = products.map((product) => ({
     path: `/products/${product.productUrl}`,

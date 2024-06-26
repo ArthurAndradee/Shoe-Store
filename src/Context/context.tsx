@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import { DestinationInfo } from "../Components/Checkout/ShippingPage/shipping.page";
 import { Product } from "..";
 
+export const AppContext = createContext<ContextType | null> (null)
+
 type ContextType = {
     //Export Local Storage
     cartProducts: Product[] | null
@@ -29,15 +31,12 @@ interface Props {
     [propName: string]: any
 }
 
-export const AppContext = createContext<ContextType | null> (null)
-
 export const ContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<Product[] | null>(null)
     const [wishlistProducts,setWishlistProducts] = useState<Product[] | null>(null)
     const [destinations,setDestinations] = useState<DestinationInfo[] | null>(null)
 
-    //-------------------------RETRIEVE INFO FROM LOCAL STORAGE-------------------------
-
+    //RETRIEVE INFO FROM LOCAL STORAGE
     useEffect(() => {
         const cartItems: any = localStorage.getItem('cart')
         const savedCartProducts: Product[] | null = JSON.parse(cartItems)
@@ -53,8 +52,7 @@ export const ContextProvider = (props: Props) => {
         setDestinations(savedDestinations)
     }, [])
 
-    //-------------------------CART METHODS-------------------------
-
+    //CART METHODS
     const handleAddProductToCart = useCallback((product: Product) => {
         setCartProducts((prev) => {
             let updatedCart;
@@ -67,6 +65,7 @@ export const ContextProvider = (props: Props) => {
  
             toast.success('Produto adicionado ao carrinho')
             localStorage.setItem('cart', JSON.stringify(updatedCart))
+
             return updatedCart
         })
     }, [])
@@ -86,7 +85,6 @@ export const ContextProvider = (props: Props) => {
 
     const handleCartQuantityIncrease = useCallback((product: Product) => {
         let updatedCart;
-        console.log(product.availableQuantity)
 
         if(product.quantity > product.availableQuantity) {
             return toast.error("Quantidade máxima atingida!")
@@ -127,8 +125,7 @@ export const ContextProvider = (props: Props) => {
         }
     },[cartProducts])
 
-    //-------------------------WISHLIST METHODS-------------------------
-    
+    //WISHLIST METHODS
     const handleAddProductToWishlist = useCallback((product: Product) => {
         setWishlistProducts((prev) => {
             if (!prev) {
@@ -165,8 +162,7 @@ export const ContextProvider = (props: Props) => {
         }
     },[wishlistProducts])
 
-    //-------------------------SHIPPING DESTINATIONS METHODS-------------------------
-
+    //SHIPPING DESTINATIONS METHODS
     const handleAddDestination = useCallback((destinations: DestinationInfo) => {
         setDestinations((prev) => {
             let updatedDestinations;
@@ -196,8 +192,7 @@ export const ContextProvider = (props: Props) => {
         }
     },[destinations])
 
-    //-------------------------SAVE FUNCTION VALUES-------------------------
-
+    //PASSING VALUES
     const value = {
         cartProducts,
         wishlistProducts,
@@ -219,7 +214,7 @@ export const useLocalStorage = () => {
     const context = useContext(AppContext)
     
     if(context === null) {
-        throw new Error("UseCart must be used within a ContextProvider")
+        throw new Error("UseLocalStorage must be used within a ContextProvider")
     }
 
     return context
