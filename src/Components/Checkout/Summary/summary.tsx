@@ -23,11 +23,11 @@ function Summary() {
                         </div>
                         <div className='shipping-product-container'>
                             <div className='top-shipping-container'>
-                                <FontAwesomeIcon icon={faTruck} />
+                                <FontAwesomeIcon className='shipping-icon' icon={faTruck} />
                                 <div className=''>Receba X produto(s)</div>
                             </div>
                             <div className='bottom-shipping-container'>
-                                <img />
+                                <div className='product-img'>A</div>
                                 <div>
                                     <div>Product name</div>
                                     <div>Product size</div>
