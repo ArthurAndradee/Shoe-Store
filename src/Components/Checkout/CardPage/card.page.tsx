@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router';
 import './card.page.css';
+import { Link } from 'react-router-dom';
 
 export interface Order {
   payment: Record<string, any>;
@@ -18,7 +18,6 @@ function CardPage() {
   const [cardOwner, setCardOwner] = useState('');
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [warning, setWarning] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setIsFormFilled(
@@ -29,7 +28,7 @@ function CardPage() {
     );
   }, [cardNumber, cardOwner, expiryDate, safetyCode]);
   
-  const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const saveCardInformation = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     
     if(isFormFilled) {
@@ -41,40 +40,8 @@ function CardPage() {
       };
       
       localStorage.setItem("cardData", JSON.stringify(cardData))
-      
-      const order: Order = {
-        payment: JSON.parse(localStorage.getItem('cardData') || '{}'),
-        products: JSON.parse(localStorage.getItem('cart') || '{}'),
-        shippingAdress: JSON.parse(localStorage.getItem('selectedShippingAddress') || '{}')
-      };
-
-      sendOrderToBackend(order)
     } else {
       setWarning(true)
-    }
-  };
-
-  const sendOrderToBackend = async (order: Order) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(order),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      
-      const responseData = await response.json();
-      console.log('Order successfully submitted:', responseData);
-      
-      localStorage.removeItem('cart')
-      navigate('/orderCompletion');
-    } catch (error) {
-      console.error('Error submitting order:', error);
     }
   };
   
@@ -188,8 +155,10 @@ function CardPage() {
           {warning && (
             <div className='text-danger'>Por favor preencha todos os campos</div>
           )}
-          <button type='submit' className='submit-button' onClick={SubmitOrder}>
-            Finalizar pedido
+          <button type='submit' className='submit-button' onClick={saveCardInformation}>
+            <Link to={'/order-review'} style={{textDecoration:'none', color:'#FFFFFF'}}>
+              Finalizar pedido
+            </Link>
           </button>
         </form>
       ) : (

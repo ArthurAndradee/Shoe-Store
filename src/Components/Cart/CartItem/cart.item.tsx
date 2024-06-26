@@ -28,7 +28,7 @@ function CartItem() {
                     <div className='items-list'>
                         <div className='item-display'>
                             <Link to={`/products/${product.productUrl}`}>
-                                <div className='item-img' style={{backgroundImage:"url(" + product.imgLink + ")" }}></div>
+                                <div className='item-img' style={{backgroundImage: `url(${product.imgLink})`}}></div>
                             </Link>
                             <div className='item-info'>
                                 <Link to={`/products/${product.productUrl}`}>

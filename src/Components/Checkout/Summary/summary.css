@@ -45,29 +45,35 @@
             
             .bottom-shipping-container {
                 display: flex;
-                padding: 20px 20px;
-                align-items: center;
+                flex-direction: column;
+
+                padding: 0px 20px;
                 
                 color: rgb(174, 174, 174);
                 background-color: rgba(171, 171, 171, 0.195);    
                 
                 border-bottom-left-radius: 25px;
                 border-bottom-right-radius: 25px;
+                
+                .product-cart-container {
+                    display: flex;
+                    margin: 20px 0;
 
-                .product-img {
-                    height: 100px;
-                    width:  80px;
-
-                    margin-right: 20px;
-                    background-size: cover;
-                    background-repeat: no-repeat;
+                    .product-img {
+                        height: 100px;
+                        width:  100px;
+    
+                        margin-right: 20px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
                 }
             }
         }
     }
 }
 
-.price-container {
+.price-review-container {
     width: 30%;
     padding: 30px;
     
