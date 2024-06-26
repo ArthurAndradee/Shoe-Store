@@ -137,7 +137,7 @@ const App = () => {
       errorElement: <ErrorPage />,
     },
     {
-      path: '/order-summary',
+      path: '/order-review',
       element: <Summary />,
       errorElement: <ErrorPage />, 
     },

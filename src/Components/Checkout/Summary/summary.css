@@ -45,7 +45,7 @@
             
             .bottom-shipping-container {
                 display: flex;
-                padding: 20px 10px;
+                padding: 20px 20px;
                 align-items: center;
                 
                 color: rgb(174, 174, 174);
@@ -57,8 +57,10 @@
                 .product-img {
                     height: 100px;
                     width:  80px;
-                    
+
                     margin-right: 20px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                 }
             }
         }
@@ -71,6 +73,27 @@
     
     background-color: rgba(171, 171, 171, 0.195);
     border-radius: 25px;
+
+    .price-box {
+        width: 100%;
+        
+        .order-info-box > * {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .order-info-container {
+            padding: 5px 0;
+            
+            .order-info-name {
+                margin-right: auto;
+            }
+            
+            .order-info-value {
+                font-weight: 700;
+            }
+        }
+    }
 }
 
 .shipping-icon {

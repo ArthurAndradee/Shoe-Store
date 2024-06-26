@@ -27,7 +27,7 @@ function Summary() {
                                 <div className=''>Receba X produto(s)</div>
                             </div>
                             <div className='bottom-shipping-container'>
-                                <div className='product-img'>A</div>
+                                <div className='product-img' style={{backgroundImage:'url("")'}}></div>
                                 <div>
                                     <div>Product name</div>
                                     <div>Product size</div>
@@ -39,22 +39,22 @@ function Summary() {
                 </section>
                 <section className='price-container'>
                     <div className='price-box'>
-                        <p>Resumo da compra</p>
-                        <div>
-                            <div>
-                                <div>Produto</div>
-                                <div>Produto Preço</div>
+                        <h4>Resumo da compra</h4>
+                        <div className='order-info-box py-2'>
+                            <div className='order-info-container border-top border-dark d-flex'>
+                                <div className='order-info-name'>Produto</div>
+                                <div className='order-info-value'>Produto Preço</div>
                             </div>
-                            <div>
-                                <div>Frete</div>
-                                <div>Frete Preço</div>
+                            <div className='order-info-container d-flex'>
+                                <div className='order-info-name'>Frete</div>
+                                <div className='order-info-value'>Grátis</div>
                             </div>
                         </div>
-                        <div>
-                            <div>Você pagará</div>
-                            <div>Preço</div>
+                        <div className='order-info-container d-flex border-top border-dark pb-3 pt-28/'>
+                            <div className='order-info-name'>Você pagará</div>
+                            <div className='order-info-value'>Preço</div>
                         </div>
-                        <div>Confirmar Compra</div>
+                        <button className='btn btn-dark w-100'>Confirmar Compra</button>
                     </div>
                 </section>
             </section>
