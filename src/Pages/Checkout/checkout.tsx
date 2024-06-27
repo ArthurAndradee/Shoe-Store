@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router';
 import Footer from '../../Components/Footer/footer';
 import Header from '../../Components/Headers/HomeHeader/header'
 import CardPage from '../../Components/Checkout/CardPage/card.page';
@@ -25,14 +24,7 @@ interface DestinationInfo {
 
 function Checkout(props: DestinationInfo) {
     const [isShippingSelected, setIsShippingSelected] = useState(true)
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const isCartEmpty = cart.length === 0;
-    const navigate = useNavigate();
   
-    if (isCartEmpty) {
-        navigate('/home');
-    }
-
     return (
         <div> 
             <Header />

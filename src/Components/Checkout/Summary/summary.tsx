@@ -8,9 +8,8 @@ import Header from '../../Headers/HomeHeader/header';
 import './summary.css';
 
 function Summary() {
-    const { cartProducts } = useLocalStorage();
+    const {cartProducts} = useLocalStorage();
     const navigate = useNavigate();
-
     const order: Order = {
         payment: JSON.parse(localStorage.getItem('cardData') || '{}'),
         products: JSON.parse(localStorage.getItem('cart') || '[]'),
@@ -20,8 +19,10 @@ function Summary() {
     const SubmitOrder = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
 
-        sendOrderToBackend(order);
+        sendOrderToBackend(order)
+        
         navigate('/orderCompletion');
+        window.location.reload();
     };
 
     const sendOrderToBackend = async (order: Order) => {
