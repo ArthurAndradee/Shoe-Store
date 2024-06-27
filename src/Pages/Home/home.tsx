@@ -1,20 +1,16 @@
-import "./home.css"
+import { Link } from "react-router-dom";
+import { ProductProps } from "../..";
 import ProductsRow from "../../Components/ProductsRow/ProductsRow/product.row";
 import Footer from "../../Components/Footer/footer";
 import HomeHeader from "../../Components/Headers/HomeHeader/header";
-import { Link } from "react-router-dom";
-import { ProductProps } from "../..";
+import "./home.css"
 
 function HomePage({ products }: ProductProps) {
     return (
         <div className="body">
-
             <HomeHeader />
-                
             <main>
-
                 <div className="ads-container">
-
                     <section className='adBox'>
                         <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
@@ -28,7 +24,6 @@ function HomePage({ products }: ProductProps) {
                         <div className="background-img" id="ad-2"></div>
                         <div className="background-img" id="ad-3"></div>
                     </section>
-                    
                     <section className='adBox-2'>
                         <div className="background-img background-text" id="ad-4">
                             <h2 className="ad-title">Modern Lift Chrome Queen</h2>
@@ -42,13 +37,9 @@ function HomePage({ products }: ProductProps) {
                         <div className="background-img" id="ad-5"></div>
                         <div className="background-img" id="ad-6"></div>
                     </section>
-
                 </div>
-
                 <ProductsRow products={products} />
-
                 <div className='large-adBox'>
-
                     <section className="background-img background-text" id="ad-7">
                         <div className="large-ad-box">
                             <h2>ONE STAR</h2>
@@ -58,11 +49,8 @@ function HomePage({ products }: ProductProps) {
                             </div>
                         </div>
                     </section>
-
                 </div>
-
                 <Footer />
-
             </main>
         </div>
     )

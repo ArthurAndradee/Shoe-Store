@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLocalStorage } from '../../Context/context';
+import { ProductProps } from '../..';
 import Footer from '../../Components/Footer/footer';
 import ProductCard from '../../Components/ProductsRow/ProductCard/product.card';
-import './search.result.css'
-import { useLocalStorage } from '../../Context/context';
 import Header from '../../Components/Headers/HomeHeader/header';
-import { ProductProps } from '../..';
+import './search.result.css'
 
 function SearchResult({ products }: ProductProps) {
     const [showCartItemsQuantity, setShowCartItemsQuantity] = useState(false)

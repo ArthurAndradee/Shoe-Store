@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from '../../../Context/context';
 import { Link } from 'react-router-dom';
-import './product.menu.css'
 import { v4 } from 'uuid';
 import { Product } from '../../..';
+import './product.menu.css'
 
 interface ProductMenuProps extends Product {
     onSizeChange: (size: string) => void;
@@ -20,7 +20,6 @@ function ProductMenu(props: ProductMenuProps,) {
     const [selectedSize, setSelectedSize] = useState<string>(props.productSize)
     const [wishlistButtonBackgroundDisplay,setWishlistButtonBackgroundDisplay] = useState('')
     const [id, setId] = useState<string>(props.id)
-
     const [product, setProduct] = useState<Product>({
         id: props.id,
         name: props.name,
@@ -38,22 +37,18 @@ function ProductMenu(props: ProductMenuProps,) {
         category: props.category
     })
 
-    useEffect(() => {
-        setProduct(prevState => ({
-          ...prevState,
-          productSize: selectedSize,
-          id: id
-        }));
-    }, [selectedSize, id]);
-    
-    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedSize(event.target.value);
-      props.onSizeChange(event.target.value);
-
-      setId(v4())
-      props.createId(id)
+    const handleWishlist = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if(wishlistProducts) {
+            const productExistsInCart = wishlistProducts.some(item => item.name === product.name);
+            if (!productExistsInCart) {
+                handleAddProductToWishlist(product);
+                setWishlistButtonBackgroundDisplay('none')
+            } else {
+                setIsProductInWishlist(true);
+            }
+        }
     };
-
+    
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
         if (selectedSize !== '0' && selectedSize !== 'Escolha um tamanho') {
@@ -64,17 +59,21 @@ function ProductMenu(props: ProductMenuProps,) {
         }
     };
 
-    const handleWishlist = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if(wishlistProducts) {
-            const productExistsInCart = wishlistProducts.some(item => item.name === product.name);
-                if (!productExistsInCart) {
-                    handleAddProductToWishlist(product);
-                    setWishlistButtonBackgroundDisplay('none')
-                } else {
-                    setIsProductInWishlist(true);
-                }
-        }
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedSize(event.target.value);
+        props.onSizeChange(event.target.value);
+        
+        setId(v4())
+        props.createId(id)
     };
+    
+    useEffect(() => {
+        setProduct(prevState => ({
+          ...prevState,
+          productSize: selectedSize,
+          id: id
+        }));
+    }, [selectedSize, id]);
     
     return (
         <div className='menu-container'>

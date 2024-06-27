@@ -3,7 +3,6 @@ import LanguageHeader from '../../Components/Headers/LanguageHeader/language.hea
 import './language.css';
 
 function LanguagePage() {
-
   return (
       <div className='language-container'>
         <LanguageHeader />

@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocalStorage } from '../../../Context/context';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './product.card.css'
 import { Product } from "../../..";
+import './product.card.css'
 
 interface ProductCardProps {
     imgAlt: string,

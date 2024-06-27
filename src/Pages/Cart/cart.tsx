@@ -1,14 +1,13 @@
 import Footer from '../../Components/Footer/footer';
 import HomeHeader from '../../Components/Headers/HomeHeader/header';
-import './cart.css'
 import CartItem from '../../Components/Cart/CartItem/cart.item';
 import CartOverview from '../../Components/Cart/CartOverview/cart.overview';
+import './cart.css'
 
 function Cart() {
     return (
         <div className='cart-wrapper'>
             <HomeHeader />
-
             <div className='cart-section'>
                 <div className='cart-title'>
                     <h1 id='title'>Carrinho de Compras</h1>
@@ -20,7 +19,6 @@ function Cart() {
                     <CartOverview />
                 </div>
             </div>
-
             <Footer />
         </div>
     )

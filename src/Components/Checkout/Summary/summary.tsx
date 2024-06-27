@@ -1,10 +1,10 @@
 import { faLocationDot, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Footer from '../../Footer/footer';
-import Header from '../../Headers/HomeHeader/header';
 import { useNavigate } from 'react-router';
 import { Order } from '../CardPage/card.page';
 import { useLocalStorage } from '../../../Context/context';
+import Footer from '../../Footer/footer';
+import Header from '../../Headers/HomeHeader/header';
 import './summary.css';
 
 function Summary() {

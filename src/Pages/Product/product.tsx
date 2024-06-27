@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { Product } from '../..';
 import HomeHeader from '../../Components/Headers/HomeHeader/header';
 import ProductDisplay from '../../Components/ProductPage/ProductDisplay/product.display';
 import ProductMenu from '../../Components/ProductPage/ProductMenu/product.menu';
 import TopNav from '../../Components/TopNavComponent/top.nav';
-import './product.css';
 import Footer from '../../Components/Footer/footer';
-import { Product } from '../..';
+import './product.css';
 
 function ProductPage(props: Product) {
   const [ ,setSelectedSize] = useState<string>(props.productSize);

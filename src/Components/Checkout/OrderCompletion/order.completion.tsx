@@ -1,8 +1,8 @@
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import Footer from '../../Footer/footer';
 import Header from '../../Headers/HomeHeader/header';
-import { Link } from 'react-router-dom';
 import './order.completion.css'
 
 function OrderCompletion () {

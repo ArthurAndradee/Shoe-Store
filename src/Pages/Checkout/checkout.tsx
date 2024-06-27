@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Footer from '../../Components/Footer/footer';
-import Header from '../../Components/Headers/HomeHeader/header'
-import './checkout.css'
-import CardPage from '../../Components/Checkout/CardPage/card.page';
-import ShippingPage from '../../Components/Checkout/ShippingPage/shipping.page';
 import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router';
+import Footer from '../../Components/Footer/footer';
+import Header from '../../Components/Headers/HomeHeader/header'
+import CardPage from '../../Components/Checkout/CardPage/card.page';
+import ShippingPage from '../../Components/Checkout/ShippingPage/shipping.page';
+import './checkout.css'
 
 interface DestinationInfo {
     destinationId: string
@@ -25,26 +25,12 @@ interface DestinationInfo {
 
 function Checkout(props: DestinationInfo) {
     const [isShippingSelected, setIsShippingSelected] = useState(true)
-    const navigate = useNavigate();
-
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-
     const isCartEmpty = cart.length === 0;
+    const navigate = useNavigate();
   
     if (isCartEmpty) {
         navigate('/home');
-    }
-
-    const handleShippingClick = () => {
-        setIsShippingSelected(true);
-    };
-
-    const handlePaymentClick = () => {
-        setIsShippingSelected(false);
-    };
-
-    const handleStateChange = () => {
-        setIsShippingSelected(!isShippingSelected)
     }
 
     return (
@@ -57,13 +43,13 @@ function Checkout(props: DestinationInfo) {
                     ) : (
                         <FontAwesomeIcon icon={faCircle} style={{margin:"5px"}} id='foo'/>
                     )}
-                    <div className='checkout-sub' onClick={handleShippingClick}>Frete</div>
+                    <div className='checkout-sub' onClick={() => setIsShippingSelected(true)}>Frete</div>
                     {isShippingSelected ? (
                         <FontAwesomeIcon icon={faCircle} style={{margin:"5px"}} id='foo'/>
                     ) : (
                         <FontAwesomeIcon icon={faCircleDot} style={{margin:'5px'}} />
                     )}
-                    <div className='checkout-sub' onClick={handlePaymentClick}>Revisão e pagamentos</div>
+                    <div className='checkout-sub' onClick={() => setIsShippingSelected(false)}>Revisão e pagamentos</div>
                 </div>
                 <div>
                     {isShippingSelected ? (
@@ -80,7 +66,7 @@ function Checkout(props: DestinationInfo) {
                         neighbourhood={props.neighbourhood} 
                         city={props.city} 
                         uf={props.uf} 
-                        handleStateChange={handleStateChange}
+                        handleStateChange={() => setIsShippingSelected(!isShippingSelected)}
                         />
                     ) : (
                         <CardPage />
