@@ -8,7 +8,7 @@ export const destinations = [
         cep:'',
         address:'',
         addressNumber:'',
-        complement:'',
+        complement:'', //TODO: CHANGE PROP NAME LATER
         neighbourhood:'',
         city:'',
         uf:''
