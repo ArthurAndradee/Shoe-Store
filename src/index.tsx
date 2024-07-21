@@ -97,7 +97,7 @@ const App = () => {
         cep={destination.cep}
         address={destination.address}
         addressNumber={destination.addressNumber}
-        complement={destination.addressInfo}
+        addressInfo={destination.addressInfo}
         neighbourhood={destination.neighbourhood}
         city={destination.city}
         uf={destination.uf}
