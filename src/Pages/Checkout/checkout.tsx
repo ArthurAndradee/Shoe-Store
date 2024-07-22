@@ -16,7 +16,7 @@ interface DestinationInfo {
     cep: string
     address: string
     addressNumber: string
-    complement: string
+    addressInfo: string
     neighbourhood: string
     city: string
     uf: string
