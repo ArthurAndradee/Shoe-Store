@@ -54,7 +54,7 @@ function Checkout(props: DestinationInfo) {
                         cep={props.cpf} 
                         address={props.address} 
                         addressNumber={props.addressNumber} 
-                        complement={props.addressInfo} 
+                        addressInfo={props.addressInfo} 
                         neighbourhood={props.neighbourhood} 
                         city={props.city} 
                         uf={props.uf} 
