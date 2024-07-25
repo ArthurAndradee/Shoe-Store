@@ -15,7 +15,7 @@ export interface DestinationInfo {
     cep: string
     address: string
     addressNumber: string
-    complement: string
+    addressInfo: string
     neighbourhood: string
     city: string
     uf: string
@@ -75,9 +75,9 @@ function ShippingPage(props: ShippingProps) {
     const [CPF, setCPF] = useState('');
     const [CEP, setCEP] = useState('');
     const [address, setAddress] = useState('')
-    const [addressNumber, setAdressNumber] = useState('')
+    const [addressNumber, setAddressNumber] = useState('')
     const [neighbourhood, setNeighbourhood] = useState('')
-    const [complement, setComplement] = useState('')
+    const [addressInfo, setAddressInfo] = useState('')
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
 
@@ -154,12 +154,12 @@ function ShippingPage(props: ShippingProps) {
         
     const handleChangeAddressNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (/^\d*$/.test(event.target.value)) {
-          setAdressNumber(event.target.value);
+          setAddressNumber(event.target.value);
         }
     };
     
-    const handleChangeComplement = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setComplement(event.target.value);
+    const handleChangeAddressInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setAddressInfo(event.target.value);
     };
         
     const onSubmit = () => {
@@ -173,7 +173,7 @@ function ShippingPage(props: ShippingProps) {
             cep: CEP,
             address: address,
             addressNumber: addressNumber,
-            complement: complement,
+            addressInfo: addressInfo,
             neighbourhood: neighbourhood,
             city: city,
             uf: uf
@@ -188,8 +188,8 @@ function ShippingPage(props: ShippingProps) {
         setCPF('');
         setCEP('');
         setAddress('');
-        setAdressNumber('');
-        setComplement('');
+        setAddressNumber('');
+        setAddressInfo('');
         setNeighbourhood('');
         setCity('');
         setUf('');
@@ -214,7 +214,7 @@ function ShippingPage(props: ShippingProps) {
                         <div className='mb-2'>{destination.cep}</div>
                         <div className='mb-2'>{destination.address}</div>
                         <div className='mb-2'>{destination.addressNumber}</div>
-                        <div className='mb-2'>{destination.complement}</div>
+                        <div className='mb-2'>{destination.addressInfo}</div>
                         <div className='mb-2'>{destination.neighbourhood}</div>
                         <div className='mb-2'>{destination.city}</div>
                         <div className='mb-2'>{destination.uf}</div>
@@ -243,8 +243,8 @@ function ShippingPage(props: ShippingProps) {
                         <div className='input-group'>
                             <h4 className='fs-6'>Número</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressNumber")} value={addressNumber} onChange={handleChangeAddressNumber} required/>
-                            <h4 className='fs-6'>Complemento</h4>
-                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("complement")} value={complement} onChange={handleChangeComplement} required/>
+                            <h4 className='fs-6'>addressInfoo</h4>
+                            <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressInfo")} value={addressInfo} onChange={handleChangeAddressInfo} required/>
                             <h4 className='fs-6'>Bairro</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("neighbourhood")} required/>
                             <h4 className='fs-6'>Cidade</h4>
