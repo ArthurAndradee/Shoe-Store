@@ -21,7 +21,7 @@ function Header() {
   const [data, setData] = useState<Product[]>([]);
   
   const getData = async () => {
-    const response = await Axios.get("http://localhost:5000/getProducts");
+    const response = await Axios.get(process.env.REACT_APP_BACKEND_URL + "getProducts");
     setData(response.data);
   };
   
