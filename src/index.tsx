@@ -152,7 +152,7 @@ const App = () => {
 
   return (
     <React.StrictMode>
-      <GoogleOAuthProvider clientId="225610013643-h4vjojhkbfol6ht7rnlprjbdmjpfp1tp.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="678565006881-n3hmhb4212mslbcigmdrhbhj7iu8mst6.apps.googleusercontent.com">
         <Toaster
           toastOptions={{
             duration: 3000,
