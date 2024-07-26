@@ -21,8 +21,12 @@ function Header() {
   const [data, setData] = useState<Product[]>([]);
   
   const getData = async () => {
-    const response = await Axios.get(process.env.REACT_APP_BACKEND_URL + "getProducts");
-    setData(response.data);
+    try {
+      const response = await Axios.get(process.env.REACT_APP_BACKEND_URL + "getProducts");
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching products in header: ', error);
+    }
   };
   
   useEffect(() => {
