@@ -56,7 +56,8 @@ const App = () => {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getProducts');
+      const response = await axios.get(process.env.REACT_APP_BACKEND_URL + 'getProducts');
+      console.log(process.env.REACT_APP_BACKEND_URL)
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products', error);

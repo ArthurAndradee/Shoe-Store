@@ -27,7 +27,7 @@ npm i --save-dev @types/jquery
 ```
 4. Install UUID types:
 ```bash
-npm i --save-dev @types/uuid
+npm i --save-dev @types/uuid dotenv
 ```
 5. Finally, add the following packages using yarn:
 ```bash
