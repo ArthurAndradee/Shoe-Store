@@ -94,19 +94,21 @@
 #ad-1 {
     width: 580px;
     
-    background: linear-gradient( rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01) ), url('https://i.imgur.com/qjiG1Yz.png');
+    background-image: url('../../Assets/silver-background.jpg');
 }
 
 #ad-2 {
     width: 408px;
     
-    background-image: url(https://i.imgur.com/gA6WUtt.jpeg);
+    background-image: url('../../Assets/pair-of-black-boots.jpg');
+    /* pair of blackboots */
 }
 
 #ad-3 {
     width: 381px;
     
-    background-image: url(https://i.imgur.com/Xl7pf3g.png);
+    background-image: url('../../Assets/black-boots.jpg');
+    /* black boots */
 }
 
 .adBox-2 {
@@ -115,17 +117,20 @@
 
 #ad-4 {
     width: 650px;
-    background-image: url(https://i.imgur.com/uUEoZrB.png);
+    background-image: url('../../Assets/grey-background.jpg');
+    /* grey bg */
 }
 
 #ad-5 {
     width: 544px;
-    background-image: url(https://i.imgur.com/Rt9HMDU.gif);
+    background-image: url('../../Assets/pair-of-black-shoes.gif');
+    /* pair of black shoes gif */
 }
 
 #ad-6 {
     width: 361px;
-    background-image: url(https://i.imgur.com/tGUki0R.gif);
+    background-image: url('../../Assets/black-shoe.gif');
+    /* black shoe gif */
 }
 
 /*
@@ -136,7 +141,8 @@
     height: 600px;
     width: 100%;
 
-    background-image: url(https://i.imgur.com/bfCQKTX.png);
+    background-image: url(https://i.imgur.com/bfCQKTX.png); 
+    /* Yellow one */
 }
 
 .large-ad-box {
