@@ -12,7 +12,7 @@ function HomePage({ products }: ProductProps) {
             <main>
                 <div className="ads-container">
                     <section className='adBox'>
-                        <div className="background-img background-text" id="ad-1" style={{backgroundImage:"url('../../Assets/silver-background.jpg')", width:"580px"}}>
+                        <div className="background-img background-text" id="ad-1">
                             <h2 className="ad-title">Converse X Martine Ali</h2>
                             <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
                             <Link to={'/products/converse-x-martine-ali-chuck-70-xhi-preto'} className="ad-buy-link">
