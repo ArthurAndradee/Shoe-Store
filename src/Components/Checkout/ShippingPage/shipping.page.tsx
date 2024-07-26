@@ -243,7 +243,7 @@ function ShippingPage(props: ShippingProps) {
                         <div className='input-group'>
                             <h4 className='fs-6'>Número</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressNumber")} value={addressNumber} onChange={handleChangeAddressNumber} required/>
-                            <h4 className='fs-6'>addressInfoo</h4>
+                            <h4 className='fs-6'>Complemento</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("addressInfo")} value={addressInfo} onChange={handleChangeAddressInfo} required/>
                             <h4 className='fs-6'>Bairro</h4>
                             <input className="form-control form-control-sm" id='form-input' type="text" {...register("neighbourhood")} required/>

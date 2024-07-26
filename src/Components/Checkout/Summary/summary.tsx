@@ -21,7 +21,7 @@ function Summary() {
 
         sendOrderToBackend(order)
         
-        navigate('/orderCompletion');
+        navigate('/order-completion');
         window.location.reload();
     };
 
@@ -76,7 +76,7 @@ function Summary() {
                             <div className='bottom-shipping-container d-flex flex-column'>
                                 {order.products.map((product: any, index: number) => (
                                     <div key={index} className='product-cart-container'>
-                                        <div className='product-img' style={{ backgroundImage: `url(${product.imgLink})` }}></div>
+                                        <div className='product-img' style={{ backgroundImage: `url(${product.imgLink})`, borderRadius:"10px" }}></div>
                                         <div className='mt-auto'>
                                             <div className='fw-bold text-dark'>{product.name}</div>
                                             <div>Tamanho: {product.productSize}</div>

@@ -56,7 +56,7 @@ const App = () => {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get(process.env.REACT_APP_BACKEND_URL + 'getProducts');
+      const response = await axios.get(process.env.REACT_APP_BACKEND_URL + '/getProducts');
       console.log(process.env.REACT_APP_BACKEND_URL)
       setProducts(response.data);
     } catch (error) {
@@ -143,7 +143,7 @@ const App = () => {
       errorElement: <ErrorPage />, 
     },
     {
-      path: '/orderCompletion',
+      path: '/order-completion',
       element: <OrderCompletion />,
       errorElement: <ErrorPage />,
     },
