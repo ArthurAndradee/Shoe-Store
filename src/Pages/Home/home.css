@@ -101,14 +101,12 @@
     width: 408px;
     
     background-image: url('../../Assets/pair-of-black-boots.jpg');
-    /* pair of blackboots */
 }
 
 #ad-3 {
     width: 381px;
     
     background-image: url('../../Assets/black-boots.jpg');
-    /* black boots */
 }
 
 .adBox-2 {
@@ -118,19 +116,16 @@
 #ad-4 {
     width: 650px;
     background-image: url('../../Assets/grey-background.jpg');
-    /* grey bg */
 }
 
 #ad-5 {
     width: 544px;
     background-image: url('../../Assets/pair-of-black-shoes.gif');
-    /* pair of black shoes gif */
 }
 
 #ad-6 {
     width: 361px;
     background-image: url('../../Assets/black-shoe.gif');
-    /* black shoe gif */
 }
 
 /*
