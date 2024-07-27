@@ -6,12 +6,12 @@ function LanguagePage() {
   return (
       <div className='language-container'>
         <LanguageHeader />
-        <div className='selectionText'>Select Location & Language</div>
+        <div className='selectionText'>Selecione país & idioma</div>
           <div className='contentBox'>
               <h1 className='continent'>AMERICAS
                 <ul>
                   <li>
-                    <Link className='link' to="/home">Brazil</Link>
+                    <Link className='link' to="/home">Brasil</Link>
                   </li>
                   <li>
                     <Link className='link' to="/home">Canada</Link>
