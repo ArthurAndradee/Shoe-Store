@@ -8,11 +8,11 @@
 }
 
 @media only screen and (max-width: 700px) {
-    #testingTag-2, #testingTag-3, #testingTag-5, #testingTag-6{
+    #section-2, #section-3, #section-5, #section-6{
         display: none;
     }
 
-    #testingTag-7, .large-testingTag-box {
+    #section-7, .large-section-box {
         width: 200px;
     }
   }
@@ -21,12 +21,12 @@
     overflow-y: hidden;
 }
 
-.testingTags-container {
+.sections-container {
     margin-top: 110px;
     font-family: "Metrophobic", sans-serif;
 }
 
-.testingTagBox, .testingTagBox-2 {
+.sectionBox, .sectionBox-2 {
     height: 480px;
 
     display: flex;
@@ -38,12 +38,12 @@
 }
 
 
-.testingTag-title {
+.section-title {
     padding-top: 150px;
     font-weight: 800;
 }
 
-.testingTag-description {
+.section-description {
     padding-top: 36px;
     padding-bottom: 15px;
 
@@ -52,7 +52,7 @@
     font-size: 15px;
 }
 
-.testingTag-buyButton, .large-testingTag-buyButton {
+.section-buyButton, .large-section-buyButton {
     padding-top: 2%;
 
     border: 2px solid #000000;
@@ -64,19 +64,19 @@
     background-color: transparent;
 }
 
-.testingTag-buyButton {
+.section-buyButton {
     padding-bottom: 6%;
     height: 30px;
     width: 165px;
 }
 
-.testingTag-buy-link {
+.section-buy-link {
     color: #000000;
     text-decoration: none;
 }
 
-.testingTag-buyButton:hover, .large-testingTag-buyButton:hover {
-    .testingTag-buy-link {    
+.section-buyButton:hover, .large-section-buyButton:hover {
+    .section-buy-link {    
         color: #FFFFFF;
     }
 
@@ -91,48 +91,48 @@
     text-align: center;
 }
 
-#testingTag-1 {
+#section-1 {
     width: 580px;
     
     background-image: url('../../Assets/silver-background.jpg');
 }
 
-#testingTag-2 {
+#section-2 {
     width: 408px;
     
     background-image: url('../../Assets/pair-of-black-boots.jpg');
 }
 
-#testingTag-3 {
+#section-3 {
     width: 381px;
     
     background-image: url('../../Assets/black-boots.jpg');
 }
 
-.testingTagBox-2 {
+.sectionBox-2 {
     margin-top: 10px;
 }
 
-#testingTag-4 {
+#section-4 {
     width: 650px;
     background-image: url('../../Assets/grey-background.jpg');
 }
 
-#testingTag-5 {
+#section-5 {
     width: 544px;
     background-image: url('../../Assets/pair-of-black-shoes.gif');
 }
 
-#testingTag-6 {
+#section-6 {
     width: 361px;
     background-image: url('../../Assets/black-shoe.gif');
 }
 
 /*
-----------------LARGE testingTagS styling---------------- 
+----------------LARGE sectionS styling---------------- 
 */
 
-#testingTag-7 {
+#section-7 {
     height: 600px;
     width: 100%;
 
@@ -140,7 +140,7 @@
     /* Yellow one */
 }
 
-.large-testingTag-box {
+.large-section-box {
     height: 300px;
     width: 500px;
 
@@ -152,7 +152,7 @@
     color: #000000;
 }
 
-.large-testingTag-buyButton {
+.large-section-buyButton {
     height:60px;
     width:320px;
 
@@ -161,7 +161,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-    #testingTag-7, .large-testingTag-box {
+    #section-7, .large-section-box {
         width: 100vw;
         margin: 30px 0 0 0;
         padding-top: 50px;
