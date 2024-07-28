@@ -10,42 +10,42 @@ function HomePage({ products }: ProductProps) {
         <div className="body">
             <HomeHeader />
             <main>
-                <div className="ads-container">
-                    <section className='adBox'>
-                        <div className="background-img background-text" id="ad-1">
-                            <h2 className="ad-title">Converse X Martine Ali</h2>
-                            <p className="ad-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
-                            <Link to={'/products/converse-x-martine-ali-chuck-70-xhi-preto'} className="ad-buy-link">
-                                <div className="ad-buyButton">
+                <div className="testingTags-container">
+                    <section className='testingTagBox'>
+                        <div className="background-img background-text" id="testingTag-1">
+                            <h2 className="testingTag-title">Converse X Martine Ali</h2>
+                            <p className="testingTag-description">Explore a fusão única de elementos clássicos e modernos nessa colaboração.</p>
+                            <Link to={'/products/converse-x-martine-ali-chuck-70-xhi-preto'} className="testingTag-buy-link">
+                                <div className="testingTag-buyButton">
                                     COMPRE AGORA
                                 </div>
                             </Link>
                         </div>
-                        <div className="background-img" id="ad-2"></div>
-                        <div className="background-img" id="ad-3"></div>
+                        <div className="background-img" id="testingTag-2"></div>
+                        <div className="background-img" id="testingTag-3"></div>
                     </section>
-                    <section className='adBox-2'>
-                        <div className="background-img background-text" id="ad-4">
-                            <h2 className="ad-title">Modern Lift Chrome Queen</h2>
-                            <p className="ad-description">Libere seu lado punk no estilo assinado Chuck Taylor. </p>
-                            <Link to={'/products/chuck-taylor-all-star-modern-lift-chrome-queen-preto'} className="ad-buy-link">
-                                <div className="ad-buyButton">
+                    <section className='testingTagBox-2'>
+                        <div className="background-img background-text" id="testingTag-4">
+                            <h2 className="testingTag-title">Modern Lift Chrome Queen</h2>
+                            <p className="testingTag-description">Libere seu ltestingTago punk no estilo assintestingTago Chuck Taylor. </p>
+                            <Link to={'/products/chuck-taylor-all-star-modern-lift-chrome-queen-preto'} className="testingTag-buy-link">
+                                <div className="testingTag-buyButton">
                                     COMPRE AGORA
                                 </div>
                             </Link>
                         </div>
-                        <div className="background-img" id="ad-5"></div>
-                        <div className="background-img" id="ad-6"></div>
+                        <div className="background-img" id="testingTag-5"></div>
+                        <div className="background-img" id="testingTag-6"></div>
                     </section>
                 </div>
                 <ProductsRow products={products} />
-                <div className='large-adBox'>
-                    <section className="background-img background-text" id="ad-7">
-                        <div className="large-ad-box">
+                <div className='large-testingTagBox'>
+                    <section className="background-img background-text" id="testingTag-7">
+                        <div className="large-testingTag-box">
                             <h2>ONE STAR</h2>
-                            <p className="ad-description">O clássico renovado: a tradição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
-                            <div className="large-ad-buyButton">
-                                <Link to={'/products/one-star-pro-cano-baixo-normal-preto'} className="ad-buy-link">COMPRE AGORA</Link>
+                            <p className="testingTag-description">O clássico renovtestingTago: a trtestingTagição do skate dos anos 90, agora com tecnologia de amortecimento CX.</p>
+                            <div className="large-testingTag-buyButton">
+                                <Link to={'/products/one-star-pro-cano-baixo-normal-preto'} className="testingTag-buy-link">COMPRE AGORA</Link>
                             </div>
                         </div>
                     </section>
