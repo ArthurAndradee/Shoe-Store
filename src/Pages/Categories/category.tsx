@@ -18,6 +18,7 @@ function CategoryPage({ products }: ProductProps) {
 
         if (category === 'promocoes') {
             filteredProducts = products.filter((product: { discountedPrice: number; }) => product.discountedPrice > 0);
+            setDisplayedCategory('Promoções')
         } else if (category) {
             if (category === "Todos") {
                 filteredProducts = products;

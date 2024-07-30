@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { useLocalStorage } from '../../../Context/context';
 import { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-import { Product } from '../../..';
-import Axios from "axios"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,22 +14,7 @@ function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const [isUserInMobile, setIsUserInMobile] = useState(false)
   const [showHeaderMobileMenu, setShowHeaderMobileMenu] = useState(false)
-  const {cartProducts} = useLocalStorage()
-
-  const [data, setData] = useState<Product[]>([]);
-  
-  const getData = async () => {
-    try {
-      const response = await Axios.get(process.env.REACT_APP_BACKEND_URL + "getProducts");
-      setData(response.data);
-    } catch (error) {
-      console.error('Error fetching products in header: ', error);
-    }
-  };
-  
-  useEffect(() => {
-    getData()
-  },[])
+  const {cartProducts, headerCategories} = useLocalStorage()
 
   useEffect(() => {
     setIsUserLoggedIn(!!localStorage.getItem('authToken'));
@@ -54,7 +37,7 @@ function Header() {
     setIsUserLoggedIn(false);
   }
 
-  const individualCategories = Array.from(new Set(data.flatMap(product => product.category)));
+  const individualCategories = Array.from(new Set((headerCategories ?? []).flatMap(product => product.category)));
   
   return (
     <header className='app'>
@@ -65,15 +48,13 @@ function Header() {
             <h3><h3 className='blueSliderText'>FRETE GRÁTIS</h3><h3 className='smallSliderText' style={{cursor:'pointer'}}>nas compras acima de R$350!</h3></h3>
         </Slider>
       </div>
-
       <nav>
           <div className='logoBox'> 
-
               {isUserInMobile && <FontAwesomeIcon icon={faGripLines} style={{margin:'0 0 10px 0px'}} onClick={() => setShowHeaderMobileMenu(!showHeaderMobileMenu)}/>}
               {showHeaderMobileMenu && 
                 <div className='mobile-dropdown'>
                   {individualCategories.map((category) => (
-                    <a href={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></a>
+                    <Link to={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></Link>
                   ))}
                   <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
                   <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
@@ -90,18 +71,15 @@ function Header() {
                   </div>
                 </div>
               }
-
               <div className='shopTitle'><Link to={'/home'} style={{color:"#000000", textDecoration:"none"}}>SHOESHOP</Link></div>
               <img alt='logo' src='https://www.logo.wine/a/logo/Converse_(shoe_company)/Converse_(shoe_company)-Icon-Logo.wine.svg' />  
           </div>
-
           <div className='navTitleBox'>
             {individualCategories.map((category) => (
-              <a href={`/categories/${category}`} className='navLink'><div className='navTitle'>{category}</div></a>
+              <Link to={`/categories/${category}`} className='navLink'><div className='navTitle'>{category}</div></Link>
             ))}
-            <div className='navTitle'><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
+            <div className='navTitle'><Link to={'/categories/promocoes'} className='navLink'>Promoções</Link></div>
           </div>
-
           <div className='userOptions'>
             {isUserLoggedIn ? (
               <div onClick={() => logout()}>Sair</div>
@@ -121,7 +99,6 @@ function Header() {
             </Link>
           </div> 
       </nav> 
-
     </header>
   );
 }

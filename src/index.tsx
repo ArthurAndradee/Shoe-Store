@@ -56,7 +56,7 @@ const App = () => {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get(process.env.REACT_APP_BACKEND_URL + "getProducts");
+      const response = await axios.get('https://shoe-store-backend-wa8m.onrender.com/getProducts');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products', error);

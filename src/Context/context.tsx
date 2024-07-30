@@ -1,8 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-
 import { DestinationInfo } from "../Components/Checkout/ShippingPage/shipping.page";
 import { Product } from "..";
+import Axios from 'axios';
 
 export const AppContext = createContext<ContextType | null> (null)
 
@@ -11,6 +11,8 @@ type ContextType = {
     cartProducts: Product[] | null
     wishlistProducts: Product[] | null
     destinations: DestinationInfo[] | null
+    headerCategories: Product[] | null
+    headerIsLoading: boolean
 
     //Export Cart methods
     handleAddProductToCart: (product: Product) => void
@@ -35,6 +37,8 @@ export const ContextProvider = (props: Props) => {
     const [cartProducts,setCartProducts] = useState<Product[] | null>(null)
     const [wishlistProducts,setWishlistProducts] = useState<Product[] | null>(null)
     const [destinations,setDestinations] = useState<DestinationInfo[] | null>(null)
+    const [headerCategories, setHeaderCategories] = useState([]);
+    const [headerIsLoading, setHeaderIsLoading] = useState(true);
 
     //RETRIEVE INFO FROM LOCAL STORAGE
     useEffect(() => {
@@ -192,6 +196,21 @@ export const ContextProvider = (props: Props) => {
         }
     },[destinations])
 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await Axios.get('https://shoe-store-backend-wa8m.onrender.com/getProducts');
+            setHeaderCategories(response.data);
+          } catch (error) {
+            console.error('Error fetching products: ', error);
+          } finally {
+            setHeaderIsLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
     //PASSING VALUES
     const value = {
         cartProducts,
@@ -205,6 +224,8 @@ export const ContextProvider = (props: Props) => {
         handleRemoveProductFromWishlist,
         handleAddDestination,
         handleRemoveDestination,
+        headerCategories,
+        headerIsLoading
     }
 
     return <AppContext.Provider value={value} {...props}/>
