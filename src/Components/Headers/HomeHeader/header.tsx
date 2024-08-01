@@ -54,18 +54,18 @@ function Header() {
               {showHeaderMobileMenu && 
                 <div className='mobile-dropdown'>
                   {individualCategories.map((category) => (
-                    <Link to={`/categories/${category}`} className='navLink'><div className='navTitle' style={{marginLeft:'0'}}>{category}</div></Link>
+                    <Link to={`/categories/${category}`} className='navLink'><div className='navTitle border-bottom w-50' style={{marginLeft:'0'}}>{category}</div></Link>
                   ))}
-                  <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink'>Promoções</a></div>
+                  <div className='navTitle' style={{marginLeft:'0'}}><a href={'/categories/promocoes'} className='navLink border-bottom w-50'>Promoções</a></div>
                   <div className='userOptions' style={{display:'flex', paddingRight:'50px'}}>
                     {isUserLoggedIn ? (
                       <div onClick={() => logout()}>Sair</div>
                     ) : (
-                      <div onClick={() => login()}>Entrar</div>
+                      <div onClick={() => login()} style={{marginLeft: 0}} className='border-bottom'>Entrar</div>
                     )}
-                    <div><Link to={'/wishlist'} style={{color:'#000000'}}><FontAwesomeIcon icon={faHeart} /></Link></div>
+                    <div><Link to={'/wishlist'} style={{color:'#000000'}} className='border-bottom'><FontAwesomeIcon icon={faHeart} /></Link></div>
                     <div style={{display:'flex'}}>
-                      <Link to={'/cart'} style={{color:'#000000'}}><FontAwesomeIcon icon={faCartShopping} /></Link>
+                      <Link to={'/cart'} style={{color:'#000000'}} className='border-bottom'><FontAwesomeIcon icon={faCartShopping} /></Link>
                       {cartProducts?.length ? (<><div className='items-count'>{cartProducts?.length}</div></>):(<></>)}
                     </div>
                   </div>
