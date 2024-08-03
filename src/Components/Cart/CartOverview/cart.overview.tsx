@@ -28,6 +28,7 @@ function CartOverview() {
             console.log(tokenResponse)
             if(cartProducts?.length) {
                 navigate('/checkout')
+                localStorage.setItem('authToken', tokenResponse.access_token)
             } else {
                 setFailWarning(true)
             }
