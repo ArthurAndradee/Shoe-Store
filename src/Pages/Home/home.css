@@ -7,7 +7,7 @@
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
     #section-2, #section-3, #section-5, #section-6{
         display: none;
     }
@@ -155,7 +155,7 @@
     padding-bottom: 13%;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
     #section-7, .large-section-box {
         width: 100vw;
         margin: 30px 0 0 0;

@@ -49,7 +49,7 @@ function ProductMenu(props: ProductMenuProps,) {
         }
     };
     
-    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
         if (selectedSize !== '0' && selectedSize !== 'Escolha um tamanho') {
             handleAddProductToCart(product);
@@ -122,7 +122,7 @@ function ProductMenu(props: ProductMenuProps,) {
                         <>
                         </>
                     )}
-                    <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleSubmit}>Adicionar ao carrinho</button>
+                    <button type='submit' className='btn btn-primary' id='cart-button' onClick={handleAddToCart}>Adicionar ao carrinho</button>
                     <button className='btn btn-primary' id='wish-button' style={{display: wishlistButtonBackgroundDisplay}}  onClick={handleWishlist}><FontAwesomeIcon icon={faHeart}/></button>
                     {isProductInWishlist ? (
                         <>
