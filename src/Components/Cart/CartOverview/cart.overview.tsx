@@ -12,8 +12,8 @@ function CartOverview() {
     const navigate = useNavigate()
     
     function handleLogin() {
-        if(cartProducts?.length) {
-            if(!localStorage.getItem('authToken')) {
+        if(cartProducts?.length) { 
+            if(!localStorage.getItem('authToken')) { //Checks if user is logged in
                 login()
             } else {
                 navigate('/checkout')
