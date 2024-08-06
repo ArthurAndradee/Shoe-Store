@@ -12,7 +12,7 @@ function CartOverview() {
     const navigate = useNavigate()
     
     function handleLogin() {
-        if(cartProducts?.length) { 
+        if(cartProducts?.length) { //Checks if user has items in cart
             if(!localStorage.getItem('authToken')) { //Checks if user is logged in
                 login()
             } else {
