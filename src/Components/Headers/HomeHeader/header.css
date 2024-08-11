@@ -112,6 +112,7 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     margin-left: 19px;
     margin-bottom: 12px;
 
+    font-weight: 500;
     font-size: 12px;
 }
 
@@ -136,6 +137,7 @@ nav, .logoBox, .navTitleBox, .userOptions,.searchBar, .offersCarousel {
     margin-bottom: 12px;
 
     font-size: 12px;
+    font-weight: 500;
 }
 
 .userOptions div {

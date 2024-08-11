@@ -20,6 +20,7 @@ function Summary() {
         event.preventDefault();
 
         sendOrderToBackend(order)
+        localStorage.removeItem('cart')
         
         navigate('/order-completion');
         window.location.reload();
