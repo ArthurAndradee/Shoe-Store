@@ -26,46 +26,46 @@ interface ShippingProps extends DestinationInfo {
 }
 
 function ShippingPage(props: ShippingProps) {
-    const {handleAddDestination, handleRemoveDestination, destinations} = useLocalStorage()
-    const {register, setValue, handleSubmit} = useForm()
+    const { handleAddDestination, handleRemoveDestination, destinations } = useLocalStorage();
+    const { register, setValue, handleSubmit } = useForm();
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectWarning, setSelectWarning] = useState(false)
-    const [selectedDestination, setSelectedDestination] = useState<DestinationInfo | null>(destinations && destinations.length ? destinations[0] : null);
-    const [destinationCheckbox, setDestinationCheckbox] = useState(() => {
-        const savedCount = localStorage.getItem('destinationCheckbox');
-        return savedCount !== null ? parseInt(savedCount) : -1;
-    });
+    const [selectWarning, setSelectWarning] = useState(false);
+    const [selectedDestination, setSelectedDestination] = useState<DestinationInfo | null>(null);
 
     useEffect(() => {
-      localStorage.setItem('destinationCheckbox', destinationCheckbox.toString());
-    }, [destinationCheckbox]);
+        const savedDestinationId = localStorage.getItem('selectedDestinationId');
+        if (savedDestinationId) {
+            const savedDestination = destinations?.find(dest => dest.destinationId === savedDestinationId) || null;
+            setSelectedDestination(savedDestination);
+        } else {
+            setSelectedDestination(null);
+        }
+    }, [destinations]);
 
-
-    const handleDestinationClick = (selectedDestination: DestinationInfo, index: number) => {
-        setSelectedDestination(selectedDestination);
-        localStorage.setItem('selectedShippingAddress', JSON.stringify(selectedDestination));
-        setDestinationCheckbox(index)
-        localStorage.setItem('destinationCheckbox', JSON.stringify(index));
+    const handleDestinationClick = (destination: DestinationInfo) => {
+        setSelectedDestination(destination);
+        localStorage.setItem('selectedDestinationId', destination.destinationId);
     };
 
     const handleDeleteSelectedDestination = (destination: DestinationInfo) => {
-        if (selectedDestination) {
-            handleRemoveDestination(destination);
-            setSelectedDestination(destinations && destinations.length > 1 ? destinations[0] : null);
+        handleRemoveDestination(destination);
+        if (selectedDestination === destination) {
+            localStorage.removeItem('selectedDestinationId');
+            setSelectedDestination(destinations && destinations.length > 0 ? destinations[0] : null);
         }
     };
-    
+
     const toggleCreateAccessModal = () => {
         setModalIsOpen(!modalIsOpen);
     };
 
     const advanceToNextPage = () => {
-        if(destinationCheckbox > -1) {
-            props.handleStateChange()
+        if (selectedDestination) {
+            props.handleStateChange();
         } else {
-            setSelectWarning(true)
+            setSelectWarning(true);
         }
-    }
+    };
     
     //METHODS TO HANDLE INPUT CHANGES
     
@@ -163,7 +163,6 @@ function ShippingPage(props: ShippingProps) {
     };
         
     const onSubmit = () => {
-        //TODO: Create separate function to clearing form values
         const newDestination: DestinationInfo = {
             destinationId: v4(),
             destinationName: name,
@@ -178,10 +177,9 @@ function ShippingPage(props: ShippingProps) {
             city: city,
             uf: uf
         };
-    
+
         handleAddDestination(newDestination);
-    
-        //TODO: Create separate function to clearing form values
+
         setName('');
         setSurName('');
         setPhoneNumber('');
@@ -196,15 +194,21 @@ function ShippingPage(props: ShippingProps) {
 
         setModalIsOpen(false);
     }
+
+    console.log(selectedDestination)
     
     return(
         <div>
             <div className='destination-card-container'>
                 {destinations && destinations.map((destination, index) => (
-                    <div className={`destination-card ${selectedDestination === destination ? 'selected' : ''}`} onClick={() => {handleDestinationClick(destination, index)}}>
-                        {destinationCheckbox === index && (
-                            <FontAwesomeIcon className='select-destination' icon={faSquareCheck}/>
-                        )}
+                    <div 
+                    key={destination.destinationId}
+                    className={`destination-card ${selectedDestination === destination ? 'selected' : ''}`} 
+                    onClick={() => handleDestinationClick(destination)}
+                >
+                    {selectedDestination === destination && (
+                        <FontAwesomeIcon className='select-destination' icon={faSquareCheck}/>
+                    )}
                         <div className='d-flex'>
                             <div style={{marginRight:"2%"}}>{destination.destinationName}</div>
                             <div>{destination.destinationSurname}</div>
