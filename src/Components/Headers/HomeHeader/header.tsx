@@ -18,7 +18,6 @@ function Header() {
 
   useEffect(() => {
     setIsUserLoggedIn(!!localStorage.getItem('authToken'));
-    console.log(isUserLoggedIn)
     if (window.innerWidth < 600) {
       setIsUserInMobile(true)
     }
@@ -26,7 +25,6 @@ function Header() {
 
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => {
-      console.log(tokenResponse);
   
       localStorage.setItem('authToken', tokenResponse.access_token);
       setIsUserLoggedIn(true);
