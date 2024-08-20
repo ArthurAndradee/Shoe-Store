@@ -22,7 +22,7 @@ export interface DestinationInfo {
 }
 
 interface ShippingProps extends DestinationInfo {
-    handleStateChange: () => void;
+    handleStateChange: (addressSelected: boolean) => void;
 }
 
 function ShippingPage(props: ShippingProps) {
@@ -61,8 +61,9 @@ function ShippingPage(props: ShippingProps) {
 
     const advanceToNextPage = () => {
         if (selectedDestination) {
-            props.handleStateChange();
+            props.handleStateChange(true);
         } else {
+            props.handleStateChange(false);
             setSelectWarning(true);
         }
     };

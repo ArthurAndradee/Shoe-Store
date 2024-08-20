@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { faCircle, faCircleDot } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from '../../Components/Footer/footer';
-import Header from '../../Components/Headers/HomeHeader/header'
+import Header from '../../Components/Headers/HomeHeader/header';
 import CardPage from '../../Components/Checkout/CardPage/card.page';
 import ShippingPage from '../../Components/Checkout/ShippingPage/shipping.page';
-import './checkout.css'
+import './checkout.css';
 
 interface DestinationInfo {
     destinationId: string
@@ -23,8 +23,13 @@ interface DestinationInfo {
 }
 
 function Checkout(props: DestinationInfo) {
-    const [isShippingSelected, setIsShippingSelected] = useState(true)
-  
+    const [isShippingSelected, setIsShippingSelected] = useState(true);
+    const [isAddressSelected, setIsAddressSelected] = useState(false);
+
+    const handleStateChange = (addressSelected: boolean) => {
+        setIsAddressSelected(addressSelected);
+    };
+
     return (
         <div> 
             <Header />
@@ -46,28 +51,32 @@ function Checkout(props: DestinationInfo) {
                 <div>
                     {isShippingSelected ? (
                         <ShippingPage 
-                        destinationId={props.destinationId}
-                        destinationName={props.name} 
-                        destinationSurname={props.surName} 
-                        phoneNumber={props.phoneNumber} 
-                        cpf={props.cpf} 
-                        cep={props.cpf} 
-                        address={props.address} 
-                        addressNumber={props.addressNumber} 
-                        addressInfo={props.addressInfo} 
-                        neighbourhood={props.neighbourhood} 
-                        city={props.city} 
-                        uf={props.uf} 
-                        handleStateChange={() => setIsShippingSelected(!isShippingSelected)}
+                            destinationId={props.destinationId}
+                            destinationName={props.name} 
+                            destinationSurname={props.surName} 
+                            phoneNumber={props.phoneNumber} 
+                            cpf={props.cpf} 
+                            cep={props.cpf} 
+                            address={props.address} 
+                            addressNumber={props.addressNumber} 
+                            addressInfo={props.addressInfo} 
+                            neighbourhood={props.neighbourhood} 
+                            city={props.city} 
+                            uf={props.uf} 
+                            handleStateChange={handleStateChange}
                         />
                     ) : (
-                        <CardPage />
+                        isAddressSelected ? <CardPage /> : (
+                            <div className="address-warning">
+                                <p>Por favor selecione um endereço de entrega antes de avançar</p>
+                            </div>
+                        )
                     )}
                 </div>
             </div>
             <Footer />
         </div>
-    )
+    );
 }
 
 export default Checkout;
